@@ -7,11 +7,11 @@ En este proyecto se pretende diseñar una agrupación de antenas parche en tecno
 
 **Objetivos concretos
 
-##Calcular las dimensiones del parche para que la antena opere a la frecuencia deseada.
+Calcular las dimensiones del parche para que la antena opere a la frecuencia deseada.
 
-##Diseñar la línea de trasmisión que garantice la adaptación de impedancia.
+Diseñar la línea de trasmisión que garantice la adaptación de impedancia.
 
-##Diseñar el array de varias antenas y sus líneas de excitación específicas para que los parches radien con los diagramas de radiación deseados.
+Diseñar el array de varias antenas y sus líneas de excitación específicas para que los parches radien con los diagramas de radiación deseados.
 
 **Metodología a emplear
 
@@ -40,10 +40,5 @@ Esta plantilla se ha creado después de observar la idea concebida por Pedro Per
 Esta plantilla puede ser divulgada, modificada y compartida libremente. Este proyecto se ha realizado para los alumnos de la Escuela Politécnica Superior de la Universidad de Alicante, esperando facilitar un poco la introducción al trabajo con LaTeX. Se ruega enviar sugerencias de todo tipo, el contenido de la plantilla intenta mostrar un poco de todo lo que se puede hacer con LaTeX, pero si es complejo el uso y así lo indicasen los usuarios se modificará para hacerla más manejable.
 
 
-```
-
-## Contacto (sugerencias, errores, etc)
-Si no deseas publicar en GitHub una sugerencia o algún error encontrado puedes ponerte en contacto conmigo a través de:
-
-* Email: <a href="mailto:info@jmrplens.com">info@jmrplens.com</a>
-* Telegram: <a href="https://t.me/jmrplens">@jmrplens</a>
+**Contacto (sugerencias, errores, etc)
+Si no deseas publicar en GitHub una sugerencia o algún error encontrado puedes ponerte en contacto con @jmrplens desde el fork original: https://github.com/jmrplens/TFG-TFM_EPS
