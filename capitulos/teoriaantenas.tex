@@ -72,3 +72,99 @@
 \\
 \par Aunque se ha analizado el caso de una antena para que funcione como transmisora, el mismo principio de funcionamiento se aplica cuando queremos que esta funcione como receptora de señales. Una \gls{oem} que viaje por el espacio será capaz de hacer oscilar las cargas de una antena receptora cuando su frecuencia y las longitud de la antena estén directamente relacionadas y se produzca la resonancia sobre esta. La diferencia es que a la salida de la antena receptora no tendremos un generador, sino lo que denominaremos como carga, pudiendo ser esta cualquier tipo de componente eléctrico o electrónico que sea capaz de trabajar con las corrientes eléctricas producidas por la fluctuación de cargas eléctricas en el interior de la antena.
 
+\section{Caracterización de antenas}
+\par Para saber qué tipo de antena se puede hacer más conveniente para un uso concreto se ha de tener en cuenta sus características. Las principales características de las antenas son:
+
+\subsection{Polarización}
+\par Como se hizo mención en el \todo{capitulo 1}, las \gls{oem} pueden estar polarizadas. Si se secciona a una \gls{oem} perpendicularmente a su vector de propagación y vemos el dibujo que va formando campo eléctrico en dicha sección conforme pasa el tiempo observaríamos qué tipo de polarización tiene la \gls{oem}. Las tres polarizaciones más comunes son: Lineal, circular y elíptica.
+
+\begin{itemize}
+\item\textbf{Polarización lineal: }Cuando se observa que la figura trazada por el campo eléctrico es una recta, se dirá que esta está polarizada linealmente. Analíticamente se producirá polarización lineal cuando las fases de las componentes ortogonales del campo eléctrico difieran en un múltiplo entero de $\pi$ radianes. La variación temporal de los campos eléctricos con polarización lineal se puede representar fasorialmente como:
+\begin{equation}
+	\vec{E} = \hat{x}e^{^{j(\omega t-kz)}}
+	\label{eq:pollineal}
+\end{equation}
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=6cm]{archivos/polarizacion/lineal}
+        \caption{Onda electromagnética polarizada linealmente}
+        \label{fig:pollin}
+\end{figure}
+\item\textbf{Polarización circular: }Cuando se observa que la figura trazada por el campo eléctrico es un círculo, se dirá que esta está polarizada circularmente. Analíticamente se producirá polarización circular cuando las fases de las componentes ortogonales del campo eléctrico sean $\pi$/2 o 3$\pi$/2 y las amplitudes sean iguales. La variación temporal de los campos eléctricos con polarización circular se puede representar fasorialmente como:
+
+\begin{subequations}
+	\begin{eqnarray}
+		\vec{E} = (\hat{x}+j\hat{y})e^{^{j(\omega t-kz)}} \label{ecu:polcirlev} \\ % Salto de línea
+		\vec{E} = (\hat{x}-j\hat{y})e^{^{j(\omega t-kz)}} \label{ecu:polcirdex} 
+	\end{eqnarray}
+\end{subequations}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=6cm]{archivos/polarizacion/circular}
+        \caption{Onda electromagnética polarizada circularmente}
+        \label{fig:polcir}
+\end{figure}
+
+En este caso el signo que se encuentra en el interior de la suma de componentes indicará el sentido de giro en la polarización circular: Positivo será una rotación levógira y negativo una rotación dextrógira.
+
+\item\textbf{Polarización elíptica: }Cuando se observa que la figura trazada por el campo eléctrico es una elipse, se dirá que esta está polarizada elípticamente. El resto de casos en los que la polarización no sea ni circular ni lineal serán polarizaciónes elípticas. La variación temporal de los campos eléctricos con polarización elíptica se puede representar fasorialmente como:
+
+\begin{equation}
+	\vec{E} = ((2+j)\hat{x}-3j\hat{y})e^{^{j(\omega t-kz)}}
+	\label{eq:polelip}
+\end{equation}
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=6cm]{archivos/polarizacion/eliptica}
+        \caption{Onda electromagnética polarizada elípticamente}
+        \label{fig:poleli}
+\end{figure}
+
+\end{itemize}
+
+\par En las ámbito de las radiocomunicaciones y en concreto de la telefonía móvil, la polarización más común en la que se emiten y reciben las \gls{oem} es la lineal-vertical. En otros casos como la transmisión de televisión se uriliza polarización lineal-horizontal. En comunicaciones vía satélite se alternan las polarizaciones lineales horizontales y verticales para reducir la interferencia entre señales que transmiten en el mismo rango de frecuencias.
+\\
+\par Se ha de tener en cuenta que cada antena se diseña para trabajar con una polarización concreta y las señales recibidas cuya polarización sea distinta a esta serán atenuadas debido al \textit{factor de pérdidas por polarización} ($C_{p}$):
+
+\begin{equation}
+	C_{p}=\left | \hat{u}_{tx}\cdot \hat{u}_{rx} \right |
+	\label{eq:polarizationlossfactor}
+\end{equation}
+
+\par Donde $\hat{u}_{tx}$ es el vector unitario del campo eléctrico incidente y $\hat{u}_{rx}$ es el vector unitario del campo eléctrico de la antena receptora. 
+
+\subsection{Impedancia}
+
+\par Cualquier antenas se puede expresar como una carga en un circuito eléctrico, lo que facilita su análisis de impedancias, potencias y adaptación (fig. \ref{fig:impedancia}). Existen varios parámetros de impedancia que caracterizan a la antena. Por lo general, teniendo en cuenta la \textit{Ley de Ohm}, se define la impedancia de una antena como la relación entre la tensión y la corriente en los bornes de esta. 
+
+\begin{equation}
+	Z_{a}=\frac{V_{i}}{I_{i}}=R_{a}+jX_{a}
+	\label{eq:impendaciaantena}
+\end{equation}
+
+\par Donde $R_{a}$ es la componente real u óhmica de la impedancia y $jX_{a}$ es la parte imaginaria o reactiva de la impedancia. La componente real puede ser a su vez descompuesta en dos términos: La resistencia de radiación y la resistencia óhmica o de pérdidas. La resistencia de radiación se define como la relación entre la potencia total radiada y la corriente eficaz en los terminales de la antena al cuadrado. La resistencia ohmica de la antena se define como la relación entre la potencia disipada debido a las pérdidas resistivas y la corriente que circula por sus terminales al cuadrado. Por otro lado la parte reactiva de la impedancia dependerá de sus dimensiones, la frecuencia de resonancia o el tipo de antena que estemos usando.
+
+\begin{equation}
+	Z_{a}=(R_{r}+R_{\Omega})+jX_{a}
+	\label{eq:impendaciaantenatotal}
+\end{equation}
+
+\par Si se analizan las potencias según el tipo de resistencia, de radiación y óhmica, se obtiene que:
+
+\begin{subequations}
+	\begin{eqnarray}
+		P_{r}=\frac{1}{2}\left | I_{o}  \right |^{2}R_{r} \label{ecu:potenciarad} \\ % Salto de línea
+		P_{\Omega}=\frac{1}{2}\left | I_{o}  \right |^{2}R_{\Omega} \label{ecu:potenciaohm} 
+	\end{eqnarray}
+\end{subequations}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/impedancia}
+        \caption{Circuito equivalente de una antena transmisora}
+        \label{fig:impedancia}
+\end{figure}
+
+
+
