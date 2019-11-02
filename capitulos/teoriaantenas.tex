@@ -166,5 +166,105 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
         \label{fig:impedancia}
 \end{figure}
 
+\subsection{Diagrama de Radiación}
+
+\par El diagrama de radiación es usado para representar gráficamente las propiedades de la radiación de una antena en un función de unas coordenadas angulares espacias, a una distancia fija. Para su representación se usan coordenadas esféricas o polares. Es una manera muy efectiva de conocer en qué direcciones concentra su radiación nuestra antena así como posibles radiaciones no deseadas que puedan existir un diseño particular. Para representar sobre un plano polar el diagrama de radiación aplicaremos la siguiente ecuación:
+
+\begin{equation}
+	t(\theta, \phi )=\frac{\left | E(r, \theta, \phi ) \right |^2}{\left | E_{max}(r) \right |^2}= \frac{P(r,\theta ,\phi)}{P_{max}(r)}
+	\label{eq:diagramarad}
+\end{equation}
+
+\par El consistir en un plano de dos dimensiones: Angulo de radiación ($\theta$) e intensidad de radiación (t($\theta $, $\phi $)), debemos tener en cuenta que solo obtendremos el diagrama de radiación para un solo ángulo de transmisión de la antena. Es mediante el ángulo $\phi $ con el que podremos ir variando los resultados en el diagrama de radiación para poder observar como se propaga la antena en diferentes planos como son comúnmente el plano E y H (fig. \ref{fig:pattern}).
+
+\begin{itemize}
+\item \textbf{Plano E: }Es el plano donde podemos encontrar el vector del campo eléctrico y su dirección de máxima radiación (XZ). Este plano se encuentra en $\phi $ = 0º. 
+
+\item \textbf{Plano E: }Es el plano donde podemos encontrar el vector del campo magnético y su dirección de máxima radiación (XY). Este plano se encuentra en $\phi $ = 90º.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/radiacion/pattern}
+        \caption{Ejemplo de patrones de radiación en los planos E y H para antena dipolo}
+        \label{fig:pattern}
+\end{figure}
+
+\par Existen ciertos parámetros que caracterizan a una antena que pueden ser localizados y calculados con facilidad gracias al diagrama de radiación tanto en coordenadas polares como en cartesianas (fig. \ref{fig:carte}). Estos parámetros son:
+
+\begin{itemize}
+
+\item \textbf{Lóbulos: }Son los haces de radiación. Se dividen en:
+	\begin{itemize}
+	\item \textbf{Lóbulo principal: }Se define siempre como la dirección de máxima radiación, siendo este siempre el haz con mayor intensidad de radiación.
+	\item \textbf{Lóbulos secundarios: }Son los primeros haces de menor intensidad que aparecen en los laterales del lóbulo principal. 
+	\item \textbf{Lóbulos menores: }Son el resto de haces de radiación los cuales son, normalmente, indeseados. Cuanto más directiva sea la antena, mayor será su número. 
+	\item \textbf{Lóbulos trasero: }Es el haz de radiación que encontraremos siempre a 180º respecto al lóbulo principal. Normalmente, suele ser indeseado y su presencia puede producir interferencia con otras antenas del entorno así como una menor eficiencia para el propósito de nuestra antena.
+	\end{itemize}	
+
+\item \textbf{Ancho de haz a -3dB (HPBW)}: Se define como el ángulo recorrido por el lóbulo principal desde sus dos pasadas por -3dB de potencia, es decir, la mitad de la potencia máxima radiada. 
+
+\item \textbf{Ancho de haz entre nulos (FNBW)}: Ángulo recorrido desde los dos nulos localizados a los laterales del lóbulo principal.
+
+\item \textbf{Nivel de lóbulos laterales (SLL)}: Se define como la diferencia de niveles entre el nivel del lóbulo principal y el primer lóbulo secundario.
+
+\item \textbf{Relación delante/atras (F/B)}: Diferencia de niveles entre el lóbulo principal y el trasero: 
+
+\begin{equation}
+	F/B(dB)=-10\log_{10}t(\theta+180^{\circ})
+	\label{eq:fb}
+\end{equation}
+
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/radiacion/pat3}
+        \caption{Comparación de los parámetros del diagrama de radiación en planos cartesianos y polares}
+        \label{fig:carte}
+\end{figure}
+
+\par Los patrones principales de radiación son:
+
+\begin{itemize}
+\item \textbf{Isotrópico: }La radiación de la antena fluye en todas las direcciones del espacio. Esta antena es completamente teórica ya que es imposible simular su patrón de directividad en una antena real. Se tiene como referencia para el cálculo de directividad de una antena.
+\item \textbf{Omnidireccional: }Se dice que la antena es omnidireccional cuando el patrón de radiación es simétrico y equidistante en todos los ángulos del plano para uno o varios planos de radiación.
+\item \textbf{Directiva: }Una antena es directiva cuando uno o varios de sus haces destacan sobre los demás. Esto puede ocurrir de manera intencionada, donde buscamos que el haz apunte hacia una dirección concreta, ej: Radioenlaces. O involuntariamente, cuando por ejemplo, tenemos lóbulos traseros o secundarios de bastante intensidad radiando a la vez que el principal. 
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/radiacion/patrones}
+        \caption{Principales patrones de radiación}
+        \label{fig:carte}
+\end{figure}
+
+\subsection{Directividad}
+
+\par La directividad de una antena se define como la relación entre la intensidad de potencia de radiación en una dirección y distancia concretas, y la misma potencia radiada en caso de que la antena fuera isotrópica, es decir, cuya potencia radiada sea igual en todas las direcciones del espacio (eq. \ref{eq:directividad}). Este parámetro es muy importante para caracterizar la antena ya que nos representa la capacidad de una antena para concentrar la intensidad de radiación en una dirección determinada. Es posible obtener analíticamente el valor de directividad para un ángulo completo en el plano polar mediante:
+
+\begin{equation}
+	D(\theta, \phi )=\frac{P(r,\theta ,\phi)}{P_{iso}}= \frac{P(r,\theta ,\phi)}{\frac{W_{rad}}{4\pi r^{2}}}
+	\label{eq:directividad}
+\end{equation}
+
+\par Si nos fijamos en el patrón de radiación de una antena, se dirá que esta es más directiva cuanto mayor sea el nivel de intensidad de un haz así como menor sea la anchura del mismo. Para el caso de las antenas directivas (D > 20dB), se puede obtener una directividad considerando que la radiación es uniforme sobre el ángulo sólido definido sobre el HPBW (Ancho de haz a -3dB) mediante la aproximación:
+
+\begin{equation}
+	D=\frac{4\pi}{\Delta \theta _{-3dB} \Delta \phi _{-3dB}}
+	\label{eq:directividadaprox}
+\end{equation}
+
+\subsection{Ganancia}
+
+\par La ganancia de una antena se define como la relación entre la intensidad radiada en una dirección concreta y la intensidad de radiación que se recibiría en caso de que la antena fuera isotrópica (eq. \ref{eq:ganancia}). Este parámetro se relaciona proporcionalmente con la directividad mediante la eficiencia de transmisión de la antena.(eq. \ref{eq:ganaciadirect})
+
+
+\begin{subequations}
+	\begin{eqnarray}
+		G(\theta, \phi)=\frac{P(r,\theta, \phi)}{\frac{W_{ent}}{4\pi r^2}} \label{eq:ganancia} \\ % Salto de línea
+		G(\theta, \phi)=\eta_{t} D(\theta, \phi) \label{eq:ganaciadirect}
+	\end{eqnarray}
+\end{subequations}
 
 
