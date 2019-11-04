@@ -166,6 +166,8 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
         \label{fig:impedancia}
 \end{figure}
 
+\par Otro concepto importante es la denominada adaptación de impedancias. Para que las pérdidas de la antena sean mínimas y conseguir así una máxima transferencia de potencia entre las líneas de transmisión y la antena es importante que las impedancias de cada sistema conectado sean iguales. Cuando las impedancias de nuestros circuitos difieren se pueden producir réplicas o ecos que se reflejan en el sistema entrante e interfieren con la señal que intenta propagarse por la línea de transmisión. Para solucionarlo se debe recurrir a métodos de adaptación como transformadores $\lambda$/4 o circuitos en serie o stub.
+
 \subsection{Diagrama de Radiación}
 
 \par El diagrama de radiación es usado para representar gráficamente las propiedades de la radiación de una antena en un función de unas coordenadas angulares espacias, a una distancia fija. Para su representación se usan coordenadas esféricas o polares. Es una manera muy efectiva de conocer en qué direcciones concentra su radiación nuestra antena así como posibles radiaciones no deseadas que puedan existir un diseño particular. Para representar sobre un plano polar el diagrama de radiación aplicaremos la siguiente ecuación:
@@ -266,5 +268,58 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 		G(\theta, \phi)=\eta_{t} D(\theta, \phi) \label{eq:ganaciadirect}
 	\end{eqnarray}
 \end{subequations}
+
+\par Es importante distinguir la diferencia entre directividad y ganancia. Cuando se trabaja con directividad, se hace referencia a la potencia que está radiando la antena, por otro lado, con la ganancia se hace referencia a la potencia entregada a la antena. Esta diferencia viene marcada por la eficiencia.
+
+\subsection{Eficiencia}
+
+\par La eficiencia de una antena se define como la relación entre la potencia radiada por la antena y la potencia entregada a esta (eq. \ref{eq:eficiencia}). Es un factor clave para caracterizar las perdidas óhmicas de las antenas. Como se ha mencionado anteriormente, la eficiencia también relaciona los conceptos de ganancia y directividad.
+
+\begin{equation}
+	\eta = \frac{W_{rad}}{W_{ent}}= \frac{G}{D}
+	\label{eq:eficiencia}
+\end{equation}
+
+\par Las pérdidas sufridas por una antena pueden ser debidas a una mala adaptación entre el medio guiado y radiado, desacoplamientos, y otro tipo de pérdidas durante la conducción, externas a la antena. Se puede también definir un parámetro de eficiencia global en el que se introduzca el coeficiente de desadaptación de impedancias (eq. \ref{eq:eficienciaglobal}):
+
+\begin{equation}
+	\eta _{t}=\eta _{r}(1-\left | \rho  \right |^2)
+	\label{eq:eficienciaglobal}
+\end{equation}
+
+\section{Tipos de antenas}
+
+\par En la práctica existen una gran variedad de tipos de antenas disponibles en el mercado, cada una de ellas es más conveniente según la aplicación para la que vaya a ser usada. Los parámetros descritos anteriormente serán fundamentales para diferenciar los tipos de antenas disponibles y saber identificar cual se adapta mejor a unas necesidades específicas. A continuación se mencionaran los tipos de antenas más comunes así como una breve descripción, resumen de las características principales y usos más comunes.
+
+\subsection{Antena dipolo}
+
+\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, con directividades entre los 1dB y 4dB. Según cómo de largo sean los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan la mitad de la longitud de onda. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole).
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=12cm]{archivos/dipolo/dipoloo}
+        \caption{Conjunto de antenas dipolo}
+        \label{fig:conjuntodipolo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/dipolo/radiaciones}
+        \caption{Diagramas de radiación del dipolo según su longitud}
+        \label{fig:diagramadipolo}
+\end{figure}
+
+\par En su interior, a la frecuencia de resonancia, la distribución de corrientes muestra nulos en los extremos y un vientre en el centro y su polarización dependerá de la perspectiva según la localización del plano de masa: Si el campo eléctrico es perpendicular al plano de masa se observará una polarización lineal vertical, mientras que si se sitúa paralelo, se obtendrá una polarización lineal horizontal. La impedancia de estas antenas suele situarse sobre los 73$\Omega$.
+\\
+\par En la práctica, podemos encontrar derivaciones del dipolo según el caso de uso específico. La más famosa es la conocida como Antena Yagi (fig. \ref{fig:yagi}), inventada por \textit{Hidetsugu Yagi} y \textit{Shintaro Uda} en la cual un se agrupan un conjunto de elementos parásitos aumentando así la directividad y el ancho de banda de la antena. Esta antena se compone de tres partes principales: Los elementos directores, los reflectores y el dipolo. Los elementos directores son los encargados de incrementar la intensidad del campo en su dirección y reducirlas hacia el lado del reflector, por otro lado el reflector es el encargado de concentrar la radación incidente en el dipolo. Estos elementos parásitos no se conectana  ninguna línea de transmisión sino que funcionan a traves de inducción electromagnética mutua. En las antenas Yagi la ganancia puede llegar hasta los 40 dB por lo que es comúnmente usada para la recepción de transmisiones de \gls{tdt} y radio de \gls{fm} en hogares situados en las lejanías del repetidor local.
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=12cm]{archivos/dipolo/yagi}
+        \caption{Antena Yagi}
+        \label{fig:yagi}
+\end{figure}
+
+
 
 
