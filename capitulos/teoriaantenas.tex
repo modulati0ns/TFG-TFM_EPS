@@ -287,6 +287,29 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 	\label{eq:eficienciaglobal}
 \end{equation}
 
+\subsection{Ancho de banda y pérdidas de retorno}
+
+\par El ancho de banda de la antena es el rango de frecuencias del espectro electromagnético para los que se cumplen las características anteriormente mencionadas en las antenas: Radiación, directividad, impedancia, eficiencia, etc. 
+
+\begin{equation}
+	BW=f_{2}-f_{1}
+	\label{eq:anchodebanda}
+\end{equation}
+
+\par Las pérdidas de retorno de una antena o parámetros S (Scattering parameter) definen la relación entre los puertos de entrada y salida del sistema. Un puerto se describe como el lugar en el que se entrega energía en forma de voltaje o corriente. En un sistema de comunicación radio transmisor, compuesto por una línea de transmisión, que provee de energía a una antena, el parámetro principal que describe la capacidad de transmisión de la antena es el parámetro S11. Este parámetro indica cuanta de la energía proporcionada a la antena esta siendo devuelta por esta a la linea de transmisión. Cuanto menor sea este parámetro mejor será nuestro sistema de comunicaciones puesto que significará que la mayor parte de la energía transmitida por el medio guiado habrá sido transmitida por la antena al medio radiado. 
+\\
+\par A la hora de realizar este estudio, el parámetro S11 ha sido el determinante para determinar la calidad de la antena así como para definir su ancho de banda, ya que se ha definido el ancho de banda de las antenas diseñadas como el rango de frecuencias abarcado por el gráfico del parámetro S11 cuando este está por debajo de los 10dB (fig. \ref{fig:S}).
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=12cm]{archivos/S}
+        \caption{Representación gráfica de curva de parámetro S y ancho de banda de la antena}
+        \label{fig:S}
+\end{figure}
+
+\par Además, dentro del rango de ancho de banda de la antena, se encontrará el mínimo de la curva del parámetro S. Este mínimo se definirá como la frecuencia de trabajo de la antena e intentaremos centrarlo siempre según las necesidades de nuestro diseño.
+
+
 \section{Tipos de antenas}
 
 \par En la práctica existen una gran variedad de tipos de antenas disponibles en el mercado, cada una de ellas es más conveniente según la aplicación para la que vaya a ser usada. Los parámetros descritos anteriormente serán fundamentales para diferenciar los tipos de antenas disponibles y saber identificar cual se adapta mejor a unas necesidades específicas. A continuación se mencionaran los tipos de antenas más comunes así como una breve descripción, resumen de las características principales y usos más comunes.
