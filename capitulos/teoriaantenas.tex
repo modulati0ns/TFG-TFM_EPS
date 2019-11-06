@@ -314,13 +314,14 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 
 \par En la práctica existen una gran variedad de tipos de antenas disponibles en el mercado, cada una de ellas es más conveniente según la aplicación para la que vaya a ser usada. Los parámetros descritos anteriormente serán fundamentales para diferenciar los tipos de antenas disponibles y saber identificar cual se adapta mejor a unas necesidades específicas. A continuación se mencionaran los tipos de antenas más comunes así como una breve descripción, resumen de las características principales y usos más comunes.
 
-\subsection{Antena dipolo}
+\subsection{Antenas de hilo}
+\subsubsection{Antena dipolo}
 
-\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, con directividades entre los 1dB y 4dB. Según cómo de largo sean los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan la mitad de la longitud de onda. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole).
-
+\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, obteniendo así un patrón de radiación tridimensional con forma toroidal cuyo radio interno es el diametro de los extremos del dipolo y con directividades entre los 1dB y 4dB. Según la longitud de los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan en conjunto la mitad de la longitud de onda a la que se necesite emitir. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole).
+\\
 \begin{figure}[h]
     \centering
-        \includegraphics[width=12cm]{archivos/dipolo/dipoloo}
+        \includegraphics[width=10cm]{archivos/dipolo/dipoloo}
         \caption{Conjunto de antenas dipolo}
         \label{fig:conjuntodipolo}
 \end{figure}
@@ -334,15 +335,112 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 
 \par En su interior, a la frecuencia de resonancia, la distribución de corrientes muestra nulos en los extremos y un vientre en el centro y su polarización dependerá de la perspectiva según la localización del plano de masa: Si el campo eléctrico es perpendicular al plano de masa se observará una polarización lineal vertical, mientras que si se sitúa paralelo, se obtendrá una polarización lineal horizontal. La impedancia de estas antenas suele situarse sobre los 73$\Omega$.
 \\
-\par En la práctica, podemos encontrar derivaciones del dipolo según el caso de uso específico. La más famosa es la conocida como Antena Yagi (fig. \ref{fig:yagi}), inventada por \textit{Hidetsugu Yagi} y \textit{Shintaro Uda} en la cual un se agrupan un conjunto de elementos parásitos aumentando así la directividad y el ancho de banda de la antena. Esta antena se compone de tres partes principales: Los elementos directores, los reflectores y el dipolo. Los elementos directores son los encargados de incrementar la intensidad del campo en su dirección y reducirlas hacia el lado del reflector, por otro lado el reflector es el encargado de concentrar la radación incidente en el dipolo. Estos elementos parásitos no se conectana  ninguna línea de transmisión sino que funcionan a traves de inducción electromagnética mutua. En las antenas Yagi la ganancia puede llegar hasta los 40 dB por lo que es comúnmente usada para la recepción de transmisiones de \gls{tdt} y radio de \gls{fm} en hogares situados en las lejanías del repetidor local.
+\par En la práctica, podemos encontrar derivaciones del dipolo según el caso de uso específico. Las modificaciones más usadas son:
+
+\subsubsection{Antena Yagi-Uda}
+
+La Antena Yagi-Uda (fig. \ref{fig:yagi}), inventada por \textit{Hidetsugu Yagi} y \textit{Shintaro Uda} en la cual un se agrupan un conjunto de elementos parásitos aumentando así la directividad y el ancho de banda de la antena. Esta antena se compone de tres partes principales: Los elementos directores, los reflectores y el dipolo. Los elementos directores son los encargados de incrementar la intensidad del campo en su dirección y reducirlas hacia el lado del reflector, por otro lado el reflector es el encargado de concentrar la radiación incidente en el dipolo. 
+\\
+\par Estos elementos parásitos no se conectan a  ninguna línea de transmisión sino que funcionan a través de inducción electromagnética mutua. En las antenas Yagi la ganancia puede llegar hasta los 40 dB por lo que es comúnmente usada para la recepción de transmisiones de \gls{tdt} y radio de \gls{fm} en hogares situados en las lejanías del repetidor local.
+
+
+
+\begin{figure}[h]
+\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+    \centering
+        \includegraphics[width=6cm]{archivos/dipolo/yagi}
+        \caption{Antena Yagi para recepción de TDT}
+        \label{fig:yagi}
+	\end{subfigure}
+~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
+	\begin{subfigure}[b]{0.5\textwidth} % Espacio horizontal ocupado por la subfigura
+	\centering
+		\includegraphics[width=6cm]{archivos/yagipat} % Tamaño de la imagen
+		\caption{Diagrama de radiación común de antena yagi}
+		\label{fig:yagirad}
+	\end{subfigure}
+\caption{Antenas Yagi}\label{fig:yagis}
+\end{figure}
+
+\subsubsection{Monopolo}
+
+\par Otra variación conocida del dipolo es el monopolo, antena de Marconi o antena de cuarto de onda. En el, obviamos uno de los extremos del dipolo y lo sustituimos por un plano de masa lo cual hará la simulación electromagnética del extremo anulado del dipolo (fig. \ref{fig:monopolo}). El concepto original de Marconi para el monopolo se basaba en un cable de cuya longitud fuera un cuarto de la longitud de onda a la que se iba a transmitir ($\lambda$/4) situada sobre un plano de tierra que actuase como espejo electromagnético, obteniendo así una recreación de un dipolo de media onda.
+\\
+\par A efectos prácticos, obtendremos un dipolo de media onda con una impedancia igual a la mitad del dipolo original. El diagrama de radiación contendrá solo la parte superior del toroide obtenido en el dipolo pero con el doble de intensidad de radiación que en este, es decir, con una ganancia 3dB mayor (fig. \ref{fig:monopolorad}).
+\\
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=14cm]{archivos/monopolo/monoesquema}
+        \caption{Esquema de instalación de un monopolo}
+        \label{fig:monopolo}
+\end{figure}
+
+\par La polarización de la antena será siempre lineal vertical, puesto que el plano de masa comúnmente usado está instalado sobre el suelo terrestre. Esta masa debe ser buena conductora ya que es de vital importancia para la correcta reflexión de las \gls{oem} procedentes del extremo radiante. Estas antenas suelen ser instaladas sobre los techos de barcos, donde el agua actúa sobre una perfecta masa conductora, o sobre el techo de los coches, que al ser metálico, también ayuda a la correcta reflexión de las \gls{oem}. 
+\\
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=14cm]{archivos/monopolo/fig3}
+        \caption{Diagrama de radiación 3D de un monopolo}
+        \label{fig:monopolorad}
+\end{figure}
+
+\par En caso de que la antena se instale sobre superficies no conductoras, existen distintas alternativas como humedecer la tierra o instalar radios conductores. Los radios son tiras metálicas dispuestas concentricamente al rededor del monopolo. Cuanto mayor sea la longitud de las tiras, mejor simulación del dipolo obtendremos. Unas tiras muy pequeñas resultaran en un diagrama de radiación muy separado del suelo.
+\\
+\par La ventaja principal de estas antenas es la reducción a la mitad de la longitud necesaria para el funcionamiento de la antena. En situaciones como las antenas de los coches, barcos o aviones, es importante reducir al máximo la longitud de las antenas para que no afecten al uso del vehículo. Otro uso muy importante es para la baja frecuencia, por ejemplo, en transmisiones de \gls{am}, donde la frecuencia de transmisión ronda entre los 500 y 900 KHz, la longitud de la antena dipolo de media onda necesaria para la retransmisión sería de entre 100 y 200 metros, mientras que con el monopolo, estas distancias se reducen a la mitad, facilitando su construcción, instalación y mantenimiento (fig. \ref{fig:monopoloam}).
 
 \begin{figure}[h]
     \centering
-        \includegraphics[width=12cm]{archivos/dipolo/yagi}
-        \caption{Antena Yagi}
-        \label{fig:yagi}
+        \includegraphics[width=9cm]{archivos/monopolo/monopolo}
+        \caption{Monopolo para transmisión de AM}
+        \label{fig:monopoloam}
 \end{figure}
 
+\subsection{Antenas de apertura}
+\subsubsection{Bocinas}
 
+\par Las antenas de tipo bocina se caracterizan por su forma cónica o rectangular parecida a la de un altavoz. Su uso se remonta a finales del año 1800, pero este tipo de antenas adquirió popularidad durante la segunda guerra mundial (fig. \ref{fig:horn}). La diferencia de estas antenas con respecto a las antenas de tipo cable es que estas son alimentadas mediante una guía de onda. Una guía de onda es una estructura física capaz de transportar modos electromagnéticos en su interior. Suelen usarse para la guiado de emisiones de alta frecuencia, más en concreto de microondas debido a su baja atenuación en estas magnitudes. En el interior de las guías de ondas, las \gls{oem} viajan confinadas de modo que no hay pérdidas por radiación en el espacio y se consiguen evitar las interferencias electromagnéticas externas durante su guiado.
+\\
+\par Por lo general, las bocinas son usadas para la radiación de microondas y tienen un papel importante en campos como la radio astronomía o seguimiento satelital, además de ser usado junto a otros elementos como reflectores o lentes y sirven como estándar universal para la calibración de antenas de alta ganancia. En el caso de las bocinas piramidales, las dimensiones de los lados de la apertura definen qué plano de radiación es más efectivo en la antena. Si la longitud mayor es la del plano horizontal se denominarán bocinas de plano H, y en el plano vertical, bocinas de plano E. El modo de propagación siempre es el \gls{te} 10. En el caso en el que la bocina sea circular, el modo de propagación será el TE11.
+\\
+\par La directividad de este tipo de antenas es una de sus principales ventajas siendo esta muy moldeable solo variando las dimensiones de la apertura de la bocina. Su principal desventaja llega en su eficiencia, que suele rondar entre el 50\% y el 60\%.
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=12cm]{archivos/horn}
+        \caption{Bocina para comunicación satelital construida en 1959 por los laboratorios Bell}
+        \label{fig:horn}
+\end{figure}
+
+\subsubsection{Reflectores}
+
+\par Las antenas reflectoras han sido usadas desde el descubrimiento de la propagación electromagnética en 1888 por \textit{Hertz}, quien realizó sus primeros experimentos con reflectores en forma de cilindro parabólico. Durante el perido de la segunda querra mundial, este tipo de antenas fueron estudiadas para numerosas aplicaciones radar. Con el paso del tiempo, este tipo de antena son muy comunes en ámbitos como la radio astronomía, comunicaciones por microondas, y seguimiento satelital. Aunque los reflectores puedan tomar cualquier forma, es común observarlos en formas planas, cónicas o curvas, en especial en forma parabólica. 
+\\
+\par Aunque los reflectores se puedan diseñar y analizar mediante técnicas del campo de la óptica como la óptica geométrica y el trazado de rayos, lo más común es usar la teoría geométrica de la difracción o \gls{gtd}. Cada tipo de reflector nos brindará una serie de características diferentes a la antena que pueden ser convenientes según el uso final de esta, como el área efectiva de radiación, la relación delante/atrás, o los diagramas de radiación y ganancias.
+\\
+\par En la actualidad uno de las superficies reflectoras más usada es la curva parabólica, o como se conoce popularmente, antena parabólica. Esta antena se caracteriza por su superficie reflectora, una parábola de revolución. Lo interesante de esta geometría es su capacidad de concentración de los haces electromagnéticos sobre el foco de la parábola. Existen distintos tipos de antenas parabólicas según el diseño de la posición del foco respecto a la superficie reflectora:
+
+\begin{itemize}
+	\item \textbf{Parabólica de foco centrado: }La superficie reflectora es parabólica y el alimentador esta sobre el foco.
+	\item \textbf{Parabólica off-set: }La superficie reflectora es una sección del reflector parabólico normal y se encuentra desplazado con respecto al foco. Este variación de antenas parabólicas son más eficientes que las de foco centrado puesto que el alimentador no hace sombra sobre la superficie reflectora
+	\item \textbf{Parabólica Cassegrain: }En esta variación, encontramos dos superficies reflectoras: Una superficie parabólica cóncava y una superficie hiperbólica convexa. Con este sistema se consigue un alto nivel de ganancia, lo que lo hace útil para aplicaciones astronómicas.
+\end{itemize}
+
+\par Por lo general, este tipo de antenas se caracterizan por su patrón de radiación, en donde la mayor parte de la energía radiada se concentra sobre un lóbulo principal estrecho. La potencia restante se disipa en forma de lóbulos secundarios en otras direcciones. Además, podemos encontrar un lóbulo trasero debido al efecto spillover, es decir, la parte de la radiación procedente del alimentador que sobresale al reflector, el cual puede ser reducido añadiendo material capaz de absorber microondas o aumentando el tamaño del reflector. 
+
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=12cm]{archivos/parab}
+        \caption{Antena parabólica del IRAM en Sierra Nevada, parte del proyecto Event Horizon para capturar la primera fotografía de un agujero negro}
+        \label{fig:parabolica}
+\end{figure}
+
+\par En la actualidad podemos encontrar este tipo de antenas comúnmente en balcones y tejados en los edificios de las ciudades puesto que durante décadas este tipo de antenas han sido usadas para la recepción de televisión por satélite. También son muy usadas para radio enlaces, ofreciendo servicios de internet WiMax, operadores VoIP o comunicaciones rurales. Finalmente, otra de las aplicaciones más importantes de los reflectores parabólicos se encuentra en la radio astronomía, donde estas antenas son instaladas en conjunto formando arrays. 
+\\
+\par Un array de antenas es un conjunto de estas diseñadas para trabajar de forma conjunta y así obtener resultados que con una sola antena sería imposible de conseguir. El último ejemplo más destacado lo encontramos con la fotografía del primer agujero negro por parte del proyecto \textit{Event Horizon Telescope}. En este proyecto se usaron varios radio telescopios instalados en distintas partes del mundo como el Alfonso Serrano en Mexico, el South Pole Telescope en el Polo Sur, el James Clerk Maxwell Telescope en Hawai o el \gls{iram} (fig. \ref{fig:parabolica}) 30-m en España. La finalidad de la utilización de estos telescopios es la de actuar como un solo radio telescopio cuyo diámetro sería imposible de alcanzar mediante uno solo.
+
+\subsection{Antenas Microstrip}
+
+\par Las antenas microstrip son una extension de las lineas de transmisión por tecnología microstrip cuyo extremo queda abierto y con unas dimensiones específicas de forma que el parche disipe energía en forma de radiación. Este tipo de antenas serán las utilizadas para el desarrollo de este estudio debido a sus características de construcción y sus capacidades técnicas y serán analizadas a fondo en el \todo{capitulo x}. 
 
 
