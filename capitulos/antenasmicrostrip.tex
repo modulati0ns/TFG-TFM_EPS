@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Escuela Politécnica Superior de la Universidad de Alicante
+% Realizado por: Jose Manuel Requena Plens
+% Contacto: info@jmrplens.com / Telegram:@jmrplens
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Antenas Microstrip}
+\label{antenasmicrostrip}
+
+\section{Introducción}
+\par Las antenas de parche o antenas microstrip son un tipo de antenas de tipo planar que utilizan la tecnología microstrip para su funcionamiento. En el año 1953 \textit{G. A. Deschamps} y \textit{W. Sichak} presentaron ante el Tercer Simposio sobre Investigación y Desarrollo de Antenas organizado por las Fuerzas Aéreas de los Estados Unidos su trabajo "Microstrip Microwave Antennas" (Antenas de Microondas Microstrips), lo que se considera como el primer \textit{paper} sobre este tipo de antenas, pero no fue hasta dos décadas más tarde, en 1970 cuando, gracias al desarrollo de los \gls{pcb}, se pudieron empezar a realizar los primeros desarrollos de líneas de transmisión y antenas con tecnología microstrip. Desde entonces, las antenas microstrip se han convertido en uno de los tipos de antena más usado para un alto abanico de aplicaciones. 
+\\
+\par Entre sus principales ventajas se encuentra su delgadez y capacidad de adaptación a distintos tipos de superficies, incluso pudiendo ser conformadas en superficies curvas y no planares. Además son antenas simples, muy ligeras, fáciles de diseñar, con un coste de producción bajo, fáciles de transportar, y preparadas para ser integradas en arrays. Por estas razones, los circuitos y antenas microstrip son comúnmente usados para la fabricación de circuitos monolíticos integrados para microondas (MMICs) en aplicaciones civiles, militares, gubernamentales y comerciales como identificación por radio frecuencia (RFID), retransmisión de radio, sistemas de comunicaciones móviles, \gls{gps}, televisión, comunicaciones satelitales (fig. \ref{fig:satgalileo}), sistemas de vigilancia, radar, y guiado de misiles entre otros. 
+\\
+\par Por otra parte, las antenas microstrip son muy versátiles en términos de resonancia y polarización, con obtención de buenos patrones de radiación y fácil adaptación de impedancias. Si además sumamos al circuito elementos adaptativos como diodos varicap, se pueden llegar a diseñar antenas microstrip con frecuencias, impedancias, y patrones de radiación variables. En contra, el uso de antenas microstrip conlleva ciertas limitaciones como su alto factor de calidad (Q), necesidad de limitar la potencia que atraviesa el circuito, baja eficiencia, baja pureza de polarización y ancho de banda limitado. En ciertas aplicaciones, estas limitaciones pueden ser usadas a favor, como el hecho de tener bajos anchos de banda puede ser deseado a la hora de usar las antenas microstrip en aplicaciones de seguridad gubernamental puesto que se limita el rango de penetración externa por parte de posibles atacantes.
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/sate}
+        \caption{Satélite IOV Galileo}
+        \label{fig:satgalileo}
+\end{figure}
+
+\section{Características básicas}
+
+\par Las antenas microstrip están formadas por tres elementos básicos: Una capa conductora muy fina, hasta tres órdenes de magnitud menor a la longitud de onda en el espacio de la señal que se desea transmitir por ella, a la que denominaremos como parche. Este arreglo metálico está situado a, aproximadamente, la centésima parte de la longitud de onda en el espacio, del plano de tierra o masa de la antena, que consistirá en una superficie metálica normalmente, del mismo grosor que el parche. Para que un parche rectangular resuene a una frecuencia concreta, la longitud de este debe ser de entre la mitad y un tercio de la longitud de onda de la señal deseada.
+\\
+\par Entre el parche y el plano de masa se sitúa el dieléctrico o substrato, encargado de aislar ambos materiales previamente mencionados. El substrato se caracteriza por su permitividad relativa o constante dieléctrica ($\epsilon_{r}$), y para la construcción de antenas microstrip, esta suele oscilar entre valores de 2.2 y 12 \todo{unidad}. Cuanto más grueso sea el substrato, mejores resultados respecto a ancho de banda y eficiencia obtendremos en el diseño, sacrificando la pérdida de espacio ocupado por el substrato correspondiente, la cual puede ser muy limitada en ciertas aplicaciones. Por otro lado, substratos finos con valores de permitividad relativa alta son usados para aplicaciones de microondas ya que estas requieren contornos muy finos para evitar radiaciones indeseadas y acoplamientos.
+\\
+\par Normalmente, las antenas microstrip están integradas en otros circuitos de microondas, con lo que es necesario llegar a un compromiso entre las características de diseño requeridas por la aplicación y el buen rendimiento de la antena. Además de parches rectangulares, las antenas microstrip pueden tomar diversidad de formas para adaptarse a las limitaciones de diseño especificadas por la aplicación. Entre las formas más comunes que toman las antenas microstrip se encuentran cuadrados, circulos, elípses, sectores circulares, triangulos, o dipolos. Diseños específicos como los círculos los normalmente utilizados para conseguir características más específicas como polarización cirucular. Otro método para conseguir este tipo de polarizaciones así como aumentar el ancho de banda o la directividad es el uso de arrays de antenas microstrip. 
+\\
+\par Las características de sintonización y adaptación de las antenas de parche microstrip residen principalmente en las dimensiones de los elementos que la componen. En la figura \ref{fig:elementos} se puede observar cómo se organiza una antena microstrip de un solo elemento y las denominación común que se le dan a las variables que definen la dimension de estos elementos. Las variables más importantes a la hora de diseñar una antena microstrip rectangular son los siguientes:
+
+\begin{itemize}
+\item \textbf{L: }Longitud del parche
+\item \textbf{W: }Anchura del parche
+\item \textbf{h: }Altura o espesor del dieléctrico
+\item \textbf{t: }Altura o espesor del parche y de la tierra
+\item \textbf{$\epsilon_{r}$: }Constante dieléctrica
+\end{itemize}
+ 
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=15cm]{archivos/parche/elemento}
+        \caption{Partes de una antena microstrip}
+        \label{fig:elementos}
+\end{figure}
+
+\section{Ondas en antenas microstrip}
+
+\par Durante el proceso de normal funcionamiento de las antenas microstrip, diferentes tipos de ondas pueden aparecer en sus líneas y superficies. Algunas de estas ondas son indeseadas puesto que pueden causar interferencias sobre los campos eléctricos que proceden del generador que nosotros hayamos instalado, y es de vital importancia diseñar la la antena de forma que su aparición sea mínima. Existen cuatro tipos de ondas principales:
+
+\begin{itemize}
+\item \textbf{Ondas espaciales: }Estas tipo de \gls{oem} son las que serán radiadas al final del proceso de funcionamiento de la antena. Estas ondas abandonarán la estructura de la antena y se propagarán en el espacio libre y se irán atenuando conforme se alejen de la antena. La propagación de estas ondas es normal y completamente deseada cuando la estructura microstrip es una antena, sin embargo, si las ondas comienzan a propagarse en la línea de alimentación de la antena, también en tecnología microstrip, significará que nuestro diseño tiene pérdidas y se deberá encontrar una solución a este problema de fugas.
+
+\item \textbf{Ondas superficiales: }Las ondas superficiales producen pérdidas que limitan el rendimiento de la línea de transmisión o de la antena. Suelen aparecer en substratos gruesos y normalmente debido a la diferencia de densidades entre dos medios que se intentan conectar. Estas ondas se quedan atrapadas entre los dos medios debido a efecto reflexivos sin llegar a ser radiadas, lo que se conoce como "reflexión interna total". Estas ondas suelen quedar atrapadas en los substratos de las antenas microstrip y producen acoplamientos que disminuyen su rendimiento. En el caso de que estas ondas llegaran a los límites de la estructura de la antena, estas podrían llegar a ser radiadas por efectos difractivos en los ejes, lo que supondría una posible interferencia con las ondas radiadas por la antena, y la consecuente degradación del rendimiento y patrón de radiación de la antena.
+
+\item \textbf{Ondas guiadas: }Este tipo de ondas aparecen cuando la tira microstrip está siendo usada como línea de transmisión o guía de onda. Estas ondas comienzan a viajar dentro del substrato cuando este está rellenado casi en la totalidad de su superficie por tiras microstrip eléctricas, lo que provoca que se queden revotando entre las tiras superiores y el plano de masa.
+\end{itemize}
+
+\section{Métodos de alimentación}
+
+\par Existen diversas maneras de alimentar una antena en tecnología microstrip. Denominamos alimentación a proceso de interconexión entre el parche y el resto del circuito integrado, incluyendo en el cualquier otro elemento pasivo, generadores, etc. Los métodos de alimentación para antenas microstrip se pueden agrupar por categorías como: Métodos de alimentación directo, alimentación por proximidad y alimentación por apertura. 
+
+\subsection{Métodos de alimentación directa}
+\par Los métodos de alimentación directa son aquellos en los que se interconectan físicamente las dos estructuras que componen el sistema de comunicaciones: La estructura dedicada a la alimentación, procesado y/o filtrado de la señal, y el elemento radiante. Dentro de este método de alimentación, existen dos técnicas principales: La alimentación por línea de transmisión microstrip y la alimentación por sonda coaxial.
+
+\subsubsection{Alimentación por línea microstrip}
+\par La línea de alimentación microstrip se basa en una tira de tecnología microstrip que se conecta directamente a la antena. Esta tira se caracteriza por su anchura, cuya variación definirá la impedancia que al final de la línea, verá la antena. Su espesor es igual al del parche microstrip y se sitúa, de igual manera sobre el substrato. En esta técnica de alimentación se ha de tener especial cuidado a la hora de diseñar el alimentador, puesto que ciertas configuraciones de las dimensiones de la tira pueden llevar a resonancias que propaguen la señal que se está intentando llevar a la antena. 
+\\
+\par Este tipo de línea es el más facil de fabricar e integrar en el circuito, además de su facilidad de adaptación de impedancias mediante el diseño del \textit{inset} o inserciones que se realizan dentro del parche para encontrar el punto donde las impedancias de la línea y la antena son idénticas y así conseguir la máxima transferencia de potencia. Entre sus limitaciones principales esta el hecho de que al aumentar el grosor del substrato aparezcan ondas superficiales y ondas espaciales, lo que en términos prácticos significa una limitación del ancho de banda del 2\% al 5\% de la frecuencia de la onda que se desea emitir.
+
+
+
+
+
+
+
+
+
+
+
+
