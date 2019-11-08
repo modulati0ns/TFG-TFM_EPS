@@ -71,9 +71,27 @@
 \\
 \par Este tipo de línea es el más facil de fabricar e integrar en el circuito, además de su facilidad de adaptación de impedancias mediante el diseño del \textit{inset} o inserciones que se realizan dentro del parche para encontrar el punto donde las impedancias de la línea y la antena son idénticas y así conseguir la máxima transferencia de potencia. Entre sus limitaciones principales esta el hecho de que al aumentar el grosor del substrato aparezcan ondas superficiales y ondas espaciales, lo que en términos prácticos significa una limitación del ancho de banda del 2\% al 5\% de la frecuencia de la onda que se desea emitir.
 
+\subsubsection{Alimentación por sonda coaxial}
+\par La alimentación por línea coaxial consiste en conectar el vivo de un cable coaxial directamente al parche microstrip y su malla de tierra al plano de tierra de la antena. Este método también es sencillo de construir e implica una baja radiación espuria. También es un método que permite una fácil adaptación entre la línea y la antena, para ello se irá variando la posición de instalación de la sonda respecto al radiador de la misma forma en la que actuaban los inset en la alimentación por línea microstrip. Su principal dificultad de implementación reside en el hecho de tener que perforar el radiador para colocar y soldar el vivo del coaxial a este.
 
+\subsection{Métodos de alimentación indirecta}
+\par En estos métodos de alimentación, no existe un material conductor que toque físicamente el parche sino que este se alimentará por acoplamiento electromagnético entre un material conductor instalado cerca de el. Estos métodos de alimentación solucionan ciertas limitaciones que producen las alimentaciones directas, como el hecho de producir radiaciones con polarizaciones cruzadas.
 
+\subsubsection{Alimentación por proximidad}
+\par Para este método se hará uso de dos substratos, un substrato entre el plano superior donde se instalará el parche microstrip y un plano central donde se encontrará la línea de alimentación también en tecnología microstrip. El segundo substrato separará el plano central de alimentación con un plano de tierra situado en la parte inferior de toda la infraestructura. El principio de funcionamiento se basa en el acoplamiento electromagnético entre la línea de transmisión situado como un sándwich entre los dos substratos, y el parche en la capa superior.  Las constantes dieléctricas de los distintos substratos son distintas y esto será de ayuda a la hora optimizar la penetración entre capas
+\\
+\par Además, este método de alimentación permite la obtención de mejores anchos de banda, menor radiación espuria, mejor supresión del paso de modos de orden superior, y facilidad para adaptar la línea microstrip al parche. La principal desventaja de este método reside en la utilización de dos substratos, lo que incrementa notablemente el grosor del sistema de antena, lo que en ciertas aplicaciones puede no ser viable.
 
+\subsubsection{Alimentación por ranura}
+\par El método de alumentación indirecta por ranura o alimentación por apertura se basa en el principio de funcionamiento del método de alimentación por proximidad. En este método también se utilizan dos substratos, pero en una configuración distinta, en la que los planos de tierra y de alimentación, se intercambian las posiciones. Ahora en el plano inferior se encontrará la línea de alimentación microstrip mientras que en el plano central encontraremos el plano de tierra. Lo que caracteriza a este método de alimentación es que el plano de tierra central, tendrá una pequeña ranura o apertura cuyas dimensiones y posición serán claves para la adaptación de impedancias entre la línea y el parche, que seguirá instalado en el plano superior.
+\\
+\par Con el mismo principio de funcionamiento que la alimentación por proximidad, el parche será alimentado electromagnéticamente por la línea a través de la ranura del plano central. Este tipo de alimentación por apertura se aventaja con respecto a la alimentación por proximidad en que, al estar la línea de alimentación en el plano inferior y separada por el plano central de masa, se evitan interferencias electromagnéticas entre las radiaciones de cada plano.
+\\
+\par Al igual que en la alimentación por proximidad, este método de alimentación ayuda a obtener una mejor pureza de polarización, un mayor ancho de banda, y una mayor facilidad de adaptación a costa de un mayor grosor del sistema de comunicación.
+
+\section{Métodos de análisis}
+
+\par 
 
 
 
