@@ -89,9 +89,57 @@
 \\
 \par Al igual que en la alimentación por proximidad, este método de alimentación ayuda a obtener una mejor pureza de polarización, un mayor ancho de banda, y una mayor facilidad de adaptación a costa de un mayor grosor del sistema de comunicación.
 
+\begin{figure}[h]
+\centering
+
+\begin{subfigure}[l]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
+\centering
+\includegraphics[width=4cm]{archivos/parche/directa} % Tamaño de la imagen
+\caption{Alimentación directa}
+\label{fig:directa}
+\end{subfigure}
+
+~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
+
+\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
+\centering
+\includegraphics[width=4cm]{archivos/parche/coax} % Tamaño de la imagen
+\caption{Alimentación coaxial}
+\label{fig:coax}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
+\centering
+\includegraphics[width=4cm]{archivos/parche/apertura} % Tamaño de la imagen
+\caption{Alimentación coaxial}
+\label{fig:coax}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
+\centering
+\includegraphics[width=4cm]{archivos/parche/proximidad} % Tamaño de la imagen
+\caption{Alimentación coaxial}
+\label{fig:coax}
+\end{subfigure}
+
+
+\caption{Ejemplo de subfiguras}\label{sistemass}
+\end{figure}
+
 \section{Métodos de análisis}
 
-\par 
+\par Existen diferentes métodos para analizar el comportamiento de una antena en tecnología microstrip. Cada uno nos ofrece una diferente relación entre complejidad y precisión entre los resultados empíricos y los que se obtienen en la realidad. Los métodos más comunes de análisis son el método  de línea de transmisión, el método de cavidad, y el método de onda completa. 
+\\
+\par El método de línea de transmisión es más sencillo pero con una menor exactitud a la hora de obtener los resultados así como una menor facilidad para modelar el acoplamiento. Este método además, solo es útil a la hora de diseñar y analizar parches rectangulares. Comparado con el, el método de cavidad nos ofrece una mayor precisión sacrificando la complejidad a la hora de realizar los cálculos. El método de onda completa es usado para obtener los resultados más exactos, versátiles, y con mayor facilidad para tratar elementos finitos, así como arrays infinitos, pilas, y antenas microstrip con formas completamente aleatorias, pero sacrificando la facilidad en el análisis ya que se trata de un método muy complejo y no nos ofrece una buena visión física para entender los fenómenos físicos que ocurren en la antena. 
+\\
+\par En este proyecto se ha usado principalmente el método de línea de transmisión para el diseño de las antenas microstrip, con lo que se procederá a profundizar en la explicación de este método obviando los métodos de cavidades y onda completa dada su complejidad.
+
+\subsection{Método de línea de transmisión}
+
+\par El método de línea de transmisión, es un método de análisis del comportamiento físico de una antena microstrip que ofrece una manera sencilla de modelar la antena, con unos cálculos más rápidos y una visión más sencilla de lo que ocurre físicamente en la antena, a costa de unos resultados menos precisos que los que encontraríamos en otros métodos de análisis. Este método de análisis modela la antena microstrip como dos ranuras, separadas por una línea de transmisión de baja impedancia $Z_{c}$ y de longitud \textit{L}. 
+\\
+\par Para explicar el modelo de línea de transmisión tomaremos como ejemplo el análisis de un parche rectangular. Debido a que las longitudes de ancho \textit{W} y alto \textit{L} del parche son limitadas, los campos eléctricos en los ejes producen el efecto \textit{fringing} en el ancho y alto del parche. Este efecto es de vital importancia ya que influye en la frecuencia de resonancia de la antena. Para el plano E, el efecto \textit{fringing} se comporta en función de la relación entre la longitud del parche \textit{L} y la altura del substrato \textit{h} y su constante dieléctrica \textit{$\varepsilon$}. En efectos prácticos, el efecto \textit{fringing} produce que las dimensiones eléctricas vistas por la antena sean distintas a las dimensiones físicas reales. 
+
 
 
 
