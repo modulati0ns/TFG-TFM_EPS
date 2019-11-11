@@ -88,43 +88,43 @@
 \par Con el mismo principio de funcionamiento que la alimentación por proximidad, el parche será alimentado electromagnéticamente por la línea a través de la ranura del plano central. Este tipo de alimentación por apertura se aventaja con respecto a la alimentación por proximidad en que, al estar la línea de alimentación en el plano inferior y separada por el plano central de masa, se evitan interferencias electromagnéticas entre las radiaciones de cada plano.
 \\
 \par Al igual que en la alimentación por proximidad, este método de alimentación ayuda a obtener una mejor pureza de polarización, un mayor ancho de banda, y una mayor facilidad de adaptación a costa de un mayor grosor del sistema de comunicación.
+\\
+
 
 \begin{figure}[h]
-\centering
-
-\begin{subfigure}[l]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
-\centering
-\includegraphics[width=4cm]{archivos/parche/directa} % Tamaño de la imagen
-\caption{Alimentación directa}
-\label{fig:directa}
-\end{subfigure}
-
-~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
-
-\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
-\centering
-\includegraphics[width=4cm]{archivos/parche/coax} % Tamaño de la imagen
-\caption{Alimentación coaxial}
-\label{fig:coax}
-\end{subfigure}
-
-\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
-\centering
-\includegraphics[width=4cm]{archivos/parche/apertura} % Tamaño de la imagen
-\caption{Alimentación coaxial}
-\label{fig:coax}
-\end{subfigure}
-
-\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
-\centering
-\includegraphics[width=4cm]{archivos/parche/proximidad} % Tamaño de la imagen
-\caption{Alimentación coaxial}
-\label{fig:coax}
-\end{subfigure}
-
-
-\caption{Ejemplo de subfiguras}\label{sistemass}
+     \centering
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/directa}
+         \caption{Alimentación directa}
+         \label{fig:directa}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/coax}
+         \caption{Alimentación por sonda coaxial}
+         \label{fig:coax}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/proximidad}
+         \caption{Alimentación por proximidad}
+         \label{fig:proximidad}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/apertura}
+         \caption{Alimentación por ranura}
+         \label{fig:ranura}
+     \end{subfigure}
+        \caption{Tipos de alimentación de antenas microstrip}
+        \label{fig:sistemas}
 \end{figure}
+
+
 
 \section{Métodos de análisis}
 
@@ -134,11 +134,152 @@
 \\
 \par En este proyecto se ha usado principalmente el método de línea de transmisión para el diseño de las antenas microstrip, con lo que se procederá a profundizar en la explicación de este método obviando los métodos de cavidades y onda completa dada su complejidad.
 
-\subsection{Método de línea de transmisión}
+\subsection{Método de análisis y diseño por línea de transmisión}
 
-\par El método de línea de transmisión, es un método de análisis del comportamiento físico de una antena microstrip que ofrece una manera sencilla de modelar la antena, con unos cálculos más rápidos y una visión más sencilla de lo que ocurre físicamente en la antena, a costa de unos resultados menos precisos que los que encontraríamos en otros métodos de análisis. Este método de análisis modela la antena microstrip como dos ranuras, separadas por una línea de transmisión de baja impedancia $Z_{c}$ y de longitud \textit{L}. 
+\par El método de línea de transmisión, es un método de análisis del comportamiento físico de una antena microstrip que ofrece una manera sencilla de modelar la antena, con unos cálculos más rápidos y una visión más sencilla de lo que ocurre físicamente en la antena, a costa de unos resultados menos precisos que los que encontraríamos en otros métodos de análisis. Este método de análisis modela la antena microstrip como dos ranuras, separadas por una línea de transmisión de baja impedancia $Z_{c}$ y de longitud \textit{L} (fig. \ref{fig:modelo}). 
 \\
-\par Para explicar el modelo de línea de transmisión tomaremos como ejemplo el análisis de un parche rectangular. Debido a que las longitudes de ancho \textit{W} y alto \textit{L} del parche son limitadas, los campos eléctricos en los ejes producen el efecto \textit{fringing} en el ancho y alto del parche. Este efecto es de vital importancia ya que influye en la frecuencia de resonancia de la antena. Para el plano E, el efecto \textit{fringing} se comporta en función de la relación entre la longitud del parche \textit{L} y la altura del substrato \textit{h} y su constante dieléctrica \textit{$\varepsilon$}. En efectos prácticos, el efecto \textit{fringing} produce que las dimensiones eléctricas vistas por la antena sean distintas a las dimensiones físicas reales. 
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=12cm]{archivos/parche/circuito}
+        \caption{Modelo equivalente del circuito de la antena microstrip}
+        \label{fig:modelo}
+\end{figure}
+
+\par Para explicar el modelo de línea de transmisión tomaremos como ejemplo el análisis de un parche rectangular. Debido a que las longitudes de ancho \textit{W} y alto \textit{L} del parche son limitadas, los campos eléctricos en los ejes producen el efecto \textit{fringing} en el parche. Este efecto es de vital importancia a la hora del diseño de las dimensiones de los ejes ya que influye en la frecuencia de resonancia de la antena. Para el plano E, el efecto \textit{fringing} se comporta en función de la relación entre la longitud del parche \textit{L} y la altura del substrato \textit{h} y su constante dieléctrica \textit{$\varepsilon_{r}$}. 
+\\
+\par  Para el caso en el que la antena original se sustenta sobre el plano superior de un substrato con dieléctrico \textit{$\varepsilon_{r}$} y y por encima del parche solo se encuentra el aire, se puede observar cómo el flujo de las líneas de campo eléctrico viajan en primer lugar por el aire, para luego concentrar su flujo en el substrato (fig. \ref{fig:fringing}). Esto hace que la antena se pueda modelar como una línea microstrip sumergida en un substrato cuya constante dieléctrica es $\varepsilon_{reff}$, también denominada \textit{constante dieléctrica efectiva} (fig. \ref{fig:ereff}). Se puede obtener la constante dieléctrica efectiva mediante la ecuación \ref{eq:ereff}.
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/Fringing}
+         \caption{Distribución de las líneas de campo eléctrico}
+         \label{fig:fringing}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/ereff}
+         \caption{Modelado de la constante dieléctrica efectiva}
+         \label{fig:ereff}
+     \end{subfigure}
+     \hfill
+        \caption{Antena microstrip según el modelo de línea de transmisión}
+        \label{fig:modelado}
+\end{figure}
+
+\begin{equation}
+	\varepsilon _{reff}=\frac{\varepsilon _{r}+1}{2}+\frac{\varepsilon _{r}-1}{2}\left ( 1+\frac{12h}{W} \right )^{-\frac{1}{2}}
+	\label{eq:ereff}
+\end{equation}
+
+\par En efectos prácticos, el efecto \textit{fringing} produce que las dimensiones eléctricas vistas por la antena sean mayores a las dimensiones físicas reales. Este incremento de distancia \textit{$\Delta$L} (fig. \ref{fig:modelado2}), queda en función de la constante dieléctrica efectiva $\varepsilon_{reff}$, y la relación entre la anchura y la altura de la antena (eq. \ref{eq:deltal}). El hecho de añadir este incremento de longitud hará que los cálculos respecto al diseño de la antena tengan que estar en función de esta nueva longitud (eq. \ref{eq:leff}).
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/efectivelength2}
+         \caption{Vista de alzado}
+         \label{fig:planta}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/parche/efectivelength}
+         \caption{Vista de perfil}
+         \label{fig:perfil}
+     \end{subfigure}
+     \hfill
+        \caption{Modelado del incremento de longitud debido al efecto \textit{fringing}}
+        \label{fig:modelado2}
+\end{figure}
+
+\begin{equation}
+	\frac{\Delta L}{h}=0.412\frac{(\varepsilon _{reff}+0.3)(\frac{W}{h}+0.264)}{(\varepsilon _{reff}-0.258)(\frac{W}{h}+0.8)}
+	\label{eq:deltal}
+\end{equation}
+
+\begin{equation}
+	L_{eff}=L+2\Delta L
+	\label{eq:leff}
+\end{equation}
+
+\par Otra variable que será importantes a la hora de diseñar la antena o el array de antenas será la longitud de onda en el medio guiado $\lambda_{g}$:
+\begin{equation}
+	\lambda_{g}=\frac{\lambda_{0}}{\sqrt{\varepsilon _{reff}}}
+	\label{eq:lambdaguided}
+\end{equation}
+
+
+\par Una vez que se ha tenido en cuenta los conceptos de longitud efectiva y \textit{fringing} se puede proceder al diseño del parche microstrip. Se trata de un proceso de diseño sencillo según el método de línea microstrip, en el cual solo necesitaremos especificar de antemano los valores de constante dieléctrica del substrato elegido $\varepsilon_{r}$, la altura de este \textit{h} y la frecuencia a la que se pretende que trabaje la antena \textit{$f_{r}$}. Con estos parámetros se calcularan las dimensiones del parche \textit{W} y \textit{L}. Para ello es común seguir el siguiente flujo de trabajo:
+
+\begin{enumerate}
+  \item Calcular la anchura del parche \textit{W}:
+  \begin{equation}
+	W=\frac{1}{2f_{r}\sqrt{\mu _{0}\varepsilon _{}0}}\sqrt{\frac{2}{\varepsilon _{r}+1}}=\frac{v_{0}}{2f_{r}}\sqrt{\frac{2}{\varepsilon _{r}+1}}
+	\label{eq:W}
+\end{equation}
+
+Donde $v_{0}$ es la velocidad de la luz en el vacío.
+
+  \item Calcular la constante dieléctrica efectiva $\varepsilon_{reff}$ mediante la eq. \ref{eq:ereff}.
+  
+  \item Calcular el incremento de longitud debido al efecto \textit{fringing} mediante la ecuación \ref{eq:deltal}.
+  
+  \item Finalmente obtener la longitud del parche \textit{L}:
+  
+   \begin{equation}
+	L=\frac{1}{2f_{r}\sqrt{\varepsilon _{reff}}\sqrt{\mu _{0}\varepsilon _{}0}}-2\Delta L
+	\label{eq:L}
+\end{equation}
+\end{enumerate}
+
+\par Una vez que se han calculado las dimensiones del parche, vamos a proceder a su adaptación. Para ello, es muy común el uso de pequeñas inserciones de la línea de alimentación microstrip dentro del parche, abriendo dos ranuras alrededor de esta. Con esto se consigue que la línea de alimentación con una impedancia característica $Z_{c}$ este completamente adaptado en impedancias con el parche. Estas pequeñas ranuras o \textit{insets} tendrán una longitud específica en la que se sabe que la posición en la que se encuentra el final de la línea concuerda con la misma impedancia dentro del parche. \todo{explicar mejro?}.
+\\
+\par Para hallar la longitud del \textit{inset} se necesita tener en cuenta las admitancias \textit{Y}, conductancias \textit{G} y susceptancias \textit{B} de las ranuras y así poder calcular cuál es la resistencia de entrada resonante donde buscar la adaptación entre \textit{feed} y parche. Para ello primera se calcula la conductancia \textit{$G_{1}$}:
+
+\begin{equation}
+	G_{1}=\frac{I_{1}}{120\pi^{2}}
+	\label{eq:g1}
+\end{equation}
+
+\par Donde \textit{$I_{1}$} se calcula mediante:
+
+\begin{equation}
+	I_{1}=\int_{0}^{\pi}\left [ \frac{\sin(\frac{k_{0}W}{2})\cos\theta } {\cos\theta} \right ]^{2}\sin^{3}\theta d\theta
+	\label{eq:I1}
+\end{equation}
+
+\par Las dos ranuras  producirán una conductancia mutua \textit{$G_{12}$} cuyos efectos han de ser tenidos en cuenta para calcular la resistencia de entrada:
+
+\begin{equation}
+	G_{1}=\frac{I_{12}}{120\pi^{2}}
+	\label{eq:g12}
+\end{equation}
+
+\par Donde \textit{$I_{12}$} se calcula mediante:
+
+\begin{equation}
+	I_{12}=\int_{0}^{\pi}\left [ \frac{\sin(\frac{k_{0}W}{2})\cos\theta } {\cos\theta} \right ]^{2} J_{0}(k_{0}L\sin(\theta)) 
+ \sin^{3}\theta d\theta
+	\label{eq:I12}
+\end{equation}
+
+Donde se entiende por \textit{$J_{0}$} como la función de Bessel de orden cero.
+\\
+\par Finalmente se obtendrá la resistencia de entrada resonante \textit{$R_{in}$} mediante:
+
+\begin{equation}
+	R_{in}=\frac{1}{2(G_{1}\pm G_{12})}
+	\label{eq:rin}
+\end{equation}
+
+
+
+
 
 
 
