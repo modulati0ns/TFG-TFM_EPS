@@ -270,12 +270,21 @@ Donde $v_{0}$ es la velocidad de la luz en el vacío.
 
 Donde se entiende por \textit{$J_{0}$} como la función de Bessel de orden cero.
 \\
-\par Finalmente se obtendrá la resistencia de entrada resonante \textit{$R_{in}$} mediante:
+\par Se obtendrá la resistencia de entrada resonante \textit{$R_{in}$} mediante:
 
 \begin{equation}
 	R_{in}=\frac{1}{2(G_{1}\pm G_{12})}
 	\label{eq:rin}
 \end{equation}
+
+\par Finalmente, hallaremos la distancia con la que se ha de diseñar el  \textit{inset} \textit{$y_{0}$},  para conseguir la adaptación de impedancias entre la alimentación directa por línea microstrip y el parche.
+
+\begin{equation}
+	y_{0}=\left ( \frac{L}{\pi} \right )\arccos\left ( \sqrt{\frac{R_{in}(y=y_{0})}{R_{in}}} \right )
+	\label{eq:yo}
+\end{equation}
+
+Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea de alimentación microstrip.
 
 
 
