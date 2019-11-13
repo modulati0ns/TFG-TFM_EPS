@@ -5,301 +5,95 @@
 % Contacto: info@jmrplens.com / Telegram:@jmrplens
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Desarrollo (Con ejemplos de código)}
-\label{desarrollo}
+\chapter{Diseño y análisis de arrays de parches microstrip}
+\label{diseño}
 
-\section{Inserción de código}
-A veces tendrás que insertar algún pedazo de código fuente para explicar algo relacionado con él. No sustituyas explicaciones con códigos enormes. Si pones algo de código en tu TFG que sea para demostrar algo o explicar alguna solución.
+\section{Introducción}
 
-\LaTeX~te ayuda a escribir código de manera que su presentación tenga las marcas y tabulaciones propias de este tipo de texto. Para ello, debes poner el código que escribas DENTRO de un entorno  que se llama ``listings''.  La plantilla ya tiene una serie de instrucciones para incluir el paquete ``listings'' y añadirle algunos modificadores por lo que no tienes que incluirlo tú. Simplemente, mete tu código en el entorno ``lstlisting'' y ya está. Puedes indicar el lenguaje en el que está escrito el código y así \LaTeX~lo mostrará mejor. 
+\par En este capítulo se va a abordar la realización del diseño inicial de un conjunto de configuraciones de arrays de antenas microstrip para las frecuencias de 2.4 Ghz, 6 Ghz y 27 Ghz. Como se mencionó en la sección \ref{sec:medodologia}, el diseño y simulación de estas configuraciones se realizará mediante la herramienta Ansys \sffamily\textregistered  HFSS y MathWorks \sffamily\textregistered  MATLAB.
 \\
-\par En el archivo \textit{estiloscodigoprogramacion.tex} están definidos algunos lenguajes para mostrarlos con un diseño concreto, se pueden modificar para cambiar el coloreado del código, qué términos se ponen en negrita, etc.
-Si se quiere profundizar más en la función ``listings'' se puede consultar su manual en \url{http://osl.ugr.es/CTAN/macros/latex/contrib/listings/listings.pdf}, aunque hay mucha información en foros y blog's que es más fácil de comprender.
+\par Todos las antenas de parche microstrip individuales y las posibles configuraciones de array que se diseñen con el conjunto de estas, estarán basadas en unos criterios y especificaciones de construcción común:
 
-\par Veamos un ejemplo en la figura \ref{C_code}:
+\begin{itemize}
+	\item \textbf{Polarización: }Lineal
+	\item \textbf{Tipo de alimentación: Directa por línea microstrip}
+	\item \textbf{Impedancia de entrada: }50 $\Omega$
+	\item \textbf{Altura del substrato: }1.52 \SI{3.55}{\milli\metre}
+	\item \textbf{Altura de los planos conductores: }\SI{3.55}{\micro\metre}
+	\item \textbf{Substrado: }Rogers 4003 (RO4003)
+	\item \textbf{Constante dieléctrica del substrato: }3.55
+\end{itemize}
 
-\begin{lstlisting}[style=Latex-color]
-\begin{lstlisting}[style=C, caption={ejemplo código C},label=C_code]
-	#include <stdio.h>
-	int main(int argc, char* argv[]) {
-  	puts("Hola mundo!");
-	}
-\ end{lstlisting}	
+\section{Cálculos iniciales con MATLAB}
+\par En primer lugar, se realizará un síntesis de las ecuaciones necesarias para diseñar parches microstrip en MATLAB. Para ello usaremos las ecuaciones recogidas en la sección \ref{analisis}. Se explicará paso a paso el código implementado para la obtención de estos resultados.
+\\
+\par En primer lugar se realizará la declaración inicial de variables, donde se almacenarán en la memoria del computador los valores de las constantes que se usarán a lo largo de los cálculos. La única variable que tendrá que ser introducida a mano por el usuario es la frecuencia en Ghz a la que se desea realizar el diseño de la antena. Además, desde aquí se realizará el cálculo de otros parámetros que necesitaremos más adelante, como la longitud de onda \textit{$\lambda_{0}$} o el número de onda \textit{k}.
+
+\begin{lstlisting}[style=Matlab-color, caption={Declaración de variables iniciales},label=variniciales]
+%% Input Variables
+f = input('Introduzca la frecuencia de trabajo deseada (Ghz): ');   % Frecuencia a la que se vana a realizar los cálculos
+
+er = 3.55;										% Constante dieléctrica
+h = 1.52;										% Altura del substrato
+
+% Otras variables
+c = physconst('LightSpeed');					% Velocidad de la luz
+f = f*1e9;										% Frecuencia en Ghz
+h = h*1e-3;										% Longitud en mm
+lambda = c/f;									% Longitud de onda en el vacío
+ko = 2*pi/lambda;								% Número de onda
+Zo = 50;										% Impedancia de entrada
 \end{lstlisting}
 
-El resultado será:
-\begin{lstlisting}[style=C, caption={ejemplo código C},label=C_code]
-#include <stdio.h>
-// Comentario
-int main(int argc, char* argv[]) {
-  puts("Hola mundo!");
-}
-\end{lstlisting}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-Si lo quieres en color, está definido el estilo C-color en el archivo \textit{estiloscodigoprogramacion.tex}, con algunos parámetros para mejorar la visualización:
-\begin{lstlisting}[style=Latex-color]
-\begin{lstlisting}[style=C-color, caption={ejemplo código C en color},label=C_code-color]
-#include <stdio.h>
-// Comentario
-int main(int argc, char* argv[]) {
-  puts("Hola mundo!");
-}
-\ end{lstlisting}
-\end{lstlisting}
-\begin{lstlisting}[style=C-color, caption={ejemplo código C en color},label=C_code-color]
-	#include <stdio.h>
-	// Comentario
-	int main(int argc, char* argv[]) {
-  	puts("Hola mundo!");
-	}
-\end{lstlisting}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-Por supuesto, puedes mejorar esta presentación utilizando más modificadores. En la sección \ref{usos} se indican algunos detalles.
+\par A continuación se procederán calcular los parámetros característicos del diseño de la antena como son su anchura \textit{W}, longitud \textit{L}, etc. 
 
-Otro ejemplo, ahora para mostrar código PHP, sería escribir en tu fichero \LaTeX~lo siguiente:
-\begin{lstlisting}[style=Latex-color,numbers=none]
- \begin{lstlisting}[style=PHP, caption={ejemplo código PHP},label=PHP_code]
- /* 
-Ejemplo de código en PHP para escribir tu primer programa en este lenguaje
-Copia este código en tu ordenador y ejecútalo
-*/
-<html>
-  <head>
-    <title>Prueba de PHP</title>
-  </head>
-  <body>
-    <?php echo '<p>Hola Mundo</p>'; ?> //esto lo escribe TODO el mundo
-  </body>
-</html>
- \ end{lstlisting}
+\begin{lstlisting}[style=Matlab-color, caption={Parámetros de diseño de la antena},label=diseñoantena]
+%% Cálculos del Parche
+
+W = (c/(2*f))*sqrt(2/(er+1));                       % Ancho del Parche (Width)
+erff = ((er+1)/2) + ((er-1)/2)*(1+12*h/W)^(-1/2);   % Coeficiente del dieléctrico efectiva
+Leff = c/(2*f*sqrt(erff));                          % Longitud efectiva
+Al = ((0.412*h*(erff+0.3)*((W/h)+0.264))/((erff-0.258)*((W/h)+0.8))); % Incremento de Longitud normalizada
+L = Leff - 2*Al;                                    % Longitud del parche
+a = 0.7*lambda;                                     % Separacion entre parches
 \end{lstlisting}
- 
- y el resultado es el siguiente:
- 
- \begin{lstlisting}[style=PHP, caption={ejemplo código PHP},label=PHP_code,firstnumber=100]
-/* 
-Ejemplo de código en PHP para escribir tu primer programa en este lenguaje. Copia este código en tu ordenador y ejecútalo
-*/
- <html>
-  <head>
-    <title>Prueba de PHP</title>
-  </head>
-  <body>
-    <?php echo '<p>Hola Mundo</p>'; ?> //esto lo escribe TODO el mundo
-  </body>
-</html>
- \end{lstlisting}
- \vspace{1em}
-\noindent\hrule
-\vspace{1em}
- O también en color: 
- \begin{lstlisting}[style=PHP-color, caption={ejemplo código PHP},label=PHP_code2]
-/* 
-Ejemplo de código en PHP para escribir tu primer programa en este lenguaje. Copia este código en tu ordenador y ejecútalo
-*/
- <html>
-  <head>
-    <title>Prueba de PHP</title>
-  </head>
-  <body>
-    <?php echo '<p>Hola Mundo</p>'; ?> //esto lo escribe TODO el mundo
-  </body>
-</html>
- \end{lstlisting}
- 
- Observa cómo \LaTeX~ha puesto los comentarios en gris y ajustado el código para que se muestre más claro.
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
- A continuación se muestran otros ejemplos:
- \begin{lstlisting}[style=Matlab-color, caption={ejemplo código Matlab en color},label=Matlab_code]
-%% Code sections are highlighted.
-% System command are supported...
-!touch testFile.txt
-A = [1, 2, 3;... %... as is line continuation.
-     4, 5, 6];
-fid = fopen('testFile.text', 'w');
-for k=1:10
-  fprintf(fid, '%6.2f \n', k)
+
+\par También calcularemos la anchura $W_{feed}$ y longitud $L_{feed}$ necesaria para las líneas de transmisión microstrip así como la longitud para las líneas que actúen como transformadores $\lambda /4$. La anchura de las líneas microstrip será calculada en base a la variable $Z_{0}$, la cual ha sido declarada anteriormente con un valor de 50 ($\Omega$), este valor puede ser cambiado en el código para obtener la anchura de la línea para sintetizar cualquier impedancia que necesitemos en esta.
+
+\begin{lstlisting}[style=Matlab-color, caption={Parámetros de diseño de la línea de alimentación},label=alimentacion]
+%% Cálculos de línea de alimentación
+
+lambdaguided = lambda/sqrt(erff);               % Longitud de onda en medio guiado
+Lfeed = lambdaguided/4;                         % Longitud lambda cuartos
+
+%Calculo de la anchura de la línea
+A = (Zo/60)*(sqrt((er+1)/2))+((er-1)/(er+1))*(0.23+(0.11/er)); 
+B = (377*pi)/(2*Zo*sqrt(er));
+Coef = (8*exp(A))/((exp(2*A))-2);
+if (Coef <= 2)
+	Wline = Coef*h;                             % Anchura si W/h <= 2
+elseif (Coef > 2)
+    Coef = (2/pi)*( B-1-log(2*B-1)+((er-1)/(2*er))*(log(B-1)+0.39-(0.61/er)));
+	Wline = Coef*h;                             % Anchura si W/h > 2
 end
-x=1; %% this is just a comment, not the start of a section
-% Context-sensitive keywords get highlighted correctly...
-p = properties(person); %(here, properties is a function)
-x = linspace(0,1,101);
-y = x(end:-1:1);
-% ... even in nonsensical code.
-]end()()(((end while {    end    )end ))))end (end
-%{
-    block comments are supported
-%} even
-runaway block comments are
 \end{lstlisting}
 
-\begin{lstlisting}[style=Matlab, caption={ejemplo código Matlab en blanco y negro},label=Matlab_codebn]
-%% Code sections are highlighted.
-% System command are supported...
-!touch testFile.txt
-A = [1, 2, 3;... %... as is line continuation.
-     4, 5, 6];
-fid = fopen('testFile.text', 'w');
-for k=1:10
-  fprintf(fid, '%6.2f \n', k)
-end
-x=1; %% this is just a comment, not the start of a section
-% Context-sensitive keywords get highlighted correctly...
-p = properties(person); %(here, properties is a function)
-x = linspace(0,1,101);
-y = x(end:-1:1);
-% ... even in nonsensical code.
-]end()()(((end while {    end    )end ))))end (end
-%{
-    block comments are supported
-%} even
-runaway block comments are
-\end{lstlisting}
-\newpage
-\begin{lstlisting}[style=Python-color, caption={ejemplo código Python en color}]
-class Example (object):
-    def __init__ (self, account, password):
-        """e.g. account  = 'bob@example.com/test'
-                password = 'bigbob'
-        """
+\par Finalmente, se calculará la longitud que deberán tener las ranuras o \textit{insets} para adaptar que la línea de alimentación encuentre la posición dentro de la antena donde se adaptan sus impedancias.
 
-        reg = telepathy.client.ManagerRegistry()
-        reg.LoadManagers()
+\begin{lstlisting}[style=Matlab-color, caption={Parámetros de diseño del \textit{inset}},label=inset]
+%% Inset
 
-        # get the gabble Connection Manager
-        self.cm = cm = reg.GetManager('gabble')
-
-        # get the parameters required to make a Jabber connection
-        # begin ex.basics.dbus.language-bindings.python.methods.call
-        cm[CONNECTION_MANAGER].RequestConnection('jabber',
-            {
-                'account':  account,
-                'password': password,
-            },
-            reply_handler = self.request_connection_cb,
-            error_handler = self.error_cb)
-        # end ex.basics.dbus.language-bindings.python.methods.call
+I1 = @(theta) (sin((ko*W/2)*cos(theta))./cos(theta)).^2.*sin(theta).^3;
+G1 = integral(I1,0,pi)/(120*pi^2);          % Admitancia de la TL
+I2 = @(theta) ((sin((ko*W/2)*cos(theta))./cos(theta)).^2).*besselj(0,ko*L*sin(theta)).*sin(theta).^3;
+G12 = (1/(120*pi^2)).*integral(I2,0,pi);        % Admitancia mutua
+Rin = 1./(2*(G1+G12));                          % Impedancia de entrada
+yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \end{lstlisting}
 
-\begin{lstlisting}[style=Python, caption={ejemplo código Python en blanco y negro}]
-class Example (object):
-    def __init__ (self, account, password):
-        """e.g. account  = 'bob@example.com/test'
-                password = 'bigbob'
-        """
+\par Con todos estos parámetros calculados se podrá proceder a diseñar y analizar los arrays de antenas en HFSS.
 
-        reg = telepathy.client.ManagerRegistry()
-        reg.LoadManagers()
+\section{Diseño y Análisis en Ansys HFSS}
 
-        # get the gabble Connection Manager
-        self.cm = cm = reg.GetManager('gabble')
-
-        # get the parameters required to make a Jabber connection
-        # begin ex.basics.dbus.language-bindings.python.methods.call
-        cm[CONNECTION_MANAGER].RequestConnection('jabber',
-            {
-                'account':  account,
-                'password': password,
-            },
-            reply_handler = self.request_connection_cb,
-            error_handler = self.error_cb)
-        # end ex.basics.dbus.language-bindings.python.methods.call
-\end{lstlisting}
-
-\section{Usos y personalización}
-\label{usos}
-
-El texto que acompaña al código puedes incluirlo o no, también puedes decidir si el texto va numerado o no. A continuación se muestra como:
-\begin{lstlisting}[style=Latex-color]
-	% Con esta línea el código no tendrá título
-	\begin{lstlisting}[style=Python]
-		micodigo
-	\ end{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}[style=Python]
-	micodigo
-\end{lstlisting}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-\begin{lstlisting}[style=Latex-color]
-	% Con esta línea el código tendrá el título abajo
-	\begin{lstlisting}[style=Python, caption={Ejemplo de título abajo},captionpos=b]
-		micodigo
-	\ end{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}[style=Python,caption={Ejemplo de título abajo},captionpos=b]
-	micodigo
-\end{lstlisting}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-\begin{lstlisting}[style=Latex-color]
-	% Con esta línea el código tendrá título no numerado
-	\begin{lstlisting}[style=Python, title={Ejemplo de título no numerado}]
-		micodigo
-	\ end{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}[style=Python,title={Ejemplo de título no numerado}]
-	micodigo
-\end{lstlisting}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-\begin{lstlisting}[style=Latex-color]
-	% Con esta línea el código no tendrá las líneas numeradas
-\begin{lstlisting}[style=Python,numbers=none, title={Ejemplo de código sin número de líneas}]
-	micodigo
-	sin
-	número
-	de
-	líneas
-\ end{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}[style=Python,numbers=none,title={Ejemplo de código sin número de líneas}]
-		micodigo
-		sin
-		número
-		de
-		líneas
-\end{lstlisting}
-
-\section{Importar archivos fuente}
-
-Existe la posibilidad de importar un archivo de código en lugar de copiar su contenido y pegarlo en \LaTeX.
-
-Para realizarlo debes escribir:
-
-\begin{lstlisting}[style=Latex-color]
-\lstinputlisting[style=C++-color,caption={Archivo C++ importado}]{archivos/ejemplos/holamundo.cpp}	
-\end{lstlisting}
-
-Y se importará con el formato establecido entre los '[ ]':
-\newpage
-\lstinputlisting[style=C++-color,caption={Archivo C++ importado}]{archivos/ejemplos/holamundo.cpp}
-
-A continuación se muestran otros ejemplos
-
-\begin{lstlisting}[style=Latex-color]
-\lstinputlisting[style=Python-color,caption={Archivo Py importado},label=importado_py]{archivos/ejemplos/holamundo.py}	
-\end{lstlisting}
-
-\lstinputlisting[style=Python-color,caption={Archivo Py importado},label=importado_py2]{archivos/ejemplos/holamundo.py}	
-
-\begin{lstlisting}[style=Latex-color]
-\lstinputlisting[style=Matlab-color,caption={Archivo Matlab importado},label=importado_m]{archivos/ejemplos/holamundo.m}	
-\end{lstlisting}
-
-\lstinputlisting[style=Matlab-color,caption={Archivo Matlab importado},label=importado_m]{archivos/ejemplos/holamundo.m}
 
 
