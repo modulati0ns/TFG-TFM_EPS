@@ -16,7 +16,7 @@
 
 \begin{itemize}
 	\item \textbf{Polarización: }Lineal
-	\item \textbf{Tipo de alimentación: Directa por línea microstrip}
+	\item \textbf{Tipo de alimentación: } Directa por línea microstrip
 	\item \textbf{Impedancia de entrada: }50 $\Omega$
 	\item \textbf{Altura del substrato: }1.52 \SI{3.55}{\milli\metre}
 	\item \textbf{Altura de los planos conductores: }\SI{3.55}{\micro\metre}
@@ -95,5 +95,42 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 
 \section{Diseño y Análisis en Ansys HFSS}
 
+\par Es el momento de comenzar con el diseño de las antenas y los arrays de antenas en tecnología micorstrip mediante Ansys HFSS. Se han escogido una serie de configuraciones a diseñar que varían desde un solo elemento hasta un array compuesto de 16 elementos en disposición de array bidimensional. De esta manera, podrá analizarse al final del proyecto, qué tipo de configuración es la más adecuada para nuestras características, en conceptos como directividad, patrón de radiación, eficiencia o dimensiones.
+\\
+\par Las configuraciones elegidas son las siguientes:
+
+\begin{itemize}
+\item Antena de parche de un único elemento
+\item Array de parches \textbf{2x1} (2 antenas) dispuestas en serie
+\item Array de parches \textbf{2x1} (2 antenas) dispuestas en paralelo
+\item Array de parches \textbf{2x2} (4 antenas) dispuestas en paralelo
+\item Array de parches \textbf{4x1} (4 antenas) dispuestas en paralelo
+\item Array de parches \textbf{4x2} (8 antenas) dispuestas en paralelo
+\item Array de parches \textbf{4x4} (16 antenas) dispuestas en paralelo
+\end{itemize}
+
+\par Estas configuraciones serán repetidas en diferentes análisis para las frecuencias de: \textbf{2.4 GHz}, frecuencia usada para aplicaciones comunes como \gls{wifi} o Bluetooth, donde la cobertura es uno de los principales factores de calidad en su uso. \textbf{6 GHz}, banda prevista para el despliegue de redes 5G de alta velocidad en el futuro. Y \textbf{27 GHz}, banda ya adjudicada para aplicaciones 5G de ultra-rápida velocidad y mínima latencia. Para este último caso, solo se realizará el diseño para el caso de una antena parche de un único elemento \todo{camviar si hago ams}
+\\
+\par Antes de empezar con el diseño, se va a proceder a mencionar ciertos parámetros de configuración de la herramienta Ansys HFSS, los cuales son necesarios a tener en cuenta para entender los resultados obtenidos, así como a explicar ciertos conceptos básicos sobre el funcionamiento de HFSS y realizar paso por paso, como ejemplo, el diseño de la antena parche básica.
+
+\subsection{Consideraciones previas de Ansys HFSS}
+
+\par Las consideraciones previas en cuanto a configuración y diseño en común a todas las antenas a diseñar son:
+\\
+\par Nuestros diseños serán realizados en el plano XY, donde el eje Y estará dedicado a las alturas y el eje X a las anchuras.
+\\
+\par La alimentación de la línea de transmisión será realizada mediante la técnica denominada Wave-port. Mediante los wave-port HFSS asume que la alimentación del sistema esta siendo realizada por una guía de onda semi-infinita cuya sección y propiedades son las mismas que se le asignen a este wave-port. A la hora de realizar el análisis de los parámetros de pérdidas de retorno (S), HFSS asume que el wave-port excitará el sistema con los modos naturales asociados a la sección de esa guía de onda. Cada modo con el que se excita el puerto contiene un vatio de potencia. Por otra parte, los parámetros S serán referenciados a la impedancia que le sea asignada a este puerto en el momento de su declaración en el programa, en nuestro caso 50 $\Omega$.
+\\
+\par Los planos conductores, es decir, el conjunto de parche y alimentación y el plano de tierra tendrán la propiedad de \textit{PerfectE}, lo que le proporciona las características de superficie conductora perfecta. A esta propiedad también se le denomina \textbf{boundary} y no ha de confundirse con el material asignado a los elementos conductores. Esta propiedad obliga al campo eléctrico a ser perpendicular a la superficie. Otro \textit{boundary} o contorno esencial que encontraremos en nuestros diseños es el \textit{Radiation}. La propiedad \textit{boundary} de \textit{radiation}, la cual será asignada a la caja de radiación que rodee el sistema completo en sus tres dimensiones, será capaz de simular la propagación de la radiación a una distancia infinita, pudiendo analizar así nuestra antena como si nos encontráramos en la región de campo lejano.
+\\
+\par En cuanto a los materiales asignados a cada elemento, la configuración será la misma para todos los diseños: La caja de radiación será asignada a vacío, así asumiremos que no hay ningún tipo de pérdidas de propagación a la hora de realizar el análisis. El substrato será asignado a \textit{Rogers RO4003}, diseñado para circuitos de alta frecuencia y fabricado con láminas de cerámicas de hidrocarburos, cuya constante dieléctrica $\varepsilon_{r}$ es de 3.55, y su factor de pérdidas $\tan \delta$ es de 0.0021 a 2.5 GHz.
+\\
+\par El proceso de análisis que realiza HFSS para simular el comportamiento eléctrico de los diseños se basa en el \gls{fem} o método de elementos finitos. Para ello, HFSS crea una malla de tetraedros a lo largo de las diferentes superficies de nuestro diseño. HFSS irá realizando iteraciones de la simulación donde en cada una de ellas, los tetraedros irán reduciendo su tamaño y adaptándose automáticamente a la forma de nuestro diseño. De esta forma, nuestro diseño es discretizado y en cada uno de estos tetraedros serán calculadas las ecuaciones de Maxwell en forma diferencial. En cada iteración se compararán los resultados obtenidos en cuanto a la dispersión de los puertos con la iteración anterior, la diferencia entre ambas comparaciones se denominará \textit{delda S}. Cuanto mayor sea este parámetro, mayor diferencia entre los resultados de las iteraciones, lo que significará que nuestro análisis aun necesita realizar más iteraciones, en las que los tetraedros se adapten del todo con el diseño, de forma que no exista variación de los resultados entre iteraciones.
+\\
+\par Para ello, a la hora de configurar el \textit{solver}, en nuestras simulaciones hemos elegido un número máximo de pasadas de 30, el cual siempre ha sido suficiente para que las simulaciones llegaran a converger y un valor de error de convergencia, \textit{delta S}, de 0.002. Cuanto menor sea el valor, más precisos serán los resultados obtenidos, y por tanto, mayores cálculos tendrá que realizar nuestro computador. Este ha sido importante a la hora de realizar el proyecto, puesto que, no siempre se ha podido simular con tanta precisión debido a las limitaciones de la computadora en la que se está trabajando, con lo que se ha tenido que llegar a una solución de compromiso para el caso de los diseños más complejos: El array de 4x2 y de 4x4. En estos casos hemos tenido que aumentar la convergencia hasta valores de 0.02, puesto que simulaciones con menor convergencia llevaban al proyecto de HFSS a tardar varios días en completarse.
+\\
+\par Otro ajuste previo a la simulación en HFSS es el \textit{Frequency sweep} o barrido en frecuencia. Con el se ajustará cual será el margen de frecuencias para el que se realizarán los cálculos de la simulación. En nuestro caso siempre será en un margen de $\pm$ 0.1 GHz con respecto a la frecuencia a la que se va a realizar la simulación. Este valor es suficiente para poder observar la curva de pérdidas de retorno completa para esta frecuencia. Además, se puede ajustar el intervalo de discretización del eje de frecuencias, para poder obtener así una mayor resolución en las gráficas que se vayan a analizar. En nuestro caso se ha elegido un intervalo de 0.0001. Por ejemplo, si nuestra frecuencia de diseño es de 2.4 GHz, la gráfica se mostrará desde los 2.3 GHz hasta los 2.5 GHz, cada 0.00001 GHz, lo que nos dará un total de 2001 puntos de resolución.
+\\
+\par Finalmente en cuanto al análisis de los resultados, nos basaremos principalmente en las gráficas y parámetros que HFSS nos ofrece.
 
 
