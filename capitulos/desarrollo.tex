@@ -117,11 +117,9 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 
 \par Las consideraciones previas en cuanto a configuración y diseño en común a todas las antenas a diseñar son:
 \\
-\par Nuestros diseños serán realizados en el plano XY, donde el eje Y estará dedicado a las alturas y el eje X a las anchuras.
+\par Todos los diseños serán realizados en el plano XY, donde el eje Y estará dedicado a las alturas y el eje X a las anchuras. La alimentación de la línea de transmisión será realizada mediante la técnica denominada Wave-port. Mediante los wave-port HFSS asume que la alimentación del sistema esta siendo realizada por una guía de onda semi-infinita cuya sección y propiedades son las mismas que se le asignen a este wave-port. A la hora de realizar el análisis de los parámetros de pérdidas de retorno (S), HFSS asume que el wave-port excitará el sistema con los modos naturales asociados a la sección de esa guía de onda. Cada modo con el que se excita el puerto contiene un vatio de potencia. Por otra parte, los parámetros S serán referenciados a la impedancia que le sea asignada a este puerto en el momento de su declaración en el programa, en nuestro caso 50 $\Omega$.
 \\
-\par La alimentación de la línea de transmisión será realizada mediante la técnica denominada Wave-port. Mediante los wave-port HFSS asume que la alimentación del sistema esta siendo realizada por una guía de onda semi-infinita cuya sección y propiedades son las mismas que se le asignen a este wave-port. A la hora de realizar el análisis de los parámetros de pérdidas de retorno (S), HFSS asume que el wave-port excitará el sistema con los modos naturales asociados a la sección de esa guía de onda. Cada modo con el que se excita el puerto contiene un vatio de potencia. Por otra parte, los parámetros S serán referenciados a la impedancia que le sea asignada a este puerto en el momento de su declaración en el programa, en nuestro caso 50 $\Omega$.
-\\
-\par Los planos conductores, es decir, el conjunto de parche y alimentación y el plano de tierra tendrán la propiedad de \textit{PerfectE}, lo que le proporciona las características de superficie conductora perfecta. A esta propiedad también se le denomina \textbf{boundary} y no ha de confundirse con el material asignado a los elementos conductores. Esta propiedad obliga al campo eléctrico a ser perpendicular a la superficie. Otro \textit{boundary} o contorno esencial que encontraremos en nuestros diseños es el \textit{Radiation}. La propiedad \textit{boundary} de \textit{radiation}, la cual será asignada a la caja de radiación que rodee el sistema completo en sus tres dimensiones, será capaz de simular la propagación de la radiación a una distancia infinita, pudiendo analizar así nuestra antena como si nos encontráramos en la región de campo lejano.
+\par Los planos conductores, es decir, el conjunto de parche y alimentación y el plano de tierra tendrán la propiedad de \textit{PerfectE}, lo que le proporciona las características de superficie conductora perfecta. A esta propiedad también se le denomina \textit{boundary} y no ha de confundirse con el material asignado a los elementos conductores. Esta propiedad obliga al campo eléctrico a ser perpendicular a la superficie. Otro \textit{boundary} o contorno esencial que encontraremos en nuestros diseños es el \textit{Radiation}. La propiedad \textit{boundary} de \textit{radiation}, la cual será asignada a la caja de radiación que rodee el sistema completo en sus tres dimensiones, será capaz de simular la propagación de la radiación a una distancia infinita, pudiendo analizar así nuestra antena como si nos encontráramos en la región de campo lejano.
 \\
 \par En cuanto a los materiales asignados a cada elemento, la configuración será la misma para todos los diseños: La caja de radiación será asignada a vacío, así asumiremos que no hay ningún tipo de pérdidas de propagación a la hora de realizar el análisis. El substrato será asignado a \textit{Rogers RO4003}, diseñado para circuitos de alta frecuencia y fabricado con láminas de cerámicas de hidrocarburos, cuya constante dieléctrica $\varepsilon_{r}$ es de 3.55, y su factor de pérdidas $\tan \delta$ es de 0.0021 a 2.5 GHz.
 \\
@@ -131,6 +129,202 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \\
 \par Otro ajuste previo a la simulación en HFSS es el \textit{Frequency sweep} o barrido en frecuencia. Con el se ajustará cual será el margen de frecuencias para el que se realizarán los cálculos de la simulación. En nuestro caso siempre será en un margen de $\pm$ 0.1 GHz con respecto a la frecuencia a la que se va a realizar la simulación. Este valor es suficiente para poder observar la curva de pérdidas de retorno completa para esta frecuencia. Además, se puede ajustar el intervalo de discretización del eje de frecuencias, para poder obtener así una mayor resolución en las gráficas que se vayan a analizar. En nuestro caso se ha elegido un intervalo de 0.0001. Por ejemplo, si nuestra frecuencia de diseño es de 2.4 GHz, la gráfica se mostrará desde los 2.3 GHz hasta los 2.5 GHz, cada 0.00001 GHz, lo que nos dará un total de 2001 puntos de resolución.
 \\
-\par Finalmente en cuanto al análisis de los resultados, nos basaremos principalmente en las gráficas y parámetros que HFSS nos ofrece.
+\par Para el análisis de los resultados, nos basaremos principalmente en las gráficas y parámetros que HFSS nos ofrece. Usaremos los reportes de las soluciones modales para graficar las pérdidas de retorno o parámetros S y comprobar así el ancho de banda, la frecuencia de trabajo y la calidad de nuestra antena. También nos fijaremos en las gráficas que analizan la parte real e imaginaria (óhmica y reactiva) de la impedancia, para así conocer el grado de adaptación de las impedancias de nuestra antena. 
+\\
+\par En cuanto a los reportes sobre el campo lejano de la antena, analizaremos los patrones de radiación 2D para los dos planos de radiación de la antena, E y H, es decir, cuando $\phi $ = 0º y $\phi $ = 90º y el diagrama de radiación polar en 3D, en ambos casos se mostrará la directividad de la antena en dBs. Otras características que HFSS ofrece para analizar el comportamiento de la antena, y que también se usarán en este proyecto, es la representación sobre la antena del comportamiento de los campos eléctrico y magnético, así como la visualización de los tetraedros usados por HFSS para analizar la antena. Para terminar, usaremos la HFSS para calcular automáticamente los valores de los parámetros característicos de la antena tales como directividad, eficiencia, etc.
+\\
+\par Finalmente, cabe mencionar que todos los diseños estarán parametrizados. Esto quiere decir que cada parámetro de anchura y altura de cualquier sección del conjunto del parche estará asociado a una variable o a la derivación del cálculos entre otras variables. Se ha seguido una serie de patrones a la hora de declarar estas variables de forma que sea sencillo entender a qué sección pertenece cada una:
+
+\begin{itemize}
+\item \textbf{W/L: }Anchura/Altura del parche
+\item \textbf{Ws/Ls: }Anchura/Altura del substrato
+\item \textbf{Wwp/Lwp: }Anchura/Altura del \textit{Waveport}
+\item \textbf{h: }Grosor del substrato
+\item \textbf{Linset/Winset: }Anchura/Altura del \textit{inset}
+\item \textbf{W50/L50: }Anchura/Altura para línea con impedancia de 50 $\Omega$
+\item \textbf{W100/L100: }Anchura/Altura para línea con impedancia de 100 $\Omega$
+\item \textbf{W70/L70: }Anchura/Altura para línea con impedancia de 70.71 $\Omega$
+\item \textbf{W25/L25: }Anchura/Altura para línea con impedancia de 25 $\Omega$
+\end{itemize}
+
+\par En caso de que se necesiten otras variables estás tendrán una codificación del tipo: "Xdesc". Donde \textit{X} es W o L según si la variable referencia a una anchura o a una altura respectivamente y \textit{desc} será una palabra corta o acrónimo que defina el objeto al que hace referencia, por ejemplo: \textit{feed}.
 
 
+\subsection{Proceso de diseño en HFSS}
+\par A continuación se va a explicar detenidamente el proceso de diseño y configuración de HFSS para el caso de la antena de parche única a 2.4 GHz, así como a analizar los resultados obtenidos. Para ello empezaremos usando el script diseñado en MATLAB anteriormente mostrado. Los resultados obtenidos son los que serán usados en HFSS para diseñar la primera aproximación de la antena. En este caso:
+
+\begin{table}[H]
+   
+   \label{tab:antena1x12}
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.15\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión} \\ 
+   \midrule
+   \textbf{W} & 41.40 mm \\
+   \textbf{L} & 32.73 mm \\
+   \textbf{Linset} & 11.89 mm \\
+   \textbf{Winset} & 1 mm \\
+   \textbf{W50} & 3.36 mm \\
+   \textbf{Ws/Ls} & 70 mm \\
+   \textbf{5} & 1.52 mm \\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Resumen de dimensiones de parche único microstrip} 
+\end{table}
+
+\par Crearemos un nuevo proyecto en HFSS y empezaremos creando un \textit{box}, definiendo las variables que le dará dimensiones y centrándolo en el viasualizador del proyecto. Para ello, como se ha mencionado anteriormente, se usarán las variables creadas o los cálculos derivados de ellas para obtener los resultados deseados (fig. \ref{fig:substrato}). Observaremos que el cubo aparece ahora en la lista de sólidos del proyecto. Desde allí le asignaremos el material que le corresponde mediante la opción \textit{Assign Material}. 
+\\
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/1}
+        \caption{Creación del substrato}
+        \label{fig:substrato}
+\end{figure}
+\par El plano de masa se creará mediante un plano simple. Para ello se usará la herramienta \textit{Draw Rectangle}, de igual manera que con el substrato, se le asignarán las variables idénticas a las asignadas al substrato, puesto que ambos tendrán el mismo ancho y alto, y se configurará su posición para que este esté centrado y pegado al plano inferior del substrato (fig. \ref{fig:masa}).
+\\
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/2}
+        \caption{Creación del plano de masa}
+        \label{fig:masa}
+\end{figure}
+\par A continuación, se volverá al plano superior del substrato, y volviendo a usar la herramienta \textit{Draw Rectangle} se creará un rectángulo con las medidas de W y L como ancho y alto respectivamente. Este rectángulo será nuestro parche (fig. \ref{fig:parche}). Cabe destacar como, todo lo relacionado con el parche, y el resto de circuitos de alimentación estarán situados sobre el substrato, es decir, a 1.52 mm sobre el origen de coordenadas del diseño del HFSS. Se volverá a repetir el proceso para el feed de alimentación, que unirá en uno de los lados que definen la anchura del parche al lado paralelo más próximo que define el ancho del substrato (fig. \ref{fig:feed}).
+\\ 
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/3}
+        \caption{Creación del parche}
+        \label{fig:parche}
+\end{figure}
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/4}
+        \caption{Creación del feed principal}
+        \label{fig:feed}
+\end{figure}
+\par Seleccionando ahora los planos correspondientes a el \textit{feed} y el parche se procederá a pulsar el botón \textit{Unite}, que se encargará de unirlos como si fuera un solo material. Con este nuevo sólido que se habrá creado y seleccionando simultáneamente el rectángulo creado para el plano de masa se accederá a sus opciones y se pulsará sobre la opción \textit{Assign Boundary}>\textit{Perfect E}. De esta forma le daremos el comportamiento de conductor perfecto al conjunto de \textit{feed} y parche y al plano de masa (fig. \ref{fig:perfecte}). 
+\\
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/5}
+        \caption{Asignación de material conductor al parche y al plano de masa}
+        \label{fig:perfecte}
+\end{figure}
+\par Para excitar el sistema crearemos el \textit{Wave port}. Para ello se cambiará el plano de diseño de XY a ZX, para poder crear planos perpendiculares a los ya existentes en la antena. El \textit{Wave port} consistirá en un rectángulo que repose centrado sobre el extremo del substrato donde se puede acceder al \textit{feed}. Este debe tener unas dimensiones para cubrir el \textit{feed} por completo, así como tocar el plano de masa (fig. \ref{fig:waveport}). De la misma manera que se usó para asignar la propiedad de conductor al parche, se seleccionará sobre el plano creado para el \textit{Wave port} y en sus opciones aplicaremos: \textit{Assign Excitation}>\textit{WavePort}. 
+\\
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/6}
+        \caption{Creación del Wave-Port}
+        \label{fig:waveport}
+\end{figure}
+
+\par Los dos ranuras o \textit{insets} que adaptarán el \textit{feed} y la antena, se crearán como rectángulos sobre el substrato y pegados al \textit{feed} dentro del parche (fig. \ref{fig:inseta}). Después, seleccionando el parche y ambos rectángulos se procederá, mediante el botón \textit{substract} a eliminar la superficie ocupara por los rectángulos, del plano del parche (fig. \ref{fig:insetb}). De esta forma se obtendrán las dos ranuras necesarias para conseguir la adaptación.
+\\
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/7a}
+         \caption{Creación del \textit{inset} izquierdo}
+         \label{fig:inseta}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/7b}
+         \caption{Resta de la superficie de los \textit{insets}}
+         \label{fig:insetb}
+     \end{subfigure}
+     \hfill
+        \caption{Proceso de creación de los \textit{insets}}
+        \label{fig:insets}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/8}
+        \caption{Creación del la caja de radiación}
+        \label{fig:caja}
+\end{figure}
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/9a}
+         \caption{Opciones de la configuración general}
+         \label{fig:configa}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/9b}
+         \caption{Opciones de las iteraciones}
+         \label{fig:configb}
+     \end{subfigure}
+     \hfill
+     \\
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/9c}
+         \caption{Creación del barrido en frecuencia}
+         \label{fig:configc}
+     \end{subfigure}
+     \hfill
+        \caption{Configuración del simulador}
+        \label{fig:config}
+\end{figure}
+\par El último elemento de diseño que se implementará será la caja de radiación. Esta se creará mediante la herramienta \textit{Draw box}, como se hizo con el substrato, y sus dimensiones deben ser capaces de cubrir el sistema entero que antena que se ha diseñado. Además, es importante el lado de la caja de radiación en el que se encuentra el \textit{Wave port} esté en el superpuesto en el plano de este (fig. \ref{fig:caja}). Además, de la misma forma que se hizo con elementos anteriores, se le asignará a este caja la propiedad de caja de radiación mediante: \textit{Assign Boundary}>\textit{Radiation} y como material: vacío.
+\\
+\par Llega el momento de configurar la simulación. Todas las opciones respecto a las iteraciones que va a realizar HFSS sobre el diseño se encuentran en la opción \textit{Analysis}, en sus opciones pulsaremos sobre \textit{Add Solution Setup}. En ella se introducirán los parámetros que se consideren necesarios para la correcta simulación del sistema. La frecuencia se ha establecido a 2.4 GHz \todo{fijarse en todos los GHz, todos lo que termine en "os", WavePorts}, el número máximo de pasadas como 50, y la máxima variación sobre el parámetro S de 0.004 (fig. \ref{fig:configa}). Si se entra a la pestaña \textit{options} se podrá también configurar parámetros como el número mínimo de pasadas, o el número mínimo de iteraciones consecutivas convergentes (fig. \ref{fig:configb}).
+\\
+\par Una vez creada la configuración del simulador, se añadirá el barrido en frecuencia sobre esta. Para ello, se añadirá un \textit{Frequency Sweep} mediante las opciones disponibles al pulsar sobre la configuración que hemos creado. En nuestro caso se configurará el barrido para crear un vector de frecuencias desde 2.3 GHz hasta 2.5 GHz cada 0.0001 GHz, creando un total de 1001 puntos de frecuencia para así obtener una mayor resolución en las gráficas que se deseen mostrar. El tipo de sweep se seleccionará como \textit{fast}, lo que ayudará a la máquina a agilizar el proceso de cálculo y es importante marcar la opción \textit{Save fields} para poder, más tarde, mostrar los datos relacionados con el campo lejano.
+\\
+\par Ya estaría listo el diseño y la configuración del solucionador para lanzar la simulación del sistema. Para ello se pulsará primero sobre el botón \textit{Validate} para confirmar que todo está correctamente configurado y no hay errores en el diseño que impidan que HFSS no pueda iniciar la simulación. Tras comprobar que no existen errores, mediante el botón \textit{Analyze all} se podrá iniciar la simulación. Durante la simulación HFSS irá realizando iteraciones en las que los tetraedros se irán adaptando a nuestro parche (fig. \ref{fig:tetra}). En cada iteración el número de tetraedros irá creciendo exponencialmente (fig. \ref{fig:conver}), con lo que es posible que en las últimas iteraciones, el simulador tarde más en realizar una pasada completa. Si se pulsa sobre la opción \textit{Convergence} dentro de las opciones del configurador de la simulación, se podrá obvservar de forma gráfica o anaítica el número de pasadas que ha realizado el simulador (fig. \ref{fig:convera}) así como otros datos sobre la convergencia de la simulación.
+\\
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.47\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/10a}
+         \caption{Distribución de tetraedros en la iteración nº5}
+         \label{fig:tetraa}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.47\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/10b}
+         \caption{Distribución de tetraedros en la iteración nº27}
+         \label{fig:tetrab}
+     \end{subfigure}
+     \hfill
+        \caption{Tetraedros creados por HFSS para calcular el comporamiento del sistema}
+        \label{fig:tetra}
+\end{figure}
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.47\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/11a}
+         \caption{Histórico de \textit{Delta S}}
+         \label{fig:convera}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.47\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/desarrollo/11b}
+         \caption{Numero de tetraedros en la iteración nº27}
+         \label{fig:converb}
+     \end{subfigure}
+     \hfill
+        \caption{Datos sobre la simulación actual}
+        \label{fig:conver}
+\end{figure}
+
+\par Una vez que la simulación ha convergido, HFSS empezará con otra serie de cálculos. Principalmente cálculos matriciales relacionados con los datos obtenidos de la simulación. Tras su finalización, se podrá proceder a analizar los resultados. Las gráficas de los resultados se obtienen mediante la pestalla \textit{Results}. Allí, al pulsar sobre sus opciones, se podrán acceder a diferentes tipos de representaciones según la naturaleza de esta: Reportes sobre soluciones modales, reportes sobre el campo lejano, etc. En primer lugar se analizará la curva de pérdida de retorno, o parámetro S, que se puede encontrar dentro de: \textit{Create Modal Solution Data Report}>\textit{Rectángular Plot}. Se abrirá una ventana donde se podrá seleccionar qué parámetro se quiere graficar, en nuestro caso \textit{S Parameter} en dB. En la misma ventana y dentro de la pesataña \textit{Families} se podrá seleccionar qué variación de nuestro diseño se quiere graficar, en el caso de que se hayan realizado más de una simulación con cambios en el diseño entre ellas. Finalmente, se pulsará sobre \textit{New Report} para ver el resultado.
