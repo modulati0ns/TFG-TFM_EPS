@@ -224,7 +224,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 
 \par Los dos ranuras o \textit{insets} que adaptarán el \textit{feed} y la antena, se crearán como rectángulos sobre el substrato y pegados al \textit{feed} dentro del parche (fig. \ref{fig:inseta}). Después, seleccionando el parche y ambos rectángulos se procederá, mediante el botón \textit{substract} a eliminar la superficie ocupara por los rectángulos, del plano del parche (fig. \ref{fig:insetb}). De esta forma se obtendrán las dos ranuras necesarias para conseguir la adaptación.
 \\
-\begin{figure}[h]
+\begin{figure}[H]
      \centering
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
@@ -251,7 +251,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:caja}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
      \centering
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
@@ -287,7 +287,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \par Ya estaría listo el diseño y la configuración del solucionador para lanzar la simulación del sistema. Para ello se pulsará primero sobre el botón \textit{Validate} para confirmar que todo está correctamente configurado y no hay errores en el diseño que impidan que HFSS no pueda iniciar la simulación. Tras comprobar que no existen errores, mediante el botón \textit{Analyze all} se podrá iniciar la simulación. Durante la simulación HFSS irá realizando iteraciones en las que los tetraedros se irán adaptando a nuestro parche (fig. \ref{fig:tetra}). En cada iteración el número de tetraedros irá creciendo exponencialmente (fig. \ref{fig:conver}), con lo que es posible que en las últimas iteraciones, el simulador tarde más en realizar una pasada completa. Si se pulsa sobre la opción \textit{Convergence} dentro de las opciones del configurador de la simulación, se podrá obvservar de forma gráfica o anaítica el número de pasadas que ha realizado el simulador (fig. \ref{fig:convera}) así como otros datos sobre la convergencia de la simulación.
 \\
 
-\begin{figure}[h]
+\begin{figure}[H]
      \centering
      \begin{subfigure}[b]{0.47\textwidth}
          \centering
@@ -307,7 +307,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:tetra}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
      \centering
      \begin{subfigure}[b]{0.47\textwidth}
          \centering
@@ -328,3 +328,32 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \end{figure}
 
 \par Una vez que la simulación ha convergido, HFSS empezará con otra serie de cálculos. Principalmente cálculos matriciales relacionados con los datos obtenidos de la simulación. Tras su finalización, se podrá proceder a analizar los resultados. Las gráficas de los resultados se obtienen mediante la pestalla \textit{Results}. Allí, al pulsar sobre sus opciones, se podrán acceder a diferentes tipos de representaciones según la naturaleza de esta: Reportes sobre soluciones modales, reportes sobre el campo lejano, etc. En primer lugar se analizará la curva de pérdida de retorno, o parámetro S, que se puede encontrar dentro de: \textit{Create Modal Solution Data Report}>\textit{Rectángular Plot}. Se abrirá una ventana donde se podrá seleccionar qué parámetro se quiere graficar, en nuestro caso \textit{S Parameter} en dB. En la misma ventana y dentro de la pesataña \textit{Families} se podrá seleccionar qué variación de nuestro diseño se quiere graficar, en el caso de que se hayan realizado más de una simulación con cambios en el diseño entre ellas. Finalmente, se pulsará sobre \textit{New Report} para ver el resultado.
+\\
+\par Como se mencionó al final de la sección \ref{351} Los resultados obtenidos mediante las dimensiones proporcionadas por las ecuaciones que se implementaron en MATLAB han de ser refinados, ya que estos no harán que nuestra antena funcione exactamente de la manera en la que se desea. Es necesario un trabajo previo al resultado final, basado en iteraciones propias realizadas por el ingeniero, en las que se modifiquen ciertas dimensiones de la antena para encontrar la solución que este busque. En el caso de esta antena, los resultados obtenidos tras el trabajo previo, en el que se han reducido 2 mm el ancho de la antena, se pueden ver a continuación. Cabe mencionar que, a lo largo del análisis de los resultados de nuestros diseños, se omitirá este proceso de refinado del diseño, y se mostrarán directamente las dimensiones con las que se ha encontrado que la antena trabaja según las especificaciones deseadas.
+\\
+\begin{itemize}
+\item \textbf{Gráfica de pérdidas de retorno o parámetro S: }Se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -21.72 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dBs de de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/12a}
+        \caption{Pérdidas de retorno}
+        \label{fig:s}
+	\end{figure}
+	
+\item \textbf{Gráfica del componente real de la impedancia: }En esta gráfica el objetivo principal es encontrar un valor de 50 $\Omega$ para la frecuencia de trabajo de 2.4 GHz. Este valor influencia directamente a la curva del parámetro S. Como se puede observar, el valor obtenido de 51 $\Omega$ lo que significa que la adaptación final entre el sistema de alimentación y la antena ha sido correcta.
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/12b}
+        \caption{Componente óhmica de la impedancia}
+        \label{fig:realimpe}
+	\end{figure}
+	
+	\item \textbf{Gráfica del componente imaginaria de la impedancia: }En este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=13cm]{archivos/desarrollo/12c}
+        \caption{Componente reactiva de la impedancia}
+        \label{fig:imaimpe}
+	\end{figure}
+
+\end{itemize}

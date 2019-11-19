@@ -155,7 +155,7 @@
 \par En este proyecto se ha usado principalmente el método de línea de transmisión para el diseño de las antenas microstrip, con lo que se procederá a profundizar en la explicación de este método obviando los métodos de cavidades y onda completa dada su complejidad.
 
 \subsection{Método de análisis y diseño por línea de transmisión}
-
+\label{351}
 \par El método de línea de transmisión, es un método de análisis del comportamiento físico de una antena microstrip que ofrece una manera sencilla de modelar la antena, con unos cálculos más rápidos y una visión más sencilla de lo que ocurre físicamente en la antena, a costa de unos resultados menos precisos que los que encontraríamos en otros métodos de análisis. Este método de análisis modela la antena microstrip como dos ranuras, separadas por una línea de transmisión de baja impedancia $Z_{c}$ y de longitud \textit{L} (fig. \ref{fig:modelo}). 
 \\
 
@@ -261,7 +261,7 @@ Donde $v_{0}$ es la velocidad de la luz en el vacío.
 \par Una vez que se han calculado las dimensiones del parche, vamos a proceder a su adaptación. Para ello, es muy común el uso de pequeñas inserciones de la línea de alimentación microstrip dentro del parche, abriendo dos ranuras alrededor de esta. Con esto se consigue que la línea de alimentación con una impedancia característica $Z_{c}$ este completamente adaptado en impedancias con el parche. Estas pequeñas ranuras o \textit{insets} tendrán una longitud específica en la que se sabe que la posición en la que se encuentra el final de la línea concuerda con la misma impedancia dentro del parche. \todo{explicar mejro?}.
 \\
 \par Para hallar la longitud del \textit{inset} se necesita tener en cuenta las admitancias \textit{Y}, conductancias \textit{G} y susceptancias \textit{B} de las ranuras y así poder calcular cuál es la resistencia de entrada resonante donde buscar la adaptación entre \textit{feed} y parche. Para ello primera se calcula la conductancia \textit{$G_{1}$}:
-
+\\
 \begin{equation}
 	G_{1}=\frac{I_{1}}{120\pi^{2}}
 	\label{eq:g1}
