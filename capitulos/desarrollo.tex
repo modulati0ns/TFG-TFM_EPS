@@ -332,10 +332,10 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \par Como se mencionó al final de la sección \ref{351} Los resultados obtenidos mediante las dimensiones proporcionadas por las ecuaciones que se implementaron en MATLAB han de ser refinados, ya que estos no harán que nuestra antena funcione exactamente de la manera en la que se desea. Es necesario un trabajo previo al resultado final, basado en iteraciones propias realizadas por el ingeniero, en las que se modifiquen ciertas dimensiones de la antena para encontrar la solución que este busque. En el caso de esta antena, los resultados obtenidos tras el trabajo previo, en el que se han reducido 2 mm el ancho de la antena, se pueden ver a continuación. Cabe mencionar que, a lo largo del análisis de los resultados de nuestros diseños, se omitirá este proceso de refinado del diseño, y se mostrarán directamente las dimensiones con las que se ha encontrado que la antena trabaja según las especificaciones deseadas.
 \\
 \begin{itemize}
-\item \textbf{Gráfica de pérdidas de retorno o parámetro S: }Se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -21.72 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dBs de de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
+\item \textbf{Gráfica de pérdidas de retorno o parámetro S: }Se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -39.53 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dBs de de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/12a}
+        \includegraphics[width=14cm]{archivos/desarrollo/12a}
         \caption{Pérdidas de retorno}
         \label{fig:s}
 	\end{figure}
@@ -343,17 +343,49 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica del componente real de la impedancia: }En esta gráfica el objetivo principal es encontrar un valor de 50 $\Omega$ para la frecuencia de trabajo de 2.4 GHz. Este valor influencia directamente a la curva del parámetro S. Como se puede observar, el valor obtenido de 51 $\Omega$ lo que significa que la adaptación final entre el sistema de alimentación y la antena ha sido correcta.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/12b}
+        \includegraphics[width=14cm]{archivos/desarrollo/12b}
         \caption{Componente óhmica de la impedancia}
         \label{fig:realimpe}
 	\end{figure}
 	
-	\item \textbf{Gráfica del componente imaginaria de la impedancia: }En este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
+\item \textbf{Gráfica del componente imaginaria de la impedancia: }En este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/12c}
+        \includegraphics[width=14cm]{archivos/desarrollo/12c}
         \caption{Componente reactiva de la impedancia}
         \label{fig:imaimpe}
+	\end{figure}
+
+\item \textbf{Patrón de radiación en el plano E: }El patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 0º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=14cm]{archivos/desarrollo/12d}
+        \caption{Patrón de radiación del plano E}
+        \label{fig:radE}
+	\end{figure}
+
+\item \textbf{Patrón de radiación en el plano H: }Repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 90º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=14cm]{archivos/desarrollo/12e}
+        \caption{Patrón de radiación del plano H}
+        \label{fig:radH}
+	\end{figure}
+
+\item \textbf{Patrón de radiación tridimensional: }Aunque hemos mostrado los patrones de directividad para los ángulos $\phi $ en 0º y 90º, HFSS los calcula para la circunferencia completa. Se puede recrear el patrón de radiación en trews dimensiones si representamos juntos los patrones de dirección para todos los ángulos de $\phi$ y $\Theta$. HFSS ofrece una manera sencilla de hacerlo. Como se puede observar en los resultados, hemos obtenido una antena completamente omnidireccional para el plano superior del parche y una directividad casi nula en el plano inferior, lo que podríamos asimilar a un monopolo. La directividad obtenida siempre coincidirá con uno de los máximos, del campo E o H, en este caso 5.36 dB.
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=14cm]{archivos/desarrollo/12f}
+        \caption{Patrón de radiación 3D}
+        \label{fig:rad3d}
+	\end{figure}
+	
+\item \textbf{Distribución eléctrica sobre la antena: }Otro tipo de análisis que podemos realizar sobre la antena consiste en la muestra directa sobre la antena de ciertos parámetros como el campo eléctrico, los vectores de los campos eléctricos y magnéticos, etc. En este caso, se muestra la distribución del campo eléctrico sobre la antena. En el se pueden observar donde se sitúan los principales valles y nodos sobre esta.
+	\begin{figure}[H]
+    \centering
+        \includegraphics[width=14cm]{archivos/desarrollo/12g}
+        \caption{Campos eléctricos en la superficie de la antena}
+        \label{fig:Complexmage}
 	\end{figure}
 
 \end{itemize}
