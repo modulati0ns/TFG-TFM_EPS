@@ -18,8 +18,8 @@
 	\item \textbf{Polarización: }Lineal
 	\item \textbf{Tipo de alimentación: } Directa por línea microstrip
 	\item \textbf{Impedancia de entrada: }50 $\Omega$
-	\item \textbf{Altura del substrato: }1.52 \SI{3.55}{\milli\metre}
-	\item \textbf{Altura de los planos conductores: }\SI{3.55}{\micro\metre}
+	\item \textbf{Altura del substrato: }1.52 \SI{1.52}{\milli\metre}
+	\item \textbf{Altura de los planos conductores: }\SI{12}{\micro\metre} \todo{no me acuerdo}
 	\item \textbf{Substrado: }Rogers 4003 (RO4003)
 	\item \textbf{Constante dieléctrica del substrato: }3.55
 \end{itemize}
@@ -168,7 +168,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \textbf{Winset} & 1 mm \\
    \textbf{W50} & 3.36 mm \\
    \textbf{Ws/Ls} & 70 mm \\
-   \textbf{5} & 1.52 mm \\
+   \textbf{h} & 1.52 mm \\
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
    \caption{Resumen de dimensiones de parche único microstrip} 
@@ -375,7 +375,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación tridimensional: }Aunque hemos mostrado los patrones de directividad para los ángulos $\phi $ en 0º y 90º, HFSS los calcula para la circunferencia completa. Se puede recrear el patrón de radiación en trews dimensiones si representamos juntos los patrones de dirección para todos los ángulos de $\phi$ y $\Theta$. HFSS ofrece una manera sencilla de hacerlo. Como se puede observar en los resultados, hemos obtenido una antena completamente omnidireccional para el plano superior del parche y una directividad casi nula en el plano inferior, lo que podríamos asimilar a un monopolo. La directividad obtenida siempre coincidirá con uno de los máximos, del campo E o H, en este caso 5.36 dB.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12f}
+        \includegraphics[width=11cm]{archivos/desarrollo/12f}
         \caption{Patrón de radiación 3D}
         \label{fig:rad3d}
 	\end{figure}
@@ -383,9 +383,33 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Distribución eléctrica sobre la antena: }Otro tipo de análisis que podemos realizar sobre la antena consiste en la muestra directa sobre la antena de ciertos parámetros como el campo eléctrico, los vectores de los campos eléctricos y magnéticos, etc. En este caso, se muestra la distribución del campo eléctrico sobre la antena. En el se pueden observar donde se sitúan los principales valles y nodos sobre esta.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12g}
+        \includegraphics[width=12cm]{archivos/desarrollo/12g}
         \caption{Campos eléctricos en la superficie de la antena}
         \label{fig:Complexmage}
 	\end{figure}
 
 \end{itemize}
+
+\subsection{Análisis de los diseños}
+\par Ahora que se conoce cómo es el proceso de diseño de un parche microstrip en HFSS se procederá a implementar las distintas configuraciones anteriormente mencionadas. Durante esta sección serán comentados principalmente los aspectos sobre el diseño que conciernen a las antenas, y se dejará para el siguiente capítulo el análisis de los resultados obtenidos. Durante el análisis de los diseños repasaremos en diferentes secciones cada configuración de array para ambas frecuencias en la que han sido diseñadas, y finalmente se mencionará el caso del diseño a 27 Ghz.
+
+\subsubsection{Parche simple} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+
+\subsubsection{Array 2x1 Paralelo} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+
+\subsubsection{Array 2x1 Serie} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+
+\subsubsection{Array 2x2 Paralelo} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+
+\subsubsection{Array 4x1 Paralelo} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+
+\subsubsection{Array 4x2 Paralelo} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+
+\subsubsection{Array 4x4 Paralelo} 
+\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
