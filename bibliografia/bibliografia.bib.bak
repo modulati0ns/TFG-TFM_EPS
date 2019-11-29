@@ -1,0 +1,14 @@
+\cite{Balanis2015}% Encoding: UTF-8
+
+@Book{Balanis2015,
+  author    = {Balanis, Constantine A.},
+  title     = {Antenna Theory},
+  \cite{Balanis2015}year      = {2015},
+  date      = {2015-12-28},
+  publisher = {John Wiley \& Sons},
+  pagetotal = {1104},
+  url       = {https://www.ebook.de/de/product/25674970/constantine_a_balanis_antenna_theory.html},
+  ean       = {9781119178996},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
