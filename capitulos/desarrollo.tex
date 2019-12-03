@@ -141,16 +141,18 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Wwp/Lwp: }Anchura/Altura del \textit{Waveport}
 \item \textbf{h: }Grosor del substrato
 \item \textbf{Linset/Winset: }Anchura/Altura del \textit{inset}
-\item \textbf{W50/L50: }Anchura/Altura para línea con impedancia de 50 $\Omega$
-\item \textbf{W100/L100: }Anchura/Altura para línea con impedancia de 100 $\Omega$
-\item \textbf{W70/L70: }Anchura/Altura para línea con impedancia de 70.71 $\Omega$
 \item \textbf{W25/L25: }Anchura/Altura para línea con impedancia de 25 $\Omega$
+\item \textbf{W35/L35: }Anchura/Altura para línea con impedancia de 35.35 $\Omega$
+\item \textbf{W50/L50: }Anchura/Altura para línea con impedancia de 50 $\Omega$
+\item \textbf{W70/L70: }Anchura/Altura para línea con impedancia de 70.71 $\Omega$
+\item \textbf{W100/L100: }Anchura/Altura para línea con impedancia de 100 $\Omega$
 \end{itemize}
 
 \par En caso de que se necesiten otras variables estás tendrán una codificación del tipo: "Xdesc". Donde \textit{X} es W o L según si la variable referencia a una anchura o a una altura respectivamente y \textit{desc} será una palabra corta o acrónimo que defina el objeto al que hace referencia, por ejemplo: \textit{feed}.
 
 
 \subsection{Proceso de diseño en HFSS}
+\label{procesodiseno}
 \par A continuación se va a explicar detenidamente el proceso de diseño y configuración de HFSS para el caso de la antena de parche única a 2.4 GHz, así como a analizar los resultados obtenidos. Para ello empezaremos usando el script diseñado en MATLAB anteriormente mostrado. Los resultados obtenidos son los que serán usados en HFSS para diseñar la primera aproximación de la antena. En este caso:
 
 \begin{table}[H]
@@ -335,7 +337,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica de pérdidas de retorno o parámetro S: }Se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -39.53 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dBs de de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12a}
+        \includegraphics[width=14cm]{archivos/analisis/1x11/1}
         \caption{Pérdidas de retorno}
         \label{fig:s}
 	\end{figure}
@@ -343,7 +345,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica del componente real de la impedancia: }En esta gráfica el objetivo principal es encontrar un valor de 50 $\Omega$ para la frecuencia de trabajo de 2.4 GHz. Este valor influencia directamente a la curva del parámetro S. Como se puede observar, el valor obtenido de 51 $\Omega$ lo que significa que la adaptación final entre el sistema de alimentación y la antena ha sido correcta.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12b}
+        \includegraphics[width=14cm]{archivos/analisis/1x11/2}
         \caption{Componente óhmica de la impedancia}
         \label{fig:realimpe}
 	\end{figure}
@@ -351,7 +353,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica del componente imaginaria de la impedancia: }En este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12c}
+        \includegraphics[width=14cm]{archivos/analisis/1x11/3}
         \caption{Componente reactiva de la impedancia}
         \label{fig:imaimpe}
 	\end{figure}
@@ -359,7 +361,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación en el plano E: }El patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 0º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12d}
+        \includegraphics[width=14cm]{archivos/analisis/1x11/4}
         \caption{Patrón de radiación del plano E}
         \label{fig:radE}
 	\end{figure}
@@ -367,7 +369,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación en el plano H: }Repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 90º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/12e}
+        \includegraphics[width=14cm]{archivos/analisis/1x11/5}
         \caption{Patrón de radiación del plano H}
         \label{fig:radH}
 	\end{figure}
@@ -375,7 +377,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación tridimensional: }Aunque hemos mostrado los patrones de directividad para los ángulos $\phi $ en 0º y 90º, HFSS los calcula para la circunferencia completa. Se puede recrear el patrón de radiación en trews dimensiones si representamos juntos los patrones de dirección para todos los ángulos de $\phi$ y $\Theta$. HFSS ofrece una manera sencilla de hacerlo. Como se puede observar en los resultados, hemos obtenido una antena completamente omnidireccional para el plano superior del parche y una directividad casi nula en el plano inferior, lo que podríamos asimilar a un monopolo. La directividad obtenida siempre coincidirá con uno de los máximos, del campo E o H, en este caso 5.36 dB.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=11cm]{archivos/desarrollo/12f}
+        \includegraphics[width=11cm]{archivos/analisis/1x11/7}
         \caption{Patrón de radiación 3D}
         \label{fig:rad3d}
 	\end{figure}
@@ -383,7 +385,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Distribución eléctrica sobre la antena: }Otro tipo de análisis que podemos realizar sobre la antena consiste en la muestra directa sobre la antena de ciertos parámetros como el campo eléctrico, los vectores de los campos eléctricos y magnéticos, etc. En este caso, se muestra la distribución del campo eléctrico sobre la antena. En el se pueden observar donde se sitúan los principales valles y nodos sobre esta.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=12cm]{archivos/desarrollo/12g}
+        \includegraphics[width=12cm]{archivos/analisis/1x11/6}
         \caption{Campos eléctricos en la superficie de la antena}
         \label{fig:Complexmage}
 	\end{figure}
@@ -391,6 +393,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \end{itemize}
 
 \subsection{Análisis de los diseños}
+\label{analdis}
 \par Ahora que se conoce cómo es el proceso de diseño de un parche microstrip en HFSS se procederá a implementar las distintas configuraciones anteriormente mencionadas. Durante esta sección serán comentados principalmente los aspectos sobre el diseño que conciernen a las antenas, y se dejará para el siguiente capítulo el análisis de los resultados obtenidos. Durante el análisis de los diseños repasaremos en diferentes secciones cada configuración de array para ambas frecuencias en la que han sido diseñadas, y finalmente se mencionará el caso del diseño a 27 Ghz. Es importante remarcar que \textbf{todas las acotaciones mostradas a lo largo de esta sección estarán en milímetros} y se han decidido omitir para mejorar la legibilidad de las imágenes.
 
 \subsubsection{Parche simple} 
@@ -410,7 +413,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \textbf{W} & 41.40 mm & 38 mm \\
    \textbf{L} & 32.73 mm & 32.73 mm\\
    \textbf{Linset} & 11.89 mm & 11.89 mm\\
-   \textbf{Winset} & - & 0.5 mm\\
+   \textbf{Winset} & - & 1 mm\\
    \textbf{W50} & 3.36 mm & 3.36 mm\\
    \textbf{Ws/Ls} & - & 70 mm\\
    \bottomrule[\heavyrulewidth] 
@@ -441,29 +444,15 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \par Como se puede observar, las dimensiones finales obtenidas tras la optimización de estas para encontrar el mejor resultado de los parámetros de la antena, se asemejan mucho a los proporcionados por MATLAB. Solo en el caso de la antena a 6 GHz hemos tenido que modificar los valores de \textit{W50} y \textit{Linset}. Por lo general, y comos se podrá comprobar también en el resto de las antenas posteriores, el mayor cambio a realizar para adaptar la antena a los resultados deseados, reside en la anchura del parche \textit{W}, así como, en menor parte, en la longitud de la ranura de adaptación \textit{Linset}.
 
 
-\begin{figure}[H]
-    \centering
-        \includegraphics[width=12cm]{archivos/desarrollo/autocad/1}
-        \caption{Parche simple a 2.4 Ghz}
-         \label{fig:simple1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-        \includegraphics[width=12cm]{archivos/desarrollo/autocad/2}
-        \caption{Parche simple a 6 Ghz}
-         \label{fig:simple2}
-\end{figure}
-
 
 
 
 \subsubsection{Array 2x1 Paralelo} 
 \par La primera configuración que hemos diseñado como producto de la unión de varios de parches simples se basa en la unión en paralelo de dos de estos parches. Como se mencionó con anterioridad, estos serán distanciados en una longitud de 0.7 veces la longitud de onda en el vacío $\lambda_{0}$. 
 \\
-\par Si se comparan los resultados obtenidos en MATLAB con respecto a los encontrados tras la optimización de las variables vemos que para el caso del array a 2.4 GHz los resultados obtenidos si que difieren de los proporcionados por MATLAB, aunque, como se verá más adelante, los resultados finales obtenidos con las nuevas dimensiones ofrecen a la antena las características deseadas. En el caso de la antena a 6 Ghz, los resultados si son casi idénticos a los proporcionados por MATLAB.
+\par Si se comparan los resultados obtenidos en MATLAB con respecto a los encontrados tras la optimización de las variables vemos que para el caso del array a 2.4 GHz estos si que difieren de los proporcionados por MATLAB, aunque, como se verá más adelante, los resultados finales obtenidos con las nuevas dimensiones ofrecen a la antena las características deseadas. En el caso de la antena a 6 Ghz, los resultados si son casi idénticos a los proporcionados por MATLAB.
 
-\begin{table}[h]
+\begin{table}[H]
   
    \label{tab:array2x11}
    \small % text size of table content
@@ -472,19 +461,19 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
    \midrule
-   \textbf{W} & 41.40 mm & 40.67 mm \\
-   \textbf{L} & 32.73 mm & 32.29 mm\\
-   \textbf{Linset} & 11.89 mm & 3.46 mm\\
-   \textbf{Winset} & - & 0.52 mm\\
-   \textbf{W50} & 3.36 mm & 2.84 mm\\
-   \textbf{W100} & 0.85 mm & 2 mm\\
-   \textbf{Ws/Ls} & - & 100/70 mm\\
+   \textbf{W} & 41.40 mm & 30 mm \\
+   \textbf{L} & 32.73 mm & 32.73 mm\\
+   \textbf{Linset} & 11.89 mm & 11.85 mm\\
+   \textbf{Winset} & - & 1 mm\\
+   \textbf{W50} & 3.36 mm & 3.36 mm\\
+   \textbf{W100} & 0.85 mm & 0.81 mm\\
+   \textbf{Ws/Ls} & - & 150/60 mm\\
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
    \caption{Dimensiones de array 2x1 microstrip a 2.4 GHz} 
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
   
    \label{tab:array2x12}
    \small % text size of table content
@@ -505,23 +494,6 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \caption{Dimensiones de array 2x1 microstrip a 6 GHz} 
 \end{table}
 
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/autocad/3}
-        \caption{Array 2x1 en paralelo a 2.4 Ghz}
-         \label{fig:array2x11}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/autocad/4}
-        \caption{Array 2x1 en paralelo a 6 Ghz}
-         \label{fig:array2x12}
-\end{figure}
-
-\newpage
-
-
 
 
 
@@ -532,9 +504,11 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 
 
 \subsubsection{Array 2x2 Paralelo} 
-\par HACIENDO
-
-\begin{table}[h]
+\par La siguiente configuración se trata de la un array 2x2 en configuración corporate feed en forma de T. Los resultados para el caso de la antena a 2.4 GHz son casi idénticos a los proporcionados por MATLAB. Solo se ha ajustado la anchura del feed para obtener los resultados deseados. En cuanto la configuración de la antena a 6 GHz, se puede observar como aquí los resultados si han diferido un poco más respecto a los proporcionados por MATLAB.
+\\
+\par Esta es la primera configuración en la que hemos usado transformadores  $\lambda$/4 para la adaptación entre líneas de 50 $\Omega$ y 100 $\Omega$, mediante una línea adaptadora de 70.71 $\Omega$, tal y como se indicó en la ecuación \ref{eq:lambdacuartos}.
+\\
+\begin{table}[H]
   
    \label{tab:array2x21}
    \small % text size of table content
@@ -544,10 +518,10 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
    \midrule
    \textbf{W} & 41.40 mm & 30.5 mm \\
-   \textbf{L} & 32.73 mm & 32.29 mm\\
-   \textbf{Linset} & 11.89 mm & 11.89 mm\\
+   \textbf{L} & 32.73 mm & 32.73 mm\\
+   \textbf{Linset} & 11.89 mm & 11.8 mm\\
    \textbf{Winset} & - & 1 mm\\
-   \textbf{W50} & 3.36 mm & 2.84 mm\\
+   \textbf{W50} & 3.36 mm & 3.36 mm\\
    \textbf{W70} & 1.85 mm & 1.81 mm\\
    \textbf{W100} & 0.85 mm & 0.81 mm\\
    \textbf{Ws/Ls} & - & 200/150 mm\\
@@ -558,7 +532,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \end{table}
 
 
-\begin{table}[h]
+\begin{table}[H]
   
    \label{tab:array2x22}
    \small % text size of table content
@@ -572,36 +546,25 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \textbf{Linset} & 4.57 mm & 3.31 mm\\
    \textbf{Winset} & - & 0.5 mm\\
    \textbf{W50} & 3.34 mm & 3.42 mm\\
-   \textbf{W70} & 3.34 mm & 1.83 mm\\
+   \textbf{W70} & 1.85 mm & 1.83 mm\\
    \textbf{W100} & 0.85 mm & 0.83 mm\\
    \textbf{Ws/Ls} & - mm & 70/65 mm\\
+   \textbf{Llambdacuartos} & 7.03 mm & 7.03 mm\\
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
    \caption{Dimensiones de array 2x1 microstrip a 6 GHz} 
 \end{table}
 
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=12cm]{archivos/desarrollo/autocad/7}
-        \caption{Array 2x2 en paralelo a 2.4 Ghz}
-         \label{fig:array2x21}
-\end{figure}
 
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=12cm]{archivos/desarrollo/autocad/8}
-        \caption{Array 2x2 en paralelo a 6 Ghz}
-         \label{fig:array2x22}
-\end{figure}
-
-\newpage
 
 
 
 \subsubsection{Array 4x1 Paralelo} 
-\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
-
-\begin{table}[h]
+\par Mediante las configuraciones de arrays que agrupen las antenas en línea, como es el caso de esta configuración 4x1, se conseguirán obtener patrones de directividad que centren su propagación en un solo plano de radiación. Este tipo de configuraciones es ampliamente usado en los arrays de antenas de telefonía, donde se desea que la señal se propague en el plano en el que se encuentren teléfonos, por ejemplo, apuntando hacia el suelo cuando la antena se sitúa sobre la azotea de un edificio. Así se evita radiar la señal hacia otras partes como el cielo, donde existe poca probabilidad de encontrar dispositivos, o incluso puede causar interferencias con otras antenas cercanas.
+\\
+\par En nuestra configuración 4x1 a 2.4 GHz se ha conseguido encontrar la solución más óptima mediante el ajuste de las dimensiones del inset, el ancho y un poco el alto del parche. En el caso del array a 6 GHz, también ha hecho falta modificar ligeramente las dimensiones de la anchura de las líneas de transmisión.
+\\
+\begin{table}[H]
   
    \label{tab:array4x11}
    \small % text size of table content
@@ -610,19 +573,21 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
    \midrule
-   \textbf{W} & 41.40 mm & 43.56 mm \\
-   \textbf{L} & 32.73 mm & 35.97 mm\\
-   \textbf{Linset} & 11.89 mm & 9.8 mm\\
-   \textbf{Winset} & - & 1.08 mm\\
-   \textbf{W50} & 3.36 mm & 4.2 mm\\
-   \textbf{W100} & 0.85 mm & 2 mm\\
-   \textbf{Ws/Ls} & - mm & 100/70 mm\\
+   \textbf{W} & 41.40 mm & 39 mm \\
+   \textbf{L} & 32.73 mm & 32.26 mm\\
+   \textbf{Linset} & 11.89 mm & 8.87 mm\\
+   \textbf{Winset} & - & 0.6 mm\\
+   \textbf{W50} & 3.36 mm & 3.36 mm\\
+   \textbf{W70} & 1.85 mm & 1.81 mm\\
+   \textbf{W100} & 0.85 mm & 0.81 mm\\
+   \textbf{Ws/Ls} & - & 400/100 mm\\
+   \textbf{Llambdacuartos} & 17.09 mm & 17.09 mm\\
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
-   \caption{Dimensiones de array 2x1 microstrip a 2.4 GHz} 
+   \caption{Dimensiones de array 4x1 microstrip a 2.4 GHz} 
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
   
    \label{tab:array4x12}
    \small % text size of table content
@@ -631,37 +596,137 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
    \midrule
-   \textbf{W} & 16.56 mm & 14.5 mm \\
+   \textbf{W} & 16.56 mm & 15.6 mm \\
    \textbf{L} & 12.64 mm & 12.64 mm\\
-   \textbf{Linset} & 4.57 mm & 3.85 mm\\
-   \textbf{Winset} & - & 0.52 mm\\
+   \textbf{Linset} & 4.57 mm & 4 mm\\
+   \textbf{Winset} & - & 0.5 mm\\
    \textbf{W50} & 3.34 mm & 3.42 mm\\
+   \textbf{W70} & 1.85 mm & 1.88 mm\\
    \textbf{W100} & 0.85 mm & 0.83 mm\\
-   \textbf{Ws/Ls} & - mm & 70/40 mm\\
+   \textbf{Ws/Ls} & - mm & 150/60 mm\\
+   \textbf{Llambdacuartos} & 7.03 mm & 7.03 mm\\
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
-   \caption{Dimensiones de array 2x1 microstrip a 6 GHz} 
+   \caption{Dimensiones de array 4x1 microstrip a 6 GHz} 
 \end{table}
 
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/autocad/5}
-        \caption{Array 2x2 en paralelo a 2.4 Ghz}
-         \label{fig:array4x11}
-\end{figure}
 
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=14cm]{archivos/desarrollo/autocad/6}
-        \caption{Array 2x2 en paralelo a 6 Ghz}
-         \label{fig:array4x12}
-\end{figure}
 
 
 
 
 \subsubsection{Array 4x2 Paralelo} 
-\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+\par El array corporate 4x2 poseerá el patrón de radiación característico del array 4x1 visto con anterioridad, pero encontraremos lóbulos de radiación mayores a lo largo del plano perpendicular al plano de radiación donde se focalizó en el array anterior. 
+\\
+\par Para el caso del array a 2.4 GHz se puede comprobar como solo se han realizado ajustes mayoritariamente en la anchura del parche para encontrar la solución deseada, junto con ajustes micrométricos en ciertas anchuras de las líneas de transmisión. Lo mismo ha ocurrido para el caso del array a 6 GHz, donde el principal cambio se encuentra, de igual manera, en la anchura de los parches, y un poco en la longitud del inset.
+\\
+\begin{table}[H]
+  
+   \label{tab:array4x11}
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
+   \midrule
+   \textbf{W} & 41.40 mm & 32 mm \\
+   \textbf{L} & 32.73 mm & 32.73 mm\\
+   \textbf{Linset} & 11.89 mm & 11.2 mm\\
+   \textbf{Winset} & - & 0.8 mm\\
+   \textbf{W25} & 9.04 mm & 9.06 mm\\
+   \textbf{W35} & 5.7 mm & 5.7 mm\\
+   \textbf{W50} & 3.36 mm & 3.36 mm\\
+   \textbf{W70} & 1.85 mm & 1.84 mm\\
+   \textbf{W100} & 0.85 mm & 0.81 mm\\
+   \textbf{Ws/Ls} & - & 400/180 mm\\
+   \textbf{Llambdacuartos} & 17.09 mm & 17.09 mm\\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Dimensiones de array 4x1 microstrip a 2.4 GHz} 
+\end{table}
+
+FALTA ESTE POR HACER SOCORRO
+
+\begin{table}[H]
+  
+   \label{tab:array4x12}
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
+   \midrule
+   \textbf{W} & 16.56 mm & 15.6 mm \\
+   \textbf{L} & 12.64 mm & 12.64 mm\\
+   \textbf{Linset} & 4.57 mm & 4 mm\\
+   \textbf{Winset} & - & 0.5 mm\\
+   \textbf{W25} & 9.04 mm & 9.06 mm\\
+   \textbf{W35} & 5.7 mm & 5.7 mm\\
+   \textbf{W50} & 3.34 mm & 3.42 mm\\
+   \textbf{W70} & 1.85 mm & 1.88 mm\\
+   \textbf{W100} & 0.85 mm & 0.83 mm\\
+   \textbf{Ws/Ls} & - mm & 150/60 mm\\
+   \textbf{Llambdacuartos} & 7.03 mm & 7.03 mm\\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Dimensiones de array 4x1 microstrip a 6 GHz} 
+\end{table}
+
+
+
 
 \subsubsection{Array 4x4 Paralelo} 
-\par La antena microtrip simple de un único parche ha sido la antena estudiada en la sección anterior para el caso de 2.4 Ghz. Se trata de una antena muy simple, alimentada mediante una línea microstrip directa cuya impedancia está referenciada a 50 $\Omega$.
+\par La configuración más compleja diseñada es de 4x4 parches en paralelo mediante configuraciones T. Su adaptación se ha hecho mediante dos tipos de transformadores y el patrón de directividad es de los más irregulares, pero con mayor directividad conseguidos. A su vez, este diseño implica una mayor utilización de espacio, por ejemplo, en el caso del sistema a 2.4 GHz, el total de la oblea de substrato llega a ocupar 12 $cm^{2}$, lo cual puede llegar a ser inviable en cierto tipo de aplicaciones. 
+\\
+\par Para el caso del sistema a 2.4 GHz se puede observar como mediante pequeñas modificaciones del ancho de los parches y la longitud del inset, ya se han conseguido obtener los resultados deseados. Lo mismo ocurre para el sistema a 6 GHz.
+\\
+\begin{table}[H]
+  
+   \label{tab:array4x11}
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
+   \midrule
+   \textbf{W} & 41.40 mm & 32 mm \\
+   \textbf{L} & 32.73 mm & 32.73 mm\\
+   \textbf{Linset} & 11.89 mm & 11.2 mm\\
+   \textbf{Winset} & - & 0.8 mm\\
+   \textbf{W25} & 9.04 mm & 9.06 mm\\
+   \textbf{W50} & 3.36 mm & 3.36 mm\\
+   \textbf{W70} & 1.85 mm & 1.84 mm\\
+   \textbf{W100} & 0.85 mm & 0.81 mm\\
+   \textbf{Ws/Ls} & - & 400/400 mm\\
+   \textbf{Llambdacuartos} & 17.09 mm & 17.09 mm\\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Dimensiones de array 4x1 microstrip a 2.4 GHz} 
+\end{table}
+
+FALTA ESTE POR HACER SOCORRO
+
+\begin{table}[H]
+  
+   \label{tab:array4x12}
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
+   \midrule
+   \textbf{W} & 16.56 mm & 15.6 mm \\
+   \textbf{L} & 12.64 mm & 12.64 mm\\
+   \textbf{Linset} & 4.57 mm & 4 mm\\
+   \textbf{Winset} & - & 0.5 mm\\
+   \textbf{W25} & 9.04 mm & 9.06 mm\\
+   \textbf{W35} & 5.7 mm & 5.7 mm\\
+   \textbf{W50} & 3.34 mm & 3.42 mm\\
+   \textbf{W70} & 1.85 mm & 1.88 mm\\
+   \textbf{W100} & 0.85 mm & 0.83 mm\\
+   \textbf{Ws/Ls} & - mm & 150/60 mm\\
+   \textbf{Llambdacuartos} & 7.03 mm & 7.03 mm\\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Dimensiones de array 4x1 microstrip a 6 GHz} 
+\end{table}
