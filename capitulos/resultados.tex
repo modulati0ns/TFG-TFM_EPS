@@ -100,10 +100,10 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 \begin{table}[H]
   
-   \label{tab:1x12}
+  
    \small % text size of table content
    \centering % center the table
-   \begin{tabular}{m{0.4\linewidth}m{0.4\linewidth}} % alignment of each column data
+   \begin{tabular}{c c} % alignment of each column data
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Parche simple 6 GHz} \\ 
    \midrule
@@ -117,6 +117,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
    \caption{Parámetros característicos del parche único microstrip a 6 GHz} 
+    \label{tab:1x12}
 \end{table}
 
 
@@ -222,7 +223,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
    
    \small % text size of table content
    \centering % center the table
-   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \begin{tabular}{c c} % alignment of each column data
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Array 2x1 a 2.4 GHz} \\ 
    \midrule
@@ -235,8 +236,9 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
-   \label{tab:2x11}
+  
    \caption{Parámetros característicos para el array 2x1 a 2.4 GHz} 
+    \label{tab:2x11}
 \end{table}
 
 
@@ -286,7 +288,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \end{figure}
 
 \subsection{Patrón de radiación}
-\par En este caso se puede observar el mismo patrón de radiación base que se encontró en el array 2x1 a 2.4 GHz pero con una directividad aumentada del lóbulo principal con respecto a los lóbulos secundarios y traseros, con un pico de directividad en el ángulo de máxima radiación de 9.97 dB. 
+\par En este caso se puede observar el mismo patrón de radiación base que se encontró en el array 2x1 a 6 GHz pero con una directividad aumentada del lóbulo principal con respecto a los lóbulos secundarios y traseros, con un pico de directividad en el ángulo de máxima radiación de 9.97 dB. 
 \\
 \subsubsection{Plano E}
 \begin{figure}[H]
@@ -347,7 +349,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
    
    \small % text size of table content
    \centering % center the table
-   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \begin{tabular}{c c} % alignment of each column data
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Array 2x1 a 6 GHz} \\ 
    \midrule
@@ -386,7 +388,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \par Para el array en configuración 2x2 a 2.4 GHz los resultados obtenidos son los siguientes:
 
 \subsection{Pérdidas de retorno}
-\par En cuanto a su curva de pérdidas de retorno del array a 2.4 GHz, se puede observar un valor pico de -76.78 dB y un ancho de banda de 179.1 MHz, desde los 5.9014 GHz hasta los 6.0805 GHz, lo que equivale a un 2.98\% de la frecuencia de trabajo.
+\par En cuanto a su curva de pérdidas de retorno del array a 2.4 GHz, se puede observar un valor pico de -40.70 dB y un ancho de banda de 34.6 MHz, desde los 2.4161 GHz hasta los 2.3815 GHz, lo que equivale a un 1.44\% de la frecuencia de trabajo.
 \\
 \begin{figure}[H]
     \centering
@@ -397,7 +399,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 \newpage
 \subsection{Reactancia}
-\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.03 $\Omega$. 
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.32 $\Omega$. 
 \\
 \begin{figure}[H]
     \centering
@@ -407,7 +409,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \end{figure}
 
 \subsection{Resistencia}
-\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 49.35 $\Omega$.
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 51.78 $\Omega$.
 \\
 \begin{figure}[H]
     \centering
@@ -417,12 +419,12 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \end{figure}
 
 \subsection{Patrón de radiación}
-\par En este caso se puede observar el mismo patrón de radiación base que se encontró en el array 2x2 a 2.4 GHz pero con una directividad aumentada del lóbulo principal con respecto a los lóbulos secundarios y traseros, con un pico de directividad en el ángulo de máxima radiación de 9.97 dB. 
+\par El patrón de radiación que se observa es completamente simétrico en el plano E, donde se encuentra un lóbulo principal poco con un máximo de 10.74 dB de directividad. Existen también dos lóbulos laterales de menor intensidad. En cuanto al plano H se puede observar un patrón de directividad más omnidireccional ya que los lóbulos laterales y traseros están más integrados en el patrón y no se presencian tantas zonas de radiación nula como en el plano E. 
 \\
 \subsubsection{Plano E}
 \begin{figure}[H]
     \centering
-        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x21/4}
+        \includegraphics[width=0.75\textwidth]{archivos/analisis/2x21/4}
         \caption{Radiación en el plano E para el array 2x2 a 2.4 GHz}
         \label{fig:E2x21}
 \end{figure}
@@ -430,13 +432,13 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \subsubsection{Plano H}
 \begin{figure}[H]
     \centering
-        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x21/5}
+        \includegraphics[width=0.75\textwidth]{archivos/analisis/2x21/5}
         \caption{Radiación en el plano H para el array 2x2 a 2.4 GHz}
         \label{fig:H2x21}
 \end{figure}
 
 \subsection{Radiación 3D}
-\par Mediante el diagrama de radiación 3D se puede observar, de nuevo, el mismo comportamiento directivo que encontramos en el array a 2.4 GHz de la misma configuración, pero con ese aumento de directividad sobre el lóbulo principal, dejando a los lóbulos laterales en un segundo plano en cuanto a la radiación que estos ofrecen.
+\par Desde el diagrama de radiación 3D se puede observar un comportamiento más simétrico del patrón de radiación en su conjunto, donde el cuerpo más presente es el lóbulo principal del patrón y un total de cuatro lóbulos laterales cada 90º alrededor de este.
 
 \begin{figure}[H]
      \centering
@@ -469,7 +471,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \end{figure}
 
 \subsection{Resumen}
-\par En la configuración 2x2 a 2.4 GHz se puede observar una mejora de parámetros característicos de la antena con respecto a los obtenidos para la antena de 2.4 GHz en la misma configuración. Esto es principalmente debido a la mejor adaptación que ha tenido esta antena entre el conjunto de líneas microstrip que la alimentan.
+\par En la configuración 2x2 a 2.4 GHz se puede observar una pérdida de la eficiencia de radiación de la antena, así como un menor ancho de banda, aunque dentro del mismo rango de las antenas cuya frecuencia de trabajo es de 2.4 GHz, como se irá comprobando a lo largo del análisis. También ha llegado a empeorar la relación delante atrás, lo que puede suponer interferencias no deseadas con otras antenas. Por otro lado, el patrón de directividad es simétrico y con lóbulos laterales controlados.
 \\
 \par En la tabla \ref{tab:2x21} se pueden observar un resumen de los parámetros característicos de la antena.
 
@@ -478,16 +480,16 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
    
    \small % text size of table content
    \centering % center the table
-   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \begin{tabular}{c c} % alignment of each column data
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Array 2x2 a 2.4 GHz} \\ 
    \midrule
-   \textbf{S(1,1)} & -76.87 dB \\
-   \textbf{Ancho de banda} & 179.1 MHz dB \\
-   \textbf{Directividad} & 9.97 dB \\
-   \textbf{Ganancia} & 9.77 dB \\
-   \textbf{Eficiencia de radiación} & 94.14\% \\
-   \textbf{Relación delante/atrás} & 16.64 dB \\
+   \textbf{S(1,1)} & -40.70 dB \\
+   \textbf{Ancho de banda} & 34.6 MHz dB \\
+   \textbf{Directividad} & 10.74 dB \\
+   \textbf{Ganancia} & 9.98 dB \\
+   \textbf{Eficiencia de radiación} & 83.81\% \\
+   \textbf{Relación delante/atrás} & 19.56 dB \\
 
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
@@ -502,3 +504,660 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 
 
+
+
+
+
+
+\section{Array 2x2 a 6 GHz}
+\par Para el array en configuración 2x2 a 6 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par En cuanto a su curva de pérdidas de retorno del array a 6 GHz, se puede observar un valor pico de -35.76 dB y un ancho de banda de 162.5 MHz, desde los 6.078 GHz hasta los 5.915 GHz, lo que equivale a un 2.7\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/2x22/1}
+        \caption{Parámetro S para el array 2x2 a 6 GHz}
+        \label{fig:s2x22}
+\end{figure}
+
+\newpage
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -1.57 $\Omega$. 
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x22/2}
+        \caption{Reactancia para el array 2x2 a 6 GHz}
+        \label{fig:react2x22}
+\end{figure}
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 49.62 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x22/3}
+        \caption{Resistencia para el array 2x2 a 6 GHz}
+        \label{fig:resis2x22}
+\end{figure}
+
+\subsection{Patrón de radiación}
+\par El patrón de directividad que encontramos en el array 2x2 a 6 GHz difiere mucho del que encontramos en la misma configuración a 2.4 GHz. Se puede comprobar un amento de 2 dB de directividad hasta los 12.88 dB, así como comportamientos asimetricos en ambos planos de radiación. 
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x22/4}
+        \caption{Radiación en el plano E para el array 2x2 a 6 GHz}
+        \label{fig:E2x22}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x22/5}
+        \caption{Radiación en el plano H para el array 2x2 a 6 GHz}
+        \label{fig:H2x22}
+\end{figure}
+
+\subsection{Radiación 3D}
+\par En el diagrama de radiación 3D se puede comprobar el resultado del comportamiento asimétrico en los dos planos de radiación. Aunque la base del patrón intente ser la misma que la encontrada en la configuración a 2.4 GHz, se hacen notables ciertas deformidades en el lóbulo principal así como en algunos de los lóbulos secundarios.
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/2x22/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d12x22}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/2x22/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d22x22}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el array 2x2 a 6 GHz}
+        \label{fig:3d2x22}
+\end{figure}
+
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. 
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/2x22/8}
+        \caption{Distribución de campos eléctricos para el para el array 2x2 a 6 GHz}
+        \label{fig:elec2x22}
+\end{figure}
+
+\subsection{Resumen}
+\par La principal razón por la que se haya podido producir estos patrones no simétricos en esta configuración es el hecho de que la proximidad entre los parches y las líneas de transmisión que alimentan al array hayan afectado a la propagación de las ondas. Aun así la eficiencia de esta antena ronda el 90\% con lo que la adaptación entre las líneas y la antena ha sido buena y la directividad ha aumentado considerablemente respecto a la antena de 2.4 GHz.
+\\
+\par En la tabla \ref{tab:2x22} se pueden observar un resumen de los parámetros característicos de la antena.
+
+\begin{table}[H]
+  
+   
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 2x2 a 6 GHz} \\ 
+   \midrule
+   \textbf{S(1,1)} & -35.76 dB \\
+   \textbf{Ancho de banda} & 162.5 MHz dB \\
+   \textbf{Directividad} & 12.88 dB \\
+   \textbf{Ganancia} & 12.47 dB \\
+   \textbf{Eficiencia de radiación} & 90.8\% \\
+   \textbf{Relación delante/atrás} & 20.7 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   
+   \caption{Parámetros característicos del array 2x2 a 6 GHz} 
+   \label{tab:2x22}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Array 4x1 a 2.4 GHz}
+\par Para el array en configuración 4x1 a 2.4 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par En cuanto a su curva de pérdidas de retorno del array 4x1 a 2.4 GHz, se puede observar un valor pico de -57.12 dB y un ancho de banda de 41.1 MHz, desde los 2.3799 GHz hasta los 2.421 GHz, lo que equivale a un 1.71\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x11/1}
+        \caption{Parámetro S para el array 4x1 a 2.4 GHz}
+        \label{fig:s4x11}
+\end{figure}
+
+\newpage
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.11 $\Omega$. 
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x11/2}
+        \caption{Reactancia para el array 4x1 a 2.4 GHz}
+        \label{fig:react4x11}
+\end{figure}
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 50.26 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x11/3}
+        \caption{Resistencia para el array 4x1 a 2.4 GHz}
+        \label{fig:resis4x11}
+\end{figure}
+
+\subsection{Patrón de radiación}
+\par En este nuevo tipo de configuración donde se han añadido más parches se puede comprobar el aumento de complejidad del patrón de radiación, donde han aparecido más lóbulos laterales y traseros en el plano E. En el plano H encontramos un patrón omnidireccional. La directividad en el ángulo de máxima radiación es de 11.6 dB.
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x11/4}
+        \caption{Radiación en el plano E para el array 4x1 a 2.4 GHz}
+        \label{fig:E4x11}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x11/5}
+        \caption{Radiación en el plano H para el array 4x1 a 2.4 GHz}
+        \label{fig:H4x11}
+\end{figure}
+
+\subsection{Radiación 3D}
+\par Con el diagrama de radiación 3D se puede observar un comportamiento muy parecido al que obteníamos con las antenas en configuración 2x1, pero el aumento de parches ha ofrecido al patrón de radiación una mayor directividad así como complejidad y la presencia de elementos que quizás no sean deseados.
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x11/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d14x11}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x11/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d24x11}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el array 4x1 a 2.4 GHz}
+        \label{fig:3d4x11}
+\end{figure}
+
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. 
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x11/8}
+        \caption{Distribución de campos eléctricos para el para el array 4x1 a 2.4 GHz}
+        \label{fig:elec4x11}
+\end{figure}
+
+\subsection{Resumen}
+\par Aunque la eficiencia de esta configuración haya disminuido, los valores obtenidos entran dentro de los margenes de buen funcionamiento y el patrón de directividad obtenido puede ser muy útil para aplicaciones de telefonía móvil, como se explicó en el array 2x1. Poco a poco va aumentando la directividad de nuestros arrays debido a la inclusión de una mayor número de parches, pero esto trae consigo la obtención de patrones de directividad más complejos con mayor número de lóbulos secundarios y traseros. 
+\\
+\par En la tabla \ref{tab:4x11} se pueden observar un resumen de los parámetros característicos de la antena.
+
+\begin{table}[H]
+  
+   
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 4x1 a 2.4 GHz} \\ 
+   \midrule
+   \textbf{S(1,1)} & -57.12 dB \\
+   \textbf{Ancho de banda} & 41.4 MHz dB \\
+   \textbf{Directividad} & 11.6 dB \\
+   \textbf{Ganancia} & 11.04 dB \\
+   \textbf{Eficiencia de radiación} & 86.97\% \\
+   \textbf{Relación delante/atrás} & 24.74 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   
+   \caption{Parámetros característicos del array 4x1 a 2.4 GHz} 
+   \label{tab:4x11}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Array 4x1 a 6 GHz}
+\par Para el array en configuración 4x1 a 6 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par En cuanto a su curva de pérdidas de retorno del array 4x1 a 6 GHz, se puede observar un valor pico de -30.97 dB y un ancho de banda de 223.8 MHz, desde los 5.8674 GHz hasta los 6.0912 GHz, lo que equivale a un 3.73\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x12/1}
+        \caption{Parámetro S para el array 4x1 a 6 GHz}
+        \label{fig:s4x12}
+\end{figure}
+
+\newpage
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.6 $\Omega$. 
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x12/2}
+        \caption{Reactancia para el array 4x1 a 6 GHz}
+        \label{fig:react4x12}
+\end{figure}
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 47.21 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x12/3}
+        \caption{Resistencia para el array 4x1 a 6 GHz}
+        \label{fig:resis4x12}
+\end{figure}
+
+\subsection{Patrón de radiación}
+\par El patrón de directividad de esta configuración es bastante parecido al obtenido en la configuración a 2.4 GHz, con la diferencia de que encontramos nulos menos definidos. También, como veremos, el lóbulo trasero aumenta de directividad, lo que significa una reducción de la relación delante/atrás.
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x12/4}
+        \caption{Radiación en el plano E para el array 4x1 a 6 GHz}
+        \label{fig:E4x12}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x12/5}
+        \caption{Radiación en el plano H para el array 4x1 a 6 GHz}
+        \label{fig:H4x12}
+\end{figure}
+
+\subsection{Radiación 3D}
+\par El diagrama de radiación 3D presenta una forma muy similar a la encontrada en el array de la misma configuración a 2.4 GHz, aunque con pequeñas diferencias de forma en los lóbulos laterales.
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x12/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d14x12}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x12/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d24x12}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el array 4x1 a 6 GHz}
+        \label{fig:3d4x12}
+\end{figure}
+
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. 
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x12/8}
+        \caption{Distribución de campos eléctricos para el para el array 4x1 a 6 GHz}
+        \label{fig:elec4x12}
+\end{figure}
+
+\subsection{Resumen}
+\par Aunque la adaptación de la antena no haya sido de las mejores obtenidas, como se puede observar en el valor de pérdidas de retorno S, esta antena ha obtenido unos parámetros de funcionamiento excepcionales en cuanto a directividad, eficiencia y ancho de banda. Se ha llegado a obtener hasta 200 MHz de ancho de banda, lo que supone un 3.73\% sobre la frecuencia de trabajo, rozando el límite de ancho de banda que se puede llegar a obtener en una configuración de alimentación por conexión directa de línea microstrip.
+\\
+\par En la tabla \ref{tab:4x12} se pueden observar un resumen de los parámetros característicos de la antena.
+
+\begin{table}[H]
+  
+   
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 4x1 a 6 GHz} \\ 
+   \midrule
+   \textbf{S(1,1)} & -30.97 dB \\
+   \textbf{Ancho de banda} & 223.8 MHz dB \\
+   \textbf{Directividad} & 12.56 dB \\
+   \textbf{Ganancia} & 12.16 dB \\
+   \textbf{Eficiencia de radiación} & 91.3\% \\
+   \textbf{Relación delante/atrás} & 24.3 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   
+   \caption{Parámetros característicos del array 4x1 a 6 GHz} 
+   \label{tab:4x12}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Array 4x2 a 2.4 GHz}
+\par Para el array en configuración 4x2 a 2.4 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par En cuanto a su curva de pérdidas de retorno del array 4x2 a 2.4 GHz, se puede observar un valor pico de -32.18 dB y un ancho de banda de 39.6 MHz, desde los 2.3792 GHz hasta los 2.4186 GHz, lo que equivale a un 1.65\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x21/1}
+        \caption{Parámetro S para el array 4x2 a 2.4 GHz}
+        \label{fig:s4x21}
+\end{figure}
+
+\newpage
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -1.39 $\Omega$. 
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x21/2}
+        \caption{Reactancia para el array 4x2 a 2.4 GHz}
+        \label{fig:react4x21}
+\end{figure}
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 52.07 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x21/3}
+        \caption{Resistencia para el array 4x2 a 2.4 GHz}
+        \label{fig:resis4x21}
+\end{figure}
+
+\subsection{Patrón de radiación}
+\par Al duplicar la fila que se poseía en el array 4x1 se ha obtenido el mismo patrón de directividad que esta en el plano E, pero con una mayor área de radiación en los lóbulos laterales, aumentando de cobertura en estas zonas. La directividad obtenida en el ángulo de máxima radiación es de 13.97 dB. En el plano H vemos un patrón casi omnidireccional, como ocurría en el array 4x1 pero con ciertos nulos creando lóbulos laterales más definidos.
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.75\textwidth]{archivos/analisis/4x21/4}
+        \caption{Radiación en el plano E para el array 4x2 a 2.4 GHz}
+        \label{fig:E4x21}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.75\textwidth]{archivos/analisis/4x21/5}
+        \caption{Radiación en el plano H para el array 4x2 a 2.4 GHz}
+        \label{fig:H4x21}
+\end{figure}
+
+\subsection{Radiación 3D}
+\par La conjunción de ambos planos de radiación lleva a la obtención de un diagrama de radiación 3D muy complejo con un gran número de lóbulos laterales y secundarios a costa de conseguir una de las directividades más altas logradas hasta el momento en el proyecto.
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x21/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d14x21}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x21/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d24x21}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el array 4x2 a 2.4 GHz}
+        \label{fig:3d4x21}
+\end{figure}
+
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. 
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x21/8}
+        \caption{Distribución de campos eléctricos para el para el array 4x2 a 2.4 GHz}
+        \label{fig:elec4x21}
+\end{figure}
+
+\subsection{Resumen}
+\par Esta configuración es una de las que mas ha costado conseguir adaptar en el proceso de diseño, es por ello que los resultados obtenidos no destacan sobre el resto de arrays. La directividad obtenida ha sido muy buena, pero otros parámetros como la eficiencia o el ancho de banda han dejado que desear sobre esta configuración. 
+\\
+\par En la tabla \ref{tab:4x21} se pueden observar un resumen de los parámetros característicos de la antena.
+
+\begin{table}[H]
+  
+   
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 4x2 a 2.4 GHz} \\ 
+   \midrule
+   \textbf{S(1,1)} & -32.18 dB \\
+   \textbf{Ancho de banda} & 39.6 MHz dB \\
+   \textbf{Directividad} & 13.97 dB \\
+   \textbf{Ganancia} & 13.17 dB \\
+   \textbf{Eficiencia de radiación} & 83.08\% \\
+   \textbf{Relación delante/atrás} & 25.15 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   
+   \caption{Parámetros característicos del array 4x2 a 2.4 GHz} 
+   \label{tab:4x21}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Array 4x2 a 6 GHz}
+\par Para el array en configuración 4x2 a 6 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par En cuanto a su curva de pérdidas de retorno del array 4x2 a 6 GHz, se puede observar un valor pico de -32.18 dB y un ancho de banda de 39.6 MHz, desde los 2.3792 GHz hasta los 6186 GHz, lo que equivale a un 1.65\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x22/1}
+        \caption{Parámetro S para el array 4x2 a 6 GHz}
+        \label{fig:s4x22}
+\end{figure}
+
+\newpage
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -1.39 $\Omega$. 
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x22/2}
+        \caption{Reactancia para el array 4x2 a 6 GHz}
+        \label{fig:react4x22}
+\end{figure}
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 52.07 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/4x22/3}
+        \caption{Resistencia para el array 4x2 a 6 GHz}
+        \label{fig:resis4x22}
+\end{figure}
+
+\subsection{Patrón de radiación}
+\par Al duplicar la fila que se poseía en el array 4x1 se ha obtenido el mismo patrón de directividad que esta en el plano E, pero con una mayor área de radiación en los lóbulos laterales, aumentando de cobertura en estas zonas. La directividad obtenida en el ángulo de máxima radiación es de 13.97 dB. En el plano H vemos un patrón casi omnidireccional, como ocurría en el array 4x1 pero con ciertos nulos creando lóbulos laterales más definidos.
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.75\textwidth]{archivos/analisis/4x22/4}
+        \caption{Radiación en el plano E para el array 4x2 a 6 GHz}
+        \label{fig:E4x22}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.75\textwidth]{archivos/analisis/4x22/5}
+        \caption{Radiación en el plano H para el array 4x2 a 6 GHz}
+        \label{fig:H4x22}
+\end{figure}
+
+\subsection{Radiación 3D}
+\par La conjunción de ambos planos de radiación lleva a la obtención de un diagrama de radiación 3D muy complejo con un gran número de lóbulos laterales y secundarios a costa de conseguir una de las directividades más altas logradas hasta el momento en el proyecto.
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x22/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d14x22}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/4x22/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d24x22}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el array 4x2 a 6 GHz}
+        \label{fig:3d4x22}
+\end{figure}
+
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. 
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/4x22/8}
+        \caption{Distribución de campos eléctricos para el para el array 4x2 a 6 GHz}
+        \label{fig:elec4x22}
+\end{figure}
+
+\subsection{Resumen}
+\par Esta configuración es una de las que mas ha costado conseguir adaptar en el proceso de diseño, es por ello que los resultados obtenidos no destacan sobre el resto de arrays. La directividad obtenida ha sido muy buena, pero otros parámetros como la eficiencia o el ancho de banda han dejado que desear sobre esta configuración. 
+\\
+\par En la tabla \ref{tab:4x22} se pueden observar un resumen de los parámetros característicos de la antena.
+
+\begin{table}[H]
+  
+   
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 4x2 a 6 GHz} \\ 
+   \midrule
+   \textbf{S(1,1)} & -32.18 dB \\
+   \textbf{Ancho de banda} & 39.6 MHz dB \\
+   \textbf{Directividad} & 13.97 dB \\
+   \textbf{Ganancia} & 13.17 dB \\
+   \textbf{Eficiencia de radiación} & 83.08\% \\
+   \textbf{Relación delante/atrás} & 25.15 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   
+   \caption{Parámetros característicos del array 4x2 a 6 GHz} 
+   \label{tab:4x22}
+\end{table}
