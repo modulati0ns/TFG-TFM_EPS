@@ -178,31 +178,32 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 
 \par Crearemos un nuevo proyecto en HFSS y empezaremos creando un \textit{box}, definiendo las variables que le dará dimensiones y centrándolo en el viasualizador del proyecto. Para ello, como se ha mencionado anteriormente, se usarán las variables creadas o los cálculos derivados de ellas para obtener los resultados deseados (fig. \ref{fig:substrato}). Observaremos que el cubo aparece ahora en la lista de sólidos del proyecto. Desde allí le asignaremos el material que le corresponde mediante la opción \textit{Assign Material}. 
 \\
-\begin{figure}[h]
+
+\par El plano de masa se creará mediante un plano simple. Para ello se usará la herramienta \textit{Draw Rectangle}, de igual manera que con el substrato, se le asignarán las variables idénticas a las asignadas al substrato, puesto que ambos tendrán el mismo ancho y alto, y se configurará su posición para que este esté centrado y pegado al plano inferior del substrato (fig. \ref{fig:masa}).
+\\
+\begin{figure}[p]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/1}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/1}
         \caption{Creación del substrato}
         \label{fig:substrato}
 \end{figure}
-\par El plano de masa se creará mediante un plano simple. Para ello se usará la herramienta \textit{Draw Rectangle}, de igual manera que con el substrato, se le asignarán las variables idénticas a las asignadas al substrato, puesto que ambos tendrán el mismo ancho y alto, y se configurará su posición para que este esté centrado y pegado al plano inferior del substrato (fig. \ref{fig:masa}).
-\\
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/2}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/2}
         \caption{Creación del plano de masa}
         \label{fig:masa}
 \end{figure}
 \par A continuación, se volverá al plano superior del substrato, y volviendo a usar la herramienta \textit{Draw Rectangle} se creará un rectángulo con las medidas de W y L como ancho y alto respectivamente. Este rectángulo será nuestro parche (fig. \ref{fig:parche}). Cabe destacar como, todo lo relacionado con el parche, y el resto de circuitos de alimentación estarán situados sobre el substrato, es decir, a 1.52 mm sobre el origen de coordenadas del diseño del HFSS. Se volverá a repetir el proceso para el feed de alimentación, que unirá en uno de los lados que definen la anchura del parche al lado paralelo más próximo que define el ancho del substrato (fig. \ref{fig:feed}).
 \\ 
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/3}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/3}
         \caption{Creación del parche}
         \label{fig:parche}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/4}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/4}
         \caption{Creación del feed principal}
         \label{fig:feed}
 \end{figure}
@@ -210,23 +211,23 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \\
 \begin{figure}[h]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/5}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/5}
         \caption{Asignación de material conductor al parche y al plano de masa}
         \label{fig:perfecte}
 \end{figure}
 \par Para excitar el sistema crearemos el \textit{Wave port}. Para ello se cambiará el plano de diseño de XY a ZX, para poder crear planos perpendiculares a los ya existentes en la antena. El \textit{Wave port} consistirá en un rectángulo que repose centrado sobre el extremo del substrato donde se puede acceder al \textit{feed}. Este debe tener unas dimensiones para cubrir el \textit{feed} por completo, así como tocar el plano de masa (fig. \ref{fig:waveport}). De la misma manera que se usó para asignar la propiedad de conductor al parche, se seleccionará sobre el plano creado para el \textit{Wave port} y en sus opciones aplicaremos: \textit{Assign Excitation}>\textit{WavePort}. 
 \\
 
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/6}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/6}
         \caption{Creación del Wave-Port}
         \label{fig:waveport}
 \end{figure}
 
 \par Los dos ranuras o \textit{insets} que adaptarán el \textit{feed} y la antena, se crearán como rectángulos sobre el substrato y pegados al \textit{feed} dentro del parche (fig. \ref{fig:inseta}). Después, seleccionando el parche y ambos rectángulos se procederá, mediante el botón \textit{substract} a eliminar la superficie ocupara por los rectángulos, del plano del parche (fig. \ref{fig:insetb}). De esta forma se obtendrán las dos ranuras necesarias para conseguir la adaptación.
 \\
-\begin{figure}[H]
+\begin{figure}[p]
      \centering
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
@@ -246,14 +247,14 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:insets}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
-        \includegraphics[width=13cm]{archivos/desarrollo/8}
+        \includegraphics[width=\textwidth]{archivos/desarrollo/8}
         \caption{Creación del la caja de radiación}
         \label{fig:caja}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[p]
      \centering
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
@@ -289,7 +290,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \par Ya estaría listo el diseño y la configuración del solucionador para lanzar la simulación del sistema. Para ello se pulsará primero sobre el botón \textit{Validate} para confirmar que todo está correctamente configurado y no hay errores en el diseño que impidan que HFSS no pueda iniciar la simulación. Tras comprobar que no existen errores, mediante el botón \textit{Analyze all} se podrá iniciar la simulación. Durante la simulación HFSS irá realizando iteraciones en las que los tetraedros se irán adaptando a nuestro parche (fig. \ref{fig:tetra}). En cada iteración el número de tetraedros irá creciendo exponencialmente (fig. \ref{fig:conver}), con lo que es posible que en las últimas iteraciones, el simulador tarde más en realizar una pasada completa. Si se pulsa sobre la opción \textit{Convergence} dentro de las opciones del configurador de la simulación, se podrá obvservar de forma gráfica o anaítica el número de pasadas que ha realizado el simulador (fig. \ref{fig:convera}) así como otros datos sobre la convergencia de la simulación.
 \\
 
-\begin{figure}[H]
+\begin{figure}[h]
      \centering
      \begin{subfigure}[b]{0.47\textwidth}
          \centering
@@ -309,7 +310,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:tetra}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
      \centering
      \begin{subfigure}[b]{0.47\textwidth}
          \centering
@@ -337,7 +338,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica de pérdidas de retorno o parámetro S: }Se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -39.53 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dBs de de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/analisis/1x11/1}
+        \includegraphics[width=\textwidth]{archivos/analisis/1x11/1}
         \caption{Pérdidas de retorno}
         \label{fig:s}
 	\end{figure}
@@ -345,7 +346,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica del componente real de la impedancia: }En esta gráfica el objetivo principal es encontrar un valor de 50 $\Omega$ para la frecuencia de trabajo de 2.4 GHz. Este valor influencia directamente a la curva del parámetro S. Como se puede observar, el valor obtenido de 51 $\Omega$ lo que significa que la adaptación final entre el sistema de alimentación y la antena ha sido correcta.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/analisis/1x11/2}
+        \includegraphics[width=0.85\textwidth]{archivos/analisis/1x11/3}
         \caption{Componente óhmica de la impedancia}
         \label{fig:realimpe}
 	\end{figure}
@@ -353,7 +354,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Gráfica del componente imaginaria de la impedancia: }En este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/analisis/1x11/3}
+        \includegraphics[width=0.85\textwidth]{archivos/analisis/1x11/2}
         \caption{Componente reactiva de la impedancia}
         \label{fig:imaimpe}
 	\end{figure}
@@ -361,7 +362,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación en el plano E: }El patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 0º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/analisis/1x11/4}
+        \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/4}
         \caption{Patrón de radiación del plano E}
         \label{fig:radE}
 	\end{figure}
@@ -369,7 +370,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación en el plano H: }Repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 90º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=14cm]{archivos/analisis/1x11/5}
+        \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/5}
         \caption{Patrón de radiación del plano H}
         \label{fig:radH}
 	\end{figure}
@@ -377,15 +378,16 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item \textbf{Patrón de radiación tridimensional: }Aunque hemos mostrado los patrones de directividad para los ángulos $\phi $ en 0º y 90º, HFSS los calcula para la circunferencia completa. Se puede recrear el patrón de radiación en trews dimensiones si representamos juntos los patrones de dirección para todos los ángulos de $\phi$ y $\Theta$. HFSS ofrece una manera sencilla de hacerlo. Como se puede observar en los resultados, hemos obtenido una antena completamente omnidireccional para el plano superior del parche y una directividad casi nula en el plano inferior, lo que podríamos asimilar a un monopolo. La directividad obtenida siempre coincidirá con uno de los máximos, del campo E o H, en este caso 5.36 dB.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=11cm]{archivos/analisis/1x11/7}
+        \includegraphics[width=\textwidth]{archivos/analisis/1x11/6}
         \caption{Patrón de radiación 3D}
         \label{fig:rad3d}
 	\end{figure}
 	
 \item \textbf{Distribución eléctrica sobre la antena: }Otro tipo de análisis que podemos realizar sobre la antena consiste en la muestra directa sobre la antena de ciertos parámetros como el campo eléctrico, los vectores de los campos eléctricos y magnéticos, etc. En este caso, se muestra la distribución del campo eléctrico sobre la antena. En el se pueden observar donde se sitúan los principales valles y nodos sobre esta.
+\vfill
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=12cm]{archivos/analisis/1x11/6}
+        \includegraphics[width=0.9\textwidth]{archivos/analisis/1x11/7}
         \caption{Campos eléctricos en la superficie de la antena}
         \label{fig:Complexmage}
 	\end{figure}
