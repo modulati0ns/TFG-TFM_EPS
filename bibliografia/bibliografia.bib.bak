@@ -105,9 +105,6 @@
   url    = {https://en.wikipedia.org/wiki/Holmdel_Horn_Antenna#/media/File:Horn_Antenna-in_Holmdel,_New_Jersey.jpeg},
 }
 
-@Article{,
-}
-
 @Misc{MICIU2019,
   author = {MICIU},
   title  = {Radiotelescopio de 30m del IRAM (Pico Veleta, Granada)},
@@ -123,6 +120,14 @@
   year   = {2011},
   date   = {2011},
   url    = {https://www.esa.int/ESA_Multimedia/Images/2011/10/Galileo_In-Orbit_Validation_satellite},
+}
+
+@Misc{Endurosat2018,
+  author = {Endurosat},
+  title  = {X-band 4 element patch antenna array},
+  year   = {2018},
+  date   = {2018},
+  url    = {https://www.endurosat.com/cubesat-store/all-cubesat-modules/x-band-2x2-patch-array/},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
