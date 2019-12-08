@@ -1,0 +1,321 @@
+[33mcommit 336be5fc1f6074d328069c1351313d171017d294[m[33m ([m[1;36mHEAD -> [m[1;32marray[m[33m, [m[1;31morigin/array[m[33m)[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Sun Dec 8 19:37:12 2019 +0100
+
+    Pruba en array
+
+[33mcommit aa9054951882bfb5c117acd89585b39816c11837[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Sun Dec 8 19:22:20 2019 +0100
+
+    Casi final
+
+[33mcommit 2b79ece17cb049383b5dd1ff2769d9b0d1ed8942[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Thu Dec 5 23:52:12 2019 +0100
+
+    Avances importantes v2
+
+[33mcommit 99ebc4fa36aa3ac316773b76b62e76cdc78e7460[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Thu Dec 5 02:26:32 2019 +0100
+
+    Orden de imagenes y añadir anatenas. Esto va BIEN
+
+[33mcommit 77b05301c19390f3b93e3384906904c83845195b[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Dec 3 12:56:41 2019 +0100
+
+    Primera antena comentada
+
+[33mcommit 91c8eb3b6d7499015f8b5e573fc78cc4e6bdfd13[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Dec 3 01:58:30 2019 +0100
+
+    Añadidas las antenas en los anexos y bibliografia
+
+[33mcommit 7209d257231482990f2ef6962f69517caa2f8b63[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Fri Nov 29 22:58:28 2019 +0100
+
+    cosas varias que no me acuerdo
+
+[33mcommit 894f7c3354020861f3e6b38c16c6dd275a015fb9[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Nov 26 22:50:26 2019 +0100
+
+    Cosa rara
+
+[33mcommit 4c51e8c5025316743e777a9b9c2654bbfddb302a[m
+Author: Javi <javimtmz96@gmail.com>
+Date:   Sun Nov 24 19:40:35 2019 +0100
+
+    Cambios hechos en el avión
+
+[33mcommit 96a7b6905e6d047f87f86e7dc13176905c4c47a7[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Nov 19 17:27:49 2019 +0100
+
+    Desarrollo final
+
+[33mcommit 7a8883d8cd88bb3fb1939df47f9721d678ed994d[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Sun Nov 17 01:26:07 2019 +0100
+
+    Casi finalizado desarrollo
+
+[33mcommit 2f2a14e03ca56b1f9fbebd5b4fc824fa342a2403[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Fri Nov 15 12:50:40 2019 +0100
+
+    previo HFSS
+
+[33mcommit fd2c73762012c0afa0682ee557a3141ac5886186[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Thu Nov 14 00:52:20 2019 +0100
+
+    Empezado desarrollo
+
+[33mcommit 2bd36c23713728174f701761938b15a332b07b4c[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Nov 12 01:02:11 2019 +0100
+
+    final microstrip
+
+[33mcommit 9f9fc7e2eee404cf125ae75d5c14d66ee5a4fce2[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Mon Nov 11 23:16:26 2019 +0100
+
+    Finalizando teoria de microstrip
+
+[33mcommit 6ab7c324e86bd4f531882bed1761c6476f0729a4[m
+Author: Javi <javimtmz96@gmail.com>
+Date:   Sat Nov 9 13:53:20 2019 +0100
+
+    Imagenes de parche y empezado metodo de analisis
+
+[33mcommit 14dbafd72a158f668e60ccd705fc4e499a6f32c2[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Fri Nov 8 22:53:34 2019 +0100
+
+    borrado
+
+[33mcommit fb15ec382fc13499b8776d9b95b53c723ca432a1[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Fri Nov 8 22:47:02 2019 +0100
+
+    Terminado alimentacion
+
+[33mcommit f067c957f0bc2f9422cc57dde6201aa5ffaf62ad[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Fri Nov 8 11:18:53 2019 +0100
+
+    Metodos de alimentacion
+
+[33mcommit 28ef0d8b97ff368299454dc2ef60b5dc4bd052b8[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Wed Nov 6 21:55:10 2019 +0100
+
+    Terminada teoria antenas
+
+[33mcommit fd5c11cebd858a11de5870980a5d642bc988ae07[m
+Author: Javi <javimtmz96@gmail.com>
+Date:   Tue Nov 5 13:11:09 2019 +0100
+
+    ancho de banda
+
+[33mcommit 0f05e0761ed4505af65513e10cebd9c4d5cfa779[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Nov 5 00:06:15 2019 +0100
+
+    Tipos de antena
+
+[33mcommit c6f9a8a4a04f44698d73d77505947816d3c1cdbe[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Sat Nov 2 13:55:48 2019 +0100
+
+    Añadida ganancia, directividad y patron de radiacion
+
+[33mcommit 7223d655b42162904ddf53fb089f335fe90f82b5[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Thu Oct 31 12:23:37 2019 +0100
+
+    Añadida impendancia
+
+[33mcommit 070d5ed081b83411b63afe1c426b4985a09193a5[m
+Merge: 0aeaf1a 0598866
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Wed Oct 30 22:34:30 2019 +0100
+
+    push
+
+[33mcommit 0aeaf1a63971e99d5d1a44c86d4a96a8d7a4edc4[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Wed Oct 30 22:32:54 2019 +0100
+
+    Terminada teoria basica de antenas
+
+[33mcommit 05988667ef88c217f4ef2cfd4b47a8d89349abfb[m
+Author: Javier Martínez <38389071+modulati0ns@users.noreply.github.com>
+Date:   Tue Oct 29 22:38:00 2019 +0100
+
+    Update README.md
+
+[33mcommit f1a904d9d990a78fcb0e19d1a8d2cb8d11241e14[m
+Author: Javier Martínez <38389071+modulati0ns@users.noreply.github.com>
+Date:   Tue Oct 29 22:37:18 2019 +0100
+
+    Update README.md
+
+[33mcommit b16c6aa45de1cb51d6e9479eaa1af2b6f5d3e932[m
+Author: Javier Martínez <38389071+modulati0ns@users.noreply.github.com>
+Date:   Tue Oct 29 22:36:00 2019 +0100
+
+    Actualización del readme
+
+[33mcommit dd14e47f71d99a1ce92c9d7e210bac5f517efef2[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Oct 29 22:26:37 2019 +0100
+
+    Finalizada introduccion, añadida imagen y comienzo capitulo 2
+
+[33mcommit 5d07c8f57ab4c4f298cab1aa6762ab5091c439b7[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Tue Oct 29 00:35:46 2019 +0100
+
+    Añadida telefonia movil
+
+[33mcommit b8a02de7bad9b0de490488f1204febf61485475c[m
+Author: Javi <javimtmz96@gmail.com>
+Date:   Mon Oct 28 01:55:01 2019 +0100
+
+    Portatil
+
+[33mcommit 81cb4e4cb268d07501fc32c9aa187314428db138[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Fri Oct 25 18:55:21 2019 +0200
+
+    Añadir cosas a introduccion
+
+[33mcommit 976871be26ed5fefb35bae07ec91e8331ccf1405[m
+Author: modulati0ns <javimtmz96@gmail.com>
+Date:   Mon Oct 21 09:14:23 2019 +0200
+
+    Primer Commit
+
+[33mcommit 7b0803eb646a6243d283ec1f46df296cfc2a9139[m
+Author: Jose M. Requena Plens <info@jmrplens.com>
+Date:   Mon Oct 7 20:27:38 2019 +0200
+
+    Corrección
+
+[33mcommit 186f154d35f9b4f1ce243d5815bdbcc72dc4bdeb[m
+Author: Jose M. Requena Plens <info@jmrplens.com>
+Date:   Sat Oct 5 18:25:58 2019 +0200
+
+    Update TFG-TFM_EPS_UA.pdf
+
+[33mcommit fc08fec677a414cad04a90ee76298facce98e76a[m
+Merge: 41a9fb4 80f910f
+Author: Jose M. Requena Plens <info@jmrplens.com>
+Date:   Sat Oct 5 18:23:13 2019 +0200
+
+    Merge branch 'master' of https://github.com/jmrplens/TFG-TFM_EPS
+
+[33mcommit 41a9fb43456b58e5755e0c3aaf751693c37f7b83[m
+Author: Jose M. Requena Plens <info@jmrplens.com>
+Date:   Sat Oct 5 18:22:52 2019 +0200
+
+    Actualizado robótica y añadido ciberseguridad
+
+[33mcommit 80f910f4a854a104ad4ef4418a7395810e37364e[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Sat Oct 5 18:19:33 2019 +0200
+
+    Añadido robótica y ciberseguridad
+
+[33mcommit 24844ed78b6ce3a57e96c67b05ff1b10d5cadf1a[m
+Author: Jose M. Requena Plens <info@jmrplens.com>
+Date:   Fri Dec 21 03:14:16 2018 +0100
+
+    Limpieza
+
+[33mcommit 9b634600c0896ec2989070d5f24591e2285f79f0[m
+Author: Jose M. Requena Plens <info@jmrplens.com>
+Date:   Fri Dec 21 03:10:13 2018 +0100
+
+    Actualización Diciembre 2018
+    
+    Se han añadido comandos para aprovechar la externalización de TikZ y PGF si se desea para acelerar el tiempo de ejecución.
+    Se han añadido más gráficas PGF de ejemplo.
+    Se han añadido dos tablas de ejemplo más.
+    Se han incluido algunos paquetes útiles.
+
+[33mcommit b12c7faf527b0f430f29ff7793b67395b6ef2f63[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Thu Jun 21 01:40:29 2018 +0200
+
+    Update README.md
+
+[33mcommit 935a7841e2928d65d659a2bf8a79ed28f4111f78[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Wed Jun 20 03:31:44 2018 +0200
+
+    Estilos
+    
+    Se ha añadido un nuevo de estilo de fondo: 'Quadro'.
+
+[33mcommit f65f0338d751ec24644ac8f66ad2ca228a37fb18[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Tue Jun 19 07:07:32 2018 +0200
+
+    Actualizacion de fecha
+    
+    Ahora la fecha de las portadas solo muestra el mes y el año.
+
+[33mcommit 091142555cfac10a6e362d9fa8a40ec323fda8ff[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Tue Jun 19 06:58:44 2018 +0200
+
+    Cambios en el diseño
+    
+    1. Se ha actualizado el tamaño del poster al estipulado en la guia de estilo: 70 cm de ancho y 100cm de alto. Se puede modificar en poster_configuracioninicial.tex.
+    2. Correción de errores
+
+[33mcommit 369970cdf7e04a3245e73e824396f27178996d12[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Tue Apr 24 10:18:36 2018 +0200
+
+    Solución compatibilidad
+    
+    Algunos usuarios les producia error la retrocompatibilidad de PGFPLOTS, ahora se utiliza la ultima versión.
+
+[33mcommit bd1cb2b78b37c4ddaf883d56b52713f63f62ddeb[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Fri Feb 9 21:01:08 2018 +0100
+
+    Limpieza
+
+[33mcommit 156751a68b446de6eb45130cc96432d72c0657da[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Thu Feb 8 19:36:07 2018 +0100
+
+    Initial commit
+
+[33mcommit edc1d98182a4166cf71e50b941e641013778c128[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Thu Feb 8 19:34:05 2018 +0100
+
+    Delete .gitignore
+
+[33mcommit afb2343b8aba63b14fba02efe7fa01a75e79edb4[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Thu Feb 8 19:31:50 2018 +0100
+
+    Correción y actualización
+
+[33mcommit 10be7a98761be40f8c4d6697cec0046d190fe795[m
+Author: Jose Manuel Requena Plens <info@jmrplens.com>
+Date:   Thu Feb 8 05:47:04 2018 +0100
+
+    Update README.md
