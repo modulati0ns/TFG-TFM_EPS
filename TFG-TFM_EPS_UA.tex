@@ -20,7 +20,7 @@
 % Comentar lo que NO se desee añadir y sustituir con la información correcta.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Título y subtítulo
-\newcommand{\titulo}{Diseño y Anális de un Array de Antenas tipo Parche en Tecnología Microstrip }
+\newcommand{\titulo}{Diseño y Análisis de un Array de Antenas tipo Parche en Tecnología Microstrip}
 \newcommand{\subtitulo}{}
 % Datos del autor
 \newcommand{\miNombre}{Javier Martínez Manzano}
@@ -29,7 +29,7 @@
 \newcommand{\miTutor}{Stephan Marini}
 \newcommand{\miTutorB}{Miguel Angel Sanchez Soriano}
 \newcommand{\departamentoTutor}{Dpto. de Física, Ing. Sistemas y Teoría de la Señal}
-\newcommand{\departamentoTutorB}{Dpto de Física, Ing. Sistemas y Teoría de la Señal}
+\newcommand{\departamentoTutorB}{Dpto. de Física, Ing. Sistemas y Teoría de la Señal}
 % Datos de la facultada y universidad
 \newcommand{\miFacultad}{Escuela Politécnica Superior}
 \newcommand{\miFacultadCorto}{EPS UA}
@@ -117,8 +117,8 @@ pdftitle = {\titulo},
 \input{capitulos/antenasmicrostrip}		% Plantilla: Se muestran tablas
 \input{capitulos/teoriaarrays}	% Plantilla: Se muestran figuras
 \input{capitulos/desarrollo}		% Plantilla: Se muestran listados
-%\input{capitulos/resultados}		% Plantilla: Se muestran gráficas
-%\input{capitulos/conclusiones}	% Plantilla: Se muestran matemáticas
+\input{capitulos/resultados}		% Plantilla: Se muestran gráficas
+\input{capitulos/conclusiones}	% Plantilla: Se muestran matemáticas
 
 %%%%
 % CONTENIDO. BIBLIOGRAFÍA.
@@ -133,14 +133,13 @@ pdftitle = {\titulo},
 % Incluye el listado de acrónimos utilizados en el trabajo. 
 \printglossary[style=modsuper,type=\acronymtype,title={Lista de Acrónimos y Abreviaturas}]
 % Añade el resto de acrónimos si así se desea. Si no elimina el comando siguiente
-\glsaddallunused 
 
 %%%%
 % CONTENIDO. Anexos - Añade o elimina según tus necesidades
 %%%%
 \appendix % Inicio de los apéndices
 \input{anexos/anexo_I}
-\input{anexos/anexo_2}
-\input{anexos/anexo_3}
+%\input{anexos/anexo_2}
+%\input{anexos/anexo_3}
 
 \end{document}

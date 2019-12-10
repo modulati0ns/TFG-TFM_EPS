@@ -18,7 +18,7 @@
 \begin{figure}[h]
     \centering
         \includegraphics[width=15cm]{archivos/sate}
-        \caption{Satélite IOV Galileo}
+        \caption{Satélite IOV Galileo. \citep{Pippes2011}}
         \label{fig:satgalileo}
 \end{figure}
 
@@ -49,7 +49,7 @@
 
 \section{Ondas en antenas microstrip}
 
-\par Durante el proceso de normal funcionamiento de las antenas microstrip, diferentes tipos de ondas pueden aparecer en sus líneas y superficies. Algunas de estas ondas son indeseadas puesto que pueden causar interferencias sobre los campos eléctricos que proceden del generador que nosotros hayamos instalado, y es de vital importancia diseñar la la antena de forma que su aparición sea mínima. Existen cuatro tipos de ondas principales:
+\par Durante el proceso de normal funcionamiento de las antenas microstrip, diferentes tipos de ondas pueden aparecer en sus líneas y superficies. Algunas de estas ondas son indeseadas puesto que pueden causar interferencias sobre los campos eléctricos que proceden del generador que se haya instalado, y es de vital importancia diseñar la la antena de forma que su aparición sea mínima. Existen cuatro tipos de ondas principales:
 
 \begin{itemize}
 \item \textbf{Ondas espaciales: }Estas tipo de \gls{oem} son las que serán radiadas al final del proceso de funcionamiento de la antena. Estas ondas abandonarán la estructura de la antena y se propagarán en el espacio libre y se irán atenuando conforme se alejen de la antena. La propagación de estas ondas es normal y completamente deseada cuando la estructura microstrip es una antena, sin embargo, si las ondas comienzan a propagarse en la línea de alimentación de la antena, también en tecnología microstrip, significará que nuestro diseño tiene pérdidas y se deberá encontrar una solución a este problema de fugas.
@@ -93,28 +93,28 @@
 
 \begin{figure}[h]
      \centering
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{archivos/parche/directa}
          \caption{Alimentación directa}
          \label{fig:directa}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{archivos/parche/coax}
          \caption{Alimentación por sonda coaxial}
          \label{fig:coax}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{archivos/parche/proximidad}
          \caption{Alimentación por proximidad}
          \label{fig:proximidad}
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.4\textwidth}
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{archivos/parche/apertura}
          \caption{Alimentación por ranura}
@@ -148,9 +148,9 @@
 
 \section{Métodos de análisis}
 \label{analisis}
-\par Existen diferentes métodos para analizar el comportamiento de una antena en tecnología microstrip. Cada uno nos ofrece una diferente relación entre complejidad y precisión entre los resultados empíricos y los que se obtienen en la realidad. Los métodos más comunes de análisis son el método  de línea de transmisión, el método de cavidad, y el método de onda completa. 
+\par Existen diferentes métodos para analizar el comportamiento de una antena en tecnología microstrip. Cada uno ofrece una diferente relación entre complejidad y precisión entre los resultados empíricos y los que se obtienen en la realidad. Los métodos más comunes de análisis son el método  de línea de transmisión, el método de cavidad, y el método de onda completa. 
 \\
-\par El método de línea de transmisión es más sencillo pero con una menor exactitud a la hora de obtener los resultados así como una menor facilidad para modelar el acoplamiento. Este método además, solo es útil a la hora de diseñar y analizar parches rectangulares. Comparado con el, el método de cavidad nos ofrece una mayor precisión sacrificando la complejidad a la hora de realizar los cálculos. El método de onda completa es usado para obtener los resultados más exactos, versátiles, y con mayor facilidad para tratar elementos finitos, así como arrays infinitos, pilas, y antenas microstrip con formas completamente aleatorias, pero sacrificando la facilidad en el análisis ya que se trata de un método muy complejo y no nos ofrece una buena visión física para entender los fenómenos físicos que ocurren en la antena. 
+\par El método de línea de transmisión es más sencillo pero con una menor exactitud a la hora de obtener los resultados así como una menor facilidad para modelar el acoplamiento. Este método además, solo es útil a la hora de diseñar y analizar parches rectangulares. Comparado con el, el método de cavidad ofrece una mayor precisión sacrificando la complejidad a la hora de realizar los cálculos. El método de onda completa es usado para obtener los resultados más exactos, versátiles, y con mayor facilidad para tratar elementos finitos, así como arrays infinitos, pilas, y antenas microstrip con formas completamente aleatorias, pero sacrificando la facilidad en el análisis ya que se trata de un método muy complejo y no ofrece una buena visión física para entender los fenómenos físicos que ocurren en la antena. 
 \\
 \par En este proyecto se ha usado principalmente el método de línea de transmisión para el diseño de las antenas microstrip, con lo que se procederá a profundizar en la explicación de este método obviando los métodos de cavidades y onda completa dada su complejidad.
 
@@ -309,7 +309,7 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
 
 \begin{figure}[h]
     \centering
-        \includegraphics[width=12cm]{archivos/parche/inset}
+        \includegraphics[width=0.7\textwidth]{archivos/parche/inset}
         \caption{Altura del \textit{inset} para adaptar las impedancias}
         \label{fig:inset}
 \end{figure}
@@ -360,7 +360,7 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
 
 \begin{figure}[h]
     \centering
-        \includegraphics[width=12cm]{archivos/parche/lambda}
+        \includegraphics[width=\textwidth]{archivos/parche/lambda}
         \caption{Circuito con adaptador $\lambda/4$}
         \label{fig:lambdacuartos}
 \end{figure}
@@ -368,6 +368,12 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
 \par En el caso de que cualquiera de las impedancias, ya sea de la parte del generador o de la carga, no sea puramente óhmica deberemos añadir otro tipo de adaptadores, como elementos pasivos en serie o paralelo, cuya función es anular la parte reactiva de las impedancias de estos circuitos.
 
 
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/transformador}
+        \caption{Ejemplo real de transformador $\lambda/4$ sobre un array microstrip 2x2 . \citep{Amitec2018}}
+        \label{fig:transformador}
+\end{figure}
 
 
 
