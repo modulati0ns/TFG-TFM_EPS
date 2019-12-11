@@ -16,7 +16,7 @@
 \\
 \par Normalmente un array de antenas está formado por la agrupación del mismo tipo y modelo de antenas dispuestas en una geometría específica. Aunque esto no es estricto, y diferentes tipos de antenas pueden actuar como array para conseguir configuraciones más específicas o cuando otro tipo de limitaciones, como factores de diseño o económicos, no nos permiten usar el mismo tipo de antenas.
 \\
-\par Cuando se dispone de un array de antenas, lo común es que este se diseñe para que el campo electromagnético radiado total sea la suma de los campos individuales trabajando en forma de interferencia constructiva para el lóbulo principal, y en forma de interferencia destructiva para el resto del espacio, de forma que la máxima transferencia de potencia se centre en el lóbulo principal. Para conseguir un correcto funcionamiento de un array de antenas según las especificaciones marcadas para nuestra aplicación se deberán tener en cuenta una serie de factores clave en el diseño:
+\par Cuando se dispone de un array de antenas, lo común es que este se diseñe para que el campo electromagnético radiado total sea la suma de los campos individuales trabajando en forma de interferencia constructiva para el lóbulo principal, y en forma de interferencia destructiva para el resto del espacio, de forma que la máxima transferencia de potencia se centre en el lóbulo principal. Para conseguir un correcto funcionamiento de un array de antenas según las especificaciones marcadas para nuestra aplicación se deberán tener en cuenta una serie de factores clave en el diseño \cite{Valero2008}:
 
 \begin{itemize}
 \item \textbf{La configuración geométrica: }Se deberá conocer de antemano qué tipo de configuración geométrica se aplicará a la hora de distribuir los elementos individuales: Lineal, circular, rectangular, etc. Esta distribución es clave para la correcta aproximación a los parámetros finales deseados.
@@ -30,28 +30,88 @@
 \item \textbf{El patrón de radiación de cada elemento: }Para que un elemento llegue a interferir constructiva o destructivamente sobre la radiación de otro, es necesario que sus patrones lleguen a mezclarse físicamente, para ello, el patrón de radiación de cada elemento individual debe estar controlado para así poder predecir cual será el resultado de la antena global.
 \end{itemize}
 
-\section{Array de dos elementos}
+\section{Arrays lineales}
+\par Para entender el funcionamiento analítico de las agrupaciones de antenas, se pondrá como ejemplo un array lineal de estas. Un array lineal consiste en un conjunto de antenas agrupadas a lo largo de una recta y conectadas en serie. El diagrama de radiación del array de antenas es el producto final de las interferencias constructivas y destructivas causadas por las radiaciones de los elementos individuales. Comenzaremos considerando una sola antena alimentada mediante una corriente $I_{n}$, donde $n$ identifica el número de la antena que compone el array, siendo 0 la primera antena y N-1 la última. Por lo tanto, la primera antena será alimentada por una corriente $I_{0}$ \citep{Cardama2002}.
+\\
+\par Esta antena poseerá una distribución de corrientes $J_{0}(\vec{r})$. Por lo tanto, si agrupamos un conjunto de $n$ antenas equiespaciadas una distancia $d$ a lo largo del eje $z$ (fig. \ref{fig:arraigo}), cada una excitada con su fasor de corriente, $I_{n}$, la distribución de corrientes del conjunto de antenas quedará como \cite{Cardama2002}:
 
-\par Para explicar la teoría detrás de los arrays de antenas se comenzará por la agrupación más simple: Un array de dos dipolos simples. Suponiendo que no existe acoplamiento mutuo entre ambos, se deduce que el campo radiado total por el array es igual a la suma de los campos de los elementos individuales. Comenzaremos definiendo la amplitud \textit{$E_{i}$} de la señal producida por una única antena cuya radiación es esférica o isotrópica. 
-
-\begin{equation}
-	E_{i}=I_{0}\frac{e^{-jkr_{i}}}{4\pi r_{i}}
-	\label{eq:ei}
-\end{equation}
-
-%Donde el término $e^{-jkr_{i}}$ denota la variación de fase de cada %elemento.
-
-\par Con la suma de ambas ondas de igual valor y fase pero diferente localización espacial podremos obtener el valor del campo en una posición concreta del espacio. Cuando la diferencia de caminos entre las dos ondas en múltiplo entero de la longitud de onda en el espacio \textit{$\lambda _{0}$}, se obtendrá una interferencia constructiva en el punto donde se realiza la suma de campos, mientras que si la diferencia de caminos es múltiplo de $\pi$ \todo{multiplo de pi?}, la interferencia será destructiva. La señal se basa en la original pero proporcional a un factor de interferencia.
-
-\begin{equation}
-	E_{t}=I_{0}\frac{e^{-jkr}}{4\pi}(1+e^{jkd\cos\theta })
-	\label{eq:einter}
-\end{equation}
-
-Donde el término $d\cos\theta$ denota la diferencia de caminos recorrida por las ondas de los dos elementos a una distancia r.
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/array/array}
+        \caption{Agrupación lineal de antenas sobre el eje Z}
+        \label{fig:arraigo}
+\end{figure}
 
 \begin{equation}
-	E_{t}=E_{1}+E_{2}=\frac{    e^{kr_{1}-(\beta/2)} }{ 4\pi r_{1}  }\cos\theta _{1}+\frac{    e^{kr_{2}+(\beta/2)} }{ 4\pi r_{2}  }\cos\theta _{2}
-	\label{eq:ei}
+	\vec{J}\left ( \vec{r} \right )=\sum_{n=0}^{N-1}I_{n}\vec{J}_{0}(r-nd\hat{z})
+	\label{eq:distrib}
 \end{equation}
-no
+
+\par Se puede expresar el sumatorio anterior como la convolución entre la corriente que alimenta un elemento básico del array, es decir, una antena simple, y un tren de deltas ponderadas con sus respectivos pesos $I_{n}$ \cite{Cardama2002}.
+
+\begin{equation}
+	\vec{J}\left ( \vec{r} \right )=\vec{J}_{0}\left ( \vec{r} \right ) \ast \sum_{n=0}^{N-1}I_{n}\delta (r-nd\hat{z})=\vec{J}_{0}\left ( \vec{r} \right )\ast I(n)
+	\label{eq:conv}
+\end{equation}
+
+\par Sabiendo que el vector de radiación $\vec{N}\left ( \vec{r} \right )$, es la transformada de Fourier tridimensional de la distribución de corrientes $\vec{J}\left ( \vec{r} \right )$, se aplicará el teorema de convolución para calcularlo \cite{Cardama2002}.
+
+\begin{equation}
+	\vec{N}\left ( \vec{r} \right )=TF_{3D}\left [\vec{J}\left ( \vec{r} \right )  \right ]=\vec{N}_{0}\left ( \vec{r} \right )\cdot TF_{3D}\left [ I(n)   \right ]
+	\label{eq:3d}
+\end{equation}
+
+\par Donde $\vec{N}_{0}\left ( \vec{r} \right )$ es el vector de radiación del elemento simple situado en el origen, cuando el fasor de alimentación toma el valor unidad. Dado que el fasor de corriente $I_{n}$  es separable, su $TF_{3D}$ consistirá en el producto de las transformadas en cada dirección \cite{Cardama2002}.
+
+
+\begin{equation}
+	TF_{3D}\left [ I(n)   \right ]= TF_{x}\left [ I(n)   \right ]\cdot TF_{y}\left [ I(n)   \right ]\cdot TF_{z}\left [ I(n)   \right ] = TF_{z}\left [ I(n)   \right ] = \sum_{n=0}^{N-1}I_{n} e^{j\omega _{z}n}
+	\label{eq:direccional}
+\end{equation}
+
+\par Donde $\omega _{z}$ es la frecuencia digital en la dirección del eje $z$, que puede ser obtenida mediante el producto de la frecuencia espacial analógica $k_{z}$  por el periodo de muestreo en la dirección z, que equivale a la distancia de espaciación entre las antenas que componen el array, $d$ \cite{Cardama2002}. 
+
+\begin{equation}
+	\omega_{z} = k_{z}\cdot d = k d \cos {\theta } 
+	\label{eq:frecdigital}
+\end{equation}
+
+\par Donde $\theta$ representa el ángulo cualquiera con respecto a la agrupación de antenas. Teniendo en cuenta que los fasores de alimentación $I_{n}$, presentan una fase progresiva entre cada par de antenas consecutivas que puede expresarse mediante \cite{Cardama2002}: 
+
+\begin{equation}
+	I_{n}=a_{n}e^{jn\alpha} 
+	\label{eq:fasor}
+\end{equation}
+
+\par Donde $a_{n}$ son coeficientes, generalmente complejos, y que pueden tomar valores reales cuando la fase de alimentación sea progresiva, se podrá entonces
+obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
+
+\begin{equation}
+	\vec{N}\left ( \vec{r} \right )= \vec{N}_{0}\left ( \vec{r} \right )\sum_{n=0}^{N-1}a_{n}e^{jn(kd\cos\theta+\alpha)}
+	\label{eq:vecrad}
+\end{equation}
+
+\par Para simplificar los cálculos, agruparemos el término $kd\cos\theta+\alpha$ en una sola variable, la cual representará la diferencia de fase entre las contribuciones en el campo lejano de dos antenas consecutivas \cite{Cardama2002}. 
+
+\begin{equation}
+	\Psi = kd\cos\theta+\alpha
+	\label{eq:psi}
+\end{equation}
+
+\par Esta diferencia de fase es igual a la suma del desfase por diferencia de caminos $kd\cos\theta$, más la diferencia de fase que progresivamente ha ido alimentando cada antena $\alpha$. Quedando entonces el vector de radiación como \cite{Cardama2002}: 
+
+\begin{equation}
+	\vec{N}\left ( \vec{r} \right )= \vec{N}_{0}\left ( \vec{r} \right )\sum_{n=0}^{N-1}a_{n}e^{jn\Psi}
+	\label{eq:vecrad2}
+\end{equation}
+
+\par Se puede observar cómo el vector de radiación consiste en el producto entre el vector de radiación de la primera antena básica $\vec{N}_{0}\left ( \vec{r} \right ) $ y un factor que tiene en cuenta la interferencia de las \textit{N} ondas generadas por cada antena. Este factor depende unicamente de la separación entre elementos, su alimentación y la frecuencia de trabajo, y se le denomina \textit{factor de agrupación} o \textit{factor de array} (\textit{FA} \cite{Cardama2002}.
+
+\begin{equation}
+	FA(\Psi)=\sum_{n=0}^{N-1}a_{n}e^{jn\Psi}
+	\label{eq:fa}
+\end{equation}
+
+\section{Factor de array}
+
+\par 
