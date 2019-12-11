@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Escuela Politécnica Superior de la Universidad de Alicante
+% Realizado por: Jose Manuel Requena Plens
+% Contacto: info@jmrplens.com / Telegram:@jmrplens
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Arrays de Antenas}
+\label{arraysdeantenas}
+
+\section{Introducción}
+
+\par Un array o vector de antenas se basa en la agrupación de un cierto número de elementos individuales de antenas para conseguir que trabajen como una sola, mejorando así las prestaciones globales de esta e incluso llegar a obtener parámetros característicos que serían imposibles de conseguir con el trabajo de una sola antena.
+
+\par En cierto tipo de aplicaciones, necesitamos patrones de radiación o ganancias que antenas de un único elemento no nos pueden ofrecer, ya que los patrones de directividad de estos suelen ser anchos y muy poco directivos. Cuando se necesitan antenas con ganancias más elevadas o patrones de directividad estrechos y concentrados para, por ejemplo, radio enlaces, o patrones estrechos en un plano, pero muy extendidos en su perpendicular, como se hace necesario en aplicaciones de telefonía móvil donde se intenta concentrar el haz hacia las calles y las casas y evitar propagar la señal al cielo, se hace indispensable el uso de agrupaciones de antenas para modelar la radiación de la señal según nuestras especificaciones.
+\\
+\par Normalmente un array de antenas está formado por la agrupación del mismo tipo y modelo de antenas dispuestas en una geometría específica. Aunque esto no es estricto, y diferentes tipos de antenas pueden actuar como array para conseguir configuraciones más específicas o cuando otro tipo de limitaciones, como factores de diseño o económicos, no nos permiten usar el mismo tipo de antenas.
+\\
+\par Cuando se dispone de un array de antenas, lo común es que este se diseñe para que el campo electromagnético radiado total sea la suma de los campos individuales trabajando en forma de interferencia constructiva para el lóbulo principal, y en forma de interferencia destructiva para el resto del espacio, de forma que la máxima transferencia de potencia se centre en el lóbulo principal. Para conseguir un correcto funcionamiento de un array de antenas según las especificaciones marcadas para nuestra aplicación se deberán tener en cuenta una serie de factores clave en el diseño:
+
+\begin{itemize}
+\item \textbf{La configuración geométrica: }Se deberá conocer de antemano qué tipo de configuración geométrica se aplicará a la hora de distribuir los elementos individuales: Lineal, circular, rectangular, etc. Esta distribución es clave para la correcta aproximación a los parámetros finales deseados.
+
+\item \textbf{Distancia entre elementos: }La distancia entre elementos  afectará a como los campos electromagnéticos interfieren entre si y estos son sumados en el campo lejano.
+
+\item \textbf{La amplitud de excitación: }Una incorrecta intensidad de excitación a uno o varios de los elementos que conformen el array puede llevar a superposiciones indeseadas que deformen por completo el patrón de radiación de nuestra antena global.
+
+\item \textbf{La fase de excitación: }La fase con la que se alimenta cada elemento individual es un factor clave para modelar el comportamiento global de la antena. Si se alimenta cada elemento siempre con la misma fase se obtendrá un patrón de radiación concreto y estático mientras que el hecho de variar la fase a cada elemento de forma individual hará que el patrón de radiación varíe según las necesidades. Esta variación de fase es normalmente llevada a cabo por ordenador y son también conocidos como \textit{Phased arrays}
+
+\item \textbf{El patrón de radiación de cada elemento: }Para que un elemento llegue a interferir constructiva o destructivamente sobre la radiación de otro, es necesario que sus patrones lleguen a mezclarse físicamente, para ello, el patrón de radiación de cada elemento individual debe estar controlado para así poder predecir cual será el resultado de la antena global.
+\end{itemize}
+
+\section{Array de dos elementos}
+
+\par Para explicar la teoría detrás de los arrays de antenas se comenzará por la agrupación más simple: Un array de dos dipolos simples. Suponiendo que no existe acoplamiento mutuo entre ambos, se deduce que el campo radiado total por el array es igual a la suma de los campos de los elementos individuales. Comenzaremos definiendo la amplitud \textit{$E_{i}$} de la señal producida por una única antena cuya radiación es esférica o isotrópica. 
+
+\begin{equation}
+	E_{i}=I_{0}\frac{e^{-jkr_{i}}}{4\pi r_{i}}
+	\label{eq:ei}
+\end{equation}
+
+%Donde el término $e^{-jkr_{i}}$ denota la variación de fase de cada %elemento.
+
+\par Con la suma de ambas ondas de igual valor y fase pero diferente localización espacial podremos obtener el valor del campo en una posición concreta del espacio. Cuando la diferencia de caminos entre las dos ondas en múltiplo entero de la longitud de onda en el espacio \textit{$\lambda _{0}$}, se obtendrá una interferencia constructiva en el punto donde se realiza la suma de campos, mientras que si la diferencia de caminos es múltiplo de $\pi$ \todo{multiplo de pi?}, la interferencia será destructiva. La señal se basa en la original pero proporcional a un factor de interferencia.
+
+\begin{equation}
+	E_{t}=I_{0}\frac{e^{-jkr}}{4\pi}(1+e^{jkd\cos\theta })
+	\label{eq:einter}
+\end{equation}
+
+Donde el término $d\cos\theta$ denota la diferencia de caminos recorrida por las ondas de los dos elementos a una distancia r.
+
+\begin{equation}
+	E_{t}=E_{1}+E_{2}=\frac{    e^{kr_{1}-(\beta/2)} }{ 4\pi r_{1}  }\cos\theta _{1}+\frac{    e^{kr_{2}+(\beta/2)} }{ 4\pi r_{2}  }\cos\theta _{2}
+	\label{eq:ei}
+\end{equation}
+HOLASDFJKNSDJFNSLDKJFN
