@@ -105,7 +105,7 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 	\label{eq:vecrad2}
 \end{equation}
 
-\par Se puede observar cómo el vector de radiación consiste en el producto entre el vector de radiación de la primera antena básica $\vec{N}_{0}\left ( \vec{r} \right ) $ y un factor que tiene en cuenta la interferencia de las \textit{N} ondas generadas por cada antena. Este factor depende unicamente de la separación entre elementos, su alimentación y la frecuencia de trabajo, y se le denomina \textit{factor de agrupación} o \textit{factor de array} (\textit{FA} \cite{Cardama2002}.
+\par Se puede observar cómo el vector de radiación consiste en el producto entre el vector de radiación de la primera antena básica $\vec{N}_{0}\left ( \vec{r} \right ) $ y un factor que tiene en cuenta la interferencia de las \textit{N} ondas generadas por cada antena. Este factor depende unicamente de la separación entre elementos, su alimentación y la frecuencia de trabajo, y se le denomina \textit{factor de agrupación} o \textit{factor de array} (\textit{FA}) \cite{Cardama2002}.
 
 \begin{equation}
 	FA(\Psi)=\sum_{n=0}^{N-1}a_{n}e^{jn\Psi}
@@ -114,4 +114,56 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 
 \section{Factor de array}
 
-\par 
+\par Mediante el factor de array se puede obtener el patrón de radiación producido por cualquier array de antenas isotrópicas. Si las antenas que conforman el array no fuesen isotrópicos, se podrá obtener el campo radiado total multiplicando el factor de array por el campo radiado de un elemento único. Cada array tiene su propio factor de array. El factor de array, por lo general, queda en función del número de elementos, su disposición geométrica, sus magnitudes relativas, sus fases relativas, y la distancia entre los elementos \cite{Balanis2015}. 
+\\
+\par El factor de array presenta las siguientes propiedades \cite{Cardama2002}:
+
+\begin{itemize}
+\item \textbf{Periodicidad: }Se trata de una función periódica del ángulo $\Psi$ con periodo $2\pi$, tal que los coeficientes de su serie de Fourier son los coeficientes de la alimentación $a_{n}$. Gracias a esta propiedad se podrá realizar una sintetización de un patrón de radiación mediante el ajuste de los coeficientes de Fourier del factor de array de la agrupación concreta.
+
+\item \textbf{Relación con la TF: }El factor de array puede ser definido ahora como la transformada de Fourier de la secuencia discreta de los coeficientes de la alimentación, $a_{n}$.
+
+\item \textbf{Máximo del factor de array: }Si los coeficientes de la alimentación $a_{n}$ son reales y positivos, el máximo del factor de la agrupación se encuentra en el origen $\Psi=0$. Sabiendo que el máximo del diagrama de radiación se encuentra en la dirección en la que los máximos de cada antena se interfieren positivamente en el espacio, es decir, en fase, la cual corresponde a un desfase nulo ($\Psi=0$) en la interferencia cuando los coeficientes son reales y positivos.
+
+\item \textbf{Margen visible: }Dado que el ángulo $\theta$ solo tomará valores reales entre 0 y $\pi$, se puede deducir el rango de valores de $\Psi$ para los que este fenómeno toma lugar:
+
+\begin{equation}
+	\Psi \in \left [ -kd+\alpha ,\; kd+\alpha \right ]
+	\label{eq:dominio}
+\end{equation}
+
+\par Solamente el intervalo comprendido en (\ref{eq:dominio}) pertenece al diagrama de radiación, lo que se conoce como \textit{margen visible} (fig. \ref{margenvisible}). La longitud del margen visibles es de $2kd$ y está centrado en $\Psi=\alpha$, de forma que su tamaño es proporcional al espaciado de la agrupación, normalizado respecto a la longitud de onda y su posición en el eje $\Psi$ varía con la fase progresiva.
+
+\item \textbf{Máximo del diagrama de radiación: }Cuando los coeficientes de la alimentación son reales y positivos y si el margen visible incluye el origen $\Psi=0$, el máximo del diagrama de radiación se encuentra en $\theta_{max}$. 
+
+ \begin{equation}
+	\theta_{max}=\arccos(-\frac{\alpha}{kd}),\ \ \left | \alpha \right |\leq kd
+	\label{eq:radmax}
+\end{equation}
+
+\par Si se varía la fase de alimentación progresiva $\alpha$, sería posible controlar la dirección del máximo de radiación. Este es el principio de funcionamiento de los \textit{Phased arrays}, en las que la dirección del máximo se varía de forma electrónica mediante un control de la fase relativa progresiva de alimentación de los elementos individuales del array. 
+
+\textbf{Periodicidad de los máximos: }Si el máximo de radiación se encuentra en $\Psi_{max}$ existirán máximos periódicos en los múltiplos enteros de $2\pi$. Cuando estos máximos se encuentran dentro del margen visible:
+
+\begin{equation}
+	kd+\alpha\geq 2\pi,\ \
+-kd+\alpha\leq 2\pi  
+\label{eq:maxdominio}
+\end{equation}
+
+\par Aparecerán múltiples máximos de radiación en el espacio real, denominados \textit{lóbulos de difracción} o \textit{grating lobes}. Este fenómeno suele darse cuando el espaciado es de una o más longitudes de onda.
+
+\end{itemize}
+
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/array/margen}
+        \caption{Margen visible. \cite{Cardama2002}}
+        \label{fig:margenvisible}
+\end{figure}
+
+\section{Influencia de los parámetros de diseño}
+\par A continuación, se van a realizar un breve resumen sobre los principales efectos que producen sobre el patrón de radiación la modificación de los parámetros de diseño del array, tales como el número de elementos que lo componen, la distancia entre ellos, o el efecto que produciría un desfase relativo en su alimentación.
+
+\par Para la simulación de los 
