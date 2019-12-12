@@ -81,7 +81,7 @@ pdftitle = {\titulo},
 % Archivo de acrónimos
 %%
 \makeglossaries % Genera la base de datos de acrónimos
-\input{anexos/acronimos.tex} % Archivo que contiene los acrónimos
+\input{anexos/acronimos} % Archivo que contiene los acrónimos
 
 %%%%%%%%%%%%%%%%%%%%%%%% 
 % INICIO DEL DOCUMENTO
@@ -134,7 +134,7 @@ pdftitle = {\titulo},
 % Incluye el listado de acrónimos utilizados en el trabajo. 
 \printglossary[style=modsuper,type=\acronymtype,title={Lista de Acrónimos y Abreviaturas}]
 % Añade el resto de acrónimos si así se desea. Si no elimina el comando siguiente
-
+\glsaddallunused 
 %%%%
 % CONTENIDO. Anexos - Añade o elimina según tus necesidades
 %%%%
