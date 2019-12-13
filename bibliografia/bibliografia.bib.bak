@@ -175,8 +175,13 @@
   url    = {http://www.cartagena99.com/recursos/alumnos/apuntes/Tema%206%20Arrays.pdf},
 }
 
-@Online{,
+@Online{Valero2008,
   author = {Valero, Alejando and Esteban, Héctor and Fernando, Bataller Miguel},
+  editor = {UPV},
+  title  = {Agrupación de antenas},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://www.upv.es/antenas/Documentos_PDF/Notas_clase/Agrupaciones.pdf},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

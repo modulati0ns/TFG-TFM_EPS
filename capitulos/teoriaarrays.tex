@@ -11,7 +11,7 @@
 \section{Introducción}
 
 \par Un array o vector de antenas se basa en la agrupación de un cierto número de elementos individuales de antenas para conseguir que trabajen como una sola, mejorando así las prestaciones globales de esta e incluso llegar a obtener parámetros característicos que serían imposibles de conseguir con el trabajo de una sola antena.
-
+\\
 \par En cierto tipo de aplicaciones, necesitamos patrones de radiación o ganancias que antenas de un único elemento no nos pueden ofrecer, ya que los patrones de directividad de estos suelen ser anchos y muy poco directivos. Cuando se necesitan antenas con ganancias más elevadas o patrones de directividad estrechos y concentrados para, por ejemplo, radio enlaces, o patrones estrechos en un plano, pero muy extendidos en su perpendicular, como se hace necesario en aplicaciones de telefonía móvil donde se intenta concentrar el haz hacia las calles y las casas y evitar propagar la señal al cielo, se hace indispensable el uso de agrupaciones de antenas para modelar la radiación de la señal según nuestras especificaciones.
 \\
 \par Normalmente un array de antenas está formado por la agrupación del mismo tipo y modelo de antenas dispuestas en una geometría específica. Aunque esto no es estricto, y diferentes tipos de antenas pueden actuar como array para conseguir configuraciones más específicas o cuando otro tipo de limitaciones, como factores de diseño o económicos, no nos permiten usar el mismo tipo de antenas.
@@ -37,7 +37,7 @@
 
 \begin{figure}[h]
     \centering
-        \includegraphics[width=0.8\textwidth]{archivos/array/array}
+        \includegraphics[width=0.65\textwidth]{archivos/array/array}
         \caption{Agrupación lineal de antenas sobre el eje Z}
         \label{fig:arraigo}
 \end{figure}
@@ -151,19 +151,75 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 \label{eq:maxdominio}
 \end{equation}
 
+
 \par Aparecerán múltiples máximos de radiación en el espacio real, denominados \textit{lóbulos de difracción} o \textit{grating lobes}. Este fenómeno suele darse cuando el espaciado es de una o más longitudes de onda.
-
-\end{itemize}
-
-
 \begin{figure}[h]
     \centering
-        \includegraphics[width=0.8\textwidth]{archivos/array/margen}
+        \includegraphics[width=0.62\textwidth]{archivos/array/margen}
         \caption{Margen visible. \cite{Cardama2002}}
         \label{fig:margenvisible}
 \end{figure}
 
-\section{Influencia de los parámetros de diseño}
-\par A continuación, se van a realizar un breve resumen sobre los principales efectos que producen sobre el patrón de radiación la modificación de los parámetros de diseño del array, tales como el número de elementos que lo componen, la distancia entre ellos, o el efecto que produciría un desfase relativo en su alimentación.
+\end{itemize}
 
-\par Para la simulación de los 
+
+
+\newpage
+\section{Influencia de los parámetros de diseño}
+\par A continuación, se van a realizar un breve resumen sobre los principales efectos que producen sobre el patrón de radiación la modificación de los parámetros de diseño del array, tales como el número de elementos que lo componen, la distancia entre ellos, o el efecto que produciría un desfase relativo en su alimentación. Para la simulación de los efectos deseados se usará el Applet diseñado por Amanogawa para la simulación de arrays uniformes \cite{Amanogawa2019}.
+
+\subsection{Número de elementos}
+\par En primer lugar se comenzará variando el número de elementos que componen el array de dipolos uniformes. La configuración del array se basará en la adición de dipolos de longitud $\lambda/2$, alimentados con la misma fase relativa y separados a una distancia entre $\lambda/4$ y $\lambda$ para poder ver cómo la separación entre elementos también afecta a la forma inicial del patrón de radiación.
+\\
+\par En la tabla \ref{tab:numeroelementos} se puede observar cómo, dado un espacio constante y un aumento del número de elementos del array, la directividad del patrón de radiación va aumentando, y con ello, el número de lóbulos laterales. Se ha de llegar a un compromiso entre la directividad que se desea conseguir en el patrón de directividad final frente al número de lóbulos laterales y la intensidad de estos, a la hora de diseñar un array lineal.
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\includegraphics[scale=0.25]{archivos/array/numero/1a} & \includegraphics[scale=0.25]{archivos/array/numero/1b} & \includegraphics[scale=0.25]{archivos/array/numero/1c} \\
+$d=\lambda/4 \; ; \; N=1$  & 
+$d=\lambda/4 \; ; \; N=2$  & 
+$d=\lambda/4 \; ; \; N=3$  \\
+
+\includegraphics[scale=0.25]{archivos/array/numero/2a} & \includegraphics[scale=0.25]{archivos/array/numero/2b} & \includegraphics[scale=0.25]{archivos/array/numero/2c} \\
+$d=\lambda/2 \; ; \; N=1$  & 
+$d=\lambda/2 \; ; \; N=2$  & 
+$d=\lambda/2 \; ; \; N=3$  \\
+
+\includegraphics[scale=0.25]{archivos/array/numero/3a} & \includegraphics[scale=0.25]{archivos/array/numero/3b} & \includegraphics[scale=0.25]{archivos/array/numero/3c} \\
+$d=\lambda \; ; \; N=1$  & 
+$d=\lambda \; ; \; N=2$  & 
+$d=\lambda \; ; \; N=3$  \\
+\end{tabular}
+\caption{Efecto de adición de elementos sobre array lineal}
+\label{tab:numeroelementos} % 
+\end{table}
+
+
+
+
+\subsection{Espaciado de elementos}
+\par En esta caso se modificará la separación entre antenas fijando el número de elementos que componen el array a 4 dipolos $\lambda/2$ 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\includegraphics[scale=0.25]{archivos/array/distancia/1a} & \includegraphics[scale=0.25]{archivos/array/distancia/1b} & \includegraphics[scale=0.25]{archivos/array/distancia/1c} \\
+$d=0.2\lambda$  & 
+$d=0.25\lambda$  & 
+$d=0.3\lambda$  \\
+
+\includegraphics[scale=0.25]{archivos/array/distancia/2a} & \includegraphics[scale=0.25]{archivos/array/distancia/2b} & \includegraphics[scale=0.25]{archivos/array/distancia/2c} \\
+$d=0.4\lambda$  & 
+$d=0.5\lambda$  & 
+$d=0.6\lambda$  \\
+
+\includegraphics[scale=0.25]{archivos/array/distancia/3a} & \includegraphics[scale=0.25]{archivos/array/distancia/3b} & \includegraphics[scale=0.25]{archivos/array/distancia/3c} \\
+$d=0.75\lambda$  & 
+$d=0.8\lambda$  & 
+$d=0.9\lambda$  \\
+\end{tabular}
+\caption{Efecto de la separación de elementos sobre array lineal}
+\label{tab:distanciaelementos} % 
+\end{table}

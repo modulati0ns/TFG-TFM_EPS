@@ -184,4 +184,12 @@
   url    = {http://www.upv.es/antenas/Documentos_PDF/Notas_clase/Agrupaciones.pdf},
 }
 
+@Online{Amanogawa2019,
+  author = {Amanogawa},
+  title  = {Uniform Dipole Array},
+  year   = {2019},
+  date   = {2019},
+  url    = {http://www.amanogawa.com/archive/AntennaArray/AntennaArray.html},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
