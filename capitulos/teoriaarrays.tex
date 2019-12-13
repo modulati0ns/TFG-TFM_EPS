@@ -174,7 +174,7 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 \par En la tabla \ref{tab:numeroelementos} se puede observar cómo, dado un espacio constante y un aumento del número de elementos del array, la directividad del patrón de radiación va aumentando, y con ello, el número de lóbulos laterales. Se ha de llegar a un compromiso entre la directividad que se desea conseguir en el patrón de directividad final frente al número de lóbulos laterales y la intensidad de estos, a la hora de diseñar un array lineal.
 
 
-\begin{table}[h]
+\begin{table}[p]
 \centering
 \begin{tabular}{ccc}
 \includegraphics[scale=0.25]{archivos/array/numero/1a} & \includegraphics[scale=0.25]{archivos/array/numero/1b} & \includegraphics[scale=0.25]{archivos/array/numero/1c} \\
@@ -196,30 +196,100 @@ $d=\lambda \; ; \; N=3$  \\
 \label{tab:numeroelementos} % 
 \end{table}
 
-
-
-
-\subsection{Espaciado de elementos}
-\par En esta caso se modificará la separación entre antenas fijando el número de elementos que componen el array a 4 dipolos $\lambda/2$ 
-
-\begin{table}[h]
+\begin{table}[p]
 \centering
 \begin{tabular}{ccc}
 \includegraphics[scale=0.25]{archivos/array/distancia/1a} & \includegraphics[scale=0.25]{archivos/array/distancia/1b} & \includegraphics[scale=0.25]{archivos/array/distancia/1c} \\
 $d=0.2\lambda$  & 
 $d=0.25\lambda$  & 
-$d=0.3\lambda$  \\
+$d=0.4\lambda$  \\
 
 \includegraphics[scale=0.25]{archivos/array/distancia/2a} & \includegraphics[scale=0.25]{archivos/array/distancia/2b} & \includegraphics[scale=0.25]{archivos/array/distancia/2c} \\
-$d=0.4\lambda$  & 
 $d=0.5\lambda$  & 
-$d=0.6\lambda$  \\
+$d=0.6\lambda$  & 
+$d=0.75\lambda$  \\
 
 \includegraphics[scale=0.25]{archivos/array/distancia/3a} & \includegraphics[scale=0.25]{archivos/array/distancia/3b} & \includegraphics[scale=0.25]{archivos/array/distancia/3c} \\
-$d=0.75\lambda$  & 
 $d=0.8\lambda$  & 
-$d=0.9\lambda$  \\
+$d=0.9\lambda$  & 
+$d=\lambda$  \\
 \end{tabular}
 \caption{Efecto de la separación de elementos sobre array lineal}
 \label{tab:distanciaelementos} % 
 \end{table}
+
+
+
+
+\begin{table}[p]
+\centering
+\begin{tabular}{ccc}
+\includegraphics[scale=0.25]{archivos/array/fase/1a} & \includegraphics[scale=0.25]{archivos/array/fase/1b} & \includegraphics[scale=0.25]{archivos/array/fase/1c} \\
+$\alpha=-180^{\circ}$  & 
+$\alpha=-135^{\circ}$  & 
+$\alpha=-90^{\circ}$  \\
+
+\includegraphics[scale=0.25]{archivos/array/fase/2a} & \includegraphics[scale=0.25]{archivos/array/fase/2b} & \includegraphics[scale=0.25]{archivos/array/fase/2c} \\
+$\alpha=-45^{\circ}$  & 
+$\alpha=0^{\circ}$  & 
+$\alpha=45^{\circ}$  \\
+
+\includegraphics[scale=0.25]{archivos/array/fase/3a} & \includegraphics[scale=0.25]{archivos/array/fase/3b} & \includegraphics[scale=0.25]{archivos/array/fase/3c} \\
+$\alpha=90^{\circ}$  & 
+$\alpha=135^{\circ}$  & 
+$\alpha=180^{\circ}$  \\
+\end{tabular}
+\caption{Efecto del desfase de alimentación de los elementos sobre array lineal}
+\label{tab:faseelementos} % 
+\end{table}
+
+
+\subsection{Espaciado de elementos}
+\par En esta caso se modificará la separación entre antenas fijando el número de elementos que componen el array a 4 dipolos $\lambda/2$. La principal variación que se observa cuando se aumenta la distancia entre elementos es la aparición de nuevos máximos. 
+\\
+\par Cuando la distancia de separación es menor a $\lambda/2$ tan solo aparece un máximo principal. Conforme la separación aumenta de $\lambda$ encontraremos la aparición de nuevos máximos principales, como ocurre en la tabla \ref{tab:distanciaelementos} cuando $d=\lambda$. Entre $lambda/4$ y $\lambda$ encontramos aparición de lóbulos laterales. \cite{Valero2008}
+
+
+
+
+
+
+\subsection{Desfase progresivo}
+\par En este último caso, se modificará el desfase progresivo entre las antenas de $-180^{\circ}$ a $+180^{\circ}$, manteniendo, como en las configuraciones anteriores, un array de 4 dipolos $\lambda/2$ separados a una distancia de $\lambda/4$. \cite{Valero2008}
+\\
+\par Como se puede comprobar en la tabla \ref{tab:faseelementos}, gracias al efecto producido por el desfase en los dipolos se pueden llegar a conseguir patrones de radiación desde \textit{broadsire} hasta \textit{endfire}. Como ya se ha comentado con anterioridad, este es es principio de funcionamiento de los \textit{phased arrays}. Esta capacidad de reconfigurabilidad de las antenas es especialmente útil en antenas donde el sujeto no está fijo y se necesita una gran directividad para desperdiciar la mínima energía posible en la radiación.
+
+
+
+\newpage
+\section{Agrupaciones transversales y longitudinales}
+\par En la sección anterior se hicieron mención a los conceptos \textit{broadfire} y \textit{endfire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadfire}) o longitudinal (\textit{endfire}) con respecto al eje de la agrupación. \cite{Cardama2002}
+
+\subsection{Agrupaciones transversales}
+
+\par Las configuración transversal o \textit{broadfire} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
+\\
+\par Para conseguir que el máximo de radiación de un solo elemento radie en esta dirección basta con saber elegir qué elemento radiante es el mejor para nuestro sistema. Por otro lado, para conseguir que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, se deberá ajustar correctamente la separación y la fase de excitación de los elementos del array. Se tomará como punto de partida la ecuación \label{eq:psi}, en la que buscaremos un nulo (máximo de radiación). \cite{Balanis2015} 
+
+\begin{equation}
+	\Psi=kd\cos\theta+\alpha=0
+	\label{eq:nulo}
+\end{equation}
+
+\par De donde obtenemos $\alpha$ como: 
+
+\begin{equation}
+	\Psi=kd\cos\theta|_{\theta=90^{\circ}} +\alpha\rightarrow  \alpha=0
+	\label{eq:alphita}
+\end{equation}
+
+\par De la ecuación \ref{eq:alphita} se deduce que, para que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, no debe existir ningún desfase a la hora de excitar los elementos del array, así como ninguna diferencia de amplitud en la exitación. Aunque la separación de los elementos puede tomar cualquier valor, para asegurarnos que no existan lóbulos de difracción, esta separación no debe tomar valores múltiplos enteros de la longitud de onda. \cite{Balanis2015}
+
+\par En la figura \ref{fig:broadside} se puede observar la variación de la directividad así como la aparición de lóbulos de difracción para el caso de un array de dipolos $\lambda/2$ separados una distancia $\lambda/2$ y según el número de elementos que componen el array desde 1 hasta 8 elementos.\citep{Laport2019}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/array/broadside}
+        \caption{Radiación de array \textit{broadside} según el número de elementos del array}
+        \label{fig:broadside}
+\end{figure}
