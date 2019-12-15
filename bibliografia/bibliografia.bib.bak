@@ -192,11 +192,12 @@
   url    = {http://www.amanogawa.com/archive/AntennaArray/AntennaArray.html},
 }
 
-@Misc{Laport2019,
-  author = {Edmund A. Laport},
-  title  = {Beam Slewing for Broadside Arrays},
-  year   = {2019},
-  date   = {2019},
+@Misc{brewbooks2008,
+  author = {brewbooks},
+  title  = {SCR-270 Radar Antenna},
+  year   = {2008},
+  date   = {2008},
+  url    = {https://www.flickr.com/photos/brewbooks/2367557012/in/photostream/},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

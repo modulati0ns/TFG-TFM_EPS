@@ -430,7 +430,7 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 \par Las agrupaciones bidimensionales son aquellas en las que los elementos que conforman el array se sitúan sobre un plano común. En las agrupaciones unidimensionales, el diagrama de radiación producido se caracterizaba por tener una simetría de revolución respecto al eje de la agrupación. Las agrupaciones bidimensionales permiten obtener diagramas de radiación más complejos, y brindan la capacidad de dirigir el haz de propagación en las dos coordenadas esféricas del espacio $(\theta, \phi)$, sin las restricciones impuestas por la simetría de revolución. \cite{Cardama2002}
 \\
 \subsubsection{Agrupación bidimensional uniforme}
-\par La agrupación bidimensional más sencilla es la agrupación bidimensional uniforme. Esta configuración se caracteriza por tener una distribución de antenas rectangular a lo largo de un mismo plano, conformada por $MxN$ antenas idénticas, equiespaciadas con separación $d_{x}$ a lo largo del eje $x$ y $d_{y}$ a lo largo del eje $y$, y alimentadas con una corriente $I_{mn}$, es decir, con la capacidad de alimentación individual. \cite{Cardama2002}
+\par La agrupación bidimensional más sencilla es la agrupación bidimensional uniforme (fig. \ref{fig:bidimensionalfoto}). Esta configuración se caracteriza por tener una distribución de antenas rectangular a lo largo de un mismo plano, conformada por $MxN$ antenas idénticas, equiespaciadas con separación $d_{x}$ a lo largo del eje $x$ y $d_{y}$ a lo largo del eje $y$, y alimentadas con una corriente $I_{mn}$, es decir, con la capacidad de alimentación individual. \cite{Cardama2002}
 \\
 \par El factor de agrupación será el resultado de la interferencia en el campo lejano de la radiación de todas las antenas. Por analogía a la ecuación \ref{eq:vecrad}, el factor de agrupación para una agrupación bidimensional uniforme es: \cite{Cardama2002}
 
@@ -464,6 +464,24 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 	\label{eq:fatipo2}
 \end{equation}
 
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/array/bidimensional}
+         \caption{Representación analítica del array bidimensional uniforme. \cite{Cardama2002}}
+         \label{fig:bidimensionalfoto}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{archivos/array/fotoarray}
+         \caption{RADAR basado en array bidimensional. \cite{brewbooks2008} }
+         \label{fig:radarfoto}
+     \end{subfigure}
+     \hfill
+\end{figure}
+
 \par Mediante la variación de la longitud de onda $\lambda$, los espaciados eléctricos $d_{x}/\lambda$ y $d_{y}/\lambda$, o las fases progresivas $\alpha_{x}$ y $\alpha_{y}$, se pueden controlar los ángulos $\theta_{max}$ y $\phi_{max}$ para dirigir el haz de máxima radiación en la dirección deseada. También, si se aumenta la distancia de separación hasta superar $\lambda$ se podrán obtener lóbulos de difracción, o \textit{gratin lobes} que podrán actuar como segundos haces en caso de que fuera necesario para la aplicación.
 \\
 \par En este proyecto, las agrupaciones diseñadas se basan en agrupaciones bidimensionales uniformes, lo que significa que los arrays a diseñar, dispondrán de antenas dispuestas a lo largo de un mismo plano común, y las antenas estarán siempre equiespaciadas con sus antenas colindantes laterales, superiores e inferiores, pero no con las diagonales. 
@@ -473,7 +491,33 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 \\
 \par Si nos centramos en el caso de las antenas de parche microstrip, la alimentación en paralelo es comúnmente usada para obtener divisiones de potencia de $2^{n}$, siendo $n$ el número de líneas que se subdividen en paralelo a partir de una sola línea de alimentación. Además, en las líneas de alimentación en paralelo se han de usar o bien líneas de alimentación cónicas (\textit{tapered lines}) que son capaces de mantener su impedancia en las divisiones de caminos, o mediante transformadores $\lambda/4$, cuyo funcionamiento se explicará en la sección \ref{lambdacuartoscap} de este proyecto. \cite{Balanis2015}
 
-\subsection{Lineas de alimentación en serie}
+\subsection{Líneas de alimentación en serie}
 \par En la alimentación en serie de un array de antenas, los elementos  que componen la agrupación son alimentados con la excitación proveniente del elemento anterior (fig. \ref{fig:seriesfeed}). En el caso de las antenas microstrip alimentadas por líneas de alimentación microstrip en serie, estas suelen ser fabricadas usando procesos litográficos tanto para los elementos radiantes como para las líneas de alimentación. Esta técnica limita a la agrupación a poseer unas características radiantes fijadas en su fabricación, ya que no permiten la adición de componentes electrónicos que sean capaz de, por ejemplo, variar la fase progresiva con la que se alimenta cada elemento. \cite{Balanis2015}
 \\
-\par Otra opción de reconfigurabilidad de los arrays microstrip en serie es variar la frecuencia de trabajo, lo que puede conducir a diferentes patrones de radiación. Por otro lado, se ha de tener en cuenta que cualquier cambio o imperfección que se produzca sobre cualquiera de los elementos del array así como en cualquier punto de la línea de alimentación, afectará al funcionamiento de la antena, puesto que la excitación de cualquiera de los elementos del array dependerá de sus otros elementos interconectados.
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.7\textwidth]{archivos/array/series}
+        \caption{Esquema de interconexión en serie. \cite{Balanis2015}}
+        \label{fig:seriesfeed}
+\end{figure}
+
+\par Otra opción de reconfigurabilidad de los arrays microstrip en serie es variar la frecuencia de trabajo, lo que puede conducir a diferentes patrones de radiación. Por otro lado, se ha de tener en cuenta que cualquier cambio o imperfección que se produzca sobre cualquiera de los elementos del array así como en cualquier punto de la línea de alimentación, afectará al funcionamiento de la antena, puesto que la excitación de cualquiera de los elementos del array dependerá de sus otros elementos interconectados. \cite{Balanis2015}
+
+\subsection{Líneas de alimentación en paralelo}
+\par Las líneas de alimentación interconectadas en paralelo o \textit{corporate-feed} son las más comunes y, por lo general, más versátiles en su uso. Mediante este método el diseñador posee un mayor control sobre la alimentación de cada uno de los elementos de la agrupación. Mediante la variación de la fase y la amplitud de excitación de uno o varios de los elementos del array se pueden llegar a implementar patrones de radiación imposibles de conseguir mediante elementos simples o configuraciones de arrays conectados en serie.
+\\
+\begin{figure}[p]
+    \centering
+        \includegraphics[width=0.7\textwidth]{archivos/array/corporate}
+        \caption{Esquema de interconexión en paralelo. \cite{Balanis2015}}
+        \label{fig:seriesfeed}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+        \includegraphics[width=0.7\textwidth]{archivos/array/arrayraro}
+        \caption{Esquema de interconexión en paralelo. \cite{NASA2008}}
+        \label{fig:nasafoto}
+\end{figure}
+
+\par La configuración de alimentación en paralelo suele proporcionar un ancho de banda mayor que en el caso de la alimentación en serie y, en algunos casos, mayor que el ancho de banda proporcionado por un solo elemento. Este efecto es principalmente debido a la cancelación de las reflexiones mediante la mayor disipación de potencia producida a lo largo de la red de alimentación. Por todas estas razones, la alimentación en paralelo de parches microstrip es usada en la mayoría de las agrupaciones microstrip, por ejemplo, en las estaciones base de telefonía móvil. \cite{Waterhouse2010}. 
