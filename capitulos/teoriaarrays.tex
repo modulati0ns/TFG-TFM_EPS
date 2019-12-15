@@ -113,7 +113,7 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 \end{equation}
 
 \section{Factor de array}
-
+\label{FA}
 \par Mediante el factor de array se puede obtener el patrón de radiación producido por cualquier array de antenas isotrópicas. Si las antenas que conforman el array no fuesen isotrópicos, se podrá obtener el campo radiado total multiplicando el factor de array por el campo radiado de un elemento único. Cada array tiene su propio factor de array. El factor de array, por lo general, queda en función del número de elementos, su disposición geométrica, sus magnitudes relativas, sus fases relativas, y la distancia entre los elementos \cite{Balanis2015}. 
 \\
 \par El factor de array presenta las siguientes propiedades \cite{Cardama2002}:
@@ -262,14 +262,109 @@ $\alpha=180^{\circ}$  \\
 
 
 \newpage
-\section{Agrupaciones transversales y longitudinales}
-\par En la sección anterior se hicieron mención a los conceptos \textit{broadfire} y \textit{endfire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadfire}) o longitudinal (\textit{endfire}) con respecto al eje de la agrupación. \cite{Cardama2002}
+\section{Tipos de agrupaciones}
+\par A lo largo de esta sección se realizará un repaso a los principales tipos de agrupaciones usadas para el diseño de arrays de antenas y se hará mención a las características que definen las agrupaciones así como las principales ventajas y aplicaciones de cada una. Definiremos dos tipos principales de agrupaciones según su tipo de distribución en el espacio: unidimensionales, todos los elementos se sitúan a lo largo de un eje común, y bidimensionales, los elementos se sitúan a lo largo de un plano común.
+
+\subsection{Polinomio de agrupación}
+\par En la sección \ref{FA} se ha definido y resumido las principales características del factor de array, siendo interpretado como la transformada de Fourier de la secuencia de alimentaciones $a_{n}$. De la misma manera, se puede definir el \textit{polinomio de agrupación} como la transformada Z de la misma secuencia. \cite{Cardama2002}
+
+\begin{equation}
+	P(z)=\sum_{n=0}^{N-1}a_{n}z^{n}=a_{0}+a_{1}z+a_{2}z^{2}+...+a_{N-1}z^{N-1}
+	\label{eq:z}
+\end{equation}
+
+\par El polinomio de agrupación se relaciona con la factor de agrupación mediante:
+
+
+\begin{equation}
+	FA(\Psi)=P(z)|_{z=e^{j\Psi}}
+	\label{eq:faz}
+\end{equation}
+
+\par Con esto se deduce que el factor de agrupación corresponde al polinomio de agrupación de un array concreto pero muestreado sobre la circunferencia unidad. Cada periodo de $2\pi$ en $\Psi$ del factor de agrupación corresponde a una vuelta sobre el círculo unidad en el plazo $Z$. El diagrama de radiación del array está asociado al intervalo del círculo unidad definido por el margen visible. Como los ceros del polinomio que están situados sobre el circulo unidad  y dentro del margen visible corresponden a nulos del diagrama de radiación, se puede aproximar la forma del diagrama de radiación a partir de la posición de los ceros en el plano $Z$. \cite{Cardama2002}
+
+\subsection{Agrupaciones unidimensionales}
+\par En primer lugar se hará un resumen de las principales agrupaciones unidimensionales y sus características. Como se ha mencionado, las agrupaciones unidimensionales son aquellas en las cuales los elementos que componen la agrupación se sitúan a lo largo de un mismo eje. Dentro de las configuraciones unidimensionales, podemos clasificar tres tipos principales de distribución de corrientes: uniformes, triangulares y binómicas. \cite{Cardama2002}
+\\
+\par El nombre que reciben este tipo de configuraciones viene dado, no por la distribución de las antenas en el espacio, sino por la distribución de los ceros en el polinomio de agrupación en el círculo unidad.
+
+\subsubsection{Distribución uniforme}
+\par La distribución de corrientes uniforme es aquella en la que se alimentan todos las antenas que componen el array con la misma amplitud de excitación $a_{n}=1$. Su polinomio de agrupación es: \cite{Cardama2002}
+
+\begin{equation}
+	P(z)=1+z+z^{2}+...+z^{N-1}=\frac{z^{N}-1}{z-1}
+	\label{eq:disuniform}
+\end{equation}
+
+\par De esta expresión se puede deducir que los ceros del polinomio de agrupación en el plano Z son las raíces N-ésimas de la unidad salvo $z=1$, y por ello, estos ceros se encuentran equiespaciados sobre el círculo unidad. \cite{Cardama2002}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/array/uniforme}
+        \caption{Ceros en el plano Z y en el módulo del \textit{FA} para el caso de un array de 8 elementos y distribución uniforme. \citep{Cardama2002}}
+        \label{fig:cerosuniforme}
+\end{figure}
+
+\par Teniendo en cuenta las ecuaciones \ref{eq:faz} y \ref{eq:disuniform} se puede deducir el factor de agrupación, obteniéndose: \cite{Cardama2002}
+
+\begin{equation}
+	\left | FA (\Psi) \right |=\frac{\left | e^{jN\Psi}-1 \right |}{\left | e^{j\Psi}-1 \right |}
+	\label{eq:casisinc}
+\end{equation}
+
+\par Se puede observar que el factor de agrupación obtenido es una función \textit{sinc} periódica, igual a la TF de un pulso muestreado. \cite{Cardama2002}
+
+\subsubsection{Distribución triangular} 
+\par La distribución de corrientes triangular se define para un array con un número de elementos impar. La alimentación de estas viene dada por: \cite{Cardama2002}
+
+\begin{equation}
+	a_{n}=\begin{cases} n+1, &  n< \frac{N}{2} \\ N-n, & n> \frac{N}{2} \end{cases}
+	\label{eq:casotriang}
+\end{equation}
+
+\par Si desarrollamos el polinomio Z (eq. \ref{eq:z} y \ref{eq:faz}), y tenemos en cuenta que la función triangular puede descomponerse en la convolución de dos pulsos iguales cuya longitud es la mitad que la del triángulo, lo que se traduce en un producto de transformadas en el dominio Z, el polinomio de la distribución de corrientes triangular puede expresarse como: \cite{Cardama2002}
+
+\begin{equation}
+	P(z)=1+2z+3z^{2}+...+3z^{N-3}+2z^{N-2}+z^{N-1}=\left [ \frac{z^{\frac{N+1}{2}}-1}{z-1} \right ]^{2}
+	\label{eq:casotriangpoli}
+\end{equation}
+
+\par Los ceros de la distribución triangular son los mismos que se obtendrían para el caso de la distribución de corrientes uniformes con $(N+1)/2$ antena, pero dobles. El factor de agrupación es también el obtenido para una distribución uniforme de longitud $[(N+1)/2]^{2}$: \cite{Cardama2002}
+
+\begin{equation}
+	\left | FA (\Psi) \right |=\frac{\left |  \sin\left ( \frac{N+1}{4}\Psi \right )\right |^{2}}{\left | \sin\left ( \frac{\Psi}{2} \right ) \right |^{2}}
+	\label{eq:fa2}
+\end{equation}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/array/triangular}
+        \caption{Ceros en el plano Z y en el módulo del \textit{FA} para el caso de un array de 7 elementos y distribución triangular. \citep{Cardama2002}}
+        \label{fig:cerostrinagular}
+\end{figure}
+
+\subsubsection{Distribución triangular}
+\par La distribución de corrientes binómica define el polinomio como un binomio elevado a una potencia y desarrollado según la fórmula de Newton: \citep{Cardama2002}
+
+\begin{equation}
+	P(z)=(z+1)^{N-1}=\binom{N-1}{0}+\binom{N-1}{1}z+\binom{N-1}{2}z^{2}+...+\binom{N-1}{N-1}z^{N-1}
+	\label{eq:newton}
+\end{equation}
+
+
+
+\par En la sección anterior se hicieron mención a los conceptos \textit{broadsire} y \textit{endfire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadsire}) o longitudinal (\textit{endfire}) con respecto al eje de la agrupación. \cite{Cardama2002}
 
 \subsection{Agrupaciones transversales}
 
-\par Las configuración transversal o \textit{broadfire} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
+
+
+
+
+
+\par Las configuración transversal o \textit{broadsire} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
 \\
-\par Para conseguir que el máximo de radiación de un solo elemento radie en esta dirección basta con saber elegir qué elemento radiante es el mejor para nuestro sistema. Por otro lado, para conseguir que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, se deberá ajustar correctamente la separación y la fase de excitación de los elementos del array. Se tomará como punto de partida la ecuación \label{eq:psi}, en la que buscaremos un nulo (máximo de radiación). \cite{Balanis2015} 
+\par Para conseguir que el máximo de radiación de un solo elemento radie en esta dirección basta con saber elegir qué elemento radiante es el mejor para nuestro sistema. Por otro lado, para conseguir que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, se deberá ajustar correctamente la separación y la fase de excitación de los elementos del array. Se tomará como punto de partida la ecuación \ref{eq:psi}, en la que buscaremos un nulo (máximo de radiación). \cite{Balanis2015} 
 
 \begin{equation}
 	\Psi=kd\cos\theta+\alpha=0
@@ -285,11 +380,33 @@ $\alpha=180^{\circ}$  \\
 
 \par De la ecuación \ref{eq:alphita} se deduce que, para que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, no debe existir ningún desfase a la hora de excitar los elementos del array, así como ninguna diferencia de amplitud en la exitación. Aunque la separación de los elementos puede tomar cualquier valor, para asegurarnos que no existan lóbulos de difracción, esta separación no debe tomar valores múltiplos enteros de la longitud de onda. \cite{Balanis2015}
 
-\par En la figura \ref{fig:broadside} se puede observar la variación de la directividad así como la aparición de lóbulos de difracción para el caso de un array de dipolos $\lambda/2$ separados una distancia $\lambda/2$ y según el número de elementos que componen el array desde 1 hasta 8 elementos.\citep{Laport2019}
+
+
+
+\subsection{Agrupaciones longitudinales}
+
+\par Por otro lado tenemos la configuración denominada longitudinal o \textit{end-fire}. En este caso el máximo de radiación se encontrará a lo largo de la dirección del array, y no en la normal de esta, como en el caso \textit{broadside}. Con este tipo de configuraciones es, además, posible conseguir que solo exista el máximo en una dirección, ya sea a $\theta_{0}=0^{\circ}$ ó $\theta_{0}=180^{\circ}$. Partiendo de la ecuación \ref{eq:psi} buscaremos los máximos $\Psi=0$ para los ángulos de $0^{\circ}$ y $180^{\circ}$.   \cite{Balanis2015}
+
+\begin{equation}
+	\Psi = kd\cos\theta+\alpha|_{\theta=0^{\circ}}\rightarrow kd+\alpha=0\rightarrow \alpha=-kd
+	\label{eq:end1}
+\end{equation}
+
+\begin{equation}
+	\Psi = kd\cos\theta+\alpha|_{\theta=180^{\circ}}\rightarrow kd+\alpha=0\rightarrow \alpha=kd
+	\label{eq:end2}
+\end{equation}
+
+\par Se puede comprobar como para conseguir máximos de radiación en la dirección de $0^{\circ}$ se debe alimentar el array con una fase progresiva de $\alpha=-kd$, y $\alpha=kd$ en el caso de la dirección de $180^{\circ}$. Si la separación de los elementos es de $d=\lambda/2$, se obtendrán máximos de radiación en ambas direcciones. Además, esta separación es múltiplo entero de $\lambda$, se obtendrán máximos tanto en las direcciones de $0^{\circ}$ y $180^{\circ}$ características de la configuración \textit{end-fire} como en las direcciones de
+$90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis2015}
 
 \begin{figure}[h]
     \centering
-        \includegraphics[width=\textwidth]{archivos/array/broadside}
-        \caption{Radiación de array \textit{broadside} según el número de elementos del array}
-        \label{fig:broadside}
+        \includegraphics[width=0.9\textwidth]{archivos/array/side}
+        \caption{Comparación de radiación \textit{broadside} y \textit{endfire}}
+        \label{fig:side}
 \end{figure}
+
+\section{Tipos de distribuciones}
+\
+

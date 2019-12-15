@@ -192,4 +192,11 @@
   url    = {http://www.amanogawa.com/archive/AntennaArray/AntennaArray.html},
 }
 
+@Misc{Laport2019,
+  author = {Edmund A. Laport},
+  title  = {Beam Slewing for Broadside Arrays},
+  year   = {2019},
+  date   = {2019},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
