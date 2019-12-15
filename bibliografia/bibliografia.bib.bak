@@ -60,7 +60,6 @@
 @Misc{Yavuz2015,
   author = {Yavuz, Mehmet E.},
   title  = {Dipole Radiation Pattern [FDTD simulation]},
-  year   = {2015},
   date   = {2015},
   url    = {https://www.youtube.com/watch?v=Fp26Bjm99VI&feature=share},
 }
@@ -155,6 +154,50 @@
   year   = {2018},
   date   = {2018},
   url    = {https://amitec.co/microstrip-patch-antenna-array-22/},
+}
+
+@Book{Cardama2002,
+  author    = {Cardama, Aznar Ángel and Jofre, Roca Lluís and Rius, Casals Juan Manuel and Romeu, Robert Jordi and Blanch, Boris Sebastián and Fernando, Bataller Miguel},
+  title     = {Antenas},
+  year      = {2002},
+  date      = {2002},
+  publisher = {Edicions UPC},
+  isbn      = {9788489636323},
+  url       = {https://www.worldcat.org/title/antenas-ejercicios-y-problemas/oclc/626483782},
+}
+
+@Online{Cartagena99,
+  author = {URJC},
+  editor = {Universidad Rey Juan Carlos},
+  title  = {Agrupaciones de antenas (Arrays)},
+  year   = {2014},
+  date   = {2014},
+  url    = {http://www.cartagena99.com/recursos/alumnos/apuntes/Tema%206%20Arrays.pdf},
+}
+
+@Online{Valero2008,
+  author = {Valero, Alejando and Esteban, Héctor and Fernando, Bataller Miguel},
+  editor = {UPV},
+  title  = {Agrupación de antenas},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://www.upv.es/antenas/Documentos_PDF/Notas_clase/Agrupaciones.pdf},
+}
+
+@Online{Amanogawa2019,
+  author = {Amanogawa},
+  title  = {Uniform Dipole Array},
+  year   = {2019},
+  date   = {2019},
+  url    = {http://www.amanogawa.com/archive/AntennaArray/AntennaArray.html},
+}
+
+@Misc{brewbooks2008,
+  author = {brewbooks},
+  title  = {SCR-270 Radar Antenna},
+  year   = {2008},
+  date   = {2008},
+  url    = {https://www.flickr.com/photos/brewbooks/2367557012/in/photostream/},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
