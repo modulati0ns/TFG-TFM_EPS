@@ -247,7 +247,7 @@ $\alpha=180^{\circ}$  \\
 \subsection{Espaciado de elementos}
 \par En esta caso se modificará la separación entre antenas fijando el número de elementos que componen el array a 4 dipolos $\lambda/2$. La principal variación que se observa cuando se aumenta la distancia entre elementos es la aparición de nuevos máximos. 
 \\
-\par Cuando la distancia de separación es menor a $\lambda/2$ tan solo aparece un máximo principal. Conforme la separación aumenta de $\lambda$ encontraremos la aparición de nuevos máximos principales, como ocurre en la tabla \ref{tab:distanciaelementos} cuando $d=\lambda$. Entre $lambda/4$ y $\lambda$ encontramos aparición de lóbulos laterales. \cite{Valero2008}
+\par Cuando la distancia de separación es menor a $\lambda/2$ tan solo aparece un máximo principal. Conforme la separación aumenta de $\lambda$ encontraremos la aparición de nuevos máximos principales, como ocurre en la tabla \ref{tab:distanciaelementos} cuando $d=\lambda$. Entre $\lambda/4$ y $\lambda$ encontramos aparición de lóbulos laterales. \cite{Valero2008}
 
 
 
@@ -255,9 +255,10 @@ $\alpha=180^{\circ}$  \\
 
 
 \subsection{Desfase progresivo}
+\label{desfasprog}
 \par En este último caso, se modificará el desfase progresivo entre las antenas de $-180^{\circ}$ a $+180^{\circ}$, manteniendo, como en las configuraciones anteriores, un array de 4 dipolos $\lambda/2$ separados a una distancia de $\lambda/4$. \cite{Valero2008}
 \\
-\par Como se puede comprobar en la tabla \ref{tab:faseelementos}, gracias al efecto producido por el desfase en los dipolos se pueden llegar a conseguir patrones de radiación desde \textit{broadsire} hasta \textit{endfire}. Como ya se ha comentado con anterioridad, este es es principio de funcionamiento de los \textit{phased arrays}. Esta capacidad de reconfigurabilidad de las antenas es especialmente útil en antenas donde el sujeto no está fijo y se necesita una gran directividad para desperdiciar la mínima energía posible en la radiación.
+\par Como se puede comprobar en la tabla \ref{tab:faseelementos}, gracias al efecto producido por el desfase en los dipolos se pueden llegar a conseguir patrones de radiación desde \textit{broadside} hasta \textit{end-fire}. Este es es principio de funcionamiento de los \textit{phased arrays}. Esta capacidad de reconfigurabilidad de las antenas es especialmente útil en antenas donde el sujeto no está fijo y se necesita una gran directividad para desperdiciar la mínima energía posible en la radiación.
 
 
 
@@ -343,24 +344,42 @@ $\alpha=180^{\circ}$  \\
         \label{fig:cerostrinagular}
 \end{figure}
 
-\subsubsection{Distribución triangular}
-\par La distribución de corrientes binómica define el polinomio como un binomio elevado a una potencia y desarrollado según la fórmula de Newton: \citep{Cardama2002}
+\subsubsection{Distribución binómica}
+\par La distribución de corrientes binómica define el polinomio como un binomio elevado a una potencia y desarrollado según la fórmula de Newton: \cite{Cardama2002}
 
 \begin{equation}
 	P(z)=(z+1)^{N-1}=\binom{N-1}{0}+\binom{N-1}{1}z+\binom{N-1}{2}z^{2}+...+\binom{N-1}{N-1}z^{N-1}
 	\label{eq:newton}
 \end{equation}
 
+\par Los coeficientes de excitación del polinomio de agrupación se pueden obtener a través de la expresión de números combinatorios. \cite{Cardama2002}
+
+\begin{equation}
+	a_{n}=\binom{N-1}{n}=\frac{\left ( N-1 \right )!}{n!\left ( N-1-n \right )!}
+	\label{eq:combinatorios}
+\end{equation}
+
+\par El polinomio de la distribución de corrientes binómica presenta un solo cero, situado en $\Psi=\Pi$ y con multiplicidad $N-1$. Es por ello que el ancho de haz entre ceros de $\Psi$ es de $2\pi$ y no existen lóbulos secundarios en el módulo del factor de agrupación. Sin embargo, en el patrón de radiación si pueden aparecer lóbulos secundarios debido a la los lóbulos de difracción, que entra en el margen visible. El factor de agrupación obtenido para esta distribución es: \cite{Cardama2002}
+
+\begin{equation}
+	\left | FA (\Psi) \right |=\left | 2\cos\frac{\Psi}{2} \right |^{N-1}	
+	\label{eq:Fabinom}
+\end{equation}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/array/triangular}
+        \caption{Ceros en el plano Z y en el módulo del \textit{FA} para el caso de un array de 8 elementos y distribución binómica. \citep{Cardama2002}}
+        \label{fig:cerosbinom}
+\end{figure}
 
 
-\par En la sección anterior se hicieron mención a los conceptos \textit{broadsire} y \textit{endfire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadsire}) o longitudinal (\textit{endfire}) con respecto al eje de la agrupación. \cite{Cardama2002}
+\subsection{Agrupación lineal uniforme}
+\par La agrupación lineal uniforme es aquella en la que los elementos que componen el array están equiespaciados y excitados con la misma amplitud. Se trata de una configuración muy usada y estudiada. Este tipo de agrupaciones también tiene utilidad en aplicaciones de acústica, donde las antenas serían sustituidas por micrófonos o altavoces para lograr mayores ganancias. En el caso de las antenas, las características de la agrupación lineal uniforme son básicas para el diseño de aplicaciones RADAR. 
+\\
+\par Se va a mencionar dos tipos de configuraciones lineales uniformes según el tipo de patrón de radiación que se desea obtener en el diseño final. En la sección \ref{desfasprog} se hizo mención a los conceptos \textit{broadsire} y \textit{endfire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadsire}) o longitudinal (\textit{endfire}) con respecto al eje de la agrupación. \cite{Cardama2002}
 
-\subsection{Agrupaciones transversales}
-
-
-
-
-
+\subsubsection{Agrupaciones transversales}
 
 \par Las configuración transversal o \textit{broadsire} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
 \\
@@ -383,7 +402,7 @@ $\alpha=180^{\circ}$  \\
 
 
 
-\subsection{Agrupaciones longitudinales}
+\subsubsection{Agrupaciones longitudinales}
 
 \par Por otro lado tenemos la configuración denominada longitudinal o \textit{end-fire}. En este caso el máximo de radiación se encontrará a lo largo de la dirección del array, y no en la normal de esta, como en el caso \textit{broadside}. Con este tipo de configuraciones es, además, posible conseguir que solo exista el máximo en una dirección, ya sea a $\theta_{0}=0^{\circ}$ ó $\theta_{0}=180^{\circ}$. Partiendo de la ecuación \ref{eq:psi} buscaremos los máximos $\Psi=0$ para los ángulos de $0^{\circ}$ y $180^{\circ}$.   \cite{Balanis2015}
 
@@ -402,11 +421,59 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 
 \begin{figure}[h]
     \centering
-        \includegraphics[width=0.9\textwidth]{archivos/array/side}
+        \includegraphics[width=\textwidth]{archivos/array/side}
         \caption{Comparación de radiación \textit{broadside} y \textit{endfire}}
         \label{fig:side}
 \end{figure}
 
-\section{Tipos de distribuciones}
-\
+\subsection{Agrupaciones bidimensionales}
+\par Las agrupaciones bidimensionales son aquellas en las que los elementos que conforman el array se sitúan sobre un plano común. En las agrupaciones unidimensionales, el diagrama de radiación producido se caracterizaba por tener una simetría de revolución respecto al eje de la agrupación. Las agrupaciones bidimensionales permiten obtener diagramas de radiación más complejos, y brindan la capacidad de dirigir el haz de propagación en las dos coordenadas esféricas del espacio $(\theta, \phi)$, sin las restricciones impuestas por la simetría de revolución. \cite{Cardama2002}
+\\
+\subsubsection{Agrupación bidimensional uniforme}
+\par La agrupación bidimensional más sencilla es la agrupación bidimensional uniforme. Esta configuración se caracteriza por tener una distribución de antenas rectangular a lo largo de un mismo plano, conformada por $MxN$ antenas idénticas, equiespaciadas con separación $d_{x}$ a lo largo del eje $x$ y $d_{y}$ a lo largo del eje $y$, y alimentadas con una corriente $I_{mn}$, es decir, con la capacidad de alimentación individual. \cite{Cardama2002}
+\\
+\par El factor de agrupación será el resultado de la interferencia en el campo lejano de la radiación de todas las antenas. Por analogía a la ecuación \ref{eq:vecrad}, el factor de agrupación para una agrupación bidimensional uniforme es: \cite{Cardama2002}
 
+\begin{equation}
+	FA (k_{x},k_{y}) =\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} I_{mn}e^{jmk_{x}d_{x}}e^{jnk_{y}d_{y}}
+	\label{eq:fabinom}
+\end{equation}
+
+\par Para una excitación con fase progresiva $\alpha_{x}$ en la dirección $x$ y $\alpha_{y}$ en la dirección $y$. \cite{Cardama2002}
+
+\begin{equation}
+	FA (k_{x},k_{y}) =\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} I_{mn}e^{jmk_{x}d_{x}}e^{jnk_{y}d_{y}}
+	\label{eq:excitbinom}
+\end{equation}
+
+\par Definiendo los ángulos $\Psi_{x}$ y $\Psi_{x}$ como el desfase eléctrico entre las contribuciones en campo lejano de dos elementos consecutivos en los planos $(x,z)$ y $(y,z)$: \cite{Cardama2002}
+
+\begin{equation}
+	\begin{matrix}
+\Psi_{x}=kd_{x}\sin\theta\cos\phi+\alpha_{x}
+ \\
+\Psi_{y}=kd_{y}\sin\theta\sin\phi+\alpha_{y}
+\end{matrix}
+	\label{eq:sinsin}
+\end{equation}
+
+\par Resultando el factor de agrupación: \cite{Cardama2002}
+
+\begin{equation}
+	FA (\Psi_{x},\Psi_{y}) =\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} a_{mn}e^{jm\Psi_{x}}e^{jm\Psi_{x}}
+	\label{eq:fatipo2}
+\end{equation}
+
+\par Mediante la variación de la longitud de onda $\lambda$, los espaciados eléctricos $d_{x}/\lambda$ y $d_{y}/\lambda$, o las fases progresivas $\alpha_{x}$ y $\alpha_{y}$, se pueden controlar los ángulos $\theta_{max}$ y $\phi_{max}$ para dirigir el haz de máxima radiación en la dirección deseada. También, si se aumenta la distancia de separación hasta superar $\lambda$ se podrán obtener lóbulos de difracción, o \textit{gratin lobes} que podrán actuar como segundos haces en caso de que fuera necesario para la aplicación.
+\\
+\par En este proyecto, las agrupaciones diseñadas se basan en agrupaciones bidimensionales uniformes, lo que significa que los arrays a diseñar, dispondrán de antenas dispuestas a lo largo de un mismo plano común, y las antenas estarán siempre equiespaciadas con sus antenas colindantes laterales, superiores e inferiores, pero no con las diagonales. 
+
+\section{Alimentación de arrays}
+\par Previo al diseño de la antena, es importante conocer qué tipo de alimentación va a usar esta. Cuando se trabaja con agrupaciones de antenas, es importante que todas las antenas estén correctamente interconectadas, así como tener en cuenta los caminos que la señal toma para llegar hasta los diferentes elementos ya que, como se ha mencionado en las secciones anteriores, un pequeño desfase en uno de los elementos, puede modificar por complejo el patrón de radiación inicialmente diseñado para la antena. Por lo general, se pueden categorizar el tipo de alimentación de un array según la forma de interconexión de los diferentes elementos como: alimentación en serie o \textit{series feed} y alimentación en paralelo o \textit{corporate-feed}. 
+\\
+\par Si nos centramos en el caso de las antenas de parche microstrip, la alimentación en paralelo es comúnmente usada para obtener divisiones de potencia de $2^{n}$, siendo $n$ el número de líneas que se subdividen en paralelo a partir de una sola línea de alimentación. Además, en las líneas de alimentación en paralelo se han de usar o bien líneas de alimentación cónicas (\textit{tapered lines}) que son capaces de mantener su impedancia en las divisiones de caminos, o mediante transformadores $\lambda/4$, cuyo funcionamiento se explicará en la sección \ref{lambdacuartoscap} de este proyecto. \cite{Balanis2015}
+
+\subsection{Lineas de alimentación en serie}
+\par En la alimentación en serie de un array de antenas, los elementos  que componen la agrupación son alimentados con la excitación proveniente del elemento anterior (fig. \ref{fig:seriesfeed}). En el caso de las antenas microstrip alimentadas por líneas de alimentación microstrip en serie, estas suelen ser fabricadas usando procesos litográficos tanto para los elementos radiantes como para las líneas de alimentación. Esta técnica limita a la agrupación a poseer unas características radiantes fijadas en su fabricación, ya que no permiten la adición de componentes electrónicos que sean capaz de, por ejemplo, variar la fase progresiva con la que se alimenta cada elemento. \cite{Balanis2015}
+\\
+\par Otra opción de reconfigurabilidad de los arrays microstrip en serie es variar la frecuencia de trabajo, lo que puede conducir a diferentes patrones de radiación. Por otro lado, se ha de tener en cuenta que cualquier cambio o imperfección que se produzca sobre cualquiera de los elementos del array así como en cualquier punto de la línea de alimentación, afectará al funcionamiento de la antena, puesto que la excitación de cualquiera de los elementos del array dependerá de sus otros elementos interconectados.
