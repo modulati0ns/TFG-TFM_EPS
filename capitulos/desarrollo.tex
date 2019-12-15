@@ -15,11 +15,11 @@
 \par Todos las antenas de parche microstrip individuales y las posibles configuraciones de array que se diseñen con el conjunto de estas, estarán basadas en unos criterios y especificaciones de construcción común:
 
 \begin{itemize}
-	\item \textbf{Polarización: }Lineal
-	\item \textbf{Tipo de alimentación: } Directa por línea microstrip
+	\item \textbf{Polarización: }lineal
+	\item \textbf{Tipo de alimentación: } directa por línea microstrip
 	\item \textbf{Impedancia de entrada: }50 $\Omega$
-	\item \textbf{Altura del substrato: }1.52 \SI{1.52}{\milli\metre}
-	\item \textbf{Altura de los planos conductores: }\SI{12}{\micro\metre} \todo{no me acuerdo}
+	\item \textbf{Altura del substrato: }\SI{1.52}{\milli\metre}
+	\item \textbf{Altura de los planos conductores: }\SI{32}{\micro\metre}
 	\item \textbf{Substrado: }Rogers 4003 (RO4003)
 	\item \textbf{Constante dieléctrica del substrato: }3.55
 \end{itemize}
@@ -58,7 +58,7 @@ L = Leff - 2*Al;                                    % Longitud del parche
 a = 0.7*lambda;                                     % Separacion entre parches
 \end{lstlisting}
 
-\par También calcularemos la anchura $W_{feed}$ y longitud $L_{feed}$ necesaria para las líneas de transmisión microstrip así como la longitud para las líneas que actúen como transformadores $\lambda /4$. La anchura de las líneas microstrip será calculada en base a la variable $Z_{0}$, la cual ha sido declarada anteriormente con un valor de 50 ($\Omega$), este valor puede ser cambiado en el código para obtener la anchura de la línea para sintetizar cualquier impedancia que necesitemos en esta.
+\par También calcularemos la anchura $W_{feed}$ y longitud $L_{feed}$ necesaria para las líneas de transmisión microstrip así como la longitud para las líneas que actúen como transformadores $\lambda /4$. La anchura de las líneas microstrip será calculada en base a la variable $Z_{0}$, la cual ha sido declarada anteriormente con un valor de 50 $\Omega$, este valor puede ser cambiado en el código para obtener la anchura de la línea para sintetizar cualquier impedancia que necesitemos en esta.
 
 \begin{lstlisting}[style=Matlab-color, caption={Parámetros de diseño de la línea de alimentación},label=alimentacion]
 %% Cálculos de línea de alimentación
@@ -108,29 +108,34 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \item Array de parches \textbf{4x4} (16 antenas) dispuestas en paralelo
 \end{itemize}
 
-\par Estas configuraciones serán repetidas en diferentes análisis para las frecuencias de: \textbf{2.4 GHz}, frecuencia usada para aplicaciones comunes como \gls{wifi} o Bluetooth, donde la cobertura es uno de los principales factores de calidad en su uso. \textbf{6 GHz}, banda aun no lícita para el uso del \gls{5g}, pero cuyo despliegue está siendo actualmente estudiado para su uso en EEUU. Y \textbf{27 GHz}, banda ya adjudicada para aplicaciones 5G de ultra-rápida velocidad y mínima latencia. Para este último caso, solo se realizará el diseño para el caso de una antena parche de un único elemento \todo{camviar si hago ams}
+\par Estas configuraciones serán repetidas en diferentes análisis para las frecuencias de: \textbf{2.4 GHz}, frecuencia usada para aplicaciones comunes como \gls{wifi} o Bluetooth, donde la cobertura es uno de los principales factores de calidad en su uso. \textbf{6 GHz}, banda aún no lícita para el uso del \gls{5g}, pero cuyo despliegue está siendo actualmente estudiado para su uso en EEUU. Y \textbf{27 GHz}, banda ya adjudicada para aplicaciones 5G de ultra-rápida velocidad y mínima latencia. Para este último caso, solo se realizará el diseño para el caso de una antena parche de un único elemento \todo{camviar si hago ams}
 \\
 \par Antes de empezar con el diseño, se va a proceder a mencionar ciertos parámetros de configuración de la herramienta Ansys HFSS, los cuales son necesarios a tener en cuenta para entender los resultados obtenidos, así como a explicar ciertos conceptos básicos sobre el funcionamiento de HFSS y realizar paso por paso, como ejemplo, el diseño de la antena parche básica.
 
 \subsection{Consideraciones previas de Ansys HFSS}
 
 \par Las consideraciones previas en cuanto a configuración y diseño en común a todas las antenas a diseñar son:
+
+\begin{itemize}
+
+
+\item Todos los diseños serán realizados en el plano XY, donde el eje Y estará dedicado a las alturas y el eje X a las anchuras. La alimentación de la línea de transmisión será realizada mediante la técnica denominada Wave port. Mediante los wave port HFSS asume que la alimentación del sistema esta siendo realizada por una guía de onda semi-infinita cuya sección y propiedades son las mismas que se le asignen a este wave port. A la hora de realizar el análisis de los parámetros de pérdidas de retorno ($S_{11}$), HFSS asume que el wave port excitará el sistema con los modos naturales asociados a la sección de esa guía de onda. Cada modo con el que se excita el puerto contiene un vatio de potencia. Por otra parte, los parámetros S serán referenciados a la impedancia que le sea asignada a este puerto en el momento de su declaración en el programa, en nuestro caso 50 $\Omega$.
+
+\item Los planos conductores, es decir, el conjunto de parche y alimentación y el plano de tierra tendrán la propiedad de \textit{PerfectE}, lo que le proporciona las características de superficie conductora perfecta. A esta propiedad también se le denomina \textit{boundary} y no ha de confundirse con el material asignado a los elementos conductores. Esta propiedad obliga al campo eléctrico a ser perpendicular a la superficie. Otro \textit{boundary} o contorno esencial que encontraremos en nuestros diseños es el \textit{Radiation}. La propiedad \textit{boundary} de \textit{radiation}, la cual será asignada a la caja de radiación que rodee el sistema completo en sus tres dimensiones, será capaz de simular la propagación de la radiación a una distancia infinita, pudiendo analizar así nuestra antena como se estudiara en la región de campo lejano.
+
+\item En cuanto a los materiales asignados a cada elemento, la configuración será la misma para todos los diseños: la caja de radiación será asignada a vacío, así asumiremos que no hay ningún tipo de pérdidas de propagación a la hora de realizar el análisis. El substrato será asignado a \textit{Rogers RO4003}, diseñado para circuitos de alta frecuencia y fabricado con láminas de cerámicas de hidrocarburos, cuya constante dieléctrica $\varepsilon_{r}$ es de 3.55, y su factor de pérdidas $\tan \delta$ es de 0.0021 a 2.5 GHz.
+
+\end{itemize}
+
+\par El proceso de análisis que realiza HFSS para simular el comportamiento eléctrico de los diseños se basa en el \gls{fem} o método de elementos finitos. Para ello, HFSS crea una malla de tetraedros a lo largo de las diferentes superficies de nuestro diseño. HFSS irá realizando iteraciones de la simulación donde en cada una de ellas, los tetraedros irán reduciendo su tamaño y adaptándose automáticamente a la forma de nuestro diseño. De esta forma, nuestro diseño es discretizado y en cada uno de estos tetraedros serán calculadas las ecuaciones de Maxwell en forma diferencial. En cada iteración se compararán los resultados obtenidos en cuanto a la dispersión de los puertos con la iteración anterior, la diferencia entre ambas comparaciones se denominará \textit{delda S}. Cuanto mayor sea este parámetro, mayor diferencia entre los resultados de las iteraciones, lo que significará que nuestro análisis aún necesita realizar más iteraciones, en las que los tetraedros se adapten del todo con el diseño, de forma que no exista variación de los resultados entre iteraciones.
 \\
-\par Todos los diseños serán realizados en el plano XY, donde el eje Y estará dedicado a las alturas y el eje X a las anchuras. La alimentación de la línea de transmisión será realizada mediante la técnica denominada Wave-port. Mediante los wave-port HFSS asume que la alimentación del sistema esta siendo realizada por una guía de onda semi-infinita cuya sección y propiedades son las mismas que se le asignen a este wave-port. A la hora de realizar el análisis de los parámetros de pérdidas de retorno (S), HFSS asume que el wave-port excitará el sistema con los modos naturales asociados a la sección de esa guía de onda. Cada modo con el que se excita el puerto contiene un vatio de potencia. Por otra parte, los parámetros S serán referenciados a la impedancia que le sea asignada a este puerto en el momento de su declaración en el programa, en nuestro caso 50 $\Omega$.
+\par Para ello, a la hora de configurar el \textit{solver}, en nuestras simulaciones hemos elegido un número máximo de pasadas de 30, el cual \todo{error en el cual?} siempre ha sido suficiente para que las simulaciones llegaran a converger y un valor de error de convergencia, \textit{delta S}, de 0.002. Cuanto menor sea el valor, más precisos serán los resultados obtenidos, y por tanto, mayores cálculos tendrá que realizar nuestro computador. Este ha sido importante a la hora de realizar el proyecto, puesto que, no siempre se ha podido simular con tanta precisión debido a las limitaciones de la computadora en la que se está trabajando, con lo que se ha tenido que llegar a una solución de compromiso para el caso de los diseños más complejos: el array de 4x2 y de 4x4. En estos casos hemos tenido que aumentar la convergencia hasta valores de 0.02, puesto que simulaciones con menor convergencia llevaban al proyecto de HFSS a tardar varios días en completarse.
 \\
-\par Los planos conductores, es decir, el conjunto de parche y alimentación y el plano de tierra tendrán la propiedad de \textit{PerfectE}, lo que le proporciona las características de superficie conductora perfecta. A esta propiedad también se le denomina \textit{boundary} y no ha de confundirse con el material asignado a los elementos conductores. Esta propiedad obliga al campo eléctrico a ser perpendicular a la superficie. Otro \textit{boundary} o contorno esencial que encontraremos en nuestros diseños es el \textit{Radiation}. La propiedad \textit{boundary} de \textit{radiation}, la cual será asignada a la caja de radiación que rodee el sistema completo en sus tres dimensiones, será capaz de simular la propagación de la radiación a una distancia infinita, pudiendo analizar así nuestra antena como se estudiara en la región de campo lejano.
-\\
-\par En cuanto a los materiales asignados a cada elemento, la configuración será la misma para todos los diseños: La caja de radiación será asignada a vacío, así asumiremos que no hay ningún tipo de pérdidas de propagación a la hora de realizar el análisis. El substrato será asignado a \textit{Rogers RO4003}, diseñado para circuitos de alta frecuencia y fabricado con láminas de cerámicas de hidrocarburos, cuya constante dieléctrica $\varepsilon_{r}$ es de 3.55, y su factor de pérdidas $\tan \delta$ es de 0.0021 a 2.5 GHz.
-\\
-\par El proceso de análisis que realiza HFSS para simular el comportamiento eléctrico de los diseños se basa en el \gls{fem} o método de elementos finitos. Para ello, HFSS crea una malla de tetraedros a lo largo de las diferentes superficies de nuestro diseño. HFSS irá realizando iteraciones de la simulación donde en cada una de ellas, los tetraedros irán reduciendo su tamaño y adaptándose automáticamente a la forma de nuestro diseño. De esta forma, nuestro diseño es discretizado y en cada uno de estos tetraedros serán calculadas las ecuaciones de Maxwell en forma diferencial. En cada iteración se compararán los resultados obtenidos en cuanto a la dispersión de los puertos con la iteración anterior, la diferencia entre ambas comparaciones se denominará \textit{delda S}. Cuanto mayor sea este parámetro, mayor diferencia entre los resultados de las iteraciones, lo que significará que nuestro análisis aun necesita realizar más iteraciones, en las que los tetraedros se adapten del todo con el diseño, de forma que no exista variación de los resultados entre iteraciones.
-\\
-\par Para ello, a la hora de configurar el \textit{solver}, en nuestras simulaciones hemos elegido un número máximo de pasadas de 30, el cual siempre ha sido suficiente para que las simulaciones llegaran a converger y un valor de error de convergencia, \textit{delta S}, de 0.002. Cuanto menor sea el valor, más precisos serán los resultados obtenidos, y por tanto, mayores cálculos tendrá que realizar nuestro computador. Este ha sido importante a la hora de realizar el proyecto, puesto que, no siempre se ha podido simular con tanta precisión debido a las limitaciones de la computadora en la que se está trabajando, con lo que se ha tenido que llegar a una solución de compromiso para el caso de los diseños más complejos: El array de 4x2 y de 4x4. En estos casos hemos tenido que aumentar la convergencia hasta valores de 0.02, puesto que simulaciones con menor convergencia llevaban al proyecto de HFSS a tardar varios días en completarse.
-\\
-\par Otro ajuste previo a la simulación en HFSS es el \textit{Frequency sweep} o barrido en frecuencia. Con el se ajustará cual será el margen de frecuencias para el que se realizarán los cálculos de la simulación. En nuestro caso siempre será en un margen de $\pm$ 0.1 GHz con respecto a la frecuencia a la que se va a realizar la simulación. Este valor es suficiente para poder observar la curva de pérdidas de retorno completa para esta frecuencia. Además, se puede ajustar el intervalo de discretización del eje de frecuencias, para poder obtener así una mayor resolución en las gráficas que se vayan a analizar. En nuestro caso se ha elegido un intervalo de 0.0001. Por ejemplo, si nuestra frecuencia de diseño es de 2.4 GHz, la gráfica se mostrará desde los 2.3 GHz hasta los 2.5 GHz, cada 0.00001 GHz, lo que proporcionará un total de 2001 puntos de resolución.
+\par Otro ajuste previo a la simulación en HFSS es el \textit{Frequency sweep} o barrido en frecuencia. Con el se ajustará cual será el margen de frecuencias para el que se realizarán los cálculos de la simulación. En nuestro caso siempre será en un margen de $\pm$ 0.1 GHz con respecto a la frecuencia a la que se va a realizar la simulación. Este valor es suficiente para poder observar la curva de pérdidas de retorno completa para esta frecuencia. Además, se puede ajustar el intervalo de discretización del eje de frecuencias, para poder obtener así una mayor resolución en las gráficas que se vayan a analizar. En nuestro caso se ha elegido un intervalo de 0.0001. Por ejemplo, si nuestra frecuencia de diseño es de 2.4 GHz, la gráfica se mostrará desde los 2.3 GHz hasta los 2.5 GHz, cada 0.0001 GHz, lo que proporcionará un total de 2001 puntos de resolución.
 \\
 \par Para el análisis de los resultados, se hará uso principalmente  de las gráficas y parámetros que HFSS ofrece. Se usarán los reportes de las soluciones modales para graficar las pérdidas de retorno o parámetros S y comprobar así el ancho de banda, la frecuencia de trabajo y la calidad de nuestra antena. También se estudiarán las gráficas que analizan la parte real e imaginaria (óhmica y reactiva) de la impedancia, para así conocer el grado de adaptación de las impedancias de nuestra antena. 
 \\
-\par En cuanto a los reportes sobre el campo lejano de la antena, analizaremos los patrones de radiación 2D para los dos planos de radiación de la antena, E y H, es decir, cuando $\phi $ = 0º y $\phi $ = 90º y el diagrama de radiación polar en 3D, en ambos casos se mostrará la directividad de la antena en dBs. Otras características que HFSS ofrece para analizar el comportamiento de la antena, y que también se usarán en este proyecto, es la representación sobre la antena del comportamiento de los campos eléctrico y magnético, así como la visualización de los tetraedros usados por HFSS para analizar la antena. Para terminar, usaremos la HFSS para calcular automáticamente los valores de los parámetros característicos de la antena tales como directividad, eficiencia, etc.
+\par En cuanto a los resultados obtenidos sobre el campo lejano de la antena, analizaremos los patrones de radiación 2D para los dos planos de radiación de la antena, E y H, es decir, cuando $\phi $ = 0º y $\phi $ = 90º y el diagrama de radiación polar en 3D, en ambos casos se mostrará la directividad de la antena en dBs. Otras características que HFSS ofrece para analizar el comportamiento de la antena, y que también se usarán en este proyecto, es la representación sobre la antena del comportamiento de los campos eléctrico y magnético, así como la visualización de los tetraedros usados por HFSS para analizar la antena. Para terminar, usaremos la HFSS para calcular automáticamente los valores de los parámetros característicos de la antena tales como directividad, eficiencia, etc.
 \\
 \par Finalmente, cabe mencionar que todos los diseños estarán parametrizados. Esto quiere decir que cada parámetro de anchura y altura de cualquier sección del conjunto del parche estará asociado a una variable o a la derivación del cálculos entre otras variables. Se ha seguido una serie de patrones a la hora de declarar estas variables de forma que sea sencillo entender a qué sección pertenece cada una:
 
@@ -219,7 +224,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \begin{figure}[p]
     \centering
         \includegraphics[width=\textwidth]{archivos/desarrollo/6}
-        \caption{Creación del Wave-Port}
+        \caption{Creación del wave port}
         \label{fig:waveport}
 \end{figure}
 
@@ -280,11 +285,11 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \end{figure}
 \par El último elemento de diseño que se implementará será la caja de radiación. Esta se creará mediante la herramienta \textit{Draw box}, como se hizo con el substrato, y sus dimensiones deben ser capaces de cubrir el sistema entero que antena que se ha diseñado. Además, es importante el lado de la caja de radiación en el que se encuentra el \textit{Wave port} esté en el superpuesto en el plano de este (fig. \ref{fig:caja}). Además, de la misma forma que se hizo con elementos anteriores, se le asignará a este caja la propiedad de caja de radiación mediante: \textit{Assign Boundary}>\textit{Radiation} y como material: vacío.
 \\
-\par Llega el momento de configurar la simulación. Todas las opciones respecto a las iteraciones que va a realizar HFSS sobre el diseño se encuentran en la opción \textit{Analysis}, en sus opciones pulsaremos sobre \textit{Add Solution Setup}. En ella se introducirán los parámetros que se consideren necesarios para la correcta simulación del sistema. La frecuencia se ha establecido a 2.4 GHz \todo{fijarse en todos los GHz, todos lo que termine en "os", WavePorts}, el número máximo de pasadas como 50, y la máxima variación sobre el parámetro S de 0.004 (fig. \ref{fig:configa}). Si se entra a la pestaña \textit{options} se podrá también configurar parámetros como el número mínimo de pasadas, o el número mínimo de iteraciones consecutivas convergentes (fig. \ref{fig:configb}).
+\par Llega el momento de configurar la simulación. Todas las opciones respecto a las iteraciones que va a realizar HFSS sobre el diseño se encuentran en la opción \textit{Analysis}, en sus opciones pulsaremos sobre \textit{Add Solution Setup}. En ella se introducirán los parámetros que se consideren necesarios para la correcta simulación del sistema. La frecuencia se ha establecido a 2.4 GHz, el número máximo de pasadas como 50, y la máxima variación sobre el parámetro S de 0.004 (fig. \ref{fig:configa}). Si se entra a la pestaña \textit{options} se podrá también configurar parámetros como el número mínimo de pasadas, o el número mínimo de iteraciones consecutivas convergentes (fig. \ref{fig:configb}).
 \\
 \par Una vez creada la configuración del simulador, se añadirá el barrido en frecuencia sobre esta. Para ello, se añadirá un \textit{Frequency Sweep} mediante las opciones disponibles al pulsar sobre la configuración que hemos creado. En nuestro caso se configurará el barrido para crear un vector de frecuencias desde 2.3 GHz hasta 2.5 GHz cada 0.0001 GHz, creando un total de 1001 puntos de frecuencia para así obtener una mayor resolución en las gráficas que se deseen mostrar. El tipo de sweep se seleccionará como \textit{fast}, lo que ayudará a la máquina a agilizar el proceso de cálculo y es importante marcar la opción \textit{Save fields} para poder, más tarde, mostrar los datos relacionados con el campo lejano.
 \\
-\par Ya estaría listo el diseño y la configuración del solucionador para lanzar la simulación del sistema. Para ello se pulsará primero sobre el botón \textit{Validate} para confirmar que todo está correctamente configurado y no hay errores en el diseño que impidan que HFSS no pueda iniciar la simulación. Tras comprobar que no existen errores, mediante el botón \textit{Analyze all} se podrá iniciar la simulación. Durante la simulación HFSS irá realizando iteraciones en las que los tetraedros se irán adaptando a nuestro parche (fig. \ref{fig:tetra}). En cada iteración el número de tetraedros irá creciendo exponencialmente (fig. \ref{fig:conver}), con lo que es posible que en las últimas iteraciones, el simulador tarde más en realizar una pasada completa. Si se pulsa sobre la opción \textit{Convergence} dentro de las opciones del configurador de la simulación, se podrá obvservar de forma gráfica o anaítica el número de pasadas que ha realizado el simulador (fig. \ref{fig:convera}) así como otros datos sobre la convergencia de la simulación.
+\par Ya estaría listo el diseño y la configuración del solucionador para lanzar la simulación del sistema. Para ello se pulsará primero sobre el botón \textit{Validate} para confirmar que todo está correctamente configurado y no hay errores en el diseño que impidan que HFSS no pueda iniciar la simulación. Tras comprobar que no existen errores, mediante el botón \textit{Analyze all} se podrá iniciar la simulación. Durante la simulación HFSS irá realizando iteraciones en las que los tetraedros se irán adaptando a nuestro parche (fig. \ref{fig:tetra}). En cada iteración el número de tetraedros irá creciendo exponencialmente (fig. \ref{fig:conver}), con lo que es posible que en las últimas iteraciones, el simulador tarde más en realizar una pasada completa. Si se pulsa sobre la opción \textit{Convergence} dentro de las opciones del configurador de la simulación, se podrá observar de forma gráfica o analítica el número de pasadas que ha realizado el simulador (fig. \ref{fig:convera}) así como otros datos sobre la convergencia de la simulación.
 \\
 
 \begin{figure}[H]
@@ -303,7 +308,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
          \caption{Distribución de tetraedros en la iteración nº27}
          \label{fig:tetrab}
      \end{subfigure}
-        \caption{Tetraedros creados por HFSS para calcular el comporamiento del sistema}
+        \caption{Tetraedros creados por HFSS para calcular el comportamiento del sistema}\textbf{•}
         \label{fig:tetra}
 \end{figure}
 
@@ -327,12 +332,12 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:conver}
 \end{figure}
 
-\par Una vez que la simulación ha convergido, HFSS empezará con otra serie de cálculos. Principalmente cálculos matriciales relacionados con los datos obtenidos de la simulación. Tras su finalización, se podrá proceder a analizar los resultados. Las gráficas de los resultados se obtienen mediante la pestalla \textit{Results}. Allí, al pulsar sobre sus opciones, se podrán acceder a diferentes tipos de representaciones según la naturaleza de esta: Reportes sobre soluciones modales, reportes sobre el campo lejano, etc. En primer lugar se analizará la curva de pérdida de retorno, o parámetro S, que se puede encontrar dentro de: \textit{Create Modal Solution Data Report}>\textit{Rectángular Plot}. Se abrirá una ventana donde se podrá seleccionar qué parámetro se quiere graficar, en nuestro caso \textit{S Parameter} en dB. En la misma ventana y dentro de la pesataña \textit{Families} se podrá seleccionar qué variación de nuestro diseño se quiere graficar, en el caso de que se hayan realizado más de una simulación con cambios en el diseño entre ellas. Finalmente, se pulsará sobre \textit{New Report} para ver el resultado.
+\par Una vez que la simulación ha convergido, HFSS empezará con otra serie de cálculos. Principalmente cálculos matriciales relacionados con los datos obtenidos de la simulación. Tras su finalización, se podrá proceder a analizar los resultados. Las gráficas de los resultados se obtienen mediante la pestalla \textit{Results}. Allí, al pulsar sobre sus opciones, se podrán acceder a diferentes tipos de representaciones según la naturaleza de esta: reportes sobre soluciones modales, reportes sobre el campo lejano, etc. En primer lugar se analizará la curva de pérdida de retorno, o parámetro S, que se puede encontrar dentro de: \textit{Create Modal Solution Data Report}>\textit{Rectángular Plot}. Se abrirá una ventana donde se podrá seleccionar qué parámetro se quiere graficar, en nuestro caso \textit{S Parameter} en dB. En la misma ventana y dentro de la pesataña \textit{Families} se podrá seleccionar qué variación de nuestro diseño se quiere graficar, en el caso de que se hayan realizado más de una simulación con cambios en el diseño entre ellas. Finalmente, se pulsará sobre \textit{New Report} para ver el resultado.
 \\
 \par Como se mencionó al final de la sección \ref{351} Los resultados obtenidos mediante las dimensiones proporcionadas por las ecuaciones que se implementaron en MATLAB han de ser refinados, ya que estos no harán que nuestra antena funcione exactamente de la manera en la que se desea. Es necesario un trabajo previo al resultado final, basado en iteraciones propias realizadas por el ingeniero, en las que se modifiquen ciertas dimensiones de la antena para encontrar la solución que este busque. En el caso de esta antena, los resultados obtenidos tras el trabajo previo, en el que se han reducido 2 mm el ancho de la antena, se pueden ver a continuación. Cabe mencionar que, a lo largo del análisis de los resultados de nuestros diseños, se omitirá este proceso de refinado del diseño, y se mostrarán directamente las dimensiones con las que se ha encontrado que la antena trabaja según las especificaciones deseadas.
 \\
 \begin{itemize}
-\item \textbf{Gráfica de pérdidas de retorno o parámetro S: }Se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -39.53 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dBs de de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
+\item \textbf{Gráfica de pérdidas de retorno o parámetro S: }se puede observar un buen comportamiento de la antena, con unas pérdidas de retorno en la frecuencia de trabajo de 2.4 GHz de -39.53 dBs, suficiente para el correcto funcionamiento de la antena a esta frecuencia, así como un ancho de banda a -10 dB de 36.5 MHz, lo que equivale a un 1.56\% sobre la frecuencia de trabajo.
 	\begin{figure}[H]
     \centering
         \includegraphics[width=\textwidth]{archivos/analisis/1x11/1}
@@ -340,7 +345,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:s}
 	\end{figure}
 	
-\item \textbf{Gráfica del componente real de la impedancia: }En esta gráfica el objetivo principal es encontrar un valor de 50 $\Omega$ para la frecuencia de trabajo de 2.4 GHz. Este valor influencia directamente a la curva del parámetro S. Como se puede observar, el valor obtenido de 51 $\Omega$ lo que significa que la adaptación final entre el sistema de alimentación y la antena ha sido correcta.
+\item \textbf{Gráfica del componente real de la impedancia: }en esta gráfica el objetivo principal es encontrar un valor de 50 $\Omega$ para la frecuencia de trabajo de 2.4 GHz. Este valor influencia directamente a la curva del parámetro S. Como se puede observar, el valor obtenido de 51 $\Omega$ lo que significa que la adaptación final entre el sistema de alimentación y la antena ha sido correcta.
 	\begin{figure}[H]
     \centering
         \includegraphics[width=0.85\textwidth]{archivos/analisis/1x11/3}
@@ -348,7 +353,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:realimpe}
 	\end{figure}
 	
-\item \textbf{Gráfica del componente imaginaria de la impedancia: }En este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
+\item \textbf{Gráfica del componente imaginaria de la impedancia: }en este caso, el cometido es encontrar un nulo de la curva de la componente reactiva de la impedancia para la frecuencia de trabajo. El valor obtenido para este diseño es de 0.23 $\Omega$, lo que puede considerarse como un buen resultado en el diseño.
 	\begin{figure}[H]
     \centering
         \includegraphics[width=0.85\textwidth]{archivos/analisis/1x11/2}
@@ -356,7 +361,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:imaimpe}
 	\end{figure}
 
-\item \textbf{Patrón de radiación en el plano E: }El patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 0º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
+\item \textbf{Patrón de radiación en el plano E: }el patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 0º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
 	\begin{figure}[H]
     \centering
         \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/4}
@@ -364,7 +369,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:radE}
 	\end{figure}
 
-\item \textbf{Patrón de radiación en el plano H: }Repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 90º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
+\item \textbf{Patrón de radiación en el plano H: }repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 90º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
 	\begin{figure}[H]
     \centering
         \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/5}
@@ -372,7 +377,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:radH}
 	\end{figure}
 
-\item \textbf{Patrón de radiación tridimensional: }Aunque hemos mostrado los patrones de directividad para los ángulos $\phi $ en 0º y 90º, HFSS los calcula para la circunferencia completa. Se puede recrear el patrón de radiación en trews dimensiones si representamos juntos los patrones de dirección para todos los ángulos de $\phi$ y $\Theta$. HFSS ofrece una manera sencilla de hacerlo. Como se puede observar en los resultados, hemos obtenido una antena completamente omnidireccional para el plano superior del parche y una directividad casi nula en el plano inferior, lo que podríamos asimilar a un monopolo. La directividad obtenida siempre coincidirá con uno de los máximos, del campo E o H, en este caso 5.36 dB.
+\item \textbf{Patrón de radiación tridimensional: }aunque hemos mostrado los patrones de directividad para los ángulos $\phi $ en 0º y 90º, HFSS los calcula para la circunferencia completa. Se puede recrear el patrón de radiación en trews dimensiones si representamos juntos los patrones de dirección para todos los ángulos de $\phi$ y $\Theta$. HFSS ofrece una manera sencilla de hacerlo. Como se puede observar en los resultados, hemos obtenido una antena completamente omnidireccional para el plano superior del parche y una directividad casi nula en el plano inferior, lo que podríamos asimilar a un monopolo. La directividad obtenida siempre coincidirá con uno de los máximos, del campo E o H, en este caso 5.36 dB.
 	\begin{figure}[H]
     \centering
         \includegraphics[width=\textwidth]{archivos/analisis/1x11/6}
@@ -380,7 +385,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:rad3d}
 	\end{figure}
 	
-\item \textbf{Distribución eléctrica sobre la antena: }Otro tipo de análisis que podemos realizar sobre la antena consiste en la muestra directa sobre la antena de ciertos parámetros como el campo eléctrico, los vectores de los campos eléctricos y magnéticos, etc. En este caso, se muestra la distribución del campo eléctrico sobre la antena. En el se pueden observar donde se sitúan los principales valles y nodos sobre esta.
+\item \textbf{Distribución eléctrica sobre la antena: }otro tipo de análisis que podemos realizar sobre la antena consiste en la muestra directa sobre la antena de ciertos parámetros como el campo eléctrico, los vectores de los campos eléctricos y magnéticos, etc. En este caso, se muestra la distribución del campo eléctrico sobre la antena. En el se pueden observar donde se sitúan los principales valles y nodos sobre esta.
 \vfill
 	\begin{figure}[H]
     \centering
@@ -615,7 +620,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 
 
 \subsubsection{Array 4x2 Paralelo} 
-\par El array corporate 4x2 poseerá el patrón de radiación característico del array 4x1 visto con anterioridad, pero encontraremos lóbulos de radiación mayores a lo largo del plano perpendicular al plano de radiación donde se focalizó en el array anterior. 
+\par El array en configuración \textit{corporate-feed} 4x2 poseerá el patrón de radiación característico del array 4x1 visto con anterioridad, pero encontraremos lóbulos de radiación mayores a lo largo del plano perpendicular al plano de radiación donde se focalizó en el array anterior. 
 \\
 \par Para el caso del array a 2.4 GHz (fig. \ref{fig:4x21}) se puede comprobar como solo se han realizado ajustes mayoritariamente en la anchura del parche para encontrar la solución deseada, junto con ajustes micrométricos en ciertas anchuras de las líneas de transmisión. Lo mismo ha ocurrido para el caso del array a 6 GHz (fig. \ref{fig:4x22}), donde el principal cambio se encuentra, de igual manera, en la anchura de los parches, y un poco en la longitud del inset.
 \\
@@ -706,7 +711,6 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
       \label{tab:array4x41}
 \end{table}
 
-FALTA ESTE POR HACER SOCORRO
 
 \begin{table}[H]
   
@@ -735,7 +739,7 @@ FALTA ESTE POR HACER SOCORRO
 \end{table}
 
 \subsubsection{Parche simple a 27 GHz}
-\par La razón por la que el parche simple no ha sido incluido con sus respectivos de 2.4 GHz y 6 GHz es debido a que ciertas modificaciones han sido necesarias para lograr un correcto funcionamiento de este. Cuando se inició el proceso de diseño del parche a 27 GHz, se usó como substrato las mismas configuraciones de dimensión que para los otros parches, lo que producía resultados no satisfactorios tras realizar los análisis. Por ejemplo, a la hora de analizar los parámetros S, se podía observar como, a pesar de encontrar ciertas frecuencias donde la antena era capaz de radiar energía, esta no pasaba de los -4 dB ó -5 dB. 
+\par La razón por la que el parche simple no ha sido incluido con sus respectivos de 2.4 GHz y 6 GHz es debido a que ciertas modificaciones han sido necesarias para lograr un correcto funcionamiento de este. Cuando se inició el proceso de diseño del parche a 27 GHz, se usó como substrato las mismas configuraciones de dimensión que para los otros parches, lo que producía resultados no satisfactorios tras realizar los análisis. Por ejemplo, a la hora de analizar el parámetro de pérdidas de retorno ($S_{11}$) se podía observar como, a pesar de encontrar ciertas frecuencias donde la antena era capaz de radiar energía, esta no pasaba de los -4 dB ó -5 dB. 
 \\
 \par El problema residía en que para esta frecuencia tan alta, las ondas no eran capaz de alcanzar el plano de masa con la dimensión de substrato preestablecida de 1.52 mm, con lo que solo se llegaban a producir ondas superficiales sobre el plano superior de la antena. Para solucionarlo se decidió cambiar la altura del substrato a 0.305 mm, al igual que 1.52 mm, está estandarizada por ciertas compañías dedicadas a la fabricación de obleas de estos materiales. Por otro lado, cabe mencionar el hecho de que el proceso de cambiar la altura del substrato no ha implicado el cambio de constante dieléctrica de este, la cual se mantiene en 3.55.
 \\
