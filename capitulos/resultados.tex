@@ -1590,3 +1590,297 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
    \caption{Parámetros característicos del parche único microstrip a 27 GHz} 
     \label{tab:res1x13}
 \end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Array 2x1 a 27 GHz}
+\par Para el array 2x1 a 27 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par Comenzaremos analizando la curva de pérdidas de retorno o Parámetro $S_{11}$ del Array 2x1 a 27 GHz, donde se puede observar un valor pico de -34.53 dB y un ancho de banda de 651.6 MHz, desde los 26.6904 GHz hasta los 27.342 GHz, lo que equivale a un 2.41\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/2x13/1}
+        \caption{Parámetro $S_{11}$ para el Array 2x1 a 27 GHz}
+        \label{fig:s2x13}
+\end{figure}
+
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.31 $\Omega$. Muy cerca del valor esperado, 0.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.85\textwidth]{archivos/analisis/2x13/2}
+        \caption{Reactancia para el Array 2x1 a 27 GHz}
+        \label{fig:react2x13}
+\end{figure}
+
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 47.77 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.85\textwidth]{archivos/analisis/2x13/3}
+        \caption{Resistencia para el Array 2x1 a 27 GHz}
+        \label{fig:resis2x13}
+\end{figure}
+
+
+\subsection{Patrón de radiación}
+\par En el patrón de radiación se observa el mismo comportamiento que obteníamos con los parches simples a 2.4 y 6 GHz, es decir, patrones completamente omnidireccionales para los planos superiores de la antena.
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x13/4}
+        \caption{Radiación en el plano E para el Array 2x1 a 27 GHz}
+        \label{fig:E2x13}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x13/5}
+        \caption{Radiación en el plano H para el Array 2x1 a 27 GHz}
+        \label{fig:H2x13}
+\end{figure}
+
+\newpage
+\subsection{Radiación 3D}
+\par A la hora de analizar el diagrama 3D, se puede observar el conjunto omnidireccional del sistema, pero con pequeñas deformidades probablemente debidas a efectos de interferencia con la línea de alimentación. \todo{y la asimetría final de la estructura}
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/2x13/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d12x13}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/2x13/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d22x13}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el Array 2x1 a 27 GHz}
+        \label{fig:3d2x13}
+\end{figure}
+
+\newpage
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. \todo{importante este comentario de aqui en el pdf de stephan}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/2x13/8}
+        \caption{Distribución de campos eléctricos para el Array 2x1 a 27 GHz}
+        \label{fig:elec2x13}
+\end{figure}
+
+
+\subsection{Resumen}
+\par En este Array 2x1 a 27 GHz volvemos a recordar los resultados obtenidos para las respectivas configuraciones de 2.6 y 6 GHz. Aunque se pueda observar que el ancho de banda es mucho mayor a los de estas configuraciones, se mantiene en la relación esperada sobre el 2.4\% de la frecuencia de trabajo. Se ha ganado en relación delante/atrás y la eficiencia de radiación obtenida esta sobre las mas altas de las antenas estudiadas. 
+\\
+\par En la tabla \ref{tab:res2x13} se pueden observar un resumen de los parámetros característicos de la antena. En ella se puede observar el buen rendimiento obtenido.
+
+\begin{table}[H]
+  
+  
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 2x1 27 GHz} \\ 
+   \midrule
+   \textbf{$S_{11}$} & -34.53 dB \\
+   \textbf{Ancho de banda} & 651.6 MHz \\
+   \textbf{Directividad} & 7.2 dB \\
+   \textbf{Ganancia} & 6.99 dB \\
+   \textbf{Eficiencia de radiación} & 95.06\% \\
+   \textbf{Relación delante/atrás} & 26.63 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Parámetros característicos del parche único microstrip a 27 GHz} 
+    \label{tab:res2x13}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Array 2x2 a 27 GHz}
+\par Para el array 2x2 a 27 GHz los resultados obtenidos son los siguientes:
+
+\subsection{Pérdidas de retorno}
+\par Comenzaremos analizando la curva de pérdidas de retorno o Parámetro $S_{11}$ del Array 2x2 a 27 GHz, donde se puede observar un valor pico de -34.53 dB y un ancho de banda de 651.6 MHz, desde los 26.6904 GHz hasta los 27.342 GHz, lo que equivale a un 2.41\% de la frecuencia de trabajo.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/2x23/1}
+        \caption{Parámetro $S_{11}$ para el Array 2x2 a 27 GHz}
+        \label{fig:s2x23}
+\end{figure}
+
+\subsection{Reactancia}
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.31 $\Omega$. Muy cerca del valor esperado, 0.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.85\textwidth]{archivos/analisis/2x23/2}
+        \caption{Reactancia para el Array 2x2 a 27 GHz}
+        \label{fig:react2x23}
+\end{figure}
+
+
+\subsection{Resistencia}
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 47.77 $\Omega$.
+\\
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.85\textwidth]{archivos/analisis/2x23/3}
+        \caption{Resistencia para el Array 2x2 a 27 GHz}
+        \label{fig:resis2x23}
+\end{figure}
+
+
+\subsection{Patrón de radiación}
+\par En el patrón de radiación se observa el mismo comportamiento que obteníamos con los parches simples a 2.4 y 6 GHz, es decir, patrones completamente omnidireccionales para los planos superiores de la antena.
+\\
+\subsubsection{Plano E}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x23/4}
+        \caption{Radiación en el plano E para el Array 2x2 a 27 GHz}
+        \label{fig:E2x23}
+\end{figure}
+
+\subsubsection{Plano H}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{archivos/analisis/2x23/5}
+        \caption{Radiación en el plano H para el Array 2x2 a 27 GHz}
+        \label{fig:H2x23}
+\end{figure}
+
+\newpage
+\subsection{Radiación 3D}
+\par A la hora de analizar el diagrama 3D, se puede observar el conjunto omnidireccional del sistema, pero con pequeñas deformidades probablemente debidas a efectos de interferencia con la línea de alimentación. \todo{y la asimetría final de la estructura}
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/2x23/6}
+         \caption{Representación isométrica del diagrama de radiación 3D}
+         \label{fig:3d12x23}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=0.85\textwidth]{archivos/analisis/2x23/7}
+         \caption{Representación superior del diagrama de radiación 3D}
+         \label{fig:3d22x23}
+     \end{subfigure}
+     \hfill
+        \caption{Radiación 3D para el Array 2x2 a 27 GHz}
+        \label{fig:3d2x23}
+\end{figure}
+
+\newpage
+\subsection{Campo eléctrico}
+\par Finalmente, podemos observar la distribución de campos eléctricos en el parche. \todo{importante este comentario de aqui en el pdf de stephan}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/analisis/2x23/8}
+        \caption{Distribución de campos eléctricos para el Array 2x2 a 27 GHz}
+        \label{fig:elec2x23}
+\end{figure}
+
+
+\subsection{Resumen}
+\par En este Array 2x2 a 27 GHz volvemos a recordar los resultados obtenidos para las respectivas configuraciones de 2.6 y 6 GHz. Aunque se pueda observar que el ancho de banda es mucho mayor a los de estas configuraciones, se mantiene en la relación esperada sobre el 2.4\% de la frecuencia de trabajo. Se ha ganado en relación delante/atrás y la eficiencia de radiación obtenida esta sobre las mas altas de las antenas estudiadas. 
+\\
+\par En la tabla \ref{tab:res2x23} se pueden observar un resumen de los parámetros característicos de la antena. En ella se puede observar el buen rendimiento obtenido.
+
+\begin{table}[H]
+  
+  
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{c c} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Array 2x2 27 GHz} \\ 
+   \midrule
+   \textbf{$S_{11}$} & -34.53 dB \\
+   \textbf{Ancho de banda} & 651.6 MHz \\
+   \textbf{Directividad} & 7.2 dB \\
+   \textbf{Ganancia} & 6.99 dB \\
+   \textbf{Eficiencia de radiación} & 95.06\% \\
+   \textbf{Relación delante/atrás} & 26.63 dB \\
+
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Parámetros característicos del parche único microstrip a 27 GHz} 
+    \label{tab:res2x23}
+\end{table}
+

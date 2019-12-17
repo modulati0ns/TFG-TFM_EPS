@@ -58,7 +58,7 @@ L = Leff - 2*Al;                                    % Longitud del parche
 a = 0.7*lambda;                                     % Separacion entre parches
 \end{lstlisting}
 
-\par También calcularemos la anchura $W_{feed}$ y longitud $L_{feed}$ necesaria para las líneas de transmisión microstrip así como la longitud para las líneas que actúen como transformadores $\lambda /4$. La anchura de las líneas microstrip será calculada en base a la variable $Z_{0}$, la cual ha sido declarada anteriormente con un valor de 50 $\Omega$, este valor puede ser cambiado en el código para obtener la anchura de la línea para sintetizar cualquier impedancia que necesitemos en esta.
+\par También calcularemos la anchura $W_{feed}$ y longitud $L_{feed}$ necesaria para las líneas de transmisión microstrip así como la longitud para las líneas que actúen como transformadores $\lambda /4$. La anchura de las líneas microstrip será calculada en base al array $Z_{0}$, el cual contendrá las cuatro impedancias características que serán usadas en las líneas de alimentación para alimentar los parches: 25, 50, 70.71, 100 $\Omega$.
 
 \begin{lstlisting}[style=Matlab-color, caption={Parámetros de diseño de la línea de alimentación},label=alimentacion]
 %% Cálculos de línea de alimentación
@@ -67,14 +67,17 @@ lambdaguided = lambda/sqrt(erff);               % Longitud de onda en medio guia
 Lfeed = lambdaguided/4;                         % Longitud lambda cuartos
 
 %Calculo de la anchura de la línea
+for Zo = [25, 50, 70.71, 100]
 A = (Zo/60)*(sqrt((er+1)/2))+((er-1)/(er+1))*(0.23+(0.11/er)); 
 B = (377*pi)/(2*Zo*sqrt(er));
 Coef = (8*exp(A))/((exp(2*A))-2);
 if (Coef <= 2)
-	Wline = Coef*h;                             % Anchura si W/h <= 2
-elseif (Coef > 2)
+    Wline = Coef*h;                             % Anchura si W/h <= 2
+elseif(Coef > 2)
     Coef = (2/pi)*( B-1-log(2*B-1)+((er-1)/(2*er))*(log(B-1)+0.39-(0.61/er)));
-	Wline = Coef*h;                             % Anchura si W/h > 2
+    Wline = Coef*h;                             % Anchura si W/h > 2
+end
+disp(['Ancho de pista a ',num2str(Zo),': ',num2str(Wline*(1e3)), ' mm']);
 end
 \end{lstlisting}
 
@@ -738,12 +741,12 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
       \label{tab:array4x42}
 \end{table}
 
-\subsubsection{Parche simple a 27 GHz}
-\par La razón por la que el parche simple no ha sido incluido con sus respectivos de 2.4 GHz y 6 GHz es debido a que ciertas modificaciones han sido necesarias para lograr un correcto funcionamiento de este. Cuando se inició el proceso de diseño del parche a 27 GHz, se usó como substrato las mismas configuraciones de dimensión que para los otros parches, lo que producía resultados no satisfactorios tras realizar los análisis. Por ejemplo, a la hora de analizar el parámetro de pérdidas de retorno ($S_{11}$) se podía observar como, a pesar de encontrar ciertas frecuencias donde la antena era capaz de radiar energía, esta no pasaba de los -4 dB ó -5 dB. 
+\subsubsection{Antenas a 27 GHz}
+\par La razón por la que las antenas a 27 GHz no ha sido incluido con sus respectivos de 2.4 GHz y 6 GHz es debido a que ciertas modificaciones han sido necesarias para lograr un correcto funcionamiento de este. Cuando se inició el proceso de diseño del parche a 27 GHz, se usó como substrato las mismas configuraciones de dimensión que para los otros parches, lo que producía resultados no satisfactorios tras realizar los análisis. Por ejemplo, a la hora de analizar el parámetro de pérdidas de retorno ($S_{11}$) se podía observar como, a pesar de encontrar ciertas frecuencias donde la antena era capaz de radiar energía, esta no pasaba de los -4 dB ó -5 dB. 
 \\
-\par El problema residía en que para esta frecuencia tan alta, las ondas no eran capaz de alcanzar el plano de masa con la dimensión de substrato preestablecida de 1.52 mm, con lo que solo se llegaban a producir ondas superficiales sobre el plano superior de la antena. Para solucionarlo se decidió cambiar la altura del substrato a 0.305 mm, al igual que 1.52 mm, está estandarizada por ciertas compañías dedicadas a la fabricación de obleas de estos materiales. Por otro lado, cabe mencionar el hecho de que el proceso de cambiar la altura del substrato no ha implicado el cambio de constante dieléctrica de este, la cual se mantiene en 3.55.
+\par El problema residía en que para esta frecuencia tan alta, las ondas no eran capaces de alcanzar el plano de masa con la dimensión de substrato preestablecida de 1.52 mm, con lo que solo se llegaban a producir ondas superficiales sobre el plano superior de la antena. Para solucionarlo se decidió cambiar la altura del substrato a 0.305 mm, al igual que 1.52 mm, está estandarizada por ciertas compañías dedicadas a la fabricación de obleas de estos materiales. Por otro lado, cabe mencionar el hecho de que el proceso de cambiar la altura del substrato no ha implicado el cambio de constante dieléctrica de este, la cual se mantiene en 3.55.
 \\
-\par Con este nuevo substrato y adaptando de nuevo las dimensiones del parche se ha podido llegar a una solución completamente viable para el parche simple a 27 GHz (fig. \ref{fig:1x13}):
+\par Con este nuevo substrato y adaptando de nuevo las dimensiones del parche se ha podido llegar a una solución completamente viable para el parche simple a 27 GHz (fig. \ref{fig:1x13}), el array 2x1 (fig. \ref{fig:2x13}) y el array 2x2 (fig. \ref{fig:2x23}):
 
 \begin{table}[H]
   
@@ -763,4 +766,52 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \end{tabular}
    \caption{Dimensiones del parche simple a 27 GHz} 
       \label{tab:1x13}
+\end{table}
+
+
+\begin{table}[H]
+  
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
+   \midrule
+   \textbf{W} & 3.68 mm & 3.75 mm \\
+   \textbf{L} & 2.82 mm & 2.79 mm\\
+   \textbf{Linset} & 1.02 mm & 0.77 mm\\
+   \textbf{Winset} & - & 0.2 mm\\
+   \textbf{W50} & 0.682 mm & 0.682 mm\\
+   \textbf{W100} & 0.172 mm & 0.172 mm\\
+   \textbf{Llambdacuartos} & 1.55 mm & 1.55 mm\\
+   \textbf{Ws/Ls} & - mm & 17/8 mm\\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Dimensiones del array 2x1 a 27 GHz} 
+      \label{tab:2x13}
+\end{table}
+
+
+
+\begin{table}[H]
+  
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.2\linewidth}m{0.25\linewidth}m{0.25\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Parámetro} & \textbf{Dimensión MATLAB} & \textbf{Dimensión final} \\ 
+   \midrule
+   \textbf{W} & 3.68 mm & 3.75 mm \\
+   \textbf{L} & 2.82 mm & 2.8 mm\\
+   \textbf{Linset} & 1.02 mm & 0.65 mm\\
+   \textbf{Winset} & - & 0.2 mm\\
+   \textbf{W50} & 0.682 mm & 0.682 mm\\
+   \textbf{W70} & 0.372 mm & 0.372 mm\\
+   \textbf{W100} & 0.172 mm & 0.172 mm\\
+   \textbf{Llambdacuartos} & 1.55 mm & 1.55 mm\\
+   \textbf{Ws/Ls} & - mm & 16/15 mm\\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Dimensiones del array 2x2 a 27 GHz} 
+      \label{tab:2x23}
 \end{table}
