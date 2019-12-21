@@ -220,4 +220,46 @@
   url    = {https://directory.eoportal.org/web/eoportal/airborne-sensors/dbsar#4cMUE1251Herb},
 }
 
+@Book{telecomunicacion2019,
+  author = {telecomunicación},
+  title  = {Diccionario de la lengua española},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://dle.rae.es/telecomunicaci%C3%B3n},
+}
+
+@WWW{Peribanez2014,
+  author = {Juan Peribáñez},
+  title  = {Las ondas electromagnéticas},
+  year   = {2014},
+  date   = {2014},
+  url    = {http://explicaciones-simples.com/2014/02/02/las-ondas-electromagneticas/},
+}
+
+@Book{UCO,
+  author = {UCO},
+  title  = {Ondas Electromagnéticas. Conceptos básicos},
+  url    = {http://www.uco.es/organiza/departamentos/ing-electrica/documentos/ONDAS_EM_CONCEPTOS_BASICOS.pdf},
+}
+
+@Online{Wikipedia,
+  author = {Wikipedia},
+  title  = {1G},
+  url    = {https://en.wikipedia.org/wiki/1G},
+}
+
+@Online{Wikipediaa,
+  author = {Wikipedia},
+  title  = {MoviLine},
+  url    = {https://es.wikipedia.org/wiki/MoviLine},
+}
+
+@Online{LaCuevaGSM2014,
+  author = {LaCuevaGSM},
+  title  = {Diferencia entre 2G, 3G y 4G},
+  year   = {2014},
+  date   = {2014},
+  url    = {http://www.compragsm.com/blog/diferencia-entre-2g-3g-y-4g/},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
