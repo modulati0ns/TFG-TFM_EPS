@@ -9,9 +9,9 @@
 \label{antenasmicrostrip}
 
 \section{Introducción}
-\par Las antenas de parche o antenas microstrip son un tipo de antenas de tipo planar que utilizan la tecnología microstrip para su funcionamiento. En el año 1953 \textit{G. A. Deschamps} y \textit{W. Sichak} presentaron ante el Tercer Simposio sobre Investigación y Desarrollo de Antenas organizado por las Fuerzas Aéreas de los Estados Unidos su trabajo "Microstrip Microwave Antennas" (Antenas de Microondas Microstrips), lo que se considera como el primer \textit{paper} sobre este tipo de antenas, pero no fue hasta dos décadas más tarde, en 1970 cuando, gracias al desarrollo de los \gls{pcb}, se pudieron empezar a realizar los primeros desarrollos de líneas de transmisión y antenas con tecnología microstrip. Desde entonces, las antenas microstrip se han convertido en uno de los tipos de antena más usado para un alto abanico de aplicaciones. 
+\par Las antenas de parche o antenas microstrip son un tipo de antenas de tipo planar que utilizan la tecnología microstrip para su funcionamiento. En el año 1953 \textit{G. A. Deschamps} y \textit{W. Sichak} presentaron ante el Tercer Simposio sobre Investigación y Desarrollo de Antenas organizado por las Fuerzas Aéreas de los Estados Unidos su trabajo "Microstrip Microwave Antennas" (Antenas de Microondas Microstrips), lo que se considera como el primer \textit{paper} sobre este tipo de antenas, pero no fue hasta dos décadas más tarde, en 1970 cuando, gracias al desarrollo de los \gls{pcb}, se pudieron empezar a realizar los primeros desarrollos de líneas de transmisión y antenas con tecnología microstrip. Desde entonces, las antenas microstrip se han convertido en uno de los tipos de antena más usado para un alto abanico de aplicaciones. \cite{Bernhard2003, Balanis2015} 
 \\
-\par Entre sus principales ventajas se encuentra su delgadez y capacidad de adaptación a distintos tipos de superficies, incluso pudiendo ser conformadas en superficies curvas y no planares. Además son antenas simples, muy ligeras, fáciles de diseñar, con un coste de producción bajo, fáciles de transportar, y preparadas para ser integradas en arrays. Por estas razones, los circuitos y antenas microstrip son comúnmente usados para la fabricación de circuitos monolíticos integrados para microondas (MMICs) en aplicaciones civiles, militares, gubernamentales y comerciales como identificación por radio frecuencia (RFID), retransmisión de radio, sistemas de comunicaciones móviles, \gls{gps}, televisión, comunicaciones satelitales (fig. \ref{fig:satgalileo}), sistemas de vigilancia, radar, y guiado de misiles entre otros. 
+\par Entre sus principales ventajas se encuentra su delgadez y capacidad de adaptación a distintos tipos de superficies, incluso pudiendo ser conformadas en superficies curvas y no planares. Además son antenas simples, muy ligeras, fáciles de diseñar, con un coste de producción bajo, fáciles de transportar, y preparadas para ser integradas en arrays. Por estas razones, los circuitos y antenas microstrip son comúnmente usados para la fabricación de circuitos monolíticos integrados para microondas (MMICs) en aplicaciones civiles, militares, gubernamentales y comerciales como identificación por radio frecuencia (RFID), retransmisión de radio, sistemas de comunicaciones móviles, \gls{gps}, televisión, comunicaciones satelitales (fig. \ref{fig:satgalileo}), sistemas de vigilancia, radar, y guiado de misiles entre otros. \cite{Aquino2008} 
 \\
 \par Por otra parte, las antenas microstrip son muy versátiles en términos de resonancia y polarización, con obtención de buenos patrones de radiación y fácil adaptación de impedancias. Si además sumamos al circuito elementos adaptativos como diodos varicap, se pueden llegar a diseñar antenas microstrip con frecuencias, impedancias, y patrones de radiación variables. En contra, el uso de antenas microstrip conlleva ciertas limitaciones como su alto factor de calidad (Q), necesidad de limitar la potencia que atraviesa el circuito, baja eficiencia, baja pureza de polarización y ancho de banda limitado. En ciertas aplicaciones, estas limitaciones pueden ser usadas a favor, como el hecho de tener bajos anchos de banda puede ser deseado a la hora de usar las antenas microstrip en aplicaciones de seguridad gubernamental puesto que se limita el rango de penetración externa por parte de posibles atacantes.
 
@@ -43,13 +43,13 @@
 \begin{figure}[h]
     \centering
         \includegraphics[width=15cm]{archivos/parche/elemento}
-        \caption{Partes de una antena microstrip}
+        \caption{Partes de una antena microstrip.}
         \label{fig:elementos}
 \end{figure}
 
 \section{Ondas en antenas microstrip}
 
-\par Durante el proceso de normal funcionamiento de las antenas microstrip, diferentes tipos de ondas pueden aparecer en sus líneas y superficies. Algunas de estas ondas son indeseadas puesto que pueden causar interferencias sobre los campos eléctricos que proceden del generador que se haya instalado, y es de vital importancia diseñar la la antena de forma que su aparición sea mínima. Existen cuatro tipos de ondas principales:
+\par Durante el proceso de normal funcionamiento de las antenas microstrip, diferentes tipos de ondas pueden aparecer en sus líneas y superficies. Algunas de estas ondas son indeseadas puesto que pueden causar interferencias sobre los campos eléctricos que proceden del generador que se haya instalado, y es de vital importancia diseñar la la antena de forma que su aparición sea mínima. Existen cuatro tipos de ondas principales: \cite{Aquino2008}
 
 \begin{itemize}
 \item \textbf{Ondas espaciales: }Estas tipo de \gls{oem} son las que serán radiadas al final del proceso de funcionamiento de la antena. Estas ondas abandonarán la estructura de la antena y se propagarán en el espacio libre y se irán atenuando conforme se alejen de la antena. La propagación de estas ondas es normal y completamente deseada cuando la estructura microstrip es una antena, sin embargo, si las ondas comienzan a propagarse en la línea de alimentación de la antena, también en tecnología microstrip, significará que nuestro diseño tiene pérdidas y se deberá encontrar una solución a este problema de fugas.
@@ -61,7 +61,7 @@
 
 \section{Métodos de alimentación}
 
-\par Existen diversas maneras de alimentar una antena en tecnología microstrip. Denominamos alimentación a proceso de interconexión entre el parche y el resto del circuito integrado, incluyendo en el cualquier otro elemento pasivo, generadores, etc. Los métodos de alimentación para antenas microstrip se pueden agrupar por categorías como: Métodos de alimentación directo, alimentación por proximidad y alimentación por apertura. 
+\par Existen diversas maneras de alimentar una antena en tecnología microstrip. Denominamos alimentación a proceso de interconexión entre el parche y el resto del circuito integrado, incluyendo en el cualquier otro elemento pasivo, generadores, etc. Los métodos de alimentación para antenas microstrip se pueden agrupar por categorías como: Métodos de alimentación directo, alimentación por proximidad y alimentación por apertura. \cite{Aquino2008}
 
 \subsection{Métodos de alimentación directa}
 \par Los métodos de alimentación directa son aquellos en los que se interconectan físicamente las dos estructuras que componen el sistema de comunicaciones: la estructura dedicada a la alimentación, procesado y/o filtrado de la señal, y el elemento radiante. Dentro de este método de alimentación, existen dos técnicas principales: la alimentación por línea de transmisión microstrip y la alimentación por sonda coaxial.
@@ -120,7 +120,7 @@
          \caption{Alimentación por ranura}
          \label{fig:ranura}
      \end{subfigure}
-        \caption{Tipos de alimentación de antenas microstrip}
+        \caption{Tipos de alimentación de antenas microstrip.}
         \label{fig:sistemas}
 \end{figure}
 
@@ -162,7 +162,7 @@
 \begin{figure}[h]
     \centering
         \includegraphics[width=12cm]{archivos/parche/circuito}
-        \caption{Modelo equivalente del circuito de la antena microstrip}
+        \caption{Modelo equivalente del circuito de la antena microstrip.}
         \label{fig:modelo}
 \end{figure}
 
@@ -186,7 +186,7 @@
          \label{fig:ereff}
      \end{subfigure}
      \hfill
-        \caption{Antena microstrip según el modelo de línea de transmisión}
+        \caption{Antena microstrip según el modelo de línea de transmisión.}
         \label{fig:modelado}
 \end{figure}
 
@@ -213,7 +213,7 @@
          \label{fig:perfil}
      \end{subfigure}
      \hfill
-        \caption{Modelado del incremento de longitud debido al efecto \textit{fringing}}
+        \caption{Modelado del incremento de longitud debido al efecto \textit{fringing}.}
         \label{fig:modelado2}
 \end{figure}
 
@@ -310,7 +310,7 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
 \begin{figure}[h]
     \centering
         \includegraphics[width=0.7\textwidth]{archivos/parche/inset}
-        \caption{Altura del \textit{inset} para adaptar las impedancias}
+        \caption{Altura del \textit{inset} para adaptar las impedancias.}
         \label{fig:inset}
 \end{figure}
 

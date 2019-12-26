@@ -239,27 +239,136 @@
 @Book{UCO,
   author = {UCO},
   title  = {Ondas Electromagnéticas. Conceptos básicos},
+  year   = {2019},
+  date   = {2019},
   url    = {http://www.uco.es/organiza/departamentos/ing-electrica/documentos/ONDAS_EM_CONCEPTOS_BASICOS.pdf},
 }
 
 @Online{Wikipedia,
   author = {Wikipedia},
   title  = {1G},
+  year   = {2019},
+  date   = {2019},
   url    = {https://en.wikipedia.org/wiki/1G},
 }
 
 @Online{Wikipediaa,
   author = {Wikipedia},
   title  = {MoviLine},
+  year   = {2019},
+  date   = {2019},
   url    = {https://es.wikipedia.org/wiki/MoviLine},
 }
 
+<<<<<<< HEAD
 @Online{,
+=======
+@Online{LaCuevaGSM2014,
+>>>>>>> ba44ef95d8048caa7b1e67a6094be6276f0e5f25
   author = {LaCuevaGSM},
   title  = {Diferencia entre 2G, 3G y 4G},
   year   = {2014},
   date   = {2014},
   url    = {http://www.compragsm.com/blog/diferencia-entre-2g-3g-y-4g/},
+}
+
+@Online{Wikipedia2019,
+  author = {Wikipedia},
+  title  = {Telefonía móvil 3G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/Telefon%C3%ADa_m%C3%B3vil_3G},
+}
+
+@Online{Zavias2012,
+  author = {Zavias, Matías S.},
+  title  = {LTE, el salto del 3G al 4G. O casi...},
+  year   = {2012},
+  date   = {2012},
+  url    = {https://www.xataka.com/moviles/lte-el-salto-del-3g-al-4g-o-casi},
+}
+
+@Online{Gemalto2019,
+  author = {Gemalto},
+  title  = {Presentando la tecnología y redes 5G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://www.gemalto.com/latam/telecom/inspiracion/5g},
+}
+
+@Online{MINECO2019,
+  author = {MINECO},
+  title  = {5G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://avancedigital.gob.es/5G/Paginas/Index.aspx},
+}
+
+@Online{LearnEngineering2019,
+  author = {LearnEngineering},
+  title  = {How does an Antenna work?},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://www.youtube.com/watch?v=ZaXm6wau-jc},
+}
+
+@Online{TutorialsPoint2018,
+  author = {TutorialsPoint},
+  title  = {Half-Wave Folded Dipole},
+  year   = {2018},
+  date   = {2018},
+  url    = {https://www.tutorialspoint.com/antenna_theory/antenna_theory_half_wave_folded_dipole.htm},
+}
+
+@Online{Carcamo2014,
+  author = {Angélica Cárcamo},
+  title  = {¿Cuáles son las características de una antena?},
+  year   = {2014},
+  date   = {2014},
+  url    = {https://radioslibres.net/19-cuales-son-las-caracteristicas-de-una-antena/},
+}
+
+@Online{WNI2012,
+  author = {WNI},
+  title  = {Tipos de Antenas y Funcionamiento},
+  year   = {2012},
+  date   = {2012},
+  url    = {https://www.wni.mx/index.php?option=com_content&view=article&id=62:antenassoporte&catid=31:general&Itemid=79},
+}
+
+@Book{JaumeAnguera2008,
+  author = {Jaume Anguera, Antonio Pérez},
+  title  = {Teoría de Antenas},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://www.salleurl.edu/semipresencial/ebooks/ebooks/ebook_teoria_antenas.pdf},
+}
+
+@Report{Bernhard2003,
+  author      = {Bernhard, J. T. and Mayes, P. E. and Schaubert, D. and Mailloux, R. J.},
+  title       = {A Commemoration of Deschamps and Sichak's Microstrip Microwave Antennas: 50 Years of Development Divergence and New Directions},
+  type        = {Paper},
+  institution = {Defense Technical Information Center},
+  year        = {2003},
+  date        = {2003},
+  url         = {https://pdfs.semanticscholar.org/3506/4043326a0a5881e3a6f12ef9fe4228b436da.pdf},
+}
+
+@Online{Aquino2008,
+  author = {Raúl Hernández Aquino},
+  title  = {Diseño, simulación y construcción de antenas tipo parche para bluetooth y WI-FI, bandas 2.4 ghz y 5.8 ghz},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://catarina.udlap.mx/u_dl_a/tales/documentos/lem/hernandez_a_r/},
+}
+
+@MastersThesis{Bertol2017,
+  author      = {Asier Balduz Bertol},
+  title       = {Diseño de dos arrays de antenas en tecnología plana con polarización lineal y circular a 60 GHz},
+  institution = {Universidad Pública de Navarra},
+  year        = {2017},
+  date        = {2017},
+  url         = {https://academica-e.unavarra.es/handle/2454/24666},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
