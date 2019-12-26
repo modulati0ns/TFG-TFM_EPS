@@ -305,12 +305,11 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 \par Este parámetro indica cuanta de la energía proporcionada a la antena esta siendo devuelta por esta a la linea de transmisión. Cuanto menor sea este parámetro mejor será nuestro sistema de comunicaciones puesto que significará que la mayor parte de la energía transmitida por el medio guiado habrá sido transmitida por la antena al medio radiado. 
 \\
 \par A la hora de realizar este estudio, el parámetro $S_{11}$ ha sido el determinante para determinar la calidad de la antena así como para definir su ancho de banda, ya que se ha definido el ancho de banda de las antenas diseñadas como el rango de frecuencias abarcado por el gráfico del parámetro $S_{11}$ cuando este está por debajo de los 10 dB (fig. \ref{fig:S}).
-
+\\
 
 
 \par Además, dentro del rango de ancho de banda de la antena, se encontrará el mínimo de la curva del parámetro S. Este mínimo se definirá como la frecuencia de trabajo de la antena e intentaremos centrarlo siempre según las necesidades de nuestro diseño.
 
-\newpage
 
 \section{Tipos de antenas}
 
@@ -319,14 +318,17 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 \subsection{Antenas de hilo}
 \subsubsection{Antena dipolo}
 
-\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, obteniendo así un patrón de radiación tridimensional con forma toroidal cuyo radio interno es el diametro de los extremos del dipolo y con directividades entre los 1 dB y 4 dB. Según la longitud de los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan en conjunto la mitad de la longitud de onda a la que se necesite emitir. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole). \cite{TutorialsPoint2018}
-\\
-\begin{figure}[h]
+\begin{wrapfigure}{r}{0.5\textwidth}
     \centering
-        \includegraphics[width=0.6\textwidth]{archivos/dipolo/dipoloo}
+        \includegraphics[width=0.5\textwidth]{archivos/dipolo/dipoloo}
         \caption{Conjunto de antenas dipolo. \cite{Ideal-Antenas2008}}
         \label{fig:conjuntodipolo}
-\end{figure}
+\end{wrapfigure}
+
+\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, obteniendo así un patrón de radiación tridimensional con forma toroidal cuyo radio interno es el diametro de los extremos del dipolo y con directividades entre los 1 dB y 4 dB. 
+\\ 
+\par Según la longitud de los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan en conjunto la mitad de la longitud de onda a la que se necesite emitir. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole). \cite{TutorialsPoint2018}
+\\
 
 \begin{figure}[h]
     \centering
