@@ -38,7 +38,7 @@
 \begin{figure}[h]
     \centering
         \includegraphics[width=0.65\textwidth]{archivos/array/array}
-        \caption{Agrupación lineal de antenas sobre el eje Z}
+        \caption{Agrupación lineal de antenas sobre el eje Z.}
         \label{fig:arraigo}
 \end{figure}
 
@@ -192,7 +192,7 @@ $d=\lambda \; ; \; N=1$  &
 $d=\lambda \; ; \; N=2$  & 
 $d=\lambda \; ; \; N=3$  \\
 \end{tabular}
-\caption{Efecto de adición de elementos sobre array lineal}
+\caption{Efecto de adición de elementos sobre array lineal.}
 \label{tab:numeroelementos} % 
 \end{table}
 
@@ -214,7 +214,7 @@ $d=0.8\lambda$  &
 $d=0.9\lambda$  & 
 $d=\lambda$  \\
 \end{tabular}
-\caption{Efecto de la separación de elementos sobre array lineal}
+\caption{Efecto de la separación de elementos sobre array lineal.}
 \label{tab:distanciaelementos} % 
 \end{table}
 
@@ -239,12 +239,13 @@ $\alpha=90^{\circ}$  &
 $\alpha=135^{\circ}$  & 
 $\alpha=180^{\circ}$  \\
 \end{tabular}
-\caption{Efecto del desfase de alimentación de los elementos sobre array lineal}
+\caption{Efecto del desfase de alimentación de los elementos sobre array lineal.}
 \label{tab:faseelementos} % 
 \end{table}
 
 
 \subsection{Espaciado de elementos}
+\label{espaciado}
 \par En esta caso se modificará la separación entre antenas fijando el número de elementos que componen el array a 4 dipolos $\lambda/2$. La principal variación que se observa cuando se aumenta la distancia entre elementos es la aparición de nuevos máximos. 
 \\
 \par Cuando la distancia de separación es menor a $\lambda/2$ tan solo aparece un máximo principal. Conforme la separación aumenta de $\lambda$ encontraremos la aparición de nuevos máximos principales, como ocurre en la tabla \ref{tab:distanciaelementos} cuando $d=\lambda$. Entre $\lambda/4$ y $\lambda$ encontramos aparición de lóbulos laterales. \cite{Valero2008}
@@ -422,7 +423,7 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 \begin{figure}[h]
     \centering
         \includegraphics[width=\textwidth]{archivos/array/side}
-        \caption{Comparación de radiación \textit{broadside} y \textit{endfire}}
+        \caption{Comparación de radiación \textit{broadside} y \textit{endfire}.}
         \label{fig:side}
 \end{figure}
 
@@ -506,6 +507,8 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 \subsection{Líneas de alimentación en paralelo}
 \par Las líneas de alimentación interconectadas en paralelo o \textit{corporate-feed} son las más comunes y, por lo general, más versátiles en su uso. Mediante este método el diseñador posee un mayor control sobre la alimentación de cada uno de los elementos de la agrupación. Mediante la variación de la fase y la amplitud de excitación de uno o varios de los elementos del array se pueden llegar a implementar patrones de radiación imposibles de conseguir mediante elementos simples o configuraciones de arrays conectados en serie.
 \\
+\par La configuración de alimentación en paralelo suele proporcionar un ancho de banda mayor que en el caso de la alimentación en serie y, en algunos casos, mayor que el ancho de banda proporcionado por un solo elemento. Este efecto es principalmente debido a la cancelación de las reflexiones mediante la mayor disipación de potencia producida a lo largo de la red de alimentación. Por todas estas razones, la alimentación en paralelo de parches microstrip es usada en la mayoría de las agrupaciones microstrip, por ejemplo, en las estaciones base de telefonía móvil. \cite{Waterhouse2010}. 
+
 \begin{figure}[p]
     \centering
         \includegraphics[width=0.7\textwidth]{archivos/array/corporate}
@@ -520,4 +523,35 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
         \label{fig:nasafoto}
 \end{figure}
 
-\par La configuración de alimentación en paralelo suele proporcionar un ancho de banda mayor que en el caso de la alimentación en serie y, en algunos casos, mayor que el ancho de banda proporcionado por un solo elemento. Este efecto es principalmente debido a la cancelación de las reflexiones mediante la mayor disipación de potencia producida a lo largo de la red de alimentación. Por todas estas razones, la alimentación en paralelo de parches microstrip es usada en la mayoría de las agrupaciones microstrip, por ejemplo, en las estaciones base de telefonía móvil. \cite{Waterhouse2010}. 
+\section{Separación de elementos}
+\par Como se mencionó en la sección \ref{espaciado}, la separación entre los elementos de un array es clave para modelar el patrón de radiación de este. Actualmente existen dos limitaciones principales a la hora de realizar el diseño del array en cuento al parámetro de separación de elementos, la distancia mínima y máxima entre estos.
+\\
+\par Comenzando con la distancia máxima viable para el diseño, y teniendo en cuenta lo observado en las tabla de imágenes \ref{tab:distanciaelementos}, se evitará que la distancia entre los parches sea mayor a $\lambda_{0}$, para evitar la formación de lóbulos de difracción o \textit{grating lobes}. Por otro lado, la distancia mínima viable viene definida por la limitación en términos de acoplamiento mutuo entre parches, cuyos efectos empiezan a estar presentes en distancias entre $\lambda/4$ y $\lambda/2$.
+\\
+\par Teniendo en cuenta los límites marcados, y observando las separaciones entre parches que han sido utilizadas en otros diseños publicados \cite{Waterhouse2010, Bertol2017}, se ha decidido usar en todos los diseños realizados, una separación entre los parches del array de $0.7\lambda_{0}$. Esta distancia se tomará de referencia entre los centros de cada antena (fig. \ref{fig:ejemploseparación}). En la tabla \ref{tab:sepparches} se recogen las distancias de separación entre elementos para las tres frecuencias utilizadas en los diseños realizados. 
+
+\begin{table}[H]
+   
+   \label{tab:sepparches}
+   \small % text size of table content
+   \centering % center the table
+   \begin{tabular}{m{0.4\linewidth}m{0.4\linewidth}} % alignment of each column data
+   \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+   \textbf{Frecuencia} & \textbf{Separación entre elementos}  \\ 
+   \midrule
+   \textbf{2.4 GHz} & 87.4 mm  \\
+   \textbf{6 GHz} & 35 mm  \\
+   \textbf{27 GHz} & 7.77 mm  \\
+   \bottomrule[\heavyrulewidth] 
+   \end{tabular}
+   \caption{Principales valores de separación entre parches} 
+   \label{tab:sepparches}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=\textwidth]{archivos/array/separacionparches}
+        \caption{Ejemplo de separación entre parches para el array 4x1 a 2.4 GHz}
+        \label{fig:ejemploseparación}
+\end{figure}
+

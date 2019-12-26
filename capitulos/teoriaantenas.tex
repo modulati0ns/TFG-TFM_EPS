@@ -12,7 +12,7 @@
 
 \par Las antenas son transductores entre un medio guaiado y uno radiado. En su diseño más simplificado se analizaría un conductor metálico por el cual fluye una corriente variable en el tiempo. Se entiende como medio guiado a cualquier tipo de línea de transmisión: Cable coaxial, fibra óptica así como guías de onda. Y como medio radiado el aire o el espacio. Las antenas transmisoras serán las encargadas de transformar esta las corrientes eléctricas a \gls{oem}, mientras que las receptoras tomarán las \gls{oem} desde el medio radiado y las convertirán de nuevo a impulsos eléctricos para su posterior procesado. Las primeras antenas fueron diseñadas en 1888 por \textit{Heinrich Hertz} pero no fue hasta 1895 cuando \textit{Guglielmo Marconi} empezó a desarrollar antenas con el objetivo de transmitir información a largas distancias.
 \\
-\par Como se explico en el capítulo \ref{cap1}, cualquier variación de un campo eléctrico generará un campo magnético y viceversa. Cuando ambos campos conviven y existen variaciones de estos campos se dice que existe una radiación electromagnética. Para entender el principio de funcionamiento de una antena se tomará como ejemplo el caso de hilo conductor cerrado. Si se introdujera una corriente eléctrica fluctuante en el tiempo dentro del conductor, por el principio de inducción electromagnética (Tercera ecuación de Maxwell, Ley de Faraday-Lentz) se produciría un campo magnético fluctuante y un campo eléctrico asociado a su alrededor, estaríamos hablando de un campo electromagnético. Pero este campo electromagnético no se propagaría y estaría siempre al rededor del conductor cerrado. Para poder propagar las \gls{oem} se debe conseguir separar la onda electromagnética del conductor.
+\par Como se explico en el capítulo \ref{cap1}, cualquier variación de un campo eléctrico generará un campo magnético y viceversa. Cuando ambos campos conviven y existen variaciones de estos campos se dice que existe una radiación electromagnética. Para entender el principio de funcionamiento de una antena se tomará como ejemplo el caso de hilo conductor cerrado. Si se introdujera una corriente eléctrica fluctuante en el tiempo dentro del conductor, por el principio de inducción electromagnética (Tercera ecuación de Maxwell, Ley de Faraday-Lentz) se produciría un campo magnético fluctuante y un campo eléctrico asociado a su alrededor, estaríamos hablando de un campo electromagnético. Pero este campo electromagnético no se propagaría y estaría siempre al rededor del conductor cerrado. Para poder propagar las \gls{oem} se debe conseguir separar la onda electromagnética del conductor. \cite{LearnEngineering2019}
 \\
 \par Para entender el efecto de separación se tomará como referencia dos cargas eléctricas de distintas polaridades separadas a una distancia determinada (fig. \ref{fig:campo1}), a esto se le conoce como dipolo eléctrico y producirán un campo eléctrico cuyas líneas de fuerza irán del positivo al negativo. Estás dos cargas intentarán juntarse debido al efecto de atracción. En el momento de mayor separación de las cargas, su velocidad será nula y su aceleración máxima. Conforme se vayan acercando la velocidad irá aumentando y la aceleración disminuyendo hasta que en el punto donde se encuentran la velocidad será máxima y la aceleración nula. Suponiendo un escenario teórico sin pérdidas estás cargas estarían fluctuando e intercambiando sus posiciones indefinidamente. Si se analiza el campo eléctrico producido por las cargas mientras estas están fluctuando se observaría como, en vez de seguir encontrando un campo eléctrico simple de menor intensidad, este se deforma debido a la aceleración presente en las cargas. Esta deformación es también conocida como efecto \textit{kink} (fig. \ref{fig:campo2}).
 \\
@@ -45,7 +45,7 @@
 	\caption{t > T/4}
 	\label{fig:campo4}
 \end{subfigure}
-\caption{Proceso de separación de campo eléctrico}\label{sistemass}
+\caption{Proceso de separación de campo eléctrico.}\label{sistemass}
 \end{figure}
 
 \par En la práctica se puede simular el experimento en lo que se denomina como antena dipolo, la antena más básica existente, que será estudiada con mayor detenimiento a lo largo de este capítulo. En una antena dipolo, al aplicar una tensión variable sobre los bornes de esta, las cargas irán oscilando de un extremo a otro según la polaridad del generador en ese instante, produciendo campos eléctricos capaces de separarse de la antena, con su consiguiente generación de campos magnéticos. El conjunto de la propagación de ambos campos son los campos electromagnéticos en los que se propagará la \gls{oem}. En la figura \ref{fig:dipolo} se pueden observar ejemplos de antenas dipolo. 
@@ -55,7 +55,7 @@
 	\begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
 		\centering
 		\includegraphics[width=7cm]{archivos/dipolo/dipole1} % Tamaño de la imagen
-		\caption{Esquema de un dipolo}
+		\caption{Esquema de un dipolo.}
 		\label{fig:dipolo1}
 	\end{subfigure}
 ~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
@@ -68,12 +68,12 @@
 \caption{Antenas dipolo de media onda}\label{fig:dipolo}
 \end{figure}
 
-\par El principio básico de diseño de antenas se basa en la geometría de estas. Es importante remarcar que para que la transmisión de la señal aplicada por el generador y que se desea convertir en \gls{oem}, la longitud de los lados del dipolo deben estar relacionados con la longitud de onda de la señal que se desea transmitir. En el caso del dipolo, los extremos tendrán una longitud de $\lambda$/4. Al juntan ambos extremos se puede observar que la antena tendrá una dimensión total de $\lambda$/2, y si se tiene en cuenta que la longitud de onda de la \gls{oem} generada es el doble de la longitud de la antena, se obtendrá una \gls{oem} radiada cuya frecuencia sea idéntica a la aplicada por el generador.
+\par El principio básico de diseño de antenas se basa en la geometría de estas. Es importante remarcar que para que la transmisión de la señal aplicada por el generador y que se desea convertir en \gls{oem}, la longitud de los lados del dipolo deben estar relacionados con la longitud de onda de la señal que se desea transmitir. En el caso del dipolo, los extremos tendrán una longitud de $\lambda$/4. Al juntan ambos extremos se puede observar que la antena tendrá una dimensión total de $\lambda$/2, y si se tiene en cuenta que la longitud de onda de la \gls{oem} generada es el doble de la longitud de la antena, se obtendrá una \gls{oem} radiada cuya frecuencia sea idéntica a la aplicada por el generador. 
 \\
 \par Aunque se ha analizado el caso de una antena para que funcione como transmisora, el mismo principio de funcionamiento se aplica cuando queremos que esta funcione como receptora de señales. Una \gls{oem} que viaje por el espacio será capaz de hacer oscilar las cargas de una antena receptora cuando su frecuencia y las longitud de la antena estén directamente relacionadas y se produzca la resonancia sobre esta. La diferencia es que a la salida de la antena receptora no tendremos un generador, sino lo que denominaremos como carga, pudiendo ser esta cualquier tipo de componente eléctrico o electrónico que sea capaz de trabajar con las corrientes eléctricas producidas por la fluctuación de cargas eléctricas en el interior de la antena.
 
 \section{Caracterización de antenas}
-\par Para saber qué tipo de antena se puede hacer más conveniente para un uso concreto se ha de tener en cuenta sus características. Las principales características de las antenas son:
+\par Para saber qué tipo de antena se puede hacer más conveniente para un uso concreto se ha de tener en cuenta sus características. Las principales características de las antenas son: \cite{Carcamo2014, Cardama2002, JaumeAnguera2008}
 
 \subsection{Polarización}
 \par Como se hizo mención en el capítulo \ref{cap1}, las \gls{oem} pueden estar polarizadas. Si se secciona a una \gls{oem} perpendicularmente a su vector de propagación y vemos el dibujo que va formando campo eléctrico en dicha sección conforme pasa el tiempo observaríamos qué tipo de polarización tiene la \gls{oem}. Las tres polarizaciones más comunes son: Lineal, circular y elíptica.
@@ -87,7 +87,7 @@
 \begin{figure}[H]
     \centering
         \includegraphics[width=6cm]{archivos/polarizacion/lineal}
-        \caption{Onda electromagnética polarizada linealmente}
+        \caption{Onda electromagnética polarizada linealmente.}
         \label{fig:pollin}
 \end{figure}
 \item\textbf{Polarización circular: }Cuando se observa que la figura trazada por el campo eléctrico es un círculo, se dirá que esta está polarizada circularmente. Analíticamente se producirá polarización circular cuando las fases de las componentes ortogonales del campo eléctrico sean $\pi$/2 o 3$\pi$/2 y las amplitudes sean iguales. La variación temporal de los campos eléctricos con polarización circular se puede representar fasorialmente como:
@@ -102,7 +102,7 @@
 \begin{figure}[H]
     \centering
         \includegraphics[width=6cm]{archivos/polarizacion/circular}
-        \caption{Onda electromagnética polarizada circularmente}
+        \caption{Onda electromagnética polarizada circularmente.}
         \label{fig:polcir}
 \end{figure}
 
@@ -117,7 +117,7 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 \begin{figure}[H]
     \centering
         \includegraphics[width=6cm]{archivos/polarizacion/eliptica}
-        \caption{Onda electromagnética polarizada elípticamente}
+        \caption{Onda electromagnética polarizada elípticamente.}
         \label{fig:poleli}
 \end{figure}
 
@@ -162,7 +162,7 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 \begin{figure}[h]
     \centering
         \includegraphics[width=15cm]{archivos/impedancia}
-        \caption{Circuito equivalente de una antena transmisora}
+        \caption{Circuito equivalente de una antena transmisora. \cite{Cardama2002}}
         \label{fig:impedancia}
 \end{figure}
 \todo{referencia}
@@ -222,7 +222,7 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 \begin{figure}[h]
     \centering
         \includegraphics[width=16cm]{archivos/radiacion/pat3}
-        \caption{Comparación de los parámetros del diagrama de radiación en planos cartesianos y polares }
+        \caption{Comparación de los parámetros del diagrama de radiación en planos cartesianos y polares, \cite{Cardama2002}}
         \label{fig:carte}
 \end{figure}
 \todo{referencia de la imagen de los patrones a donde?}
@@ -237,10 +237,9 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 \begin{figure}[h]
     \centering
         \includegraphics[width=15cm]{archivos/radiacion/patrones}
-        \caption{Principales patrones de radiación }
+        \caption{Principales patrones de radiación. \cite{Cardama2002} }
         \label{fig:prinrad}
 \end{figure}
-\todo{referencia}
 \subsection{Directividad}
 
 \par La directividad de una antena se define como la relación entre la intensidad de potencia de radiación en una dirección y distancia concretas, y la misma potencia radiada en caso de que la antena fuera isotrópica, es decir, cuya potencia radiada sea igual en todas las direcciones del espacio (eq. \ref{eq:directividad}). Este parámetro es muy importante para caracterizar la antena ya que representa la capacidad de una antena para concentrar la intensidad de radiación en una dirección determinada. Es posible obtener analíticamente el valor de directividad para un ángulo completo en el plano polar mediante:
@@ -295,34 +294,37 @@ En este caso el signo que se encuentra en el interior de la suma de componentes 
 	BW=f_{2}-f_{1}
 	\label{eq:anchodebanda}
 \end{equation}
-
-\par Las pérdidas de retorno de una antena o parámetros S (Scattering parameter) definen la relación entre los puertos de entrada y salida del sistema. Un puerto se describe como el lugar en el que se entrega energía en forma de voltaje o corriente. En un sistema de comunicación radio transmisor, compuesto por una línea de transmisión, que provee de energía a una antena, el parámetro principal que describe la capacidad de transmisión de la antena es el parámetro $S_{11}$. Este parámetro indica cuanta de la energía proporcionada a la antena esta siendo devuelta por esta a la linea de transmisión. Cuanto menor sea este parámetro mejor será nuestro sistema de comunicaciones puesto que significará que la mayor parte de la energía transmitida por el medio guiado habrá sido transmitida por la antena al medio radiado. 
-\\
-\par A la hora de realizar este estudio, el parámetro $S_{11}$ ha sido el determinante para determinar la calidad de la antena así como para definir su ancho de banda, ya que se ha definido el ancho de banda de las antenas diseñadas como el rango de frecuencias abarcado por el gráfico del parámetro $S_{11}$ cuando este está por debajo de los 10 dB (fig. \ref{fig:S}).
-
 \begin{figure}[h]
     \centering
-        \includegraphics[width=12cm]{archivos/S}
+        \includegraphics[width=0.8\textwidth]{archivos/S}
         \caption{Representación gráfica de curva de parámetro S y ancho de banda de la antena}
         \label{fig:S}
 \end{figure}
+\par Las pérdidas de retorno de una antena o parámetros S (Scattering parameter) definen la relación entre los puertos de entrada y salida del sistema. Un puerto se describe como el lugar en el que se entrega energía en forma de voltaje o corriente. En un sistema de comunicación radio transmisor, compuesto por una línea de transmisión, que provee de energía a una antena, el parámetro principal que describe la capacidad de transmisión de la antena es el parámetro $S_{11}$. 
+\\
+\par Este parámetro indica cuanta de la energía proporcionada a la antena esta siendo devuelta por esta a la linea de transmisión. Cuanto menor sea este parámetro mejor será nuestro sistema de comunicaciones puesto que significará que la mayor parte de la energía transmitida por el medio guiado habrá sido transmitida por la antena al medio radiado. 
+\\
+\par A la hora de realizar este estudio, el parámetro $S_{11}$ ha sido el determinante para determinar la calidad de la antena así como para definir su ancho de banda, ya que se ha definido el ancho de banda de las antenas diseñadas como el rango de frecuencias abarcado por el gráfico del parámetro $S_{11}$ cuando este está por debajo de los 10 dB (fig. \ref{fig:S}).
+
+
 
 \par Además, dentro del rango de ancho de banda de la antena, se encontrará el mínimo de la curva del parámetro S. Este mínimo se definirá como la frecuencia de trabajo de la antena e intentaremos centrarlo siempre según las necesidades de nuestro diseño.
 
+\newpage
 
 \section{Tipos de antenas}
 
-\par En la práctica existen una gran variedad de tipos de antenas disponibles en el mercado, cada una de ellas es más conveniente según la aplicación para la que vaya a ser usada. Los parámetros descritos anteriormente serán fundamentales para diferenciar los tipos de antenas disponibles y saber identificar cual se adapta mejor a unas necesidades específicas. A continuación se mencionarán los tipos de antenas más comunes así como una breve descripción, resumen de las características principales y usos más comunes.
+\par En la práctica existen una gran variedad de tipos de antenas disponibles en el mercado, cada una de ellas es más conveniente según la aplicación para la que vaya a ser usada. Los parámetros descritos anteriormente serán fundamentales para diferenciar los tipos de antenas disponibles y saber identificar cual se adapta mejor a unas necesidades específicas. A continuación se mencionarán los tipos de antenas más comunes así como una breve descripción, resumen de las características principales y usos más comunes. \cite{Frenzel2013, WNI2012, Cardama2002}
 
 \subsection{Antenas de hilo}
 \subsubsection{Antena dipolo}
 
-\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, obteniendo así un patrón de radiación tridimensional con forma toroidal cuyo radio interno es el diametro de los extremos del dipolo y con directividades entre los 1dB y 4dB. Según la longitud de los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan en conjunto la mitad de la longitud de onda a la que se necesite emitir. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole).
+\par Como se ha ido mencionado a lo largo del proyecto, el concepto más básico de antena se define como un dipolo (fig. \ref{fig:conjuntodipolo}). En la práctica un dipolo no es más que una linea de transmisión abierta cuyos extremos han de estar relacionados con la longitud de onda de la frecuencia a la que se quiera emitir para que la antena así posea resonancia. El patrón de radiación de un dipolo es, por lo general, omnidireccional en el plano H y con dos lóbulos en el plano E, obteniendo así un patrón de radiación tridimensional con forma toroidal cuyo radio interno es el diametro de los extremos del dipolo y con directividades entre los 1 dB y 4 dB. Según la longitud de los extremos abiertos del dipolo, el diagrama de radiación podrá ir variando e incluso llegaremos a observar la aparición de lóbulos secundarios y menores en ciertos múltiplos de la frecuencia a la que se quiera emitir (fig. \ref{fig:diagramadipolo}). Por ello, lo más común es que estos extremos midan en conjunto la mitad de la longitud de onda a la que se necesite emitir. A esta variación se le conoce como: Dipolo de media onda (Half-wave dipole). \cite{TutorialsPoint2018}
 \\
 \begin{figure}[h]
     \centering
         \includegraphics[width=0.6\textwidth]{archivos/dipolo/dipoloo}
-        \caption{Conjunto de antenas dipolo \cite{Ideal-Antenas2008}}
+        \caption{Conjunto de antenas dipolo. \cite{Ideal-Antenas2008}}
         \label{fig:conjuntodipolo}
 \end{figure}
 
@@ -350,14 +352,14 @@ La Antena Yagi-Uda (fig. \ref{fig:yagi}), inventada por \textit{Hidetsugu Yagi} 
 	\begin{subfigure}[b]{0.45\textwidth}
     \centering
         \includegraphics[width=\textwidth]{archivos/dipolo/yagi}
-        \caption{Antena Yagi para recepción de TDT \cite{Pearce2010}}
+        \caption{Antena Yagi para recepción de TDT. \cite{Pearce2010}}
         \label{fig:yagi}
 	\end{subfigure}
 ~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
 	\begin{subfigure}[b]{0.45\textwidth} % Espacio horizontal ocupado por la subfigura
 	\centering
 		\includegraphics[width=\textwidth]{archivos/yagipat} % Tamaño de la imagen
-		\caption{Diagrama de radiación común de antena yagi}
+		\caption{Diagrama de radiación de antena yagi.}
 		\label{fig:yagirad}
 	\end{subfigure}
 \caption{Antenas Yagi}\label{fig:yagis}
@@ -401,7 +403,7 @@ La Antena Yagi-Uda (fig. \ref{fig:yagi}), inventada por \textit{Hidetsugu Yagi} 
 
 \par Las antenas de tipo bocina se caracterizan por su forma cónica o rectangular parecida a la de un altavoz. Su uso se remonta a finales del año 1800, pero este tipo de antenas adquirió popularidad durante la segunda guerra mundial (fig. \ref{fig:horn}). La diferencia de estas antenas con respecto a las antenas de tipo cable es que estas son alimentadas mediante una guía de onda. Una guía de onda es una estructura física capaz de transportar modos electromagnéticos en su interior. Suelen usarse para la guiado de emisiones de alta frecuencia, más en concreto de microondas debido a su baja atenuación en estas magnitudes. En el interior de las guías de ondas, las \gls{oem} viajan confinadas de modo que no hay pérdidas por radiación en el espacio y se consiguen evitar las interferencias electromagnéticas externas durante su guiado.
 \\
-\par Por lo general, las bocinas son usadas para la radiación de microondas y tienen un papel importante en campos como la radio astronomía o seguimiento satelital, además de ser usado junto a otros elementos como reflectores o lentes y sirven como estándar universal para la calibración de antenas de alta ganancia. En el caso de las bocinas piramidales, las dimensiones de los lados de la apertura definen qué plano de radiación es más efectivo en la antena. Si la longitud mayor es la del plano horizontal se denominarán bocinas de plano H, y en el plano vertical, bocinas de plano E. El modo de propagación siempre es el $\gls{te}_{10}$. En el caso en el que la bocina sea circular, el modo de propagación será el $TE_{11}$.
+\par Por lo general, las bocinas son usadas para la radiación de microondas y tienen un papel importante en campos como la radio astronomía o seguimiento satelital, además de ser usado junto a otros elementos como reflectores o lentes y sirven como estándar universal para la calibración de antenas de alta ganancia. En el caso de las bocinas piramidales, las dimensiones de los lados de la apertura definen qué plano de radiación es más efectivo en la antena. Si la longitud mayor es la del plano horizontal se denominarán bocinas de plano H, y en el plano vertical, bocinas de plano E. El modo de propagación siempre es el $\gls{te} _{10}$. En el caso en el que la bocina sea circular, el modo de propagación será el $TE_{11}$.
 \\
 \par La directividad de este tipo de antenas es una de sus principales ventajas siendo esta muy moldeable solo variando las dimensiones de la apertura de la bocina. Su principal desventaja llega en su eficiencia, que suele rondar entre el 50\% y el 60\%.
 \begin{figure}[h]
