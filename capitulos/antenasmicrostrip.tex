@@ -78,7 +78,9 @@
 \par En estos métodos de alimentación, no existe un material conductor que toque físicamente el parche sino que este se alimentará por acoplamiento electromagnético entre un material conductor instalado cerca de el. Estos métodos de alimentación solucionan ciertas limitaciones que producen las alimentaciones directas, como el hecho de producir radiaciones con polarizaciones cruzadas.
 
 \subsubsection{Alimentación por proximidad}
-\par Para este método se hará uso de dos substratos, un substrato entre el plano superior donde se instalará el parche microstrip y un plano central donde se encontrará la línea de alimentación también en tecnología microstrip. El segundo substrato separará el plano central de alimentación con un plano de tierra situado en la parte inferior de toda la infraestructura. El principio de funcionamiento se basa en el acoplamiento electromagnético entre la línea de transmisión situado como un sándwich entre los dos substratos, y el parche en la capa superior.  Las constantes dieléctricas de los distintos substratos son distintas y esto será de ayuda a la hora optimizar la penetración entre capas.
+\par Para este método se hará uso de dos substratos, un substrato entre el plano superior donde se instalará el parche microstrip y un plano central donde se encontrará la línea de alimentación también en tecnología microstrip. El segundo substrato separará el plano central de alimentación con un plano de tierra situado en la parte inferior de toda la infraestructura. 
+\\
+\par El principio de funcionamiento se basa en el acoplamiento electromagnético entre la línea de transmisión situado como un sándwich entre los dos substratos, y el parche en la capa superior.  Las constantes dieléctricas de los distintos substratos son distintas y esto será de ayuda a la hora optimizar la penetración entre capas.
 \\
 \par Además, este método de alimentación permite la obtención de mejores anchos de banda, menor radiación espuria, mejor supresión del paso de modos de orden superior, y facilidad para adaptar la línea microstrip al parche. La principal desventaja de este método reside en la utilización de dos substratos, lo que incrementa notablemente el grosor del sistema de antena, lo que en ciertas aplicaciones puede no ser viable.
 
@@ -152,7 +154,7 @@
 \\
 \par El método de línea de transmisión es más sencillo pero con una menor exactitud a la hora de obtener los resultados así como una menor facilidad para modelar el acoplamiento. Este método además, solo es útil a la hora de diseñar y analizar parches rectangulares. Comparado con el, el método de cavidad ofrece una mayor precisión sacrificando la complejidad a la hora de realizar los cálculos. El método de onda completa es usado para obtener los resultados más exactos, versátiles, y con mayor facilidad para tratar elementos finitos, así como arrays infinitos, pilas, y antenas microstrip con formas completamente aleatorias, pero sacrificando la facilidad en el análisis ya que se trata de un método muy complejo y no ofrece una buena visión física para entender los fenómenos físicos que ocurren en la antena. 
 \\
-\par En este proyecto se ha usado principalmente el método de línea de transmisión para el diseño de las antenas microstrip, con lo que se procederá a profundizar en la explicación de este método obviando los métodos de cavidades y onda completa dada su complejidad.
+\par En este proyecto se ha usado principalmente el método de línea de transmisión para el diseño de las antenas microstrip, con lo que se procederá a profundizar en la explicación de este método obviando los métodos de cavidades y onda completa dada su complejidad. \cite{Balanis2015}
 
 \subsection{Método de análisis y diseño por línea de transmisión}
 \label{351}
@@ -317,7 +319,7 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
 \par Tras realizar el análisis se obtendrán unos parámetros característicos de la antena con leves margenes de error sobre los inicialmente buscados en el diseño. Esto se debe a la simpleza de análisis del modelo de línea de transmisión, pero estos parámetros ya estarán dentro de los órdenes de magnitud buscados y se hará muy sencilla la corrección de ciertas dimensiones para conseguir adaptar el diseño del todo a nuestras especificaciones.
 
 \section{Otros parámetros de análisis}
-\par Además de los parámetros que se han calculado anteriormente para diseñar la antena microstrip, la construcción del sistema completo necesitará de otras características para su correcto funcionamiento. Estos nuevos parámetros están relacionados con las líneas de transmisión microstrip que alimentarán la antena y darán forma al array. Es importante que las líneas de transmisión tengas unas dimensiones específicas puesto que son estas las que definen sus características. Un buen diseño de las líneas de transmisión será de ayuda para una sencilla adaptación de impedancia entre la antena, la fuente y otras líneas de transmisión adyacentes.
+\par Además de los parámetros que se han calculado anteriormente para diseñar la antena microstrip, la construcción del sistema completo necesitará de otras características para su correcto funcionamiento. Estos nuevos parámetros están relacionados con las líneas de transmisión microstrip que alimentarán la antena y darán forma al array. Es importante que las líneas de transmisión tengas unas dimensiones específicas puesto que son estas las que definen sus características. Un buen diseño de las líneas de transmisión será de ayuda para una sencilla adaptación de impedancia entre la antena, la fuente y otras líneas de transmisión adyacentes. \cite{Balanis2015}
 
 \subsection{Ancho de la línea de transmisión}
 \par El ancho de la línea de transmisión $W_{feed}$ es clave para el diseño de esta puesto que es quien define su impedancia característica. En una configuración de línea de transmisión en tecnología microstrip, podemos sintetizar el ancho de la antena según la impedancia que se desea obtener para un diseño específico. Es necesario conocer de antemano cuál va a ser la altura del sustrato. A partir de ahí aplicaremos la siguiente ecuación:
@@ -368,7 +370,7 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
         \label{fig:lambdacuartos}
 \end{figure}
 
-\par En el caso de que cualquiera de las impedancias, ya sea de la parte del generador o de la carga, no sea puramente óhmica deberemos añadir otro tipo de adaptadores, como elementos pasivos en serie o paralelo, cuya función es anular la parte reactiva de las impedancias de estos circuitos.
+\par En el caso de que cualquiera de las impedancias, ya sea de la parte del generador o de la carga, no sea puramente óhmica deberemos añadir otro tipo de adaptadores, como elementos pasivos en serie o paralelo, cuya función es anular la parte reactiva de las impedancias de estos circuitos. A lo largo del proceso de diseño y análisis de las antenas del proyecto, los transformadores $\lambda/4$ serán muy usados para la adaptación entre las líneas de 25, 50 y 100 $\Omega$ en las configuraciones de arrays donde la división de potencias en las bifurcaciones de caminos paralelos, impliquen el aumento de la impedancia de la línea, produciendo desadaptaciones finales con el parche que implicarían líneas de transmisión ínfimas para cumplir con los requerimientos de los divisores de potencia.
 
 
 \begin{figure}[H]
