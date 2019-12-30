@@ -260,9 +260,9 @@ Donde $v_{0}$ es la velocidad de la luz en el vacío.
 \end{equation}
 \end{enumerate}
 
-\par Una vez que se han calculado las dimensiones del parche, vamos a proceder a su adaptación. Para ello, es muy común el uso de pequeñas inserciones de la línea de alimentación microstrip dentro del parche, abriendo dos ranuras alrededor de esta. Con esto se consigue que la línea de alimentación con una impedancia característica $Z_{c}$ este completamente adaptado en impedancias con el parche. Estas pequeñas ranuras o \textit{insets} tendrán una longitud específica en la que se sabe que la posición en la que se encuentra el final de la línea concuerda con la misma impedancia dentro del parche. \todo{explicar mejro?}.
+\par Una vez que se han calculado las dimensiones del parche, vamos a proceder a su adaptación. Para ello, es muy común el uso de pequeñas inserciones de la línea de alimentación microstrip o \textit{inset}  dentro del parche, abriendo dos ranuras alrededor de esta. Con esto se consigue que la línea de alimentación con una impedancia característica $Z_{c}$ este completamente adaptada en impedancias con el parche. Estas pequeñas ranuras tendrán una longitud específica en la que se sabe que la posición en la que se encuentra el final de la línea concuerda con la misma impedancia dentro del parche.
 \\
-\par Para hallar la longitud del \textit{inset} se necesita tener en cuenta las admitancias \textit{Y}, conductancias \textit{G} y susceptancias \textit{B} de las ranuras y así poder calcular cuál es la resistencia de entrada resonante donde buscar la adaptación entre \textit{feed} y parche. Para ello primera se calcula la conductancia \textit{$G_{1}$}:
+\par Para hallar la longitud del \textit{inset} se necesita tener en cuenta las admitancias \textit{Y}, conductancias \textit{G} y susceptancias \textit{B} de las ranuras y así poder calcular cuál es la resistencia de entrada resonante donde buscar la adaptación entre \textit{feed} y parche. Para ello primero se calcula la conductancia \textit{$G_{1}$}:
 \\
 \begin{equation}
 	G_{1}=\frac{I_{1}}{120\pi^{2}}
@@ -276,7 +276,7 @@ Donde $v_{0}$ es la velocidad de la luz en el vacío.
 	\label{eq:I1}
 \end{equation}
 
-\par Las dos ranuras  producirán una conductancia mutua \textit{$G_{12}$} cuyos efectos han de ser tenidos en cuenta para calcular la resistencia de entrada:
+\par Las dos ranuras  producirán una conductancia mutua \textit{$G_{12}$} cuyos efectos han de ser tenidos en cuenta para calcular la resistencia de entrada.
 
 \begin{equation}
 	G_{12}=\frac{I_{12}}{120\pi^{2}}
@@ -291,9 +291,9 @@ Donde $v_{0}$ es la velocidad de la luz en el vacío.
 	\label{eq:I12}
 \end{equation}
 
-Donde se entiende por \textit{$J_{0}$} como la función de Bessel de orden cero.
+Donde se entiende como \textit{$J_{0}$} la función de Bessel de orden cero.
 \\
-\par Se obtendrá la resistencia de entrada resonante \textit{$R_{in}$} mediante:
+\par A continuación, se obtendrá la resistencia de entrada resonante \textit{$R_{in}$} mediante:
 
 \begin{equation}
 	R_{in}=\frac{1}{2(G_{1}\pm G_{12})}
@@ -316,7 +316,7 @@ Donde \textit{$R_{in}(y=y_{0})$} es la impedancia característica de la línea d
         \label{fig:inset}
 \end{figure}
 
-\par Tras realizar el análisis se obtendrán unos parámetros característicos de la antena con leves margenes de error sobre los inicialmente buscados en el diseño. Esto se debe a la simpleza de análisis del modelo de línea de transmisión, pero estos parámetros ya estarán dentro de los órdenes de magnitud buscados y se hará muy sencilla la corrección de ciertas dimensiones para conseguir adaptar el diseño del todo a nuestras especificaciones.
+\par Tras realizar el análisis se obtendrán unos parámetros de pérdidas de retorno de la antena con leves margenes de error sobre los inicialmente buscados en el diseño. Esto se debe a la simpleza de análisis del modelo de línea de transmisión, pero estos parámetros ya estarán dentro de los órdenes de magnitud buscados y se hará muy sencilla la corrección de ciertas dimensiones para conseguir adaptar el diseño del todo a nuestras especificaciones.
 
 \section{Otros parámetros de análisis}
 \par Además de los parámetros que se han calculado anteriormente para diseñar la antena microstrip, la construcción del sistema completo necesitará de otras características para su correcto funcionamiento. Estos nuevos parámetros están relacionados con las líneas de transmisión microstrip que alimentarán la antena y darán forma al array. Es importante que las líneas de transmisión tengas unas dimensiones específicas puesto que son estas las que definen sus características. Un buen diseño de las líneas de transmisión será de ayuda para una sencilla adaptación de impedancia entre la antena, la fuente y otras líneas de transmisión adyacentes. \cite{Balanis2015}

@@ -260,11 +260,7 @@
   url    = {https://es.wikipedia.org/wiki/MoviLine},
 }
 
-<<<<<<< HEAD
-@Online{,
-=======
 @Online{LaCuevaGSM2014,
->>>>>>> ba44ef95d8048caa7b1e67a6094be6276f0e5f25
   author = {LaCuevaGSM},
   title  = {Diferencia entre 2G, 3G y 4G},
   year   = {2014},
