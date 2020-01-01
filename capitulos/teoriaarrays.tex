@@ -33,7 +33,7 @@
 \section{Arrays lineales}
 \par Para entender el funcionamiento analítico de las agrupaciones de antenas, se pondrá como ejemplo un array lineal de estas. Un array lineal consiste en un conjunto de antenas agrupadas a lo largo de una recta y conectadas en serie. El diagrama de radiación del array de antenas es el producto final de las interferencias constructivas y destructivas causadas por las radiaciones de los elementos individuales. Comenzaremos considerando una sola antena alimentada mediante una corriente $I_{n}$, donde $n$ identifica el número de la antena que compone el array, siendo 0 la primera antena y N-1 la última. Por lo tanto, la primera antena será alimentada por una corriente $I_{0}$ \citep{Cardama2002}.
 \\
-\par Esta antena poseerá una distribución de corrientes $J_{0}(\vec{r})$. Por lo tanto, si agrupamos un conjunto de $n$ antenas equiespaciadas una distancia $d$ a lo largo del eje $z$ (fig. \ref{fig:arraigo}), cada una excitada con su fasor de corriente, $I_{n}$, la distribución de corrientes del conjunto de antenas quedará como \cite{Cardama2002}:
+\par Esta antena poseerá una distribución de corrientes $J_{0}(\vec{r})$. Por lo tanto, si agrupamos un conjunto de $n$ antenas equiespaciadas una distancia $d$ a lo largo del eje $z$ (fig. \ref{fig:arraigo}), cada una excitada con su fasor de corriente, $I_{n}$, la distribución de corrientes del conjunto de antenas quedará como:
 
 \begin{figure}[h]
     \centering
@@ -47,21 +47,21 @@
 	\label{eq:distrib}
 \end{equation}
 
-\par Se puede expresar el sumatorio anterior como la convolución entre la corriente que alimenta un elemento básico del array, es decir, una antena simple, y un tren de deltas ponderadas con sus respectivos pesos $I_{n}$ \cite{Cardama2002}.
+\par Se puede expresar el sumatorio anterior como la convolución entre la corriente que alimenta un elemento básico del array, es decir, una antena simple, y un tren de deltas ponderadas con sus respectivos pesos $I_{n}$.
 
 \begin{equation}
 	\vec{J}\left ( \vec{r} \right )=\vec{J}_{0}\left ( \vec{r} \right ) \ast \sum_{n=0}^{N-1}I_{n}\delta (r-nd\hat{z})=\vec{J}_{0}\left ( \vec{r} \right )\ast I(n)
 	\label{eq:conv}
 \end{equation}
 
-\par Sabiendo que el vector de radiación $\vec{N}\left ( \vec{r} \right )$, es la transformada de Fourier tridimensional de la distribución de corrientes $\vec{J}\left ( \vec{r} \right )$, se aplicará el teorema de convolución para calcularlo \cite{Cardama2002}.
+\par Sabiendo que el vector de radiación $\vec{N}\left ( \vec{r} \right )$, es la transformada de Fourier tridimensional de la distribución de corrientes $\vec{J}\left ( \vec{r} \right )$, se aplicará el teorema de convolución para calcularlo.
 
 \begin{equation}
 	\vec{N}\left ( \vec{r} \right )=TF_{3D}\left [\vec{J}\left ( \vec{r} \right )  \right ]=\vec{N}_{0}\left ( \vec{r} \right )\cdot TF_{3D}\left [ I(n)   \right ]
 	\label{eq:3d}
 \end{equation}
 
-\par Donde $\vec{N}_{0}\left ( \vec{r} \right )$ es el vector de radiación del elemento simple situado en el origen, cuando el fasor de alimentación toma el valor unidad. Dado que el fasor de corriente $I_{n}$  es separable, su $TF_{3D}$ consistirá en el producto de las transformadas en cada dirección \cite{Cardama2002}.
+\par Donde $\vec{N}_{0}\left ( \vec{r} \right )$ es el vector de radiación del elemento simple situado en el origen, cuando el fasor de alimentación toma el valor unidad. Dado que el fasor de corriente $I_{n}$  es separable, su $TF_{3D}$ consistirá en el producto de las transformadas en cada dirección.
 
 
 \begin{equation}
@@ -69,14 +69,14 @@
 	\label{eq:direccional}
 \end{equation}
 
-\par Donde $\omega _{z}$ es la frecuencia digital en la dirección del eje $z$, que puede ser obtenida mediante el producto de la frecuencia espacial analógica $k_{z}$  por el periodo de muestreo en la dirección z, que equivale a la distancia de espaciación entre las antenas que componen el array, $d$ \cite{Cardama2002}. 
+\par Donde $\omega _{z}$ es la frecuencia digital en la dirección del eje $z$, que puede ser obtenida mediante el producto de la frecuencia espacial analógica $k_{z}$  por el periodo de muestreo en la dirección z, que equivale a la distancia de espaciación entre las antenas que componen el array, $d$. 
 
 \begin{equation}
 	\omega_{z} = k_{z}\cdot d = k d \cos {\theta } 
 	\label{eq:frecdigital}
 \end{equation}
 
-\par Donde $\theta$ representa el ángulo cualquiera con respecto a la agrupación de antenas. Teniendo en cuenta que los fasores de alimentación $I_{n}$, presentan una fase progresiva entre cada par de antenas consecutivas que puede expresarse mediante \cite{Cardama2002}: 
+\par Donde $\theta$ representa el ángulo cualquiera con respecto a la agrupación de antenas. Teniendo en cuenta que los fasores de alimentación $I_{n}$, presentan una fase progresiva entre cada par de antenas consecutivas que puede expresarse mediante: 
 
 \begin{equation}
 	I_{n}=a_{n}e^{jn\alpha} 
@@ -84,28 +84,28 @@
 \end{equation}
 
 \par Donde $a_{n}$ son coeficientes, generalmente complejos, y que pueden tomar valores reales cuando la fase de alimentación sea progresiva, se podrá entonces
-obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
+obtener el vector de radiación del conjunto de antenas:
 
 \begin{equation}
 	\vec{N}\left ( \vec{r} \right )= \vec{N}_{0}\left ( \vec{r} \right )\sum_{n=0}^{N-1}a_{n}e^{jn(kd\cos\theta+\alpha)}
 	\label{eq:vecrad}
 \end{equation}
 
-\par Para simplificar los cálculos, agruparemos el término $kd\cos\theta+\alpha$ en una sola variable, la cual representará la diferencia de fase entre las contribuciones en el campo lejano de dos antenas consecutivas \cite{Cardama2002}. 
+\par Para simplificar los cálculos, agruparemos el término $kd\cos\theta+\alpha$ en una sola variable, la cual representará la diferencia de fase entre las contribuciones en el campo lejano de dos antenas consecutivas. 
 
 \begin{equation}
 	\Psi = kd\cos\theta+\alpha
 	\label{eq:psi}
 \end{equation}
 
-\par Esta diferencia de fase es igual a la suma del desfase por diferencia de caminos $kd\cos\theta$, más la diferencia de fase que progresivamente ha ido alimentando cada antena $\alpha$. Quedando entonces el vector de radiación como \cite{Cardama2002}: 
+\par Esta diferencia de fase es igual a la suma del desfase por diferencia de caminos $kd\cos\theta$, más la diferencia de fase que progresivamente ha ido alimentando cada antena $\alpha$. Quedando entonces el vector de radiación como: 
 
 \begin{equation}
 	\vec{N}\left ( \vec{r} \right )= \vec{N}_{0}\left ( \vec{r} \right )\sum_{n=0}^{N-1}a_{n}e^{jn\Psi}
 	\label{eq:vecrad2}
 \end{equation}
 
-\par Se puede observar cómo el vector de radiación consiste en el producto entre el vector de radiación de la primera antena básica $\vec{N}_{0}\left ( \vec{r} \right ) $ y un factor que tiene en cuenta la interferencia de las \textit{N} ondas generadas por cada antena. Este factor depende unicamente de la separación entre elementos, su alimentación y la frecuencia de trabajo, y se le denomina \textit{factor de agrupación} o \textit{factor de array} (\textit{FA}) \cite{Cardama2002}.
+\par Se puede observar cómo el vector de radiación consiste en el producto entre el vector de radiación de la primera antena básica $\vec{N}_{0}\left ( \vec{r} \right ) $ y un factor que tiene en cuenta la interferencia de las \textit{N} ondas generadas por cada antena. Este factor depende unicamente de la separación entre elementos, su alimentación y la frecuencia de trabajo, y se le denomina \textit{factor de agrupación} o \textit{factor de array} (\textit{FA}).
 
 \begin{equation}
 	FA(\Psi)=\sum_{n=0}^{N-1}a_{n}e^{jn\Psi}
@@ -132,7 +132,7 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 	\label{eq:dominio}
 \end{equation}
 
-\par Solamente el intervalo comprendido en (\ref{eq:dominio}) pertenece al diagrama de radiación, lo que se conoce como \textit{margen visible} (fig. \ref{margenvisible}). La longitud del margen visibles es de $2kd$ y está centrado en $\Psi=\alpha$, de forma que su tamaño es proporcional al espaciado de la agrupación, normalizado respecto a la longitud de onda y su posición en el eje $\Psi$ varía con la fase progresiva.
+\par Solamente el intervalo comprendido en (\ref{eq:dominio}) pertenece al diagrama de radiación, lo que se conoce como \textit{margen visible} (fig. \ref{fig:margenvisible}). La longitud del margen visibles es de $2kd$ y está centrado en $\Psi=\alpha$, de forma que su tamaño es proporcional al espaciado de la agrupación, normalizado respecto a la longitud de onda y su posición en el eje $\Psi$ varía con la fase progresiva.
 
 \item \textbf{Máximo del diagrama de radiación: }Cuando los coeficientes de la alimentación son reales y positivos y si el margen visible incluye el origen $\Psi=0$, el máximo del diagrama de radiación se encuentra en $\theta_{max}$. 
 
@@ -143,7 +143,7 @@ obtener el vector de radiación del conjunto de antenas \cite{Cardama2002}:
 
 \par Si se varía la fase de alimentación progresiva $\alpha$, sería posible controlar la dirección del máximo de radiación. Este es el principio de funcionamiento de los \textit{Phased arrays}, en las que la dirección del máximo se varía de forma electrónica mediante un control de la fase relativa progresiva de alimentación de los elementos individuales del array. 
 
-\textbf{Periodicidad de los máximos: }Si el máximo de radiación se encuentra en $\Psi_{max}$ existirán máximos periódicos en los múltiplos enteros de $2\pi$. Cuando estos máximos se encuentran dentro del margen visible:
+\item \textbf{Periodicidad de los máximos: }Si el máximo de radiación se encuentra en $\Psi_{max}$ existirán máximos periódicos en los múltiplos enteros de $2\pi$. Cuando estos máximos se encuentran dentro del margen visible:
 
 \begin{equation}
 	kd+\alpha\geq 2\pi,\ \
@@ -291,14 +291,14 @@ $\alpha=180^{\circ}$  \\
 \par El nombre que reciben este tipo de configuraciones viene dado, no por la distribución de las antenas en el espacio, sino por la distribución de los ceros en el polinomio de agrupación en el círculo unidad.
 
 \subsubsection{Distribución uniforme}
-\par La distribución de corrientes uniforme es aquella en la que se alimentan todos las antenas que componen el array con la misma amplitud de excitación $a_{n}=1$. Su polinomio de agrupación es: \cite{Cardama2002}
+\par La distribución de corrientes uniforme es aquella en la que se alimentan todos las antenas que componen el array con la misma amplitud de excitación $a_{n}=1$. Su polinomio de agrupación es:
 
 \begin{equation}
 	P(z)=1+z+z^{2}+...+z^{N-1}=\frac{z^{N}-1}{z-1}
 	\label{eq:disuniform}
 \end{equation}
 
-\par De esta expresión se puede deducir que los ceros del polinomio de agrupación en el plano Z son las raíces N-ésimas de la unidad salvo $z=1$, y por ello, estos ceros se encuentran equiespaciados sobre el círculo unidad. \cite{Cardama2002}
+\par De esta expresión se puede deducir que los ceros del polinomio de agrupación en el plano Z son las raíces N-ésimas de la unidad salvo $z=1$, y por ello, estos ceros se encuentran equiespaciados sobre el círculo unidad. 
 
 \begin{figure}[h]
     \centering
@@ -307,31 +307,31 @@ $\alpha=180^{\circ}$  \\
         \label{fig:cerosuniforme}
 \end{figure}
 
-\par Teniendo en cuenta las ecuaciones \ref{eq:faz} y \ref{eq:disuniform} se puede deducir el factor de agrupación, obteniéndose: \cite{Cardama2002}
+\par Teniendo en cuenta las ecuaciones \ref{eq:faz} y \ref{eq:disuniform} se puede deducir el factor de agrupación, obteniéndose: 
 
 \begin{equation}
 	\left | FA (\Psi) \right |=\frac{\left | e^{jN\Psi}-1 \right |}{\left | e^{j\Psi}-1 \right |}
 	\label{eq:casisinc}
 \end{equation}
 
-\par Se puede observar que el factor de agrupación obtenido es una función \textit{sinc} periódica, igual a la TF de un pulso muestreado. \cite{Cardama2002}
+\par Se puede observar que el factor de agrupación obtenido es una función \textit{sinc} periódica, igual a la TF de un pulso muestreado. 
 
 \subsubsection{Distribución triangular} 
-\par La distribución de corrientes triangular se define para un array con un número de elementos impar. La alimentación de estas viene dada por: \cite{Cardama2002}
+\par La distribución de corrientes triangular se define para un array con un número de elementos impar. La alimentación de estas viene dada por: 
 
 \begin{equation}
 	a_{n}=\begin{cases} n+1, &  n< \frac{N}{2} \\ N-n, & n> \frac{N}{2} \end{cases}
 	\label{eq:casotriang}
 \end{equation}
 
-\par Si desarrollamos el polinomio Z (eq. \ref{eq:z} y \ref{eq:faz}), y tenemos en cuenta que la función triangular puede descomponerse en la convolución de dos pulsos iguales cuya longitud es la mitad que la del triángulo, lo que se traduce en un producto de transformadas en el dominio Z, el polinomio de la distribución de corrientes triangular puede expresarse como: \cite{Cardama2002}
+\par Si desarrollamos el polinomio Z (eq. \ref{eq:z} y \ref{eq:faz}), y tenemos en cuenta que la función triangular puede descomponerse en la convolución de dos pulsos iguales cuya longitud es la mitad que la del triángulo, lo que se traduce en un producto de transformadas en el dominio Z, el polinomio de la distribución de corrientes triangular puede expresarse como: 
 
 \begin{equation}
 	P(z)=1+2z+3z^{2}+...+3z^{N-3}+2z^{N-2}+z^{N-1}=\left [ \frac{z^{\frac{N+1}{2}}-1}{z-1} \right ]^{2}
 	\label{eq:casotriangpoli}
 \end{equation}
 
-\par Los ceros de la distribución triangular son los mismos que se obtendrían para el caso de la distribución de corrientes uniformes con $(N+1)/2$ antena, pero dobles. El factor de agrupación es también el obtenido para una distribución uniforme de longitud $[(N+1)/2]^{2}$: \cite{Cardama2002}
+\par Los ceros de la distribución triangular son los mismos que se obtendrían para el caso de la distribución de corrientes uniformes con $(N+1)/2$ antena, pero dobles. El factor de agrupación es también el obtenido para una distribución uniforme de longitud $[(N+1)/2]^{2}$: 
 
 \begin{equation}
 	\left | FA (\Psi) \right |=\frac{\left |  \sin\left ( \frac{N+1}{4}\Psi \right )\right |^{2}}{\left | \sin\left ( \frac{\Psi}{2} \right ) \right |^{2}}
@@ -346,21 +346,21 @@ $\alpha=180^{\circ}$  \\
 \end{figure}
 
 \subsubsection{Distribución binómica}
-\par La distribución de corrientes binómica define el polinomio como un binomio elevado a una potencia y desarrollado según la fórmula de Newton: \cite{Cardama2002}
+\par La distribución de corrientes binómica define el polinomio como un binomio elevado a una potencia y desarrollado según la fórmula de Newton: 
 
 \begin{equation}
 	P(z)=(z+1)^{N-1}=\binom{N-1}{0}+\binom{N-1}{1}z+\binom{N-1}{2}z^{2}+...+\binom{N-1}{N-1}z^{N-1}
 	\label{eq:newton}
 \end{equation}
 
-\par Los coeficientes de excitación del polinomio de agrupación se pueden obtener a través de la expresión de números combinatorios. \cite{Cardama2002}
+\par Los coeficientes de excitación del polinomio de agrupación se pueden obtener a través de la expresión de números combinatorios. 
 
 \begin{equation}
 	a_{n}=\binom{N-1}{n}=\frac{\left ( N-1 \right )!}{n!\left ( N-1-n \right )!}
 	\label{eq:combinatorios}
 \end{equation}
 
-\par El polinomio de la distribución de corrientes binómica presenta un solo cero, situado en $\Psi=\Pi$ y con multiplicidad $N-1$. Es por ello que el ancho de haz entre ceros de $\Psi$ es de $2\pi$ y no existen lóbulos secundarios en el módulo del factor de agrupación. Sin embargo, en el patrón de radiación si pueden aparecer lóbulos secundarios debido a la los lóbulos de difracción, que entra en el margen visible. El factor de agrupación obtenido para esta distribución es: \cite{Cardama2002}
+\par El polinomio de la distribución de corrientes binómica presenta un solo cero, situado en $\Psi=\Pi$ y con multiplicidad $N-1$. Es por ello que el ancho de haz entre ceros de $\Psi$ es de $2\pi$ y no existen lóbulos secundarios en el módulo del factor de agrupación. Sin embargo, en el patrón de radiación si pueden aparecer lóbulos secundarios debido a la los lóbulos de difracción, que entra en el margen visible. El factor de agrupación obtenido para esta distribución es: 
 
 \begin{equation}
 	\left | FA (\Psi) \right |=\left | 2\cos\frac{\Psi}{2} \right |^{N-1}	
@@ -384,7 +384,7 @@ $\alpha=180^{\circ}$  \\
 
 \par Las configuración transversal o \textit{broadsire} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
 \\
-\par Para conseguir que el máximo de radiación de un solo elemento radie en esta dirección basta con saber elegir qué elemento radiante es el mejor para nuestro sistema. Por otro lado, para conseguir que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, se deberá ajustar correctamente la separación y la fase de excitación de los elementos del array. Se tomará como punto de partida la ecuación \ref{eq:psi}, en la que buscaremos un nulo (máximo de radiación). \cite{Balanis2015} 
+\par Para conseguir que el máximo de radiación de un solo elemento radie en esta dirección basta con saber elegir qué elemento radiante es el mejor para nuestro sistema. Por otro lado, para conseguir que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, se deberá ajustar correctamente la separación y la fase de excitación de los elementos del array. Se tomará como punto de partida la ecuación \ref{eq:psi}, en la que buscaremos un nulo (máximo de radiación).  
 
 \begin{equation}
 	\Psi=kd\cos\theta+\alpha=0
@@ -398,14 +398,14 @@ $\alpha=180^{\circ}$  \\
 	\label{eq:alphita}
 \end{equation}
 
-\par De la ecuación \ref{eq:alphita} se deduce que, para que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, no debe existir ningún desfase a la hora de excitar los elementos del array, así como ninguna diferencia de amplitud en la exitación. Aunque la separación de los elementos puede tomar cualquier valor, para asegurarnos que no existan lóbulos de difracción, esta separación no debe tomar valores múltiplos enteros de la longitud de onda. \cite{Balanis2015}
+\par De la ecuación \ref{eq:alphita} se deduce que, para que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, no debe existir ningún desfase a la hora de excitar los elementos del array, así como ninguna diferencia de amplitud en la exitación. Aunque la separación de los elementos puede tomar cualquier valor, para asegurarnos que no existan lóbulos de difracción, esta separación no debe tomar valores múltiplos enteros de la longitud de onda. 
 
 
 
 
 \subsubsection{Agrupaciones longitudinales}
 
-\par Por otro lado tenemos la configuración denominada longitudinal o \textit{end-fire}. En este caso el máximo de radiación se encontrará a lo largo de la dirección del array, y no en la normal de esta, como en el caso \textit{broadside}. Con este tipo de configuraciones es, además, posible conseguir que solo exista el máximo en una dirección, ya sea a $\theta_{0}=0^{\circ}$ ó $\theta_{0}=180^{\circ}$. Partiendo de la ecuación \ref{eq:psi} buscaremos los máximos $\Psi=0$ para los ángulos de $0^{\circ}$ y $180^{\circ}$.   \cite{Balanis2015}
+\par Por otro lado tenemos la configuración denominada longitudinal o \textit{end-fire}. En este caso el máximo de radiación se encontrará a lo largo de la dirección del array, y no en la normal de esta, como en el caso \textit{broadside}. Con este tipo de configuraciones es, además, posible conseguir que solo exista el máximo en una dirección, ya sea a $\theta_{0}=0^{\circ}$ ó $\theta_{0}=180^{\circ}$. Partiendo de la ecuación \ref{eq:psi} buscaremos los máximos $\Psi=0$ para los ángulos de $0^{\circ}$ y $180^{\circ}$. \cite{Balanis2015}
 
 \begin{equation}
 	\Psi = kd\cos\theta+\alpha|_{\theta=0^{\circ}}\rightarrow kd+\alpha=0\rightarrow \alpha=-kd
@@ -418,7 +418,7 @@ $\alpha=180^{\circ}$  \\
 \end{equation}
 
 \par Se puede comprobar como para conseguir máximos de radiación en la dirección de $0^{\circ}$ se debe alimentar el array con una fase progresiva de $\alpha=-kd$, y $\alpha=kd$ en el caso de la dirección de $180^{\circ}$. Si la separación de los elementos es de $d=\lambda/2$, se obtendrán máximos de radiación en ambas direcciones. Además, esta separación es múltiplo entero de $\lambda$, se obtendrán máximos tanto en las direcciones de $0^{\circ}$ y $180^{\circ}$ características de la configuración \textit{end-fire} como en las direcciones de
-$90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis2015}
+$90^{\circ}$, es decir, de la configuración \textit{broadside}.
 
 \begin{figure}[h]
     \centering
@@ -431,23 +431,23 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 \par Las agrupaciones bidimensionales son aquellas en las que los elementos que conforman el array se sitúan sobre un plano común. En las agrupaciones unidimensionales, el diagrama de radiación producido se caracterizaba por tener una simetría de revolución respecto al eje de la agrupación. Las agrupaciones bidimensionales permiten obtener diagramas de radiación más complejos, y brindan la capacidad de dirigir el haz de propagación en las dos coordenadas esféricas del espacio $(\theta, \phi)$, sin las restricciones impuestas por la simetría de revolución. \cite{Cardama2002}
 \\
 \subsubsection{Agrupación bidimensional uniforme}
-\par La agrupación bidimensional más sencilla es la agrupación bidimensional uniforme (fig. \ref{fig:bidimensionalfoto}). Esta configuración se caracteriza por tener una distribución de antenas rectangular a lo largo de un mismo plano, conformada por $MxN$ antenas idénticas, equiespaciadas con separación $d_{x}$ a lo largo del eje $x$ y $d_{y}$ a lo largo del eje $y$, y alimentadas con una corriente $I_{mn}$, es decir, con la capacidad de alimentación individual. \cite{Cardama2002}
+\par La agrupación bidimensional más sencilla es la agrupación bidimensional uniforme (fig. \ref{fig:bidimensionalfoto}). Esta configuración se caracteriza por tener una distribución de antenas rectangular a lo largo de un mismo plano, conformada por $MxN$ antenas idénticas, equiespaciadas con separación $d_{x}$ a lo largo del eje $x$ y $d_{y}$ a lo largo del eje $y$, y alimentadas con una corriente $I_{mn}$, es decir, con la capacidad de alimentación individual. 
 \\
-\par El factor de agrupación será el resultado de la interferencia en el campo lejano de la radiación de todas las antenas. Por analogía a la ecuación \ref{eq:vecrad}, el factor de agrupación para una agrupación bidimensional uniforme es: \cite{Cardama2002}
+\par El factor de agrupación será el resultado de la interferencia en el campo lejano de la radiación de todas las antenas. Por analogía a la ecuación \ref{eq:vecrad}, el factor de agrupación para una agrupación bidimensional uniforme es: 
 
 \begin{equation}
 	FA (k_{x},k_{y}) =\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} I_{mn}e^{jmk_{x}d_{x}}e^{jnk_{y}d_{y}}
 	\label{eq:fabinom}
 \end{equation}
 
-\par Para una excitación con fase progresiva $\alpha_{x}$ en la dirección $x$ y $\alpha_{y}$ en la dirección $y$. \cite{Cardama2002}
+\par Para una excitación con fase progresiva $\alpha_{x}$ en la dirección $x$ y $\alpha_{y}$ en la dirección $y$. 
 
 \begin{equation}
 	FA (k_{x},k_{y}) =\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} I_{mn}e^{jmk_{x}d_{x}}e^{jnk_{y}d_{y}}
 	\label{eq:excitbinom}
 \end{equation}
 
-\par Definiendo los ángulos $\Psi_{x}$ y $\Psi_{x}$ como el desfase eléctrico entre las contribuciones en campo lejano de dos elementos consecutivos en los planos $(x,z)$ y $(y,z)$: \cite{Cardama2002}
+\par Definiendo los ángulos $\Psi_{x}$ y $\Psi_{x}$ como el desfase eléctrico entre las contribuciones en campo lejano de dos elementos consecutivos en los planos $(x,z)$ y $(y,z)$: 
 
 \begin{equation}
 	\begin{matrix}
@@ -458,7 +458,7 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 	\label{eq:sinsin}
 \end{equation}
 
-\par Resultando el factor de agrupación: \cite{Cardama2002}
+\par Resultando el factor de agrupación: 
 
 \begin{equation}
 	FA (\Psi_{x},\Psi_{y}) =\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} a_{mn}e^{jm\Psi_{x}}e^{jm\Psi_{x}}
@@ -502,7 +502,7 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
         \label{fig:seriesfeed}
 \end{figure}
 
-\par Otra opción de reconfigurabilidad de los arrays microstrip en serie es variar la frecuencia de trabajo, lo que puede conducir a diferentes patrones de radiación. Por otro lado, se ha de tener en cuenta que cualquier cambio o imperfección que se produzca sobre cualquiera de los elementos del array así como en cualquier punto de la línea de alimentación, afectará al funcionamiento de la antena, puesto que la excitación de cualquiera de los elementos del array dependerá de sus otros elementos interconectados. \cite{Balanis2015}
+\par Otra opción de reconfigurabilidad de los arrays microstrip en serie es variar la frecuencia de trabajo, lo que puede conducir a diferentes patrones de radiación. Por otro lado, se ha de tener en cuenta que cualquier cambio o imperfección que se produzca sobre cualquiera de los elementos del array así como en cualquier punto de la línea de alimentación, afectará al funcionamiento de la antena, puesto que la excitación de cualquiera de los elementos del array dependerá de sus otros elementos interconectados.
 
 \subsection{Líneas de alimentación en paralelo}
 \par Las líneas de alimentación interconectadas en paralelo o \textit{corporate-feed} son las más comunes y, por lo general, más versátiles en su uso. Mediante este método el diseñador posee un mayor control sobre la alimentación de cada uno de los elementos de la agrupación. Mediante la variación de la fase y la amplitud de excitación de uno o varios de los elementos del array se pueden llegar a implementar patrones de radiación imposibles de conseguir mediante elementos simples o configuraciones de arrays conectados en serie.
@@ -532,7 +532,6 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}. \cite{Balanis20
 
 \begin{table}[H]
    
-   \label{tab:sepparches}
    \small % text size of table content
    \centering % center the table
    \begin{tabular}{m{0.4\linewidth}m{0.4\linewidth}} % alignment of each column data

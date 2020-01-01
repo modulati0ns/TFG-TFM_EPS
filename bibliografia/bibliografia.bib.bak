@@ -367,4 +367,20 @@
   url         = {https://academica-e.unavarra.es/handle/2454/24666},
 }
 
+@Online{Wikipedia2019a,
+  author = {Wikipedia},
+  title  = {2G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/Telefon%C3%ADa_m%C3%B3vil_2G},
+}
+
+@Online{MINECO2019a,
+  author = {MINECO},
+  title  = {Segundo Dividendo Digital},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://www.televisiondigital.gob.es/2DD-5G/Paginas/segundo-dividendo-digital.aspx},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}

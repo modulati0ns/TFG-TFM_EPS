@@ -96,7 +96,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \subsection{Resumen}
 \par Como se puede observar en este parche único a 6 GHz, los resultados obtenidos son muy similares a los obtenidos en el caso de 2.4 GHz. El patrón de radiación de la antena se caracteriza por el ser el más básico que podemos encontrar en una antena de tipo microstrip, además de tratarse de un patrón muy útil para aplicaciones móviles puesto que su característica omnidireccional se adapta a los casos de uso en los que el patrón de radiación de la antena no esté apuntando directamente a la antena de telefonía. 
 \\
-\par En la tabla \ref{tab:res1x12} se pueden observar un resumen de los parámetros característicos de la antena. En ella se puede observar el buen rendimiento obtenido
+\par En la tabla \ref{tab:res1x12} se pueden observar un resumen de los parámetros característicos de la antena. 
 
 \begin{table}[H]
   
@@ -438,6 +438,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \end{figure}
 
 \subsection{Radiación 3D}
+\label{rad3d2x21}
 \par Desde el diagrama de radiación 3D se puede observar un comportamiento más simétrico del patrón de radiación en su conjunto, donde el cuerpo más presente es el lóbulo principal del patrón y un total de cuatro lóbulos laterales cada 90º alrededor de este.
 
 \begin{figure}[H]
@@ -1567,8 +1568,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \subsection{Resumen}
 \par En este parche simple a 27 GHz volvemos a recordar los resultados obtenidos para las respectivas configuraciones de 2.6 y 6 GHz. Aunque se pueda observar que el ancho de banda es mucho mayor a los de estas configuraciones, se mantiene en la relación esperada sobre el 2.4\% de la frecuencia de trabajo. Se ha ganado en relación delante/atrás y la eficiencia de radiación obtenida esta sobre las mas altas de las antenas estudiadas. 
 \\
-\par En la tabla \ref{tab:res1x13} se pueden observar un resumen de los parámetros característicos de la antena. En ella se puede observar el buen rendimiento obtenido.
-
+\par En la tabla \ref{tab:res1x13} se pueden observar un resumen de los parámetros característicos de la antena. 
 \begin{table}[H]
   
   
@@ -1716,8 +1716,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \subsection{Resumen}
 \par En este Array 2x1 a 27 GHz volvemos a recordar los resultados obtenidos para las respectivas configuraciones de 2.6 y 6 GHz. Aunque se pueda observar que el ancho de banda es mucho mayor a los de estas configuraciones, se mantiene en la relación esperada sobre el 2.4\% de la frecuencia de trabajo. Se ha ganado en relación delante/atrás y la eficiencia de radiación obtenida esta sobre las mas altas de las antenas estudiadas. 
 \\
-\par En la tabla \ref{tab:res2x13} se pueden observar un resumen de los parámetros característicos de la antena. En ella se puede observar el buen rendimiento obtenido.
-
+\par En la tabla \ref{tab:res2x13} se pueden observar un resumen de los parámetros característicos de la antena.
 \begin{table}[H]
   
   
@@ -1772,7 +1771,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \par Para el array 2x2 a 27 GHz los resultados obtenidos son los siguientes:
 
 \subsection{Pérdidas de retorno}
-\par Comenzaremos analizando la curva de pérdidas de retorno o Parámetro $S_{11}$ del Array 2x2 a 27 GHz, donde se puede observar un valor pico de -34.53 dB y un ancho de banda de 651.6 MHz, desde los 26.6904 GHz hasta los 27.342 GHz, lo que equivale a un 2.41\% de la frecuencia de trabajo.
+\par Comenzaremos analizando la curva de pérdidas de retorno o Parámetro $S_{11}$ del Array 2x2 a 27 GHz, donde se puede observar un valor pico de -33.37 dB y un ancho de banda de 590.8 MHz, desde los 26.7024 GHz hasta los 27.2932 GHz, lo que equivale a un 2.18\% de la frecuencia de trabajo.
 \\
 \begin{figure}[H]
     \centering
@@ -1782,7 +1781,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 \end{figure}
 
 \subsection{Reactancia}
-\par La curva de reactancia arroja un valor a la frecuencia de trabajo de -0.31 $\Omega$. Muy cerca del valor esperado, 0.
+\par La curva de reactancia arroja un valor a la frecuencia de trabajo de 1.74 $\Omega$.
 \\
 \begin{figure}[H]
     \centering
@@ -1793,7 +1792,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 
 \subsection{Resistencia}
-\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 47.77 $\Omega$.
+\par La parte real de la impedancia ofrece un valor a la frecuencia de trabajo de 51.15 $\Omega$.
 \\
 \begin{figure}[H]
     \centering
@@ -1804,7 +1803,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 
 \subsection{Patrón de radiación}
-\par En el patrón de radiación se observa el mismo comportamiento que obteníamos con los parches simples a 2.4 y 6 GHz, es decir, patrones completamente omnidireccionales para los planos superiores de la antena.
+\par Ambos patrones de radiación presentan severas asimetrías. Se entiende que son producidas debido a las influencias con las líneas de alimentación, muchas de ellas con dimensiones incluso mayores a las del propio parche, en las que, a estas frecuencias tan altas, puedan resonar como parches independientes. 
 \\
 \subsubsection{Plano E}
 \begin{figure}[H]
@@ -1824,7 +1823,7 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 \newpage
 \subsection{Radiación 3D}
-\par A la hora de analizar el diagrama 3D, se puede observar el conjunto omnidireccional del sistema, pero con pequeñas deformidades probablemente debidas a efectos de interferencia con la línea de alimentación. \todo{y la asimetría final de la estructura}
+\par Se puede suponer cual es la forma básica que debería tener una configuración 2x2, teniendo en cuenta el estudio realizado a la antena de 2.4 GHz en la sección \ref{rad3d2x21}. En este caso, se observan deformidades, que dejan mucho que desear sobre el patrón de radiación de esta antena.
 
 \begin{figure}[H]
      \centering
@@ -1858,9 +1857,9 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
 
 
 \subsection{Resumen}
-\par En este Array 2x2 a 27 GHz volvemos a recordar los resultados obtenidos para las respectivas configuraciones de 2.6 y 6 GHz. Aunque se pueda observar que el ancho de banda es mucho mayor a los de estas configuraciones, se mantiene en la relación esperada sobre el 2.4\% de la frecuencia de trabajo. Se ha ganado en relación delante/atrás y la eficiencia de radiación obtenida esta sobre las mas altas de las antenas estudiadas. 
+\par El Array 2x2 a 27 GHz se ha caracterizado por poseer una buena eficiencia de radiación, así como sus pérdidas de retorno y su directividad. Pero ha dejado mucho que desear respecto a sus patrón de radiación, el cual ha presentado diversas anomalías, no presentes en la misma configuración para otras frecuencias.
 \\
-\par En la tabla \ref{tab:res2x23} se pueden observar un resumen de los parámetros característicos de la antena. En ella se puede observar el buen rendimiento obtenido.
+\par En la tabla \ref{tab:res2x23} se pueden observar un resumen de los parámetros característicos de la antena.
 
 \begin{table}[H]
   
@@ -1871,12 +1870,12 @@ A lo largo de este capitulo se va a tratar de analizar, comparar y discutir los 
    \toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
    \textbf{Parámetro} & \textbf{Array 2x2 27 GHz} \\ 
    \midrule
-   \textbf{$S_{11}$} & -34.53 dB \\
-   \textbf{Ancho de banda} & 651.6 MHz \\
-   \textbf{Directividad} & 7.2 dB \\
-   \textbf{Ganancia} & 6.99 dB \\
-   \textbf{Eficiencia de radiación} & 95.06\% \\
-   \textbf{Relación delante/atrás} & 26.63 dB \\
+   \textbf{$S_{11}$} & -33.37 dB \\
+   \textbf{Ancho de banda} & 590.8 MHz \\
+   \textbf{Directividad} & 13.12 dB \\
+   \textbf{Ganancia} & 10.76 dB \\
+   \textbf{Eficiencia de radiación} & 90.44\% \\
+   \textbf{Relación delante/atrás} & 20.53 dB \\
 
    \bottomrule[\heavyrulewidth] 
    \end{tabular}

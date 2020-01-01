@@ -1,0 +1,394 @@
+% Encoding: UTF-8
+
+@Book{Balanis2015,
+  author    = {Balanis, Constantine A.},
+  title     = {Antenna Theory},
+  year      = {2015},
+  date      = {2015-12-28},
+  publisher = {John Wiley \& Sons},
+  pagetotal = {1104},
+  url       = {https://www.ebook.de/de/product/25674970/constantine_a_balanis_antenna_theory.html},
+  ean       = {9781119178996},
+}
+
+@Misc{StodartCirca.1890,
+  author   = {G. J. Stodart},
+  title    = {Engraving of James Clerk Maxwell},
+  year     = {Circa. 1890},
+  date     = {1890},
+  location = {Greenock, Escocia},
+  url      = {https://es.wikipedia.org/wiki/James_Clerk_Maxwell#/media/Archivo:James_Clerk_Maxwell.png},
+}
+
+@Report{3GPP2019,
+  author      = {3GPP},
+  title       = {Release 15},
+  type        = {Technical Report},
+  institution = {3rd Generation Partnership Project},
+  year        = {2019},
+  date        = {2019-09},
+  language    = {English},
+  version     = {V15.0.0 },
+  url         = {https://www.3gpp.org/release-15},
+}
+
+@Misc{Huffaker2009,
+  author = {Sandy Huffaker},
+  editor = {Britannica and The New York Times},
+  title  = {Martin Cooper},
+  year   = {2009},
+  date   = {2009},
+  url    = {https://www.britannica.com/biography/Martin-Cooper},
+}
+
+@Misc{Muesa2019,
+  author = {Muesa, Keny and Selonen, Pekka and Sariola, Aaro},
+  title  = {Stadika 5G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://kerrokantasi.hel.fi/5g/X0Tms8W3uL5ZVQ6QzRheZR1Oqr72QyQm?headless=false&lang=sv},
+}
+
+@Misc{Sirio2012,
+  editor = {Sirio},
+  title  = {WD140-N Dipole},
+  year   = {2012},
+  date   = {2012},
+  url    = {https://www.sirio.store/pdf/wd_140_155_n.pdf},
+}
+
+@Misc{Yavuz2015,
+  author = {Yavuz, Mehmet E.},
+  title  = {Dipole Radiation Pattern [FDTD simulation]},
+  date   = {2015},
+  url    = {https://www.youtube.com/watch?v=Fp26Bjm99VI&feature=share},
+}
+
+@Misc{Ideal-Antenas2008,
+  editor = {Ideal-Antenas},
+  title  = {Dipolo de FM com Refletor},
+  year   = {2008},
+  date   = {2008},
+  url    = {https://idealantenas.com.br/Espanhol/espa%C3%B1ol/produtosport/fm/pdfdipolo1_2%20ondacomrefletor.pdf},
+}
+
+@Misc{Pearce2010,
+  author = {Rob Pearce},
+  title  = {Yagi antenna array},
+  year   = {2010},
+  date   = {2010},
+  url    = {https://www.flickr.com/photos/22760956@N08/4732854900/},
+}
+
+@Misc{Frenzel2013,
+  author = {Lou Frenzel},
+  title  = {What’s The Difference Between A Dipole And A Ground Plane Antenna?},
+  year   = {2013},
+  date   = {2013},
+  url    = {https://www.electronicdesign.com/wireless/what-s-difference-between-dipole-and-ground-plane-antenna},
+}
+
+@Misc{Sagdejev2008,
+  author = {Ildar Sagdejev},
+  title  = {Mast Radiator},
+  year   = {2008},
+  date   = {2008},
+  url    = {https://en.wikipedia.org/wiki/Mast_radiator#/media/File:2008-07-28_Mast_radiator.jpg},
+}
+
+@Misc{NASA1962,
+  author = {NASA},
+  title  = {Holmdel horn antenna},
+  year   = {1962},
+  date   = {1962},
+  url    = {https://en.wikipedia.org/wiki/Holmdel_Horn_Antenna#/media/File:Horn_Antenna-in_Holmdel,_New_Jersey.jpeg},
+}
+
+@Misc{MICIU2019,
+  author = {MICIU},
+  title  = {Radiotelescopio de 30m del IRAM (Pico Veleta, Granada)},
+  year   = {2019},
+  date   = {2019},
+  url    = {http://www.ciencia.gob.es/portal/site/MICINN/menuitem.edc7f2029a2be27d7010721001432ea0/?vgnextoid=d29a02133a578610VgnVCM1000001d04140aRCRD&vgnextchannel=97b2b572c7ea2510VgnVCM1000002006140aRCRD},
+}
+
+@Misc{Pippes2011,
+  author = {Roland Pippes},
+  editor = {ESA},
+  title  = {Galileo In-Orbit Validation satellite},
+  year   = {2011},
+  date   = {2011},
+  url    = {https://www.esa.int/ESA_Multimedia/Images/2011/10/Galileo_In-Orbit_Validation_satellite},
+}
+
+@Misc{Endurosat2018,
+  author = {Endurosat},
+  title  = {X-band 4 element patch antenna array},
+  year   = {2018},
+  date   = {2018},
+  url    = {https://www.endurosat.com/cubesat-store/all-cubesat-modules/x-band-2x2-patch-array/},
+}
+
+@Report{5GAmericas2019,
+  author      = {5GAmericas},
+  title       = {5G Spectrum Vision},
+  type        = {Whitepaper},
+  institution = {5G Americas},
+  year        = {2019},
+  date        = {2019},
+  url         = {https://www.5gamericas.org/wp-content/uploads/2019/07/5G_Americas_5G_Spectrum_Vision_Whitepaper-1.pdf},
+}
+
+@Misc{Toppr2017,
+  author = {Toppr},
+  editor = {Physics Team},
+  title  = {Propagation of Electromagnetic Waves},
+  year   = {2017},
+  date   = {2017},
+  url    = {https://www.toppr.com/guides/physics/communication-systems/propagation-of-electromagnetic-waves/},
+}
+
+@Misc{Amitec2018,
+  author = {Amitec},
+  title  = {Microstrip Patch Antenna Array 22},
+  year   = {2018},
+  date   = {2018},
+  url    = {https://amitec.co/microstrip-patch-antenna-array-22/},
+}
+
+@Book{Cardama2002,
+  author    = {Cardama, Aznar Ángel and Jofre, Roca Lluís and Rius, Casals Juan Manuel and Romeu, Robert Jordi and Blanch, Boris Sebastián and Fernando, Bataller Miguel},
+  title     = {Antenas},
+  year      = {2002},
+  date      = {2002},
+  publisher = {Edicions UPC},
+  isbn      = {9788489636323},
+  url       = {https://www.worldcat.org/title/antenas-ejercicios-y-problemas/oclc/626483782},
+}
+
+@Online{Cartagena99,
+  author = {URJC},
+  editor = {Universidad Rey Juan Carlos},
+  title  = {Agrupaciones de antenas (Arrays)},
+  year   = {2014},
+  date   = {2014},
+  url    = {http://www.cartagena99.com/recursos/alumnos/apuntes/Tema%206%20Arrays.pdf},
+}
+
+@Online{Valero2008,
+  author = {Valero, Alejando and Esteban, Héctor and Fernando, Bataller Miguel},
+  editor = {UPV},
+  title  = {Agrupación de antenas},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://www.upv.es/antenas/Documentos_PDF/Notas_clase/Agrupaciones.pdf},
+}
+
+@Online{Amanogawa2019,
+  author = {Amanogawa},
+  title  = {Uniform Dipole Array},
+  year   = {2019},
+  date   = {2019},
+  url    = {http://www.amanogawa.com/archive/AntennaArray/AntennaArray.html},
+}
+
+@Misc{brewbooks2008,
+  author = {brewbooks},
+  title  = {SCR-270 Radar Antenna},
+  year   = {2008},
+  date   = {2008},
+  url    = {https://www.flickr.com/photos/brewbooks/2367557012/in/photostream/},
+}
+
+@Book{Waterhouse2010,
+  author    = {Waterhouse, Rod},
+  title     = {Microstrip Patch Antennas: A Designer's Guide},
+  year      = {2010},
+  date      = {2010-12-06},
+  publisher = {Springer US},
+  isbn      = {1441953388},
+  pagetotal = {436},
+  url       = {https://www.ebook.de/de/product/13415218/rod_waterhouse_microstrip_patch_antennas_a_designer_s_guide.html},
+  ean       = {9781441953384},
+}
+
+@Misc{NASA2008,
+  author = {NASA},
+  title  = {Dual-polarization micro-strip patch antenna},
+  year   = {2008},
+  date   = {2008},
+  url    = {https://directory.eoportal.org/web/eoportal/airborne-sensors/dbsar#4cMUE1251Herb},
+}
+
+@Book{telecomunicacion2019,
+  author = {telecomunicación},
+  title  = {Diccionario de la lengua española},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://dle.rae.es/telecomunicaci%C3%B3n},
+}
+
+@WWW{Peribanez2014,
+  author = {Juan Peribáñez},
+  title  = {Las ondas electromagnéticas},
+  year   = {2014},
+  date   = {2014},
+  url    = {http://explicaciones-simples.com/2014/02/02/las-ondas-electromagneticas/},
+}
+
+@Book{UCO,
+  author = {UCO},
+  title  = {Ondas Electromagnéticas. Conceptos básicos},
+  year   = {2019},
+  date   = {2019},
+  url    = {http://www.uco.es/organiza/departamentos/ing-electrica/documentos/ONDAS_EM_CONCEPTOS_BASICOS.pdf},
+}
+
+@Online{Wikipedia,
+  author = {Wikipedia},
+  title  = {1G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://en.wikipedia.org/wiki/1G},
+}
+
+@Online{Wikipediaa,
+  author = {Wikipedia},
+  title  = {MoviLine},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/MoviLine},
+}
+
+@Online{LaCuevaGSM2014,
+  author = {LaCuevaGSM},
+  title  = {Diferencia entre 2G, 3G y 4G},
+  year   = {2014},
+  date   = {2014},
+  url    = {http://www.compragsm.com/blog/diferencia-entre-2g-3g-y-4g/},
+}
+
+@Online{Wikipedia2019,
+  author = {Wikipedia},
+  title  = {Telefonía móvil 3G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/Telefon%C3%ADa_m%C3%B3vil_3G},
+}
+
+@Online{Zavias2012,
+  author = {Zavias, Matías S.},
+  title  = {LTE, el salto del 3G al 4G. O casi...},
+  year   = {2012},
+  date   = {2012},
+  url    = {https://www.xataka.com/moviles/lte-el-salto-del-3g-al-4g-o-casi},
+}
+
+@Online{Gemalto2019,
+  author = {Gemalto},
+  title  = {Presentando la tecnología y redes 5G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://www.gemalto.com/latam/telecom/inspiracion/5g},
+}
+
+@Online{MINECO2019,
+  author = {MINECO},
+  title  = {5G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://avancedigital.gob.es/5G/Paginas/Index.aspx},
+}
+
+@Online{LearnEngineering2019,
+  author = {LearnEngineering},
+  title  = {How does an Antenna work?},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://www.youtube.com/watch?v=ZaXm6wau-jc},
+}
+
+@Online{TutorialsPoint2018,
+  author = {TutorialsPoint},
+  title  = {Half-Wave Folded Dipole},
+  year   = {2018},
+  date   = {2018},
+  url    = {https://www.tutorialspoint.com/antenna_theory/antenna_theory_half_wave_folded_dipole.htm},
+}
+
+@Online{Carcamo2014,
+  author = {Angélica Cárcamo},
+  title  = {¿Cuáles son las características de una antena?},
+  year   = {2014},
+  date   = {2014},
+  url    = {https://radioslibres.net/19-cuales-son-las-caracteristicas-de-una-antena/},
+}
+
+@Online{WNI2012,
+  author = {WNI},
+  title  = {Tipos de Antenas y Funcionamiento},
+  year   = {2012},
+  date   = {2012},
+  url    = {https://www.wni.mx/index.php?option=com_content&view=article&id=62:antenassoporte&catid=31:general&Itemid=79},
+}
+
+@Book{JaumeAnguera2008,
+  author = {Jaume Anguera, Antonio Pérez},
+  title  = {Teoría de Antenas},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://www.salleurl.edu/semipresencial/ebooks/ebooks/ebook_teoria_antenas.pdf},
+}
+
+@Report{Bernhard2003,
+  author      = {Bernhard, J. T. and Mayes, P. E. and Schaubert, D. and Mailloux, R. J.},
+  title       = {A Commemoration of Deschamps and Sichak's Microstrip Microwave Antennas: 50 Years of Development Divergence and New Directions},
+  type        = {Paper},
+  institution = {Defense Technical Information Center},
+  year        = {2003},
+  date        = {2003},
+  url         = {https://pdfs.semanticscholar.org/3506/4043326a0a5881e3a6f12ef9fe4228b436da.pdf},
+}
+
+@Online{Aquino2008,
+  author = {Raúl Hernández Aquino},
+  title  = {Diseño, simulación y construcción de antenas tipo parche para bluetooth y WI-FI, bandas 2.4 ghz y 5.8 ghz},
+  year   = {2008},
+  date   = {2008},
+  url    = {http://catarina.udlap.mx/u_dl_a/tales/documentos/lem/hernandez_a_r/},
+}
+
+@MastersThesis{Bertol2017,
+  author      = {Asier Balduz Bertol},
+  title       = {Diseño de dos arrays de antenas en tecnología plana con polarización lineal y circular a 60 GHz},
+  institution = {Universidad Pública de Navarra},
+  year        = {2017},
+  date        = {2017},
+  url         = {https://academica-e.unavarra.es/handle/2454/24666},
+}
+
+@Online{Wikipedia2019a,
+  author = {Wikipedia},
+  title  = {2G},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/Telefon%C3%ADa_m%C3%B3vil_2G},
+}
+
+@Online{MINECO2019a,
+  author = {MINECO},
+  title  = {Segundo Dividendo Digital},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://www.televisiondigital.gob.es/2DD-5G/Paginas/segundo-dividendo-digital.aspx},
+}
+
+@Online{Wikipedia2019b,
+  author = {Wikipedia},
+  title  = {GSM},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/Sistema_global_para_las_comunicaciones_m%C3%B3viles},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
