@@ -7,26 +7,91 @@
 
 
 % Ejemplo de páginas en horizontal y vertical
-
-\chapter{Páginas horizontales}
-Aquí se muestra cómo incluir páginas en horizontal.
-
-Esta página está en vertical\\
-\clearpage % Nueva página
-
-\begin{landscape} % Inicia modo horizontal
-	
-
-Esta página está en horizontal\\
-\clearpage % Nueva página
-
-Esta página también está en horizontal\\
-
-\end{landscape} % Finaliza modo horizontal
-\clearpage % Nueva página
+\chapter{Anexo I - Códigos}
+\label{codigos}
 
 
-Esta página está de nuevo en vertical\\
+\section{Calculador de dimensiones del parche}
+\par Este es el código fuente completo escrito en MATLAB diseñado para calcular las dimensiones necesarias tanto para el parche como otros cálculos que han sido necesarios para el diseño de los distintos arrays de parches en tecnología microstrip. 
+\\
+\begin{lstlisting}[style=Matlab-color, caption={\textit{AntennaPatchCalculator.m}},label=codigofull]
+%% CALCULADOR DE PARAMETROS Y DIMENSIONES DE ANTENAS DE PARCHE MICROSTRIP
+%  Javier Martínez Manzano - Trabajo de Fin de Grado - UA - 2018/19
+clear;
+clc;
+%% Input Variables
+f = input('Introduzca la frecuencia de trabajo deseada (Ghz): ');   % Frecuencia a la que se vana a realizar los cálculos
+
+er = 3.55;                                      % Constante dieléctrica
+h = 1.52;                                       % Altura del substrato
+
+% Otras variables
+c = physconst('LightSpeed');                    % Velocidad de la luz
+f = f*1e9;                                      % Frecuencia en Ghz
+h = h*1e-3;                                     % Longitud en mm
+lambda = c/f;                                   % Longitud de onda en el vacío
+ko = 2*pi/lambda;                               % Número de onda
+Zo = 70.71;                                        % Impedancia de entrada
+
+%% Cálculos del Parche
+
+W = (c/(2*f))*sqrt(2/(er+1));                       % Ancho del Parche (Width)
+erff = ((er+1)/2) + ((er-1)/2)*(1+12*h/W)^(-1/2);   % Coeficiente del dieléctrico efectiva
+Leff = c/(2*f*sqrt(erff));                          % Longitud efectiva
+Al = ((0.412*h*(erff+0.3)*((W/h)+0.264))/((erff-0.258)*((W/h)+0.8))); % Incremento de Longitud normalizada
+L = Leff - 2*Al;                                    % Longitud del parche
+a = 0.7*lambda;                                     % Separacion entre parches
+
+%% Cálculos del dieléctrico
+
+g = 0.0606*lambda/sqrt(er);                     % Variable auxiliar
+Lsub = L + 6*g;                                 % Longitud del substrato
+Wsub = W + 6*g;                                 % Ancho del substrato
+
+
+%% Cálculos de línea de alimentación
+
+lambdaguided = lambda/sqrt(erff);               % Longitud de onda en medio guiado
+Lfeed = lambdaguided/4;                         % Longitud lambda cuartos
+
+%Calculo de la anchura de la línea
+for Zo = [25, 50, 70.71, 100]
+A = (Zo/60)*(sqrt((er+1)/2))+((er-1)/(er+1))*(0.23+(0.11/er)); 
+B = (377*pi)/(2*Zo*sqrt(er));
+Coef = (8*exp(A))/((exp(2*A))-2);
+if (Coef <= 2)
+    Wline = Coef*h;                             % Anchura si W/h <= 2
+elseif(Coef > 2)
+    Coef = (2/pi)*( B-1-log(2*B-1)+((er-1)/(2*er))*(log(B-1)+0.39-(0.61/er)));
+    Wline = Coef*h;                             % Anchura si W/h > 2
+end
+disp(['Ancho de pista a ',num2str(Zo),': ',num2str(Wline*(1e3)), ' mm']);
+end
+%% Inset
+
+I1 = @(theta) (sin((ko*W/2)*cos(theta))./cos(theta)).^2.*sin(theta).^3;
+G1 = integral(I1,0,pi)/(120*pi^2);          % Admitancia de la TL
+I2 = @(theta) ((sin((ko*W/2)*cos(theta))./cos(theta)).^2).*besselj(0,ko*L*sin(theta)).*sin(theta).^3;
+G12 = (1/(120*pi^2)).*integral(I2,0,pi);        % Admitancia mutua
+Rin = 1./(2*(G1+G12));                          % Impedancia de entrada
+yo = (L/pi).*acos(sqrt(100/Rin));        % Longitud del inset
 
 
 
+%% Caja de Radiación
+
+%Lrad = lambdaguided/6 + lambdaguided/6 + Lsub;  % Longitud de la Rad Box
+%Wrad = lambdaguided/6 + lambdaguided/6 + Wsub;  % Ancho de la Rad Box
+%Hrad = lambdaguided/6 + lambdaguided/6 + h;  % Ancho de la Rad Box
+
+%% Resultados:
+
+disp(['Patch Width:',num2str(W*(1e3)), ' mm']);
+disp(['Patch Length:',num2str(L*(1e3)), ' mm']);
+disp(['Substrate Width:',num2str(Wsub*(1e3)), ' mm']);
+disp(['Substrate Length:',num2str(Lsub*(1e3)), ' mm']);
+disp(['Inset Length:',num2str(yo*(1e3)), ' mm']);
+disp(['Patch separation:',num2str(a*(1e3)), ' mm']);
+
+
+\end{lstlisting}

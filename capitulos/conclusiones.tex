@@ -9,7 +9,7 @@
 \label{conclusiones}
 
 \par Para finalizar este proyecto de final de carrera, se mencionarán las principales conclusiones obtenidas a lo largo del desarrollo del proyecto así como unas posibles recomendaciones o líneas futuras aplicables a cualquier persona que, en un futuro, desee seguir la senda del desarrollo de antenas microstrip y arrays de estas.
-
+\\
 \par En primer lugar, veo necesario volver a mencionar la importancia de la tecnología trabajada durante el proyecto en la sociedad, y aun más importante en la nueva década que va a dar comienzo en breves. Los seres humanos se encuentran en un constante proceso de comunicación con las personas y el medio que los rodea. Este proceso, ha ido evolucionando y mejorando con el paso del tiempo hasta el día de hoy, donde nos es imposible imaginar una vida sin los beneficios que nos ha ofrecido la tecnología tanto en materia de comunicación como en productividad, entretenimiento o seguridad. En la mayoría de los casos ya tenemos asumida la integración de la tecnología en nuestra vida, por lo que no vemos los elementos que la hacen posible, y es aquí donde hago hincapié en resaltar la importancia de las antenas en todo este proceso, los verdaderos emisores y receptores del proceso de comunicación electrónico. 
 \\
 \par El proceso de diseño y desarrollo de nuevas antenas no ha cesado desde la invención de Marconi en 1895 hasta el día de hoy, donde grandes empresas dedican sus esfuerzos en diseñar antenas más eficientes, de bajo consumo e impacto ambiental, inteligentes, y con capacidad de brindar el proceso de comunicación a miles de personas a la vez. Entre las muchas tecnologías diferentes de antenas, las tratadas en este proyecto, las antenas microstrip, han sido desde su invención en la década de 1950, una de las tecnologías más importantes gracias a su versatilidad, eficiencia, precio de fabricación, tamaño y prestaciones, y su uso seguirá vigente en las nuevas generaciones de comunicación como es el \gls{5g}, cuyo despliegue de infraestructura está previsto para completarse entre 2020 y 2021. 
@@ -18,6 +18,56 @@
 \\
 \par En cuanto a las antenas diseñadas, y como se ha podido comprobar en los capítulos \ref{diseño} y \ref{resultados} han ido variando desde antenas simples hasta arrays completos que ofrecían prestaciones muy competentes. Por normal general, conforme se ha ido aumentando el número de elementos de la configuración, se ha ido obteniendo unas mejores características en torno a la directividad, y ancho de banda ofrecido por el parámetro de pérdidas de retorno, $S_{1,1}$. Aun así, estas configuraciones más avanzadas, en ciertas ocasiones, podrían haber ofrecido unos parámetros característicos más competentes. Se conoce que factores como el método de alimentación de los parches, la forma de estos, los diseños de las líneas de alimentación, etc. Han influido, en ocasiones de forma negativa, al diseño del sistema así como a los resultados obtenidos de este.
 \\
-\par El porcentaje promedio de ancho de banda obtenido para el conjunto de arrays diseñados es del 1.74\%. Aunque si dividimos los resultados según las frecuencias estudiadas, se puede observar cómo el promedio de ancho de banda para las antenas a 2.4 GHz es del 1.56\%, mientras que para las antenas de 6 GHz es del 2.4\%, y nosecuantos para el caso de las antenas a 27 GHz \todo {haser}. Si se observa los valores de referencia en la tabla \ref{tab:example}, se puede afirmar que las antenas a 6 y 27 GHz han cumplido las expectativas previstas mientras que las configuraciones a 2.4 GHz podrían ser mejoradas en estos términos de ancho de banda. 
+\par El porcentaje promedio de ancho de banda obtenido para el conjunto de arrays diseñados es del 2.3\%. Aunque si dividimos los resultados según las frecuencias estudiadas, se puede observar cómo el promedio de ancho de banda para las antenas a 2.4 GHz es del 1.56\%, mientras que para las antenas de 6 GHz es del 2.4\%, y 2.28\% para el caso de las antenas a 27 GHz. Si se observa los valores de referencia en la tabla \ref{tab:example}, se puede afirmar que las antenas a 6 y 27 GHz han cumplido las expectativas previstas mientras que las configuraciones a 2.4 GHz podrían ser mejoradas en estos términos de ancho de banda. 
 \\
-\par En cuanto a los diagramas de radiación en dos y tres dimensiones, se ha podido comprobar el aumento de complejidad en las formas obtenidas conforme se ha ido aumentando el número de elementos en las configuraciones. Como se indicó en la sección \ref{laseccion} \todo{ponerla}, la distancia entre parches utilizada, ha sido estudiada para obtener un buen resultado de interferencia constructiva en la región de campo lejano dando lugar a lóbulos principales estrechos, y por ende, directivos. 
+\par Pero, siguiendo con los resultados obtenidos para los anchos de banda, se ha de tener en cuenta que unos mejores resultados podrían haber sido obtenidos si se hubieran elegido otros métodos de alimentación del sistema, mediante la optimización de los anchos de los parches o habiendo hecho uso de elementos auxiliares como parches parásitos. 
+\\
+\par En cuanto a los diagramas de radiación en dos y tres dimensiones, se ha podido comprobar el aumento de complejidad en las formas obtenidas conforme se ha ido aumentando el número de elementos en las configuraciones. Como se indicó en la sección \ref{sec:separacionelementos}, la distancia entre parches utilizada, ha sido estudiada para obtener un buen resultado de interferencia constructiva en la región de campo lejano dando lugar a lóbulos principales estrechos, y por ende, directivos, conforme el número de elementos del array va aumentando.
+\\
+\par Otro factor importante es la eficiencia de radiación de la antena. En los casos diseñados, podemos observar tasas de eficiencia que varían entre el 80\% y el 90\%, lo cual entra dentro de un rango más que aceptable de este parámetro aunque siempre mejorable. Una mala adaptación del sistema puede llevar a unas tasas aun menores a las alcanzadas y podría llegar a suponer, no solo una baja eficiencia en el sistema completo de comunicación, sino pérdidas económicas a la hora de la utilización de estas antenas dentro de un sistema completo de comunicación.
+\\
+\par En la tabla \ref{tab:final} se ha hecho un breve resumen con todas las configuraciones diseñadas y analizadas y sus principales características obtenidas en las simulaciones. Por lo general, los mejores resultados analíticos han sido los obtenidos para las frecuencias de 6 GHz y 27 GHz, mientras que los diseños a 2.4 GHz han obtenido los mejores resultados en lo relacionado a patrón de radiación, puesto que se han encontrado menores asimetrías y lóbulos de difracción en ellos.
+\\
+\begin{table}
+\centering
+\small
+\begin{tabular}{c c c c c c c}
+\toprule[\heavyrulewidth]\toprule[\heavyrulewidth]
+\hline
+
+\textbf{Frec. (GHz)} &\textbf{ Array} & \textbf{$S_{11}$ (dB)}  & \textbf{BW (MHz)} &\textbf{ BW(\%)} & \textbf{Direc. (dB)} & \textbf{$\eta$ (\%)} \\
+\midrule
+2.4 & 1x1 & -39.95 & 36.5 & 1.56 & 5.83 & 87.51 \\ 
+2.4 & 2x1 & -36.46 & 34.3 & 1.43 & 7.64 & 86.94 \\ 
+2.4 & 2x2 & -40.7 & 34.6 & 1.44 & 10.74 & 83.81 \\ 
+2.4 & 4x1 & -57.12 & 41.4 & 1.71 & 11.6 & 86.97 \\ 
+2.4 & 4x2 & -32.18 & 39.6 & 1.65 & 13.97 & 83.08 \\ 
+2.4 & 4x4 & -42.44 & 37.6 & 1.56 & 16.82 & 79.9 \\ 
+6 & 1x1 & -40.35 & 168 & 2.81 & 7.66 & 93.15 \\ 
+6 & 2x1 & -76.78 & 179.1 & 2.98 & 9.97 & 94.14 \\ 
+6 & 2x2 & -35.76 & 162.5 & 2.7 & 12.88 & 90.8 \\ 
+6 & 4x1 & -30.97 & 223.8 & 3.73 & 11.61 & 91.3 \\ 
+6 & 4x2 & -60.85 & 257.8 & 4.29 & 15.56 & 89.7 \\ 
+6 & 4x4 & -27.55 & 104.7 & 1.74 & 18.12 & 82.53 \\ 
+27 & 1x1 & -34.53 & 651.6 & 2.41 & 7.2 & 95.06 \\ 
+27 & 2x1 & -31.04 & 613.1 & 2.27 & 10.55 & 94.23 \\ 
+27 & 2x2 & -33.37 & 590.8 & 2.18 & 13.12 & 90.44 \\ 
+   \bottomrule[\heavyrulewidth]
+
+\end{tabular}
+\label{tab:final}
+   \caption{Resumen de los parámetros obtenidos en los diseños}
+\end{table}
+\par Con este trabajo de proyecto de final de carrera, se abre una nueva línea de trabajo para futuros estudiantes que deseen influenciar sus estudios hacia el diseño de antenas microstrip, y el conjunto de esta tecnología. En este trabajo, a pesar de los buenos resultados obtenidos para los diseños realizados, existe un amplio margen de mejora que puede llegar a obtenerse a partir de los diseños ya realizados, o la opción de evolucionarlos, añadiendo componentes electrónicos, que den nuevas funciones a los arrays microstrip.
+\\
+\par A continuación, se enumerarán una serie de posibles mejoras y avances que podrán ser tomados como referencia para futuros trabajos que sigan la línea del diseño de antenas en tecnología microstrip:
+\\
+\begin{itemize}
+\item \textbf{Cambios en el método de alimentación: }Como se ha podido comprobar, la alimentación de los parches mediante líneas microstrip, limita en un gran porcentaje el ancho de banda obtenido en los diseños realizados. El cambio de este tipo de alimentación a otros como la sonda coaxial o la alimentación por ranura, puede suponer una gran mejora en términos de ancho de banda del sistema. 
+\item \textbf{\textit{Tapered lines}: }Sea cual sea el método de alimentación, si el resto de elementos que conformen el array está alimentado mediante línea microstrip, se podrá barajar la opción de interconexionarlas mediante \textit{tapered lines} o líneas cónicas, encargadas de hacer la transformación de impedancias, sustituyendo así a los transformadores $\lambda/4$, en los que hay más posibilidades de reflexión de la señal entre líneas de alimentación, debido al cambio abrupto en la anchura de la línea.
+\item \textbf{Polarización: }Otra posible mejora o avance del los diseños es la existencia de otras polarizaciones. Existe una gran variedad de técnicas con las que se puede conseguir polarizaciones circulares en el campo eléctrico de la antena, siendo la más común, la adición de una nueva línea de alimentación simultánea en cada elemento. Nuevas polarizaciones en el sistema pueden brindar nuevas posibilidades en materia de aplicaciones finales a los diseños.
+\item \textbf{Nuevas frecuencias: }En este proyecto, se han trabajado con frecuencias dentro de un margen muy estrecho del espectro electromagnético, y en vista a la utilización en aplicaciones de radiocomunicaciones como Wi-Fi y \gls{5g}. El diseño de antenas a nuevas frecuencias puede abrir nuevas posibilidades de transmisión, y la utilización de estas en sistemas satelitales o RADAR.
+\item \textbf{Optimización de la radiación: }A lo largo del proyecto no se ha tenido en cuenta el proceso de optimización de los patrones de radiación obtenidos, ya que el objetivo era analizar los patrones que daban como resultado los diseños realizados. En futuras líneas de trabajo se puede llegar a la optimización de los patrones de radiación para la minimización de lóbulos laterales o de difracción e incluso la posibilidad de llegar a diseñar los patrones de radiación e intentar sintetizarlos con configuraciones especiales de arrays de antenas.
+\end{itemize}
+\par Como se puede observar, las opciones de mejora son bastante amplias, y gracias a la tecnología existente se puede llegar a diseñar, simular y analizar configuraciones realmente avanzadas y con grandes posibilidades de uso en sistemas reales, por lo que se anima a cualquier persona interesada, a seguir avanzando en esta línea de trabajo tan bonita, interesante y necesaria para el avance de las telecomunicaciones.
+
