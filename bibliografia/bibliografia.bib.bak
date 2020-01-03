@@ -383,4 +383,12 @@
   url    = {https://www.televisiondigital.gob.es/2DD-5G/Paginas/segundo-dividendo-digital.aspx},
 }
 
+@Online{Wikipedia2019b,
+  author = {Wikipedia},
+  title  = {GSM},
+  year   = {2019},
+  date   = {2019},
+  url    = {https://es.wikipedia.org/wiki/Sistema_global_para_las_comunicaciones_m%C3%B3viles},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}

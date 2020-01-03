@@ -164,9 +164,11 @@ obtener el vector de radiación del conjunto de antenas:
 
 
 
-\newpage
+
 \section{Influencia de los parámetros de diseño}
-\par A continuación, se van a realizar un breve resumen sobre los principales efectos que producen sobre el patrón de radiación la modificación de los parámetros de diseño del array, tales como el número de elementos que lo componen, la distancia entre ellos, o el efecto que produciría un desfase relativo en su alimentación. Para la simulación de los efectos deseados se usará el Applet diseñado por Amanogawa para la simulación de arrays uniformes \cite{Amanogawa2019}.
+\par A continuación, se van a realizar un breve resumen sobre los principales efectos que producen sobre el patrón de radiación la modificación de los parámetros de diseño del array, tales como el número de elementos que lo componen, la distancia entre ellos, o el efecto que produciría un desfase relativo en su alimentación. 
+\\
+\par Para la simulación de los efectos deseados se usará el Applet diseñado por Amanogawa para la simulación de arrays uniformes. En las los gráficos generados por el Applet, se puede observar dos pequeños círculos centrados en el diagrama de radiación y separados a una cierta distancia, cuya función es la representación del primer y último dipolo que conforme el array. El triángulo amarillo es usado por otra característica de Applet y, aunque aparezca en las simulaciones, no ha de ser tenido en cuenta y no tiene influencia sobre los resultados obtenidos. \cite{Amanogawa2019}
 
 \subsection{Número de elementos}
 \par En primer lugar se comenzará variando el número de elementos que componen el array de dipolos uniformes. La configuración del array se basará en la adición de dipolos de longitud $\lambda/2$, alimentados con la misma fase relativa y separados a una distancia entre $\lambda/4$ y $\lambda$ para poder ver cómo la separación entre elementos también afecta a la forma inicial del patrón de radiación.
@@ -359,7 +361,7 @@ $\alpha=180^{\circ}$  \\
 	\label{eq:combinatorios}
 \end{equation}
 
-\par El polinomio de la distribución de corrientes binómica presenta un solo cero, situado en $\Psi=\Pi$ y con multiplicidad $N-1$. Es por ello que el ancho de haz entre ceros de $\Psi$ es de $2\pi$ y no existen lóbulos secundarios en el módulo del factor de agrupación. Sin embargo, en el patrón de radiación si pueden aparecer lóbulos secundarios debido a la los lóbulos de difracción, que entra en el margen visible. El factor de agrupación obtenido para esta distribución es: 
+\par El polinomio de la distribución de corrientes binómica presenta un solo cero, situado en $\Psi=\pi$ y con multiplicidad $N-1$. Es por ello que el ancho de haz entre ceros de $\Psi$ es de $2\pi$ y no existen lóbulos secundarios en el módulo del factor de agrupación. Sin embargo, en el patrón de radiación si pueden aparecer lóbulos secundarios debido a la los lóbulos de difracción, que entra en el margen visible. El factor de agrupación obtenido para esta distribución es: 
 
 \begin{equation}
 	\left | FA (\Psi) \right |=\left | 2\cos\frac{\Psi}{2} \right |^{N-1}	
@@ -377,11 +379,11 @@ $\alpha=180^{\circ}$  \\
 \subsection{Agrupación lineal uniforme}
 \par La agrupación lineal uniforme es aquella en la que los elementos que componen el array están equiespaciados y excitados con la misma amplitud. Se trata de una configuración muy usada y estudiada. Este tipo de agrupaciones también tiene utilidad en aplicaciones de acústica, donde las antenas serían sustituidas por micrófonos o altavoces para lograr mayores ganancias. En el caso de las antenas, las características de la agrupación lineal uniforme son básicas para el diseño de aplicaciones RADAR. 
 \\
-\par Se va a mencionar dos tipos de configuraciones lineales uniformes según el tipo de patrón de radiación que se desea obtener en el diseño final. En la sección \ref{desfasprog} se hizo mención a los conceptos \textit{broadsire} y \textit{endfire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadsire}) o longitudinal (\textit{endfire}) con respecto al eje de la agrupación. \cite{Cardama2002}
+\par Se va a mencionar dos tipos de configuraciones lineales uniformes según el tipo de patrón de radiación que se desea obtener en el diseño final. En la sección \ref{desfasprog} se hizo mención a los conceptos \textit{broadside} y \textit{end-fire}. Estos conceptos definen los casos en los que el máximo de radiación sea transversal (\textit{broadside}) o longitudinal (\textit{end-fire}) con respecto al eje de la agrupación. \cite{Cardama2002}
 
 \subsubsection{Agrupaciones transversales}
 
-\par Las configuración transversal o \textit{broadsire} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
+\par Las configuración transversal o \textit{broadside} es muy usada en aplicaciones que requiere un máximo de radiación en el eje normal al array ($\theta_{0}=90^{\circ}$). Para conseguir este resultado se debe diseñar el array tal que el máximo de radiación de un solo elemento así como el máximo de radiación del factor de array deben dirigirse a $\theta_{0}=90^{\circ}$. \cite{Balanis2015} 
 \\
 \par Para conseguir que el máximo de radiación de un solo elemento radie en esta dirección basta con saber elegir qué elemento radiante es el mejor para nuestro sistema. Por otro lado, para conseguir que el factor de array tenga un máximo en $\theta_{0}=90^{\circ}$, se deberá ajustar correctamente la separación y la fase de excitación de los elementos del array. Se tomará como punto de partida la ecuación \ref{eq:psi}, en la que buscaremos un nulo (máximo de radiación).  
 
@@ -422,7 +424,7 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}.
 \begin{figure}[h]
     \centering
         \includegraphics[width=\textwidth]{archivos/array/side}
-        \caption{Comparación de radiación \textit{broadside} y \textit{endfire}.}
+        \caption{Comparación de radiación \textit{broadside} y \textit{end-fire}.}
         \label{fig:side}
 \end{figure}
 
@@ -482,7 +484,7 @@ $90^{\circ}$, es decir, de la configuración \textit{broadside}.
      \hfill
 \end{figure}
 
-\par Mediante la variación de la longitud de onda $\lambda$, los espaciados eléctricos $d_{x}/\lambda$ y $d_{y}/\lambda$, o las fases progresivas $\alpha_{x}$ y $\alpha_{y}$, se pueden controlar los ángulos $\theta_{max}$ y $\phi_{max}$ para dirigir el haz de máxima radiación en la dirección deseada. También, si se aumenta la distancia de separación hasta superar $\lambda$ se podrán obtener lóbulos de difracción, o \textit{gratin lobes} que podrán actuar como segundos haces en caso de que fuera necesario para la aplicación.
+\par Mediante la variación de la longitud de onda $\lambda$, los espaciados eléctricos $d_{x}/\lambda$ y $d_{y}/\lambda$, o las fases progresivas $\alpha_{x}$ y $\alpha_{y}$, se pueden controlar los ángulos $\theta_{max}$ y $\phi_{max}$ para dirigir el haz de máxima radiación en la dirección deseada. También, si se aumenta la distancia de separación hasta superar $\lambda$ se podrán obtener lóbulos de difracción, o \textit{grating lobes} que podrán actuar como segundos haces en caso de que fuera necesario para la aplicación.
 \\
 \par En este proyecto, las agrupaciones diseñadas se basan en agrupaciones bidimensionales uniformes, lo que significa que los arrays a diseñar, dispondrán de antenas dispuestas a lo largo de un mismo plano común, y las antenas estarán siempre equiespaciadas con sus antenas colindantes laterales, superiores e inferiores, pero no con las diagonales. 
 
