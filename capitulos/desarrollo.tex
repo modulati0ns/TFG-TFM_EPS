@@ -138,7 +138,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
 \\
 \par Para el análisis de los resultados, se hará uso principalmente  de las gráficas y parámetros que HFSS ofrece. Se usarán los reportes de las soluciones modales para graficar las pérdidas de retorno o parámetros S y comprobar así el ancho de banda, la frecuencia de trabajo y la calidad de nuestra antena. También se estudiarán las gráficas que analizan la parte real e imaginaria (óhmica y reactiva) de la impedancia, para así conocer el grado de adaptación de las impedancias de nuestra antena. 
 \\
-\par En cuanto a los resultados obtenidos sobre el campo lejano de la antena, analizaremos los patrones de radiación 2D para los dos planos de radiación de la antena, E y H, es decir, cuando $\phi $ = 0º y $\phi $ = 90º y el diagrama de radiación polar en 3D, en ambos casos se mostrará la directividad de la antena en dBs. Otras características que HFSS ofrece para analizar el comportamiento de la antena, y que también se usarán en este proyecto, es la representación sobre la antena del comportamiento de los campos eléctrico y magnético, así como la visualización de los tetraedros usados por HFSS para analizar la antena. Para terminar, usaremos la HFSS para calcular automáticamente los valores de los parámetros característicos de la antena tales como directividad, eficiencia, etc.
+\par En cuanto a los resultados obtenidos sobre el campo lejano de la antena, analizaremos los patrones de radiación 2D para los dos planos de radiación de la antena, E y H, es decir, cuando $\phi $ = 90º y $\phi $ = 0º, respectivamente, y el diagrama de radiación polar en 3D, en ambos casos se mostrará la directividad de la antena en dBs. Otras características que HFSS ofrece para analizar el comportamiento de la antena, y que también se usarán en este proyecto, es la representación sobre la antena del comportamiento de los campos eléctrico y magnético, así como la visualización de los tetraedros usados por HFSS para analizar la antena. Para terminar, usaremos la HFSS para calcular automáticamente los valores de los parámetros característicos de la antena tales como directividad, eficiencia, etc.
 \\
 \par Finalmente, cabe mencionar que todos los diseños estarán parametrizados. Esto quiere decir que cada parámetro de anchura y altura de cualquier sección del conjunto del parche estará asociado a una variable o a la derivación del cálculos entre otras variables. Se ha seguido una serie de patrones a la hora de declarar estas variables de forma que sea sencillo entender a qué sección pertenece cada una:
 
@@ -364,18 +364,18 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
         \label{fig:imaimpe}
 	\end{figure}
 
-\item \textbf{Patrón de radiación en el plano E: }el patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 0º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
+\item \textbf{Patrón de radiación en el plano E: }el patrón de radiación para el plano E, es aquel en el que se cumple que $\phi $ = 90º. En concreto el patrón de radiación que se mostrará a lo largo del proyecto es el correspondiente al de la directividad de la antena, medido en decibelios y en forma polar. Como se puede comprobar, el resultado obtenido es un patrón de radiación omnidireccional a lo largo del plano superior de la antena y un pequeño lóbulo trasero en el plano inferior. La directividad máxima de la antena, donde $\Theta$ = 0/360º, es de 5.36 dB. 
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/4}
+        \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/42}
         \caption{Patrón de radiación del plano E}
         \label{fig:radE}
 	\end{figure}
 
-\item \textbf{Patrón de radiación en el plano H: }repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 90º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
+\item \textbf{Patrón de radiación en el plano H: }repetiremos el proceso seguido para obtener el patrón de radiación en el plano E, pero con la principal diferencia de que el plano H es perpendicular a este, es decir, $\phi $ = 0º. Al tratarse de un parche único, no influenciado por otras antenas, el patrón de radiación en este plano es muy parecido al obtenido en la componente eléctrica, con una pequeña variación en la parte derecha del plano superior, producido por efectos conductores en la línea de alimentación microstrip. La directividad máxima obtenida en este plano es de 5.36 dB.
 	\begin{figure}[H]
     \centering
-        \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/5}
+        \includegraphics[width=0.7\textwidth]{archivos/analisis/1x11/52}
         \caption{Patrón de radiación del plano H}
         \label{fig:radH}
 	\end{figure}
@@ -806,7 +806,7 @@ yo = (L/pi).*acos(sqrt(Zo/Rin));        % Longitud del inset
    \textbf{W70} & 0.372 mm & 0.372 mm\\
    \textbf{W100} & 0.172 mm & 0.172 mm\\
    \textbf{Llambdacuartos} & 1.55 mm & 1.55 mm\\
-   \textbf{Ws/Ls} & - mm & 16/15 mm\\
+   \textbf{Ws/Ls} & - mm & 16/16 mm\\
    \bottomrule[\heavyrulewidth] 
    \end{tabular}
    \caption{Dimensiones del array 2x2 a 27 GHz} 
