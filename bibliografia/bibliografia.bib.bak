@@ -391,4 +391,24 @@
   url    = {https://es.wikipedia.org/wiki/Sistema_global_para_las_comunicaciones_m%C3%B3viles},
 }
 
+@Book{JamesClerkMaxwell1996,
+  author    = {James Clerk Maxwell, Thomas F. Torrance},
+  title     = {A Dynamical Theory of the Electromagnetic Field},
+  year      = {1996},
+  date      = {1996-12-11},
+  publisher = {WIPF \& STOCK PUBL},
+  isbn      = {1579100155},
+  pagetotal = {116},
+  url       = {https://www.ebook.de/de/product/2961698/james_clerk_maxwell_thomas_f_torrance_a_dynamical_theory_of_the_electromagnetic_field.html},
+  ean       = {9781579100155},
+}
+
+@Online{Valero2020,
+  author = {Claudio Valero},
+  title  = {Llega el nuevo WiFi 6E en la banda 6 GHz},
+  year   = {2020},
+  date   = {2020},
+  url    = {https://www.adslzone.net/2020/01/07/nuevo-wifi-6e-6-ghz/},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
